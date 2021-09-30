@@ -11,7 +11,7 @@ namespace TESTProyecto
     {
         static void Main(string[] args)
         {
-           /* Comuna c = new Comuna();
+            /*Comuna c = new Comuna();
 
             List<Comuna> lista = c.ReadAll();
 

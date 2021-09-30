@@ -1,0 +1,55 @@
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\Oracle.DataAccess.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
+C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
+C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
+C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.dll
+C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.xml
+C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
+C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
+C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
+C:\Users\Gemin\Desktop\Johana\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\BibliotecaControlador\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
+C:\Users\Gemin\Desktop\Johana\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\bin\Debug\Oracle.DataAccess.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojAssemblyReference.cache
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csproj.CoreCompileInputs.cache
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csproj.CopyComplete
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\EntityFramework.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\EntityFramework.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csproj.CoreCompileInputs.cache
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csproj.CopyComplete
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojAssemblyReference.cache

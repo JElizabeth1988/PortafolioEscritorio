@@ -1,0 +1,763 @@
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Vista.exe.config
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Vista.exe
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Vista.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Vista.csprojResolveAssemblyReference.cache
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\MainWindow.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\App.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Vista_MarkupCompile.cache
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Vista_MarkupCompile.lref
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\MainWindow.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Vista.g.resources
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Vista.exe
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Vista.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Resources\Icons.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\ControlzEx.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\ControlzEx.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\App.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Login.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Login.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Cliente.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\FormularioInspeccion.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Cliente.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\FormularioInspeccion.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoFormulario.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoCliente.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoCliente.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoFormulario.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoInspectores.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Tecnico.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoInspectores.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Tecnico.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Servicio.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Servicio.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ConsultarBanco.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ConsultarBanco.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Horario.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Horario.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Solicitud.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Solicitud.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\EntityFramework.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\EntityFramework.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaDALC.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaNegocio.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaDALC.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\Vista.exe.config
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista.exe
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\Vista.exe
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\Vista.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\BibliotecaDALC.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\BibliotecaNegocio.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\ControlzEx.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\EntityFramework.dll
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\BibliotecaDALC.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\ControlzEx.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.pdb
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\bin\Debug\EntityFramework.xml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista.csprojResolveAssemblyReference.cache
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Resources\Icons.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Cliente.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\ConsultarBanco.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\EquiposInspeccion.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\FormularioInspeccion.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Horario.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Insumos.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\ListadoCliente.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\ListadoFormulario.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\ListadoInspectores.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Login.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\MainWindow.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Seguimiento.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Servicio.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Solicitud.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Tecnico.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\App.g.cs
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista_MarkupCompile.cache
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista_MarkupCompile.lref
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\App.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Cliente.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\ConsultarBanco.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\EquiposInspeccion.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\FormularioInspeccion.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Horario.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Insumos.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\ListadoCliente.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\ListadoFormulario.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\ListadoInspectores.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Login.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\MainWindow.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Seguimiento.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Servicio.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Solicitud.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Tecnico.baml
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista.g.resources
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Vista.csproj.Vista.exe.config
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Oracle.DataAccess.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Oracle.Web.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\Vista.exe.config
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Vista.exe
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Vista.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\Vista.exe
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\Vista.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\BibliotecaDALC.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\BibliotecaNegocio.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\ControlzEx.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\EntityFramework.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\Oracle.Web.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\BibliotecaDALC.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\ControlzEx.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\EntityFramework.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Vista.csprojResolveAssemblyReference.cache
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Vista.csproj.Vista.exe.config
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Resources\Icons.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Cliente.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\ConsultarBanco.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\EquiposInspeccion.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\FormularioInspeccion.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Horario.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Insumos.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\ListadoCliente.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\ListadoFormulario.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\ListadoInspectores.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Login.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\MainWindow.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Seguimiento.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Servicio.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Solicitud.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Tecnico.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\App.g.cs
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Vista_MarkupCompile.cache
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Vista_MarkupCompile.lref
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\App.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Cliente.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\ConsultarBanco.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\EquiposInspeccion.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\FormularioInspeccion.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Horario.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Insumos.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\ListadoCliente.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\ListadoFormulario.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\ListadoInspectores.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Login.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\MainWindow.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Seguimiento.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Servicio.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Solicitud.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Tecnico.baml
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Vista.g.resources
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\Gemin\Desktop\Johana\OKCasa\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\Vista.exe.config
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Vista.exe
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Vista.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\Vista.exe
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\Vista.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\BibliotecaDALC.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\BibliotecaNegocio.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\ControlzEx.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\EntityFramework.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\Oracle.DataAccess.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\Oracle.Web.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\BibliotecaDALC.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\ControlzEx.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\EntityFramework.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.pdb
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Vista.csprojResolveAssemblyReference.cache
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Vista.csproj.Vista.exe.config
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Resources\Icons.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Cliente.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\ConsultarBanco.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\EquiposInspeccion.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\FormularioInspeccion.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Horario.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Insumos.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\ListadoCliente.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\ListadoFormulario.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\ListadoInspectores.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Login.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\MainWindow.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Seguimiento.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Servicio.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Solicitud.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Tecnico.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\App.g.cs
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Vista_MarkupCompile.cache
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Vista_MarkupCompile.lref
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\App.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Cliente.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\ConsultarBanco.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\EquiposInspeccion.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\FormularioInspeccion.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Horario.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Insumos.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\ListadoCliente.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\ListadoFormulario.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\ListadoInspectores.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Login.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\MainWindow.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Seguimiento.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Servicio.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Solicitud.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Tecnico.baml
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Vista.g.resources
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\yobit\Downloads\OkCasa2\OKCasa\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\EquipoInspeccion.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Insumo.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\EquipoInspeccion.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Insumo.baml
+C:\Users\yobit\Downloads\OKCasa-c863900be812ef8093875a7f8b96de32650b25da\Vista\bin\Debug\Vista.exe.config
+C:\Users\yobit\Downloads\OKCasa-c863900be812ef8093875a7f8b96de32650b25da\Vista\obj\Debug\Vista.exe
+C:\Users\yobit\Downloads\OKCasa-c863900be812ef8093875a7f8b96de32650b25da\Vista\obj\Debug\Vista.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\AsignarInsumo.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\DevolverInsumo.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\MenuInsumo.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\AsignarInsumo.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\DevolverInsumo.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\MenuInsumo.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\Vista.exe.config
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\Vista.exe
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\Vista.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\BibliotecaDALC.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\BibliotecaNegocio.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\ControlzEx.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\EntityFramework.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\BibliotecaNegocio.dll.config
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\BibliotecaDALC.dll.config
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\ControlzEx.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\EntityFramework.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.pdb
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista.csprojAssemblyReference.cache
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista.exe.config
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Resources\Icons.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\AsignarInsumo.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Cliente.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\ConsultarBanco.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\DevolverInsumo.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\EquipoInspeccion.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\FormularioInspeccion.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Horario.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Insumo.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\ListadoCliente.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\ListadoFormulario.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\ListadoInspectores.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Login.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\MainWindow.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\MenuInsumo.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Servicio.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Solicitud.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Tecnico.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\App.g.cs
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista_MarkupCompile.cache
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista_MarkupCompile.lref
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\App.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\AsignarInsumo.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Cliente.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\ConsultarBanco.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\DevolverInsumo.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\EquipoInspeccion.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\FormularioInspeccion.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Horario.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Insumo.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\ListadoCliente.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\ListadoFormulario.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\ListadoInspectores.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Login.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\MainWindow.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\MenuInsumo.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Servicio.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Solicitud.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Tecnico.baml
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista.g.resources
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista.csproj.CopyComplete
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista.exe
+C:\Users\JRamirez\Downloads\IPY03D OKCasa Grupo 3-20210823T033005Z-001\IPY03D OKCasa Grupo 3\OKCasa Escritorio\OKCasa\Vista\obj\Debug\Vista.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Vista.csprojAssemblyReference.cache
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Resources\Icons.baml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Cliente.g.cs
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Login.g.cs
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\MainWindow.g.cs
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\App.g.cs
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Vista_MarkupCompile.cache
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Vista_MarkupCompile.lref
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Vista.exe
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Vista.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\Vista.exe.config
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\Vista.exe
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\Vista.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\BibliotecaDALC.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\BibliotecaNegocio.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\ControlzEx.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\EntityFramework.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\BibliotecaNegocio.dll.config
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\BibliotecaDALC.dll.config
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\ControlzEx.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\EntityFramework.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Entypo.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Ionicons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.JamIcons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Microns.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Modern.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Octicons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Typicons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Unicons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.pdb
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\App.baml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Cliente.baml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Login.baml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\MainWindow.baml
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Vista.g.resources
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\Vista.csproj.CopyComplete
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\bin\Debug\Oracle.DataAccess.dll

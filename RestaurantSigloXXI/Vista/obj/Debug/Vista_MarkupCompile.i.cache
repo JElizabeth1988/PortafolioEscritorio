@@ -1,7 +1,7 @@
 ﻿Vista
 
 
-library
+winexe
 C#
 .cs
 C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\obj\Debug\
@@ -9,12 +9,12 @@ Vista
 none
 false
 DEBUG;TRACE
+C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\Vista\App.xaml
+5555695562
 
-21882557488
-2-1592862028
-71775066662
-29-1384432474
-Resources\Icons.xaml;Resources\IconsNonShared.xaml;
+141218698688
+551288595784
+Cliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;
 
-False
+True
 
