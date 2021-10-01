@@ -9,9 +9,9 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Administrar Cliente" Height="562.978" Width="695.318" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal.png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" >
+        Title="Administrar Cliente" Height="562.978" Width="695.318" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2.png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" >
     <Grid HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="695" Margin="0,0,-5,-4.333">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="701" Source="Imagenes/about-img.jpg" Stretch="UniformToFill" Opacity="0.3"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="701" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3"/>
         <GroupBox x:Name="groupBox" Header="Información de Cliente" HorizontalAlignment="Left" Margin="47,31,0,0" VerticalAlignment="Top" Height="468" Width="596" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="436" VerticalAlignment="Top" Width="586" Margin="0,-2,0,-0.667" Background="{x:Null}">
                 <Label x:Name="label" Content="Rut:" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top"/>

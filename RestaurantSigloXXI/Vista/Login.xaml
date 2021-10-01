@@ -8,7 +8,7 @@
      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="" Height="414.562" Width="530.536" TitleCharacterCasing="Normal" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal.png" BorderThickness="0" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False"   >
+        Title="" Height="414.562" Width="530.536" TitleCharacterCasing="Normal" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2.png" BorderThickness="0" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False"   >
     <Grid Background="#FFDBDFE3"  >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="151*"/>

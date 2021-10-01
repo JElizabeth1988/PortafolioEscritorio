@@ -23,10 +23,10 @@ namespace Vista
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindowAdmin : MetroWindow
     {
 
-        public MainWindow()
+        public MainWindowAdmin()
         {
             InitializeComponent();
             this.DataContext = this;
@@ -53,74 +53,51 @@ namespace Vista
         //Cliente
         private void Tile_Click_AdmCliente(object sender, RoutedEventArgs e)
         {
-            Cliente cli = new Cliente();
+            Cliente cli =  Cliente.ObtenerinstanciaCLI();
             cli.ShowDialog();
         }
-        //ListadoCleinte
-       /* private void Tile_Click_ListCliente(object sender, RoutedEventArgs e)
+
+
+        //Face
+        private void FacebookButton_Click(object sender, RoutedEventArgs e)
         {
-            ListadoCliente liCli = new ListadoCliente();
-            liCli.ShowDialog();
+            System.Diagnostics.Process.Start("https://www.facebook.com");
         }
-        //Banco Estado
-        private void Tile_Click_Banco(object sender, RoutedEventArgs e)
+
+        //Twitter
+        private void TwitterButton_Click(object sender, RoutedEventArgs e)
         {
-            ConsultarBanco be = new ConsultarBanco();
-            be.ShowDialog();
+            System.Diagnostics.Process.Start("https://www.twitter.com");
         }
-        //Servicio
-        private void Tile_Click_Sevicio(object sender, RoutedEventArgs e)
+
+        //Insta
+        private void InstagramButton_Click(object sender, RoutedEventArgs e)
         {
-            Servicio ser = new Servicio();
-            ser.ShowDialog();
+            System.Diagnostics.Process.Start("https://www.Instagram.com");
         }
-        //Agenda
-        private void Tile_Click_Agenda(object sender, RoutedEventArgs e)
+
+        //CerrarSesion_Click
+        private async void CerrarSesion_Click(object sender, RoutedEventArgs e)
         {
-            Horario ag = new Horario();
-            ag.ShowDialog();
+            var x =
+           await this.ShowMessageAsync("Advertencia", "¿Desea cerrar sesión?",
+                   MessageDialogStyle.AffirmativeAndNegative);
+            if (x == MessageDialogResult.Affirmative)
+            {
+                Login log = new Login();
+                this.Close();
+                log.ShowDialog();
+            }
+            else
+            {
+
+            }
         }
-        //Informe
-        private void Tile_Click_Informe(object sender, RoutedEventArgs e)
+               //Listado Clientes
+        private void Tile_Click_ListadoCliente(object sender, RoutedEventArgs e)
         {
-            FormularioInspeccion mi = new FormularioInspeccion();
-            mi.ShowDialog();
+            ListadoCliente lisCli = ListadoCliente.ObtenerinstanciaLICLI();
+            lisCli.ShowDialog();
         }
-        //Historial
-        private void Tile_Click_Historial(object sender, RoutedEventArgs e)
-        {
-            ListadoFormulario lf = new ListadoFormulario();
-            lf.ShowDialog();
-        }
-        //Equipo
-        private void Tile_Click_Equipo(object sender, RoutedEventArgs e)
-        {
-            EquipoInspeccion equi = new EquipoInspeccion();
-            equi.ShowDialog();
-        }
-        //Técnico
-        private void Tile_Click_Inspector(object sender, RoutedEventArgs e)
-        {
-            Tecnico Tec = new Tecnico();
-            Tec.ShowDialog();
-        }
-        //ListadoInspectores
-        private void Tile_Click_ListaInsp(object sender, RoutedEventArgs e)
-        {
-            ListadoInspectores liIns = new ListadoInspectores();
-            liIns.ShowDialog();
-        }
-        //Insumos
-        private void Tile_Click_Insumos(object sender, RoutedEventArgs e)
-        {
-            MenuInsumo ins = new MenuInsumo();
-            ins.ShowDialog();
-        }
-        //Solicitud
-        private void Tile_Click_Solicitud(object sender, RoutedEventArgs e)
-        {
-            Solicitud sol = new Solicitud();
-            sol.ShowDialog();
-        }*/
     }
 }

@@ -44,7 +44,7 @@ namespace Vista
                 await this.ShowMessageAsync("Mensaje:",
                     //----------------------Nombre del user Con primera letra mayúscula
                 string.Format("Bienvenido "+ user.Substring(0,1).ToUpper())+user.Substring(1).ToLower());
-                MainWindow main = new MainWindow();
+                MainWindowAdmin main = new MainWindowAdmin();
                 this.Close();
                 main.ShowDialog();
             }

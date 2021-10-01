@@ -14,7 +14,7 @@ namespace BibliotecaNegocio
     {
         //Crear objeto de la Bdd
         OracleConnection conn = null;
-        
+
 
         //Capturar Errores
         DaoErrores err = new DaoErrores();
@@ -167,7 +167,7 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = client.celular_cli;
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = client.telefono_cli;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 100)).Value = client.correo_cli;
-                
+
                 //Se abre la conexión
                 conn.Open();
                 //se ejecuta la query 
@@ -193,7 +193,7 @@ namespace BibliotecaNegocio
             {
                 //Instanciar la conexión
                 conn = new Conexion().Getcone();
-                
+
                 OracleCommand CMD = new OracleCommand();
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
@@ -267,7 +267,7 @@ namespace BibliotecaNegocio
                 }
                 //Cerrar conexión
                 conn.Close();
-                
+
             }
             catch (Exception ex)
             {
@@ -305,6 +305,131 @@ namespace BibliotecaNegocio
 
                 return false;
                 Logger.Mensaje(ex.Message);
+
+            }
+        }
+
+        //------------Listar Clientes-------------
+        public List<Cliente> Listar()
+        {
+            try
+            {
+                
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                //Lista de clientes
+                List<Cliente> lista = new List<Cliente>();
+                //se ejecutan los comandos de procedimientos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_LISTAR_CLIENTE";
+                //Se agrega el parámetro de salida
+                cmd.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+                //mientras lea
+                while (dr.Read())
+                {
+                    Cliente C = new Cliente();
+
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    C.rut_cliente = dr.GetValue(0).ToString();
+                    C.primer_nom_cli = dr.GetValue(1).ToString();
+                    C.segundo_nom_cli = dr.GetValue(2).ToString();
+                    C.ap_paterno_cli = dr.GetValue(3).ToString();
+                    C._ap_materno = dr.GetValue(4).ToString();
+                    C.celular_cli = int.Parse(dr.GetValue(5).ToString());
+                    C.telefono_cli = int.Parse(dr.GetValue(6).ToString());
+                    C.correo_cli = dr.GetValue(7).ToString();
+                    
+                    lista.Add(C);
+                }
+                //Cerrar la conexión
+                conn.Close();
+                return lista;
+
+                            }
+            catch (Exception ex)
+            {
+                return null;
+                Logger.Mensaje(ex.Message);
+            }
+        }
+
+        //------------Filtrar por Rut--------------------
+        public List<Cliente> Filtrar(String rut)
+        {
+            try
+            {
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                List<Cliente> lista = new List<Cliente>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_RUT";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                //Reader
+                OracleDataReader reader = CMD.ExecuteReader();
+                //Mientras lee
+                while (reader.Read())
+                {
+                    Cliente c = new Cliente();
+
+                    c.rut_cliente = reader[0].ToString();
+                    c._primer_nombre = reader[1].ToString();
+                    c.segundo_nom_cli = reader[2].ToString();
+                    c.ap_paterno_cli = reader[3].ToString();
+                    c._ap_materno = reader[4].ToString();
+                    c.celular_cli = int.Parse(reader[5].ToString());
+                    c.telefono_cli = int.Parse(reader[6].ToString());
+                    c.correo_cli = reader[7].ToString();
+                    
+                    lista.Add(c);
+
+                }
+                conn.Close();
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                return null;
+                Logger.Mensaje(ex.Message);
+                
+            }
+            
+        }
+
+
+        //Lista Clientes
+        public class ListaClientes
+        {
+            public string Rut { get; set; }
+            public string Nombre { get; set; }
+            public string Segundo_Nombre { get; set; }
+            public string Apellido_paterno { get; set; }
+            public string Apellido_Materno { get; set; }
+            public int celular { get; set; }
+            public int Teléfono { get; set; }
+            public string Email { get; set; }
+            
+
+            public ListaClientes()
+            {
 
             }
         }
