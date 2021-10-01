@@ -70,6 +70,7 @@ namespace Vista
         {
             try
             {
+                //Trae la lista del método Listar
                 dgLista.ItemsSource = cl.Listar();
                 dgLista.Items.Refresh();
             }
@@ -176,8 +177,6 @@ namespace Vista
         public ListadoCliente(Cliente origen)
         {
             InitializeComponent();
-            //Instanciar conexión a BD
-           //conn = new Conexion().Getcone();
             cli = origen;
             //Mostrar(Visibility) y esconder(Hidden) botones
             btnPasar.Visibility = Visibility.Visible;        
@@ -221,10 +220,23 @@ namespace Vista
             try
             {
                 BibliotecaNegocio.Cliente.ListaClientes c = (BibliotecaNegocio.Cliente.ListaClientes)dgLista.SelectedItem;
-                string rutbuscar = cli.txtRut + "-" + cli.txtDV;
-                cli.txtRut.Text = c.Rut;
-                cl.Buscar(rutbuscar);
-
+                //Traspasar los datos del dataGrid a la ventana cliente
+                cli.txtRut.Text = c.Rut.Substring(0, 8);
+                cli.txtDV.Text = c.Rut.Substring(9, 1);
+                cli.txtRut.IsEnabled = false;//Rut no se modifica
+                cli.txtDV.IsEnabled = false;//DV tampoco
+                cli.txtNombre.Text = c.Nombre;
+                cli.txtSegNombre.Text = c.Segundo_Nombre;
+                cli.txtApeMaterno.Text = c.Apellido_Paterno;
+                cli.txtApPaterno.Text = c.Apellido_Materno;
+                cli.txtEmail.Text = c.Email;
+                cli.txtCelular.Text = c.Celular.ToString();
+                cli.txtTelefono.Text = c.Teléfono.ToString();
+                //Esconder y mostrar botones
+                cli.btnModificar.Visibility = Visibility.Visible;
+                cli.btnGuardar.Visibility = Visibility.Hidden;
+                cli.btnEliminar.Visibility = Visibility.Visible;
+                //Cerrar listado
                 Close();
             }
             catch (Exception ex)

@@ -8,13 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/agenda-blanco.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/bowl.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/comida.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/employee.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/listadoclientes.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/restaurant.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/spices-salt-pepper.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/user-group.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/logofinal1.png")]
 
 

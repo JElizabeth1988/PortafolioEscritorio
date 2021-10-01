@@ -29,7 +29,7 @@ namespace Vista
     public partial class Cliente : MetroWindow
     {
         //PatronSingleton--------------------------
-        private static Cliente _instancia;
+        /*private static Cliente _instancia;
 
 
         public static Cliente ObtenerinstanciaCLI()
@@ -41,12 +41,13 @@ namespace Vista
 
             return _instancia;
         }
-        //----------------------------------------
+        //----------------------------------------*/
 
         OracleConnection conn = null;
         BibliotecaNegocio.Cliente cli = new BibliotecaNegocio.Cliente();
 
-        private Cliente()
+        //Con singleton pasa a ser privado
+        public Cliente()
         {
             InitializeComponent();
             conn = new Conexion().Getcone();//Instanciar la conexión
@@ -77,10 +78,11 @@ namespace Vista
             Close();
         }
         //-----------Botón Pregunta Llama al listado de Clientes en caso de que se desconozca el Rut-------------------
-        private void btnPregunta_Click(object sender, RoutedEventArgs e)
+        private async void btnPregunta_Click(object sender, RoutedEventArgs e)
         {
             ListadoCliente liCli = new ListadoCliente(this);
             liCli.ShowDialog();
+            
         }
 
         //---------Método Limpiar--------------------

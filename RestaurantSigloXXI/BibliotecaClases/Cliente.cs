@@ -250,7 +250,7 @@ namespace BibliotecaNegocio
                 Cliente c = null;
                 while (reader.Read())//Mientras lee
                 {
-                    c = new BibliotecaNegocio.Cliente();
+                    c = new Cliente();
 
                     rut_cliente = reader[0].ToString();
                     primer_nom_cli = reader[1].ToString();
@@ -310,7 +310,8 @@ namespace BibliotecaNegocio
         }
 
         //------------Listar Clientes-------------
-        public List<Cliente> Listar()
+        //Llamo a la lista creada más abajo, porque trae nombres en vez de id y porque las variables se ven mejor en la grilla
+        public List<ListaClientes> Listar()
         {
             try
             {
@@ -320,7 +321,7 @@ namespace BibliotecaNegocio
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
                 //Lista de clientes
-                List<Cliente> lista = new List<Cliente>();
+                List<ListaClientes> lista = new List<ListaClientes>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 //conexion
@@ -336,17 +337,17 @@ namespace BibliotecaNegocio
                 //mientras lea
                 while (dr.Read())
                 {
-                    Cliente C = new Cliente();
+                    ListaClientes C = new ListaClientes();
 
                     //se obtiene el valor con getvalue es lo mismo pero con get
-                    C.rut_cliente = dr.GetValue(0).ToString();
-                    C.primer_nom_cli = dr.GetValue(1).ToString();
-                    C.segundo_nom_cli = dr.GetValue(2).ToString();
-                    C.ap_paterno_cli = dr.GetValue(3).ToString();
-                    C._ap_materno = dr.GetValue(4).ToString();
-                    C.celular_cli = int.Parse(dr.GetValue(5).ToString());
-                    C.telefono_cli = int.Parse(dr.GetValue(6).ToString());
-                    C.correo_cli = dr.GetValue(7).ToString();
+                    C.Rut = dr.GetValue(0).ToString();
+                    C.Nombre = dr.GetValue(1).ToString();
+                    C.Segundo_Nombre = dr.GetValue(2).ToString();
+                    C.Apellido_Paterno = dr.GetValue(3).ToString();
+                    C.Apellido_Materno = dr.GetValue(4).ToString();
+                    C.Celular = int.Parse(dr.GetValue(5).ToString());
+                    C.Teléfono = int.Parse(dr.GetValue(6).ToString());
+                    C.Email = dr.GetValue(7).ToString();
                     
                     lista.Add(C);
                 }
@@ -363,7 +364,7 @@ namespace BibliotecaNegocio
         }
 
         //------------Filtrar por Rut--------------------
-        public List<Cliente> Filtrar(String rut)
+        public List<ListaClientes> Filtrar(String rut)
         {
             try
             {
@@ -372,7 +373,8 @@ namespace BibliotecaNegocio
                 OracleCommand CMD = new OracleCommand();
                 //que tipo comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                List<Cliente> lista = new List<Cliente>();
+                //Lista de Clientes
+                List<ListaClientes> lista = new List<ListaClientes>();
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
@@ -388,17 +390,19 @@ namespace BibliotecaNegocio
                 //Mientras lee
                 while (reader.Read())
                 {
-                    Cliente c = new Cliente();
+                    ListaClientes c = new ListaClientes();
 
-                    c.rut_cliente = reader[0].ToString();
-                    c._primer_nombre = reader[1].ToString();
-                    c.segundo_nom_cli = reader[2].ToString();
-                    c.ap_paterno_cli = reader[3].ToString();
-                    c._ap_materno = reader[4].ToString();
-                    c.celular_cli = int.Parse(reader[5].ToString());
-                    c.telefono_cli = int.Parse(reader[6].ToString());
-                    c.correo_cli = reader[7].ToString();
+                    //lee cada valor en su posición
+                    c.Rut = reader[0].ToString();
+                    c.Nombre = reader[1].ToString();
+                    c.Segundo_Nombre = reader[2].ToString();
+                    c.Apellido_Paterno = reader[3].ToString();
+                    c.Apellido_Materno = reader[4].ToString();
+                    c.Celular = int.Parse(reader[5].ToString());
+                    c.Teléfono = int.Parse(reader[6].ToString());
+                    c.Email = reader[7].ToString();
                     
+                    //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(c);
 
                 }
@@ -415,15 +419,15 @@ namespace BibliotecaNegocio
         }
 
 
-        //Lista Clientes
+        //Lista Clientes para mostrar nombres en vez de id (para procedimientos con Joins)
         public class ListaClientes
         {
             public string Rut { get; set; }
             public string Nombre { get; set; }
             public string Segundo_Nombre { get; set; }
-            public string Apellido_paterno { get; set; }
+            public string Apellido_Paterno { get; set; }
             public string Apellido_Materno { get; set; }
-            public int celular { get; set; }
+            public int Celular { get; set; }
             public int Teléfono { get; set; }
             public string Email { get; set; }
             

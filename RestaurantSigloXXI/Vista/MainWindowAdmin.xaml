@@ -29,8 +29,10 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
+            
             <!--Acceso directo a Instagram-->
             <Button ToolTip="Instagram"  Name="GoogleButton" Click="InstagramButton_Click">
+                
                 <Rectangle Width="22"  Height="22" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                     <Rectangle.OpacityMask>
                         <VisualBrush Stretch="Uniform"
@@ -95,7 +97,7 @@
             </Grid>
         </Controls:Tile>
         <Label x:Name="label" Content="Bienvenido, Administrador" Margin="408,82,407,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
-        <Controls:Tile ToolTip="Administrar Clientes" Margin="373,175,601,345" Click="Tile_Click_ListadoCliente" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Listar Clientes" Margin="373,175,601,345" Click="Tile_Click_ListadoCliente" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
             <Grid Height="90" >
                 <Image x:Name="image1" Height="61" VerticalAlignment="Top" Source="Imagenes/ListadoClientes.png" Margin="36,0,40.333,0">

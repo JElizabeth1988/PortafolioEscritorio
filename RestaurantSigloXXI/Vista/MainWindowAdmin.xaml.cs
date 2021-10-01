@@ -53,7 +53,9 @@ namespace Vista
         //Cliente
         private void Tile_Click_AdmCliente(object sender, RoutedEventArgs e)
         {
-            Cliente cli =  Cliente.ObtenerinstanciaCLI();
+            //Con Singleton
+            /*Cliente cli =  Cliente.ObtenerinstanciaCLI();*/
+            Cliente cli = new Cliente();
             cli.ShowDialog();
         }
 
@@ -61,7 +63,7 @@ namespace Vista
         //Face
         private void FacebookButton_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.facebook.com");
+            System.Diagnostics.Process.Start("https://www.facebook.com/profile.php?id=100073371850357");
         }
 
         //Twitter
