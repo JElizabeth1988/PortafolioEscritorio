@@ -16,13 +16,17 @@ using Oracle.ManagedDataAccess.Client;
 //using System.Data.OracleClient;
 
 using System.Data;
-
+//Metro
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
-
+//Bibliotecas
 using BibliotecaNegocio;
 using BibliotecaDALC;
+
+using System.Threading; //Hilos
+//FileCache
+using System.Runtime.Caching;
 
 namespace Vista
 {
@@ -43,6 +47,9 @@ namespace Vista
         }
         //----------------------------------------*/
 
+        //Hilo para cache
+        Thread hilo = null;
+
         OracleConnection conn = null;
         BibliotecaNegocio.Cliente cli = new BibliotecaNegocio.Cliente();
 
@@ -57,8 +64,83 @@ namespace Vista
             btnEliminar.Visibility = Visibility.Hidden;
             txtRut.Focus();//Focus en el rut
 
-                  
+            //Tarea automática CACHÉ
+            Task tarea = new Task(() =>
+            {
+                hilo = Thread.CurrentThread;
+                while (true)
+                {
+                    Thread.Sleep(5000);
+                    generaRespaldo();
+                }
+            });
+
+            tarea.Start();
+
+            FileCache filecache = new FileCache(new ObjectBinder());
+
+            if (filecache["hora"] != null)
+            {
+                lblCache.Content = filecache["hora"].ToString();
+            }
         }
+
+        private void generaRespaldo()
+        {
+            Dispatcher.Invoke(()=> {
+
+                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+
+                if (txtRut.Text != null)
+                {
+                    cl.rut_cliente = txtRut.Text+'-'+txtDV.Text;
+                }
+                
+                if (txtNombre.Text != null)
+                {
+                    cl.primer_nom_cli = txtNombre.Text;
+                }
+                if (txtSegNombre.Text != null)
+                {
+                    cl.segundo_nom_cli = txtSegNombre.Text;
+                }
+                if (txtApPaterno.Text != null)
+                {
+                    cl.ap_paterno_cli = txtApPaterno.Text;
+                }
+                if (txtApeMaterno.Text != null)
+                {
+                    cl.ap_materno_cli = txtApeMaterno.Text;
+                }
+                int Celular = 1;
+                if (int.TryParse(txtCelular.Text, out Celular))
+                {
+                    cl.celular_cli = Celular;
+                }
+                int telefono = 1;
+                if (int.TryParse(txtTelefono.Text, out telefono))
+                {
+                    cl.telefono_cli = telefono;
+                }
+                if (txtEmail.Text != null)
+                {
+                    cl.correo_cli = txtEmail.Text;
+                }
+
+                //Proceso de respaldo
+                //Con la ampolleta agregó el using Runtime.Caching
+                FileCache filecahe = new FileCache(new ObjectBinder());
+
+                String hora = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+
+                filecahe["cliente"] = cl;
+                filecahe["hora"] = hora;
+
+                lblCache.Content = hora;
+
+            });
+        }
+
         //----------Validación Solo acepta valores numéricos
         private void txtNumeros_KeyDown(object sender, KeyEventArgs e)
         {
@@ -98,6 +180,7 @@ namespace Vista
             txtTelefono.Text = "0";
             txtEmail.Clear();
             txtRut.IsEnabled = true;
+            lblCache.Content = null;
 
             btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
@@ -479,6 +562,37 @@ namespace Vista
             {
                 txtRut.Text = "";
             }
+        }
+
+        private void BtnCache_Click(object sender, RoutedEventArgs e)
+        {
+            FileCache filecahe = new FileCache(new ObjectBinder());
+
+            if (filecahe["cliente"] != null)
+            {
+                BibliotecaNegocio.Cliente c = (BibliotecaNegocio.Cliente)filecahe["cliente"];
+
+                txtRut.Text = c.rut_cliente.Substring(0, 8);
+                txtDV.Text = c.rut_cliente.Substring(9, 1);
+                txtNombre.Text = c.primer_nom_cli;
+                txtSegNombre.Text = c.segundo_nom_cli;
+                txtApeMaterno.Text = c.ap_paterno_cli;
+                txtApPaterno.Text = c.ap_materno_cli;
+                txtEmail.Text = c.correo_cli;
+                txtCelular.Text = c.celular_cli.ToString();
+                txtTelefono.Text = c.telefono_cli.ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("F");
+            }
+        }
+
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //Terminar con la tarea caché al cerrar la ventana
+            hilo.Abort();
         }
     }
 }

@@ -10,16 +10,11 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace BibliotecaNegocio
 {
+    //Indicar que la variable es serializable
+    [Serializable]
     public class Cliente
     {
-        //Crear objeto de la Bdd
-        OracleConnection conn = null;
-
-
-        //Capturar Errores
-        DaoErrores err = new DaoErrores();
-        public DaoErrores retornar() { return err; }
-
+         
         private string _rut_cliente;
 
         public string rut_cliente
@@ -57,7 +52,7 @@ namespace BibliotecaNegocio
                 }
             }
         }
-
+        
         public string segundo_nom_cli { get; set; }
 
         private string _ap_paterno;
@@ -137,7 +132,14 @@ namespace BibliotecaNegocio
             }
         }
 
-
+        [NonSerialized]
+        //Crear objeto de la Bdd
+        OracleConnection conn = null;
+        [NonSerialized]
+        //Capturar Errores
+        DaoErrores err = new DaoErrores();
+        
+        public DaoErrores retornar() { return err; }
         public Cliente()
         {
 

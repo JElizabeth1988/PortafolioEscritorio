@@ -9,7 +9,7 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Administrar Cliente" Height="562.978" Width="695.318" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2.png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" >
+        Title="Administrar Cliente" Height="562.978" Width="695.318" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2.png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
     <Grid HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="695" Margin="0,0,-5,-4.333">
         <Image x:Name="image" HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="701" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3"/>
         <GroupBox x:Name="groupBox" Header="Información de Cliente" HorizontalAlignment="Left" Margin="47,31,0,0" VerticalAlignment="Top" Height="468" Width="596" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
@@ -46,6 +46,9 @@
                 <Label x:Name="label_Copy7" Content="Apellido Materno:" HorizontalAlignment="Left" Margin="23,175,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label_Copy5" Content="Segundo Nombre:" HorizontalAlignment="Left" Margin="23,99,0,0" VerticalAlignment="Top"/>
                 <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="251,368,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnEliminar_Click"/>
+                <Label x:Name="label2" Content="Caché:" HorizontalAlignment="Left" Margin="386,193,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="437,193,0,0" VerticalAlignment="Top" Width="139"/>
+                <Button x:Name="btnCache" Content="Button" HorizontalAlignment="Left" Margin="432,253,0,0" VerticalAlignment="Top" Width="75" Click="BtnCache_Click"/>
 
 
 
