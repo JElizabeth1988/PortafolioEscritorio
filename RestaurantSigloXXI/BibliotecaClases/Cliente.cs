@@ -14,7 +14,7 @@ namespace BibliotecaNegocio
     [Serializable]
     public class Cliente
     {
-         
+
         private string _rut_cliente;
 
         public string rut_cliente
@@ -94,21 +94,39 @@ namespace BibliotecaNegocio
         }
 
         public int celular_cli { get; set; }
+        /*private int _celular;
+
+        public int celular_cli
+        {
+            get { return _celular; }
+            set
+            {
+                if (value != 0 )
+                {
+                    _celular = value;
+                }
+                else
+                {
+                    err.AgregarError("Campo Celular no puede estar Vacío");
+                    //throw new ArgumentException("- Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
+                }
+            }
+        }*/
 
         public int telefono_cli { get; set; }
-        //private int _telefono;
+        /*private int _telefono;
 
-        /* public int telefono
+        public int telefono_cli
          {
              get { return _telefono; }
              set {
-                     if (value != 0 && value >90000000 && value <10000000)
+                     if (value != 0 )
                      {
                          _telefono = value;
                      }
                      else
                      {
-                         err.AgregarError("Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
+                         err.AgregarError("Campo Teléfono no puede estar Vacío");
                          //throw new ArgumentException("- Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
                      }
              }
@@ -132,14 +150,15 @@ namespace BibliotecaNegocio
             }
         }
 
+
         [NonSerialized]
         //Crear objeto de la Bdd
         OracleConnection conn = null;
         [NonSerialized]
         //Capturar Errores
         DaoErrores err = new DaoErrores();
-        
         public DaoErrores retornar() { return err; }
+
         public Cliente()
         {
 

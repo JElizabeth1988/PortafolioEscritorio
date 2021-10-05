@@ -53,7 +53,7 @@ namespace Vista
         //Instanciar BD
         OracleConnection conn = null;
         //Traer clase cliente
-        BibliotecaNegocio.Cliente cli = new BibliotecaNegocio.Cliente();
+        Cliente cli = new Cliente();
 
         
         public WPFCliente()
@@ -97,8 +97,8 @@ namespace Vista
 
                 if (txtRut.Text != null)
                 {
-                    //Guardo el rut + el dígito verificador al entregarlo a las casillas lo separo
-                    cl.rut_cliente = txtRut.Text+'-'+txtDV.Text;
+                    //Guardo el rut 
+                    cl.rut_cliente = txtRut.Text;
                 }
                 
                 if (txtNombre.Text != null)
@@ -117,16 +117,18 @@ namespace Vista
                 {
                     cl.ap_materno_cli = txtApeMaterno.Text;
                 }
-                int Celular = 1;
+                int Celular = 0;
                 if (int.TryParse(txtCelular.Text, out Celular))
                 {
-                    cl.celular_cli = Celular;
+                    cl.celular_cli = int.Parse(txtCelular.Text);
                 }
-                int telefono = 1;
+                int telefono = 0;
                 if (int.TryParse(txtTelefono.Text, out telefono))
                 {
-                    cl.telefono_cli = telefono;
+                    cl.telefono_cli = int.Parse(txtTelefono.Text);
                 }
+                
+
                 if (txtEmail.Text != null)
                 {
                     cl.correo_cli = txtEmail.Text;
@@ -181,8 +183,8 @@ namespace Vista
             txtSegNombre.Clear();
             txtApPaterno.Clear();
             txtApeMaterno.Clear();
-            txtCelular.Text = "0";
-            txtTelefono.Text = "0";
+            txtCelular.Clear();
+            txtTelefono.Clear();
             txtEmail.Clear();
             txtRut.IsEnabled = true;
             lblCache.Content = null;
@@ -192,6 +194,22 @@ namespace Vista
             btnEliminar.Visibility = Visibility.Hidden;
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
+
+            //Limpiar cache
+            FileCache filecahe = new FileCache(new ObjectBinder());
+            filecahe.Remove("Cliente", null);
+            
+            try
+            {
+
+                lblCache.Content = "Se limpió caché";
+
+            }
+            catch (Exception ex)
+            {
+                lblCache.Content = "Error al limpiar";
+                Logger.Mensaje(ex.Message);
+            }
         }
 
         //-----------Botón Limpiar-------------------
@@ -218,10 +236,34 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-                int celular = int.Parse(txtCelular.Text);    
-                int telefono = int.Parse(txtTelefono.Text); 
-                                             
-                BibliotecaNegocio.Cliente c = new BibliotecaNegocio.Cliente()
+                //int celular = int.Parse(txtCelular.Text);   
+                int celular = 0;
+                if (int.TryParse(txtCelular.Text, out celular))
+                {
+
+                }
+                else
+                {
+                   /* await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Ingrese un número de 9 dígitos"));
+                    txtTelefono.Focus();*/
+                    return;
+                }
+                //int telefono = int.Parse(txtTelefono.Text); 
+                int telefono = 0;
+                if (int.TryParse(txtTelefono.Text, out telefono))
+                {
+
+                }
+                else
+                {
+                    /*await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Ingrese un número de 9 dígitos"));
+                    txtTelefono.Focus();*/
+                    return;
+                }
+
+                Cliente c = new Cliente()
                 {
                     rut_cliente = rut,
                     primer_nom_cli = Nombre,
@@ -259,6 +301,14 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format((exa.Message)));
+                DaoErrores de = cli.retornar();
+                string li = "";
+                foreach (string item in de.ListarErrores())
+                {
+                    li += item + " \n";
+                }
+                await this.ShowMessageAsync("Mensaje:",
+                    string.Format(li));
             }
             catch (Exception ex)
             {
@@ -266,6 +316,14 @@ namespace Vista
                       string.Format("Error de ingreso de datos"));
                 /*MessageBox.Show("Error de ingreso de datos");*/
                 Logger.Mensaje(ex.Message);
+                DaoErrores de = cli.retornar();
+                string li = "";
+                foreach (string item in de.ListarErrores())
+                {
+                    li += item + " \n";
+                }
+                await this.ShowMessageAsync("Mensaje:",
+                    string.Format(li));
 
             }
         }
@@ -500,27 +558,37 @@ namespace Vista
 
         private void BtnCache_Click(object sender, RoutedEventArgs e)
         {
-            FileCache filecahe = new FileCache(new ObjectBinder());
-
-            if (filecahe["cliente"] != null)
+            try
             {
-                BibliotecaNegocio.Cliente c = (BibliotecaNegocio.Cliente)filecahe["cliente"];
+                FileCache filecahe = new FileCache(new ObjectBinder());
 
-                txtRut.Text = c.rut_cliente.Substring(0, 8);
-                txtDV.Text = c.rut_cliente.Substring(9, 1);
-                txtNombre.Text = c.primer_nom_cli;
-                txtSegNombre.Text = c.segundo_nom_cli;
-                txtApPaterno.Text = c.ap_paterno_cli;
-                txtApeMaterno.Text = c.ap_materno_cli;
-                txtEmail.Text = c.correo_cli;
-                txtCelular.Text = c.celular_cli.ToString();
-                txtTelefono.Text = c.telefono_cli.ToString();
+                if (filecahe["cliente"] != null)
+                {
+                    Cliente c = (Cliente)filecahe["cliente"];
+                    txtRut.Text = c.rut_cliente;
+                    //txtRut.Text = c.rut_cliente.Substring(0, 8);
+                    //txtDV.Text = c.rut_cliente.Substring(9, 1);
+                    txtNombre.Text = c.primer_nom_cli;
+                    txtSegNombre.Text = c.segundo_nom_cli;
+                    txtApPaterno.Text = c.ap_paterno_cli;
+                    txtApeMaterno.Text = c.ap_materno_cli;
+                    txtEmail.Text = c.correo_cli;
+                    txtCelular.Text = c.celular_cli.ToString();
+                    txtTelefono.Text = c.telefono_cli.ToString();
 
+                }
+                else
+                {
+                    lblCache.Content = "Error al recuperar";
+                    //MessageBox.Show("Error al recuperar");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("F");
+
+                Logger.Mensaje(ex.Message);
             }
+            
         }
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
