@@ -54,9 +54,10 @@ namespace Vista
         private void Tile_Click_AdmCliente(object sender, RoutedEventArgs e)
         {
             //Con Singleton
-            /*Cliente cli =  Cliente.ObtenerinstanciaCLI();*/
-            Cliente cli = new Cliente();
-            cli.ShowDialog();
+            WPFCliente.ObtenerinstanciaCLI().ShowDialog();
+            //Sin Singleton
+            //Cliente cli = new Cliente();
+            //cli.ShowDialog();
         }
 
 
@@ -98,8 +99,7 @@ namespace Vista
                //Listado Clientes
         private void Tile_Click_ListadoCliente(object sender, RoutedEventArgs e)
         {
-            ListadoCliente lisCli = ListadoCliente.ObtenerinstanciaLICLI();
-            lisCli.ShowDialog();
+            WPFListadoCliente.ObtenerinstanciaLICLI().ShowDialog();
         }
     }
 }

@@ -30,31 +30,33 @@ using System.Runtime.Caching;
 
 namespace Vista
 {
-    public partial class Cliente : MetroWindow
+    public partial class WPFCliente : MetroWindow
     {
         //PatronSingleton--------------------------
-        /*private static Cliente _instancia;
+        public static WPFCliente _instancia;
 
 
-        public static Cliente ObtenerinstanciaCLI()
+        public static WPFCliente ObtenerinstanciaCLI()
         {
             if (_instancia == null)
             {
-                _instancia = new Cliente();
+                _instancia = new WPFCliente();
             }
 
             return _instancia;
         }
-        //----------------------------------------*/
+        //----------------------------------------
 
         //Hilo para cache
         Thread hilo = null;
 
+        //Instanciar BD
         OracleConnection conn = null;
+        //Traer clase cliente
         BibliotecaNegocio.Cliente cli = new BibliotecaNegocio.Cliente();
 
-        //Con singleton pasa a ser privado
-        public Cliente()
+        
+        public WPFCliente()
         {
             InitializeComponent();
             conn = new Conexion().Getcone();//Instanciar la conexión
@@ -64,13 +66,13 @@ namespace Vista
             btnEliminar.Visibility = Visibility.Hidden;
             txtRut.Focus();//Focus en el rut
 
-            //Tarea automática CACHÉ
+            //---Tarea automática CACHÉ-------
             Task tarea = new Task(() =>
             {
                 hilo = Thread.CurrentThread;
                 while (true)
                 {
-                    Thread.Sleep(5000);
+                    Thread.Sleep(5000);//cada 5 segundos guarda
                     generaRespaldo();
                 }
             });
@@ -83,16 +85,19 @@ namespace Vista
             {
                 lblCache.Content = filecache["hora"].ToString();
             }
+            //---------------------------------
         }
-
+        //Método generar respaldo------------------
         private void generaRespaldo()
         {
             Dispatcher.Invoke(()=> {
 
-                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+                //Llama a la clase cliente donde se gusradarán los datos
+                Cliente cl = new Cliente();
 
                 if (txtRut.Text != null)
                 {
+                    //Guardo el rut + el dígito verificador al entregarlo a las casillas lo separo
                     cl.rut_cliente = txtRut.Text+'-'+txtDV.Text;
                 }
                 
@@ -162,9 +167,9 @@ namespace Vista
         //-----------Botón Pregunta Llama al listado de Clientes en caso de que se desconozca el Rut-------------------
         private async void btnPregunta_Click(object sender, RoutedEventArgs e)
         {
-            ListadoCliente liCli = new ListadoCliente(this);
-            liCli.ShowDialog();
-            
+            WPFListadoCliente cliente = new WPFListadoCliente(this);
+            cliente.ShowDialog();
+
         }
 
         //---------Método Limpiar--------------------
@@ -188,6 +193,7 @@ namespace Vista
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
         }
+
         //-----------Botón Limpiar-------------------
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
@@ -328,91 +334,7 @@ namespace Vista
 
             }
         }
-
-        //------------------Llamado del botón traspasar--------------
-       /* public async void Buscar()
-         {
-             try
-             {
-                string rut = txtRut.Text + "-" + txtDV.Text;
-
-                if (rut.Length == 9)
-                {
-                    rut = "0" + txtRut.Text + "-" + txtDV.Text;//Seagrega un 0 al inicio, rut queda de 10 caracteres
-                }
-                OracleCommand CMD = new OracleCommand();
-                CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                List<BibliotecaNegocio.Cliente> clie = new List<BibliotecaNegocio.Cliente>();
-                //nombre de la conexion
-                CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_CLIENTE2";
-                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
-                CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-
-                //se abre la conexion
-                conn.Open();
-                OracleDataReader reader = CMD.ExecuteReader();
-                BibliotecaNegocio.Cliente c = null;
-                while (reader.Read())//Mientras lee
-                {
-                    c = new BibliotecaNegocio.Cliente();
-
-                    c.rut_cliente = reader[0].ToString();
-                    c.primer_nombre = reader[1].ToString();
-                    c.segundo_nombre = reader[2].ToString();
-                    c.ap_paterno = reader[3].ToString();
-                    c.ap_materno = reader[4].ToString();
-                    c.direccion = reader[5].ToString();
-                    c.telefono = int.Parse(reader[6].ToString());
-                    c.email = reader[7].ToString();
-                    c.id_comuna = int.Parse(reader[8].ToString());
-
-                    clie.Add(c);
-
-                }
-                //Cerrar conexión
-                conn.Close();
-                if (c != null)//Si la lista no esta vacía entrego parámetros a los textBox y CB
-                {
-                    txtRut.Text = c.rut_cliente.Substring(0, 8);
-                    txtDV.Text = c.rut_cliente.Substring(9, 1);
-                    txtRut.IsEnabled = false;//Rut no se modifica
-                    txtDV.IsEnabled = false;//DV tampoco
-
-                    txtNombre.Text = c.primer_nombre;
-                    txtSegNombre.Text = c.segundo_nombre;
-                    txtApeMaterno.Text = c.ap_paterno;
-                    txtApPaterno.Text = c.ap_materno;
-                    txtEmail.Text = c.email;
-                    txtDireccion.Text = c.direccion;
-                    txtTelefono.Text = c.telefono.ToString();
-                    //-------Cambiar a nombre
-                    Comuna co = new Comuna();
-                    co.id_comuna = c.id_comuna;
-                    co.Read();
-                    cboComuna.Text = co.nombre;//Cambiar a nombre
-                    //--------------------
-                    btnModificar.Visibility = Visibility.Visible;
-                    btnGuardar.Visibility = Visibility.Hidden;
-                    btnEliminar.Visibility = Visibility.Visible;
-
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format("No se encontraron resultados!"));
-                }
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Error al Buscar Información! "));
-                Logger.Mensaje(ex.Message);
-            }
-        }*/
-       
+               
         //----------------------Botón Buscar (de administrar cliente)---------------
         private async void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
@@ -431,8 +353,8 @@ namespace Vista
 
                 txtNombre.Text = cli.primer_nom_cli;
                 txtSegNombre.Text = cli.segundo_nom_cli;
-                txtApeMaterno.Text = cli.ap_paterno_cli;
-                txtApPaterno.Text = cli.ap_materno_cli;
+                txtApPaterno.Text = cli.ap_paterno_cli;
+                txtApeMaterno.Text = cli.ap_materno_cli;
                 txtEmail.Text = cli.correo_cli;
                 txtCelular.Text = cli.celular_cli.ToString();
                 txtTelefono.Text = cli.telefono_cli.ToString();
@@ -576,8 +498,8 @@ namespace Vista
                 txtDV.Text = c.rut_cliente.Substring(9, 1);
                 txtNombre.Text = c.primer_nom_cli;
                 txtSegNombre.Text = c.segundo_nom_cli;
-                txtApeMaterno.Text = c.ap_paterno_cli;
-                txtApPaterno.Text = c.ap_materno_cli;
+                txtApPaterno.Text = c.ap_paterno_cli;
+                txtApeMaterno.Text = c.ap_materno_cli;
                 txtEmail.Text = c.correo_cli;
                 txtCelular.Text = c.celular_cli.ToString();
                 txtTelefono.Text = c.telefono_cli.ToString();
@@ -593,6 +515,9 @@ namespace Vista
         {
             //Terminar con la tarea caché al cerrar la ventana
             hilo.Abort();
+
+            //Parar Singleton
+            _instancia = null;
         }
     }
 }

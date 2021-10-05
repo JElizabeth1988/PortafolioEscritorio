@@ -197,8 +197,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ComboBoxItem1.cs" />
-    <Compile Include="ListadoCliente.xaml.cs">
-      <DependentUpon>ListadoCliente.xaml</DependentUpon>
+    <Compile Include="WPFListadoCliente.xaml.cs">
+      <DependentUpon>WPFListadoCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="ObjectBinder.cs" />
     <Compile Include="Service References\WSBancoEstado\Reference.cs">
@@ -211,11 +211,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Page Include="Cliente.xaml">
+    <Page Include="WPFCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ListadoCliente.xaml">
+    <Page Include="WPFListadoCliente.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -231,8 +231,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Cliente.xaml.cs">
-      <DependentUpon>Cliente.xaml</DependentUpon>
+    <Compile Include="WPFCliente.xaml.cs">
+      <DependentUpon>WPFCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -293,6 +293,9 @@
     </None>
     <Resource Include="Imagenes\Business-Man02.png" />
     <Resource Include="Imagenes\Command-Refresh-blue.png" />
+    <Resource Include="Imagenes\logo .png" />
+    <Resource Include="Imagenes\logo2.png" />
+    <Resource Include="Imagenes\LogoFinal.png" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -355,13 +358,7 @@
     <Resource Include="Imagenes\about-img.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\LogoFinal.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Imagenes\insta.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\LogoFinal2.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Agenda-Blanco.png" />
@@ -372,9 +369,6 @@
     <Resource Include="Imagenes\Restaurant.png" />
     <Resource Include="Imagenes\Spices-Salt-Pepper.png" />
     <Resource Include="Imagenes\User-Group.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\LogoFinal1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

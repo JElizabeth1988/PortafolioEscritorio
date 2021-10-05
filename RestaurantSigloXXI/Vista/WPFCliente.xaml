@@ -1,4 +1,4 @@
-﻿<Controls:MetroWindow x:Class="Vista.Cliente"
+﻿<Controls:MetroWindow x:Class="Vista.WPFCliente"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +9,8 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Administrar Cliente" Height="562.978" Width="695.318" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2.png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+        BorderThickness="2" BorderBrush="Black"
+        Title="Administrar Cliente" Height="562.978" Width="695.318" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal.png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
     <Grid HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="695" Margin="0,0,-5,-4.333">
         <Image x:Name="image" HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="701" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3"/>
         <GroupBox x:Name="groupBox" Header="Información de Cliente" HorizontalAlignment="Left" Margin="47,31,0,0" VerticalAlignment="Top" Height="468" Width="596" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
@@ -23,9 +24,7 @@
 
 
                 <TextBox x:Name="txtRut" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Rut sin DV" Height="8" Margin="156,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" KeyDown="txtNumeros_KeyDown" LostFocus="txtRut_LostFocus"/>
-                <TextBox x:Name="txtNombre" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Nombres " Height="8" Margin="156,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="0.5,0.5">
-                    
-                </TextBox>
+                <TextBox x:Name="txtNombre" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Nombres " Height="8" Margin="156,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="0.5,0.5"/>
                 <TextBox x:Name="txtSegNombre" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Seg. Nombre" Height="8" Margin="156,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" />
                 <TextBox x:Name="txtApPaterno" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Apellido Paterno" Height="8" Margin="156,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
                 <TextBox x:Name="txtApeMaterno" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Apellido Materno " Height="8" Margin="156,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
@@ -38,7 +37,7 @@
                 <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="447,25,0,0" VerticalAlignment="Top" Height="25" Width="64" Cursor="Arrow" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnBuscar_Click"/>
                 <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="28,368,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
                 <Button x:Name="btnModificar" Content="Actualizar" HorizontalAlignment="Left" Margin="136,368,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnModificar_Click" />
-                <Image x:Name="image1" HorizontalAlignment="Left" Height="78" Margin="407,76,0,0" VerticalAlignment="Top" Width="156" Source="Imagenes/logoFinal.png" RenderTransformOrigin="1.091,0.822"/>
+                <Image x:Name="image1" HorizontalAlignment="Left" Height="78" Margin="407,76,0,0" VerticalAlignment="Top" Width="156" Source="Imagenes/logo2.png" RenderTransformOrigin="1.091,0.822"/>
 
 
                 <TextBox x:Name="txtDV" HorizontalAlignment="Left" Height="23" Margin="350,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.422,0.462" FontWeight="Normal" IsEnabled="False"/>

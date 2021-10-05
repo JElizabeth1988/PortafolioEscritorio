@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\App.xaml
-61712373956
+6-1130658609
 
-16-373240908
+16-1470677067
 61-719888480
-Cliente.xaml;ListadoCliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;
+WPFCliente.xaml;WPFListadoCliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;
 
-False
+True
 

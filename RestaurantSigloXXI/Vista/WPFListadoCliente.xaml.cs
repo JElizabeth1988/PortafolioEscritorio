@@ -26,23 +26,23 @@ using System.Data;
 namespace Vista
 {
     
-    public partial class ListadoCliente : MetroWindow
+    public partial class WPFListadoCliente : MetroWindow
     {
         //This (Origen)
-        Cliente cli;
+        WPFCliente cli;
 
         //Clase cliente
-        BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+        Cliente cl = new Cliente();
 
         //PatronSingleton--------------------------
-        private static ListadoCliente _instancia;
+        private static WPFListadoCliente _instancia;
 
 
-        public static ListadoCliente ObtenerinstanciaLICLI()
+        public static WPFListadoCliente ObtenerinstanciaLICLI()
         {
             if (_instancia == null)
             {
-                _instancia = new ListadoCliente();
+                _instancia = new WPFListadoCliente();
             }
 
             return _instancia;
@@ -51,7 +51,7 @@ namespace Vista
 
         OracleConnection conn = null;
 
-        private ListadoCliente()
+        public WPFListadoCliente()
         {
             InitializeComponent();
             //Se instancia la conexión a la BD
@@ -63,6 +63,22 @@ namespace Vista
             btnFiltrarRutFor.Visibility = Visibility.Hidden;//No se ve
             btnRefrescar2.Visibility = Visibility.Hidden;//No se ve
             CargarGrilla();          
+        }
+
+        //-----------------Llamado desde Adm. Clientes---------------------------------
+        //-----------------------------------------------------------------------
+        public WPFListadoCliente(WPFCliente origen)
+        {
+            InitializeComponent();
+            cli = origen;
+            //Mostrar(Visibility) y esconder(Hidden) botones
+            btnPasar.Visibility = Visibility.Visible;
+            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnRefrescar.Visibility = Visibility.Visible;
+            btnRefrescar2.Visibility = Visibility.Hidden;
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            CargarGrilla();
         }
 
         //------------Cargar Grilla---------------------
@@ -172,21 +188,7 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }*/
-        //-----------------Llamado desde Adm. Clientes---------------------------------
-        //-----------------------------------------------------------------------
-        public ListadoCliente(Cliente origen)
-        {
-            InitializeComponent();
-            cli = origen;
-            //Mostrar(Visibility) y esconder(Hidden) botones
-            btnPasar.Visibility = Visibility.Visible;        
-            btnPasarAForm.Visibility = Visibility.Hidden;
-            btnRefrescar.Visibility = Visibility.Visible;
-            btnRefrescar2.Visibility = Visibility.Hidden;
-            btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
-            CargarGrilla();
-        }
+        
 
         //-----------Botón Refrescar -------------------------------
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
@@ -341,6 +343,12 @@ namespace Vista
 
                 CargarInforme();
             }*/
+        }
+
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //Parar Singleton
+            _instancia = null;
         }
     }
 }
