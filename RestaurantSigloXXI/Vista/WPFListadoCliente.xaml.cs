@@ -229,8 +229,8 @@ namespace Vista
                 cli.txtDV.IsEnabled = false;//DV tampoco
                 cli.txtNombre.Text = c.Nombre;
                 cli.txtSegNombre.Text = c.Segundo_Nombre;
-                cli.txtApeMaterno.Text = c.Apellido_Paterno;
-                cli.txtApPaterno.Text = c.Apellido_Materno;
+                cli.txtApPaterno.Text = c.Apellido_Paterno;
+                cli.txtApeMaterno.Text = c.Apellido_Materno;
                 cli.txtEmail.Text = c.Email;
                 cli.txtCelular.Text = c.Celular.ToString();
                 cli.txtTelefono.Text = c.Teléfono.ToString();

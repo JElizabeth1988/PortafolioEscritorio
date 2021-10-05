@@ -338,37 +338,49 @@ namespace Vista
         //----------------------Botón Buscar (de administrar cliente)---------------
         private async void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            String rut = txtRut.Text + "-" + txtDV.Text;
-            if (rut.Length == 9)//Si el rut tiene solo 9 caracteres se le agrega cero al comienzo para que quede de 10
+            try
             {
-                rut = "0" + txtRut.Text + "-" + txtDV.Text;
-            }
-            cli.Buscar(rut);
-            if (cli != null)//Si la lista no esta vacía entrego parámetros a los textBox
-            {
-                txtRut.Text = cli.rut_cliente.Substring(0, 8);
-                txtDV.Text = cli.rut_cliente.Substring(9, 1);
-                txtRut.IsEnabled = false;//Rut no se modifica
-                txtDV.IsEnabled = false;//DV tampoco
+                String rut = txtRut.Text + "-" + txtDV.Text;
+                if (rut.Length == 9)//Si el rut tiene solo 9 caracteres se le agrega cero al comienzo para que quede de 10
+                {
+                    rut = "0" + txtRut.Text + "-" + txtDV.Text;
+                }
+                cli.Buscar(rut);
+                if (cli != null)//Si la lista no esta vacía entrego parámetros a los textBox
+                {
+                    txtRut.Text = cli.rut_cliente.Substring(0, 8);
+                    txtDV.Text = cli.rut_cliente.Substring(9, 1);
+                    txtRut.IsEnabled = false;//Rut no se modifica
+                    txtDV.IsEnabled = false;//DV tampoco
 
-                txtNombre.Text = cli.primer_nom_cli;
-                txtSegNombre.Text = cli.segundo_nom_cli;
-                txtApPaterno.Text = cli.ap_paterno_cli;
-                txtApeMaterno.Text = cli.ap_materno_cli;
-                txtEmail.Text = cli.correo_cli;
-                txtCelular.Text = cli.celular_cli.ToString();
-                txtTelefono.Text = cli.telefono_cli.ToString();
-               
-                btnModificar.Visibility = Visibility.Visible;
-                btnGuardar.Visibility = Visibility.Hidden;
-                btnEliminar.Visibility = Visibility.Visible;
+                    txtNombre.Text = cli.primer_nom_cli;
+                    txtSegNombre.Text = cli.segundo_nom_cli;
+                    txtApPaterno.Text = cli.ap_paterno_cli;
+                    txtApeMaterno.Text = cli.ap_materno_cli;
+                    txtEmail.Text = cli.correo_cli;
+                    txtCelular.Text = cli.celular_cli.ToString();
+                    txtTelefono.Text = cli.telefono_cli.ToString();
 
+                    btnModificar.Visibility = Visibility.Visible;
+                    btnGuardar.Visibility = Visibility.Hidden;
+                    btnEliminar.Visibility = Visibility.Visible;
+
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format("No se encontraron resultados!"));
+                }
             }
-            else
+            catch (Exception ex)
             {
+
                 await this.ShowMessageAsync("Mensaje:",
-                    string.Format("No se encontraron resultados!"));
+                     string.Format("Debe ingresar un rut correcto"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
             }
+            
         }
 
         

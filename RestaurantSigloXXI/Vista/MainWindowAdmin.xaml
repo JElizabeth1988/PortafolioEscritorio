@@ -9,7 +9,9 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         
-        Title="RESTAURANT SIGLO XXI - BIENVENIDO ADMINISTRADOR"  Height="648" Width="1143.334"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logoFinal.png"  IconEdgeMode="Aliased" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="2" TitleCaps="False" Cursor="Arrow">
+        Title="  RESTAURANT SIGLO XXI - BIENVENIDO ADMINISTRADOR"  Height="648" Width="1143.334"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logoFinal.png"  IconEdgeMode="Aliased" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="2" TitleCaps="False" Cursor="Arrow">
+
+    
     <Controls:MetroWindow.LeftWindowCommands>
         <Controls:WindowCommands>
             <!--Acceso directo a Facebook-->
