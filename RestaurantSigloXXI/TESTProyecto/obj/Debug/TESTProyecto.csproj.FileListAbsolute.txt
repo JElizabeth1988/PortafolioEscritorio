@@ -35,3 +35,15 @@ C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\TESTProyecto\bin\Debug\Oracle
 C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\TESTProyecto\bin\Debug\BibliotecaNegocio.pdb
 C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\TESTProyecto\bin\Debug\BibliotecaNegocio.dll.config
 C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\TESTProyecto\obj\Debug\TESTProyecto.csproj.CopyComplete
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\bin\Debug\TESTProyecto.exe.config
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\bin\Debug\TESTProyecto.exe
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\bin\Debug\TESTProyecto.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\bin\Debug\BibliotecaNegocio.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\bin\Debug\BibliotecaDALC.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\bin\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\obj\Debug\TESTProyecto.csprojResolveAssemblyReference.cache
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\obj\Debug\TESTProyecto.csproj.TESTProyecto.exe.config
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\obj\Debug\TESTProyecto.exe
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\obj\Debug\TESTProyecto.pdb

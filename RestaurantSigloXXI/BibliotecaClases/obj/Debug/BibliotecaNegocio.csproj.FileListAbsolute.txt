@@ -67,10 +67,7 @@ C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Bibliote
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\EntityFramework.dll
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\Oracle.ManagedDataAccess.dll
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\BibliotecaDALC.pdb
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\BibliotecaDALC.dll.config
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\EntityFramework.xml
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.csprojAssemblyReference.cache
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.csproj.CoreCompileInputs.cache
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.csproj.CopyComplete
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.dll
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.csprojResolveAssemblyReference.cache

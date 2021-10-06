@@ -58,8 +58,6 @@ C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Bibliote
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\EntityFramework.dll
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\EntityFramework.xml
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojAssemblyReference.cache
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csproj.CoreCompileInputs.cache
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csproj.CopyComplete
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
