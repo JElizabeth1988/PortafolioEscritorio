@@ -17,7 +17,7 @@ using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
 using BibliotecaNegocio;
-using BibliotecaDALC;
+
 
 using Oracle.ManagedDataAccess.Client;
 

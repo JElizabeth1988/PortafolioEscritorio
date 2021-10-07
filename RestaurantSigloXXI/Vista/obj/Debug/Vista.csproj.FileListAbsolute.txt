@@ -990,3 +990,8 @@ C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\Vista\o
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\Vista\obj\Debug\Vista.exe
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\Vista\obj\Debug\Vista.pdb
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\Vista.csprojResolveAssemblyReference.cache
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFEmpleado.g.cs
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\Vista.csproj.Vista.exe.config
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFListadoEmpleado.g.cs
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFListadoEmpleado.baml
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFEmpleado.baml

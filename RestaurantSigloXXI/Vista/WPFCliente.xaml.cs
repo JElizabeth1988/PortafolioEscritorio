@@ -22,7 +22,7 @@ using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 //Bibliotecas
 using BibliotecaNegocio;
-using BibliotecaDALC;
+
 
 using System.Threading; //Hilos
 //FileCache
@@ -59,8 +59,7 @@ namespace Vista
         public WPFCliente()
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();//Instanciar la conexión
-
+            
             txtDV.IsEnabled = false;//DV no se puede editar
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnEliminar.Visibility = Visibility.Hidden;

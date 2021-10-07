@@ -101,5 +101,16 @@ namespace Vista
         {
             WPFListadoCliente.ObtenerinstanciaLICLI().ShowDialog();
         }
+
+  
+        private void Tile_Click_AdmEmp(object sender, RoutedEventArgs e)
+        {
+            WPFEmpleado.ObtenerinstanciaEM().ShowDialog();
+        }
+
+        private void Tile_Click_ListadoEmp(object sender, RoutedEventArgs e)
+        {
+            WPFListadoEmpleado.ObtenerinstanciaLILIE().ShowDialog();
+        }
     }
 }

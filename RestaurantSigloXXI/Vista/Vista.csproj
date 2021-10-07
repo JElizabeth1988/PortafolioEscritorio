@@ -196,22 +196,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ComboBoxItem1.cs" />
+    <Compile Include="ComboBoxItemTipoUser.cs" />
+    <Compile Include="WPFListadoEmpleado.xaml.cs">
+      <DependentUpon>WPFListadoEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFEmpleado.xaml.cs">
+      <DependentUpon>WPFEmpleado.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFListadoCliente.xaml.cs">
       <DependentUpon>WPFListadoCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="ObjectBinder.cs" />
-    <Compile Include="Service References\WSBancoEstado\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\WSLOGIN\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
+    <Page Include="WPFListadoEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPFCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFEmpleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -274,23 +278,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\WSBancoEstado\Vista.WSBancoEstado.TipoClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSBancoEstado\WS_BANCO.wsdl" />
-    <None Include="Service References\WSBancoEstado\WS_BANCO.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WSLOGIN\Vista.WSLOGIN.LoginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSLOGIN\Vista.WSLOGIN.Rut_clienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSLOGIN\WSLOGIN.wsdl" />
-    <None Include="Service References\WSLOGIN\WSLOGIN.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Resource Include="Imagenes\Business-Man02.png" />
     <Resource Include="Imagenes\Command-Refresh-blue.png" />
     <Resource Include="Imagenes\logo .png" />
@@ -312,47 +299,12 @@
       <Project>{bf432429-8ad0-4cbb-94e4-8cf940ee6644}</Project>
       <Name>BibliotecaNegocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BibliotecaControlador\BibliotecaDALC.csproj">
-      <Project>{d97da004-87c2-415b-b9f0-d776cf72634c}</Project>
-      <Name>BibliotecaDALC</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Business-Man03.png" />
     <Resource Include="Imagenes\Command-Refresh-Black.png" />
     <Resource Include="Imagenes\Command-Refresh-white.png" />
     <Resource Include="Imagenes\Logout.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WSBancoEstado\" />
-    <WCFMetadataStorage Include="Service References\WSLOGIN\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WSLOGIN\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WSLOGIN\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WSLOGIN\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WSBancoEstado\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WSBancoEstado\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WSBancoEstado\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\about-img.jpg" />

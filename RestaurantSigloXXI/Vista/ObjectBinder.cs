@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-//Código de Clase en shorturl.at/tLOU4
+//Código de Clase en enlace shorturl.at/tLOU4
 //Esta clase transforma y serializa los objetos en la gráfica en un objeto de memoria caché
 namespace Vista
 {

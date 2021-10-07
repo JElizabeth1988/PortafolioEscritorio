@@ -11,15 +11,15 @@ namespace TESTProyecto
     {
         static void Main(string[] args)
         {
-            /*Comuna c = new Comuna();
+            TipoUsuario c = new TipoUsuario();
 
-            List<Comuna> lista = c.ReadAll();
+            List<TipoUsuario> lista = c.ReadAll();
 
             foreach (var item in lista)
             {
-                Console.WriteLine(item.nombre);
+                Console.WriteLine(item.descripcion_user);
             }
-            Console.ReadKey();*/
+            Console.ReadKey();
         }
     }
 }
