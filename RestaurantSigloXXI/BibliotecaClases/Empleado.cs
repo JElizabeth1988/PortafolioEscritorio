@@ -151,8 +151,8 @@ namespace BibliotecaNegocio
         }
         //Foranea
         public int id_tipo_user { get; set; }
-        public String usuario { get; set; }
-        public String contrasenia { get; set; }
+        public string usuario { get; set; }
+        public string contrasenia { get; set; }
 
         //No es serializable
         [NonSerialized]
@@ -214,7 +214,7 @@ namespace BibliotecaNegocio
         }
 
         //----------------Método agregar----------------------
-        public bool Agregar(Empleado emp)
+        public bool Agregar(Empleado emplea)
         {
             try
             {
@@ -228,16 +228,17 @@ namespace BibliotecaNegocio
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_AGREGAR_EMPLEADO";
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
-                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = emp.rut_empleado;
-                CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 45)).Value = emp.primer_nom_emp;
-                CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 45)).Value = emp.segundo_nom_emp;
-                CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 45)).Value = emp.apellido_pat_emp;
-                CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 45)).Value = emp.apellido_mat_emp;
-                CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = emp.celular_emp;
-                CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = emp.telefono_emp;
-                CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 80)).Value = emp.correo_emp;
-                CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = emp.usuario;
-                CMD.Parameters.Add(new OracleParameter("P_TIPO_USER", OracleDbType.Int32)).Value = emp.id_tipo_user;
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = emplea.rut_empleado;
+                CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 45)).Value = emplea.primer_nom_emp;
+                CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 45)).Value = emplea.segundo_nom_emp;
+                CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 45)).Value = emplea.apellido_pat_emp;
+                CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 45)).Value = emplea.apellido_mat_emp;
+                CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = emplea.celular_emp;
+                CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = emplea.telefono_emp;
+                CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 80)).Value = emplea.correo_emp;
+                CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = emplea.usuario;
+                CMD.Parameters.Add(new OracleParameter("P_PASS", OracleDbType.Varchar2, 20)).Value = emplea.contrasenia;
+                CMD.Parameters.Add(new OracleParameter("P_TIPO_USER", OracleDbType.Int32)).Value = emplea.id_tipo_user;
 
                 //Se abre la conexión
                 conn.Open();
@@ -250,9 +251,8 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
-                return false;
                 Logger.Mensaje(ex.Message);
+                return false;               
 
             }
         }
@@ -331,14 +331,13 @@ namespace BibliotecaNegocio
                     segundo_nom_emp = reader[2].ToString();
                     apellido_pat_emp = reader[3].ToString();
                     apellido_mat_emp = reader[4].ToString();
-                    celular_emp = int.Parse(reader[5].ToString());
-                    telefono_emp = int.Parse(reader[6].ToString());
-                    correo_emp = reader[7].ToString();
-                    usuario = reader[8].ToString();
-                    contrasenia = reader[9].ToString();
-                    id_tipo_user = int.Parse(reader[10].ToString());
-
-
+                    correo_emp = reader[5].ToString();
+                    celular_emp = int.Parse(reader[6].ToString());
+                    telefono_emp = int.Parse(reader[7].ToString());
+                    id_tipo_user = int.Parse(reader[8].ToString());
+                    usuario = reader[9].ToString();
+                    contrasenia = reader[10].ToString();
+                    
                     list.Add(e);
 
                 }

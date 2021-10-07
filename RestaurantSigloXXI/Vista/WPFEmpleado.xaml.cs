@@ -63,7 +63,7 @@ namespace Vista
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnEliminar.Visibility = Visibility.Hidden;
             txtRut.Focus();//Focus en el rut
-            txtPass.IsEnabled = false;//Password se crea con trigger
+            //txtPass.IsEnabled = false;//Password se crea con trigger
             //Llenar el combobox
             foreach (TipoUsuario item in new TipoUsuario().ReadAll())
             {
@@ -152,6 +152,7 @@ namespace Vista
                 {
                    em.id_tipo_user = ((comboBoxItemTipoUser)cboTipoUser.SelectedItem).id_tipo_user;
                 }
+               
                 
                 //Proceso de respaldo
                 //Con la ampolleta agregó el using Runtime.Caching
@@ -260,33 +261,14 @@ namespace Vista
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
                 
-                //int celular = int.Parse(txtCelular.Text);   
-                int celular = 0;
-                if (int.TryParse(txtCelular.Text, out celular))
-                {
-
-                }
-                else
-                {
-                    /* await this.ShowMessageAsync("Mensaje:",
-                       string.Format("Ingrese un número de 9 dígitos"));
-                     txtTelefono.Focus();*/
-                    return;
-                }
-                //int telefono = int.Parse(txtTelefono.Text); 
-                int telefono = 0;
-                if (int.TryParse(txtTelefono.Text, out telefono))
-                {
-
-                }
-                else
-                {
-                    /*await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Ingrese un número de 9 dígitos"));
-                    txtTelefono.Focus();*/
-                    return;
-                }
+                int celular = int.Parse(txtCelular.Text);   
+                //int celular = 0;
+                
+                int telefono = int.Parse(txtTelefono.Text); 
+                
                 String user = txtUser.Text;
+                
+                string pass = txtPass.Text;
                 int tipo = ((comboBoxItemTipoUser)cboTipoUser.SelectedItem).id_tipo_user;//Guardo el id
 
                 Empleado em = new Empleado()
@@ -300,6 +282,7 @@ namespace Vista
                     telefono_emp = telefono,
                     correo_emp = mail,
                     usuario = user,
+                    contrasenia = pass,
                     id_tipo_user = tipo,
 
                 };
@@ -384,6 +367,7 @@ namespace Vista
                     telefono_emp = telefono,
                     correo_emp = mail,
                     usuario = usuario,
+                    contrasenia = Pass,
                     id_tipo_user = tipo
 
                 };
@@ -607,8 +591,6 @@ namespace Vista
                 {
                     Empleado c = (Empleado)filecahe["empleado"];
                     txtRut.Text = c.rut_empleado;
-                    //txtRut.Text = c.rut_cliente.Substring(0, 8);
-                    //txtDV.Text = c.rut_cliente.Substring(9, 1);
                     txtNombre.Text = c.primer_nom_emp;
                     txtSegNombre.Text = c.segundo_nom_emp;
                     txtApPaterno.Text = c.apellido_pat_emp;
@@ -620,7 +602,7 @@ namespace Vista
                     txtPass.Text = c.contrasenia;
                     //-------Cambiar a nombre
                     TipoUsuario ti = new TipoUsuario();
-                    ti.id_tipo_user = emp.id_tipo_user;
+                    ti.id_tipo_user = c.id_tipo_user;
                     ti.Read();
                     cboTipoUser.Text = ti.descripcion_user;//Cambiar a nombre
                     //--------------------
