@@ -93,6 +93,7 @@
     <EntitySetMapping Name="LOGIN">
       <EntityTypeMapping TypeName="Modelo.LOGIN">
         <MappingFragment StoreEntitySet="LOGIN">
+          <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
           <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
           <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
           <ScalarProperty Name="ID_TIPO_USER" ColumnName="ID_TIPO_USER" />
@@ -159,6 +160,14 @@
           <ScalarProperty Name="ID_METODO_PAGO" ColumnName="ID_METODO_PAGO" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
           <ScalarProperty Name="ID_ORDEN" ColumnName="ID_ORDEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAGO_EXTERNO">
+      <EntityTypeMapping TypeName="Modelo.PAGO_EXTERNO">
+        <MappingFragment StoreEntitySet="PAGO_EXTERNO">
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="CLAVE" ColumnName="CLAVE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

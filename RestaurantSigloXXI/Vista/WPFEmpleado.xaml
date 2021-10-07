@@ -12,7 +12,7 @@
         BorderThickness="2" BorderBrush="Black"
         Title="Administrar Empleado" Height="638.312" Width="695.318" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal.png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
     <Grid HorizontalAlignment="Left" Height="640" VerticalAlignment="Top" Width="695" Margin="0,0,-9,0">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="660" VerticalAlignment="Top" Width="701" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-6,-121"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="616" VerticalAlignment="Top" Width="701" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-6,0"/>
         <GroupBox x:Name="groupBox" Header="Información de Empleado" Margin="49,10,50,0" VerticalAlignment="Top" Height="495" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="461" VerticalAlignment="Top" Width="586" Margin="0,-2,0,0" Background="{x:Null}">
                 <Label x:Name="label" Content="Rut:" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top"/>
@@ -33,7 +33,7 @@
                 <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ej. 288888888" Height="8" Margin="156,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"  KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21"  />
                 <TextBox x:Name="txtUser" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Nombre de Usuario" Height="8" Margin="156,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
                 <TextBox x:Name="txtPass" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Password" Height="8" Margin="156,340,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
-                <ComboBox x:Name="cboTipoUser" HorizontalAlignment="Left" Margin="156,375,0,0" VerticalAlignment="Top" Width="195"/>
+                <ComboBox x:Name="cboTipoUser" HorizontalAlignment="Left" Margin="156,375,0,0" VerticalAlignment="Top" Width="195" FontWeight="Normal"/>
 
                 <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="131,422,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnGuardar_Click"/>
                 <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="473,422,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
@@ -51,7 +51,7 @@
                 <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="244,422,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnEliminar_Click"/>
                 <Label x:Name="label_Copy8" Content="Contraseña:&#xA;" HorizontalAlignment="Left" Margin="23,340,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.73,-0.613" Height="32"/>
                 <Label x:Name="label_Copy9" Content="Cargo:&#xA;" HorizontalAlignment="Left" Margin="23,375,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.73,-0.613" Height="32"/>
-               
+
 
 
 

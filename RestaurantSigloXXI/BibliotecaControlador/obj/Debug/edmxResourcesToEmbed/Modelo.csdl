@@ -4,12 +4,12 @@
     <Key>
       <PropertyRef Name="ID_BEBIDA" />
     </Key>
-    <Property Name="ID_BEBIDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_BEBIDA" Type="Int32" Nullable="false" />
     <Property Name="NOM_BEBIDA" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ML_BEBIDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="VALOR_BEBIDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="STOCK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_TIPO_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ML_BEBIDA" Type="Int32" Nullable="false" />
+    <Property Name="VALOR_BEBIDA" Type="Int32" Nullable="false" />
+    <Property Name="STOCK" Type="Int32" Nullable="false" />
+    <Property Name="ID_TIPO_PRODUCTO" Type="Int32" Nullable="false" />
     <NavigationProperty Name="TIPO_PRODUCTO" Relationship="Self.BEBIDA_TIPO_PRODUCTO_FK" FromRole="BEBIDA" ToRole="TIPO_PRODUCTO" />
     <NavigationProperty Name="MENU" Relationship="Self.MENU_BEBIDA_FK" FromRole="BEBIDA" ToRole="MENU" />
   </EntityType>
@@ -17,24 +17,24 @@
     <Key>
       <PropertyRef Name="ID_BOLETA" />
     </Key>
-    <Property Name="ID_BOLETA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_BOLETA" Type="Int32" Nullable="false" />
     <Property Name="FECHA_EMISION" Type="DateTime" Nullable="false" />
     <Property Name="HORA_EMISION" Type="DateTime" Precision="255" Nullable="false" />
-    <Property Name="PROPINA" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="IVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="TOTAL_BOLETA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="SUB_TOTAL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="DESCUENTO" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="PAGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="VUELTO" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="N_TRANSACCION" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="PROPINA" Type="Int32" />
+    <Property Name="IVA" Type="Int32" Nullable="false" />
+    <Property Name="TOTAL_BOLETA" Type="Int32" Nullable="false" />
+    <Property Name="SUB_TOTAL" Type="Int32" Nullable="false" />
+    <Property Name="DESCUENTO" Type="Int32" />
+    <Property Name="PAGO" Type="Int32" Nullable="false" />
+    <Property Name="VUELTO" Type="Int32" />
+    <Property Name="N_TRANSACCION" Type="Int32" />
     <NavigationProperty Name="PAGO1" Relationship="Self.BOLETA_PAGO_FK" FromRole="BOLETA" ToRole="PAGO" />
   </EntityType>
   <EntityType Name="CATEGORIA">
     <Key>
       <PropertyRef Name="ID_CATEGORIA" />
     </Key>
-    <Property Name="ID_CATEGORIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE_CAT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="MENU" Relationship="Self.MENU_CATEGORIA_FK" FromRole="CATEGORIA" ToRole="MENU" />
     <NavigationProperty Name="PLATO" Relationship="Self.PLATO_CATEGORIA_FK" FromRole="CATEGORIA" ToRole="PLATO" />
@@ -48,8 +48,8 @@
     <Property Name="SEGUNDO_NOM_CLI" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="AP_PATERNO_CLI" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="AP_MATERNO_CLI" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="CELULAR_CLI" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="TELEFONO_CLI" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CELULAR_CLI" Type="Int32" Nullable="false" />
+    <Property Name="TELEFONO_CLI" Type="Int32" />
     <Property Name="CORREO_CLI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="LOGIN" Relationship="Self.LOGIN_CLIENTE_FK" FromRole="CLIENTE" ToRole="LOGIN" />
     <NavigationProperty Name="ORDEN" Relationship="Self.ORDEN_CLIENTE_FK" FromRole="CLIENTE" ToRole="ORDEN" />
@@ -66,8 +66,8 @@
     <Property Name="APELLIDO_PAT_EMP" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="APELLIDO_MAT_EMP" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CORREO_EMP" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="CELULAR_EMP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="TELEFONO_EMP" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CELULAR_EMP" Type="Int32" Nullable="false" />
+    <Property Name="TELEFONO_EMP" Type="Int32" />
     <Property Name="ID_TIPO_USER" Type="Int32" Nullable="false" />
     <Property Name="USUARIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CONTRASENIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -76,15 +76,16 @@
     <NavigationProperty Name="ORDEN" Relationship="Self.ORDEN_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="ORDEN" />
     <NavigationProperty Name="PEDIDO_PROVEEDOR" Relationship="Self.PEDIDO_PROVEEDOR_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="PEDIDO_PROVEEDOR" />
     <NavigationProperty Name="RECETA" Relationship="Self.RECETA_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="RECETA" />
+    <NavigationProperty Name="LOGIN" Relationship="Modelo.LOGIN_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="LOGIN" />
   </EntityType>
   <EntityType Name="ENTIDAD_BANCARIA">
     <Key>
       <PropertyRef Name="ID_ENTIDAD" />
     </Key>
-    <Property Name="ID_ENTIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_ENTIDAD" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE_BANCO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DESCRIPCION_BANCO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="NRO_CUENTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NRO_CUENTA" Type="Int32" Nullable="false" />
     <Property Name="TIPO_CTA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="METODO_PAGO" Relationship="Self.METODO_PAGO_ENT_BANC_FK" FromRole="ENTIDAD_BANCARIA" ToRole="METODO_PAGO" />
   </EntityType>
@@ -92,10 +93,10 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="FECHA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="HORA_INGRESO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="MONTO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MONTO" Type="Int32" />
   </EntityType>
   <EntityType Name="LOGIN">
     <Key>
@@ -108,18 +109,20 @@
     <Property Name="RUT_CLIENTE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="CLIENTE" Relationship="Self.LOGIN_CLIENTE_FK" FromRole="LOGIN" ToRole="CLIENTE" />
     <NavigationProperty Name="TIPO_USUARIO" Relationship="Self.LOGIN_TIPO_USUARIO_FK" FromRole="LOGIN" ToRole="TIPO_USUARIO" />
+    <Property Name="RUT_EMPLEADO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLEADO" Relationship="Modelo.LOGIN_EMPLEADO_FK" FromRole="LOGIN" ToRole="EMPLEADO" />
   </EntityType>
   <EntityType Name="MENU">
     <Key>
       <PropertyRef Name="ID_MENU" />
     </Key>
-    <Property Name="ID_MENU" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_MENU" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="PRECIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_BEBIDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_PLATO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_CATEGORIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PRECIO" Type="Int32" Nullable="false" />
+    <Property Name="ID_BEBIDA" Type="Int32" Nullable="false" />
+    <Property Name="ID_PLATO" Type="Int32" Nullable="false" />
+    <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" />
     <NavigationProperty Name="BEBIDA" Relationship="Self.MENU_BEBIDA_FK" FromRole="MENU" ToRole="BEBIDA" />
     <NavigationProperty Name="CATEGORIA" Relationship="Self.MENU_CATEGORIA_FK" FromRole="MENU" ToRole="CATEGORIA" />
     <NavigationProperty Name="PLATO" Relationship="Self.MENU_PLATO_FK" FromRole="MENU" ToRole="PLATO" />
@@ -129,10 +132,10 @@
     <Key>
       <PropertyRef Name="NUM_MESA" />
     </Key>
-    <Property Name="NUM_MESA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NUM_MESA" Type="Int32" Nullable="false" />
     <Property Name="FECHA_DISPONIBILIDAD_MESA" Type="DateTime" Nullable="false" />
     <Property Name="HORA_DISPONIBILIDAD_MESA" Type="DateTime" Nullable="false" />
-    <Property Name="CAPACIDAD_PERSONA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CAPACIDAD_PERSONA" Type="Int32" Nullable="false" />
     <Property Name="RUT_EMPLEADO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="EMPLEADO" Relationship="Self.MESA_EMPLEADO_FK" FromRole="MESA" ToRole="EMPLEADO" />
     <NavigationProperty Name="RESERVA" Relationship="Self.RESERVA_MESA_FK" FromRole="MESA" ToRole="RESERVA" />
@@ -141,9 +144,9 @@
     <Key>
       <PropertyRef Name="ID_METODO_PAGO" />
     </Key>
-    <Property Name="ID_METODO_PAGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_METODO_PAGO" Type="Int32" Nullable="false" />
     <Property Name="TIPO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ID_ENTIDAD" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ID_ENTIDAD" Type="Int32" />
     <NavigationProperty Name="ENTIDAD_BANCARIA" Relationship="Self.METODO_PAGO_ENT_BANC_FK" FromRole="METODO_PAGO" ToRole="ENTIDAD_BANCARIA" />
     <NavigationProperty Name="PAGO" Relationship="Self.PAGO_METODO_PAGO_FK" FromRole="METODO_PAGO" ToRole="PAGO" />
   </EntityType>
@@ -151,15 +154,15 @@
     <Key>
       <PropertyRef Name="ID_ORDEN" />
     </Key>
-    <Property Name="ID_ORDEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_ORDEN" Type="Int32" Nullable="false" />
     <Property Name="DETALLE_ORDEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="FECHA_ORDEN" Type="DateTime" Nullable="false" />
     <Property Name="HORA_ORDEN" Type="DateTime" Precision="255" Nullable="false" />
-    <Property Name="CANTIDAD_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CANTIDAD_PRODUCTO" Type="Int32" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ESTADO_ORDEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="VALOR_ORDEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_MENU" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VALOR_ORDEN" Type="Int32" Nullable="false" />
+    <Property Name="ID_MENU" Type="Int32" Nullable="false" />
     <Property Name="RUT_EMPLEADO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="CLIENTE" Relationship="Self.ORDEN_CLIENTE_FK" FromRole="ORDEN" ToRole="CLIENTE" />
     <NavigationProperty Name="EMPLEADO" Relationship="Self.ORDEN_EMPLEADO_FK" FromRole="ORDEN" ToRole="EMPLEADO" />
@@ -170,28 +173,35 @@
     <Key>
       <PropertyRef Name="N_TRANSACCION" />
     </Key>
-    <Property Name="N_TRANSACCION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="VALOR_PAGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="N_TRANSACCION" Type="Int32" Nullable="false" />
+    <Property Name="VALOR_PAGO" Type="Int32" Nullable="false" />
     <Property Name="ESTADO_PAGO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DESCUENTO" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="ID_METODO_PAGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DESCUENTO" Type="Int32" />
+    <Property Name="ID_METODO_PAGO" Type="Int32" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ID_ORDEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_ORDEN" Type="Int32" Nullable="false" />
     <NavigationProperty Name="BOLETA" Relationship="Self.BOLETA_PAGO_FK" FromRole="PAGO" ToRole="BOLETA" />
     <NavigationProperty Name="CLIENTE" Relationship="Self.PAGO_CLIENTE_FK" FromRole="PAGO" ToRole="CLIENTE" />
     <NavigationProperty Name="METODO_PAGO" Relationship="Self.PAGO_METODO_PAGO_FK" FromRole="PAGO" ToRole="METODO_PAGO" />
     <NavigationProperty Name="ORDEN" Relationship="Self.PAGO_ORDEN_FK" FromRole="PAGO" ToRole="ORDEN" />
   </EntityType>
+  <EntityType Name="PAGO_EXTERNO">
+    <Key>
+      <PropertyRef Name="RUT_CLIENTE" />
+    </Key>
+    <Property Name="RUT_CLIENTE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLAVE" Type="Int32" Nullable="false" />
+  </EntityType>
   <EntityType Name="PEDIDO_PROVEEDOR">
     <Key>
       <PropertyRef Name="ID_PEDIDO" />
     </Key>
-    <Property Name="ID_PEDIDO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
     <Property Name="FECHA_PEDIDO" Type="DateTime" Nullable="false" />
     <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="CANTIDAD_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_PROVEEDOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CANTIDAD_PRODUCTO" Type="Int32" Nullable="false" />
+    <Property Name="ID_PROVEEDOR" Type="Int32" Nullable="false" />
+    <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" />
     <Property Name="RUT_EMPLEADO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="EMPLEADO" Relationship="Self.PEDIDO_PROVEEDOR_EMPLEADO_FK" FromRole="PEDIDO_PROVEEDOR" ToRole="EMPLEADO" />
     <NavigationProperty Name="PRODUCTO" Relationship="Self.PEDIDO_PROVEEDOR_PRODUCTO_FK" FromRole="PEDIDO_PROVEEDOR" ToRole="PRODUCTO" />
@@ -201,15 +211,15 @@
     <Key>
       <PropertyRef Name="ID_PLATO" />
     </Key>
-    <Property Name="ID_PLATO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_PLATO" Type="Int32" Nullable="false" />
     <Property Name="NOM_PLATO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="PRECIO_PLATO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PRECIO_PLATO" Type="Int32" Nullable="false" />
     <Property Name="DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TIEMPO_PREPARACION" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="TIEMPO_PREPARACION" Type="Int32" />
     <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ID_RECETA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_CATEGORIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_RECETA" Type="Int32" Nullable="false" />
+    <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" />
+    <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" />
     <NavigationProperty Name="CATEGORIA" Relationship="Self.PLATO_CATEGORIA_FK" FromRole="PLATO" ToRole="CATEGORIA" />
     <NavigationProperty Name="MENU" Relationship="Self.MENU_PLATO_FK" FromRole="PLATO" ToRole="MENU" />
     <NavigationProperty Name="PRODUCTO" Relationship="Self.PLATO_PRODUCTO_FK" FromRole="PLATO" ToRole="PRODUCTO" />
@@ -219,13 +229,13 @@
     <Key>
       <PropertyRef Name="ID_PRODUCTO" />
     </Key>
-    <Property Name="ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" />
     <Property Name="NOM_PRODUCTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="VALOR_UNIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="VALOR_KILO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="STOCK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="VALOR_TOTAL" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="ID_TIPO_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VALOR_UNIDAD" Type="Int32" Nullable="false" />
+    <Property Name="VALOR_KILO" Type="Int32" Nullable="false" />
+    <Property Name="STOCK" Type="Int32" Nullable="false" />
+    <Property Name="VALOR_TOTAL" Type="Int32" />
+    <Property Name="ID_TIPO_PRODUCTO" Type="Int32" Nullable="false" />
     <NavigationProperty Name="PEDIDO_PROVEEDOR" Relationship="Self.PEDIDO_PROVEEDOR_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="PEDIDO_PROVEEDOR" />
     <NavigationProperty Name="PLATO" Relationship="Self.PLATO_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="PLATO" />
     <NavigationProperty Name="TIPO_PRODUCTO" Relationship="Self.PRODUCTO_TIPO_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="TIPO_PRODUCTO" />
@@ -235,12 +245,12 @@
     <Key>
       <PropertyRef Name="ID_PROVEEDOR" />
     </Key>
-    <Property Name="ID_PROVEEDOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_PROVEEDOR" Type="Int32" Nullable="false" />
     <Property Name="NOM_PROVEEDOR" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="APE_PAT_PROVEEDOR" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="APE_MAT_PROVEEDOR" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="CORREO_PROVEEDOR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TELEFONO_PROVEEDOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TELEFONO_PROVEEDOR" Type="Int32" Nullable="false" />
     <Property Name="DIRECCION_PROVEEDOR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PEDIDO_PROVEEDOR" Relationship="Self.PEDIDO_PROVEEDOR_PROVEEDOR_FK" FromRole="PROVEEDOR" ToRole="PEDIDO_PROVEEDOR" />
   </EntityType>
@@ -248,11 +258,11 @@
     <Key>
       <PropertyRef Name="ID_RECETA" />
     </Key>
-    <Property Name="ID_RECETA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_RECETA" Type="Int32" Nullable="false" />
     <Property Name="NOM_RECETA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="INSTRUCCIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TIEMPO_COCION" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIEMPO_COCION" Type="Int32" />
+    <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" />
     <Property Name="RUT_EMPLEADO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="EMPLEADO" Relationship="Self.RECETA_EMPLEADO_FK" FromRole="RECETA" ToRole="EMPLEADO" />
     <NavigationProperty Name="PLATO" Relationship="Self.PLATO_RECETA_FK" FromRole="RECETA" ToRole="PLATO" />
@@ -262,14 +272,14 @@
     <Key>
       <PropertyRef Name="ID_RESERVA" />
     </Key>
-    <Property Name="ID_RESERVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_RESERVA" Type="Int32" Nullable="false" />
     <Property Name="FECHA_RESERVA" Type="DateTime" Nullable="false" />
     <Property Name="HORA_RESERVA" Type="DateTime" Precision="255" Nullable="false" />
-    <Property Name="CANTIDAD_PERSONAS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CANTIDAD_PERSONAS" Type="Int32" Nullable="false" />
     <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="ESTADO_RESERVA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="NUM_MESA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NUM_MESA" Type="Int32" Nullable="false" />
     <NavigationProperty Name="CLIENTE" Relationship="Self.RESERVA_CLIENTE_FK" FromRole="RESERVA" ToRole="CLIENTE" />
     <NavigationProperty Name="MESA" Relationship="Self.RESERVA_MESA_FK" FromRole="RESERVA" ToRole="MESA" />
   </EntityType>
@@ -277,7 +287,7 @@
     <Key>
       <PropertyRef Name="ID_TIPO_PRODUCTO" />
     </Key>
-    <Property Name="ID_TIPO_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_TIPO_PRODUCTO" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE_TIPO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="BEBIDA" Relationship="Self.BEBIDA_TIPO_PRODUCTO_FK" FromRole="TIPO_PRODUCTO" ToRole="BEBIDA" />
     <NavigationProperty Name="PRODUCTO" Relationship="Self.PRODUCTO_TIPO_PRODUCTO_FK" FromRole="TIPO_PRODUCTO" ToRole="PRODUCTO" />
@@ -629,6 +639,7 @@
     <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" />
     <EntitySet Name="ORDEN" EntityType="Self.ORDEN" />
     <EntitySet Name="PAGO" EntityType="Self.PAGO" />
+    <EntitySet Name="PAGO_EXTERNO" EntityType="Self.PAGO_EXTERNO" />
     <EntitySet Name="PEDIDO_PROVEEDOR" EntityType="Self.PEDIDO_PROVEEDOR" />
     <EntitySet Name="PLATO" EntityType="Self.PLATO" />
     <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
@@ -745,5 +756,21 @@
       <End Role="PRODUCTO" EntitySet="PRODUCTO" />
       <End Role="RECETA" EntitySet="RECETA" />
     </AssociationSet>
+    <AssociationSet Name="LOGIN_EMPLEADO_FK" Association="Modelo.LOGIN_EMPLEADO_FK">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="LOGIN" EntitySet="LOGIN" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="LOGIN_EMPLEADO_FK">
+    <End Type="Modelo.EMPLEADO" Role="EMPLEADO" Multiplicity="0..1" />
+    <End Type="Modelo.LOGIN" Role="LOGIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="RUT_EMPLEADO" />
+      </Principal>
+      <Dependent Role="LOGIN">
+        <PropertyRef Name="RUT_EMPLEADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

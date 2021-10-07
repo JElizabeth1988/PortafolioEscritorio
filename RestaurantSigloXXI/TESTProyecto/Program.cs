@@ -13,7 +13,7 @@ namespace TESTProyecto
         {
             TipoUsuario c = new TipoUsuario();
 
-            List<TipoUsuario> lista = c.listar();
+            List<TipoUsuario> lista = c.ReadAll();
 
             foreach (TipoUsuario item in lista)
             {

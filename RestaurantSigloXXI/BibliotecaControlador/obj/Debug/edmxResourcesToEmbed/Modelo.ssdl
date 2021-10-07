@@ -84,13 +84,14 @@
   </EntityType>
   <EntityType Name="LOGIN">
     <Key>
-      <PropertyRef Name="CONTRASENIA" />
       <PropertyRef Name="USUARIO" />
+      <PropertyRef Name="CONTRASENIA" />
     </Key>
-    <Property Name="CONTRASENIA" Type="varchar2" MaxLength="60" Nullable="false" />
     <Property Name="USUARIO" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="CONTRASENIA" Type="varchar2" MaxLength="60" Nullable="false" />
     <Property Name="ID_TIPO_USER" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
+    <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" />
+    <Property Name="RUT_EMPLEADO" Type="varchar2" MaxLength="12" />
   </EntityType>
   <EntityType Name="MENU">
     <Key>
@@ -148,6 +149,13 @@
     <Property Name="ID_METODO_PAGO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
     <Property Name="ID_ORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAGO_EXTERNO">
+    <Key>
+      <PropertyRef Name="RUT_CLIENTE" />
+    </Key>
+    <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
+    <Property Name="CLAVE" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="PEDIDO_PROVEEDOR">
     <Key>
@@ -274,7 +282,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="LOGIN_CLIENTE_FK">
-    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
     <End Role="LOGIN" Type="Self.LOGIN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CLIENTE">
@@ -282,6 +290,18 @@
       </Principal>
       <Dependent Role="LOGIN">
         <PropertyRef Name="RUT_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LOGIN_EMPLEADO_FK">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+    <End Role="LOGIN" Type="Self.LOGIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="RUT_EMPLEADO" />
+      </Principal>
+      <Dependent Role="LOGIN">
+        <PropertyRef Name="RUT_EMPLEADO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -575,6 +595,7 @@
     <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="ORDEN" EntityType="Self.ORDEN" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="PAGO" EntityType="Self.PAGO" Schema="RSXXI" store:Type="Tables" />
+    <EntitySet Name="PAGO_EXTERNO" EntityType="Self.PAGO_EXTERNO" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="PEDIDO_PROVEEDOR" EntityType="Self.PEDIDO_PROVEEDOR" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="PLATO" EntityType="Self.PLATO" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="RSXXI" store:Type="Tables" />
@@ -597,6 +618,10 @@
     </AssociationSet>
     <AssociationSet Name="LOGIN_CLIENTE_FK" Association="Self.LOGIN_CLIENTE_FK">
       <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="LOGIN" EntitySet="LOGIN" />
+    </AssociationSet>
+    <AssociationSet Name="LOGIN_EMPLEADO_FK" Association="Self.LOGIN_EMPLEADO_FK">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
       <End Role="LOGIN" EntitySet="LOGIN" />
     </AssociationSet>
     <AssociationSet Name="LOGIN_TIPO_USUARIO_FK" Association="Self.LOGIN_TIPO_USUARIO_FK">

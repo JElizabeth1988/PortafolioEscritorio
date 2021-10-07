@@ -65,13 +65,13 @@ namespace Vista
             txtRut.Focus();//Focus en el rut
             txtPass.IsEnabled = false;//Password se crea con trigger
             //Llenar el combobox
-           /* foreach (Tipo_Usuario item in new Tipo_Usuario().ReadAll())
+            foreach (TipoUsuario item in new TipoUsuario().ReadAll())
             {
                 comboBoxItemTipoUser cb = new comboBoxItemTipoUser();
                 cb.id_tipo_user = item.id_tipo_user;
                 cb.descripcion_user = item.descripcion_user;
                 cboTipoUser.Items.Add(cb);
-            }*/
+            }
 
             cboTipoUser.SelectedIndex = 0;
 
@@ -148,11 +148,11 @@ namespace Vista
                 {
                     em.contrasenia = txtPass.Text;
                 }
-               /* if (cboTipoUser.SelectedValue != null)
+                if (cboTipoUser.SelectedValue != null)
                 {
                    em.id_tipo_user = ((comboBoxItemTipoUser)cboTipoUser.SelectedItem).id_tipo_user;
                 }
-                */
+                
                 //Proceso de respaldo
                 //Con la ampolleta agregó el using Runtime.Caching
                 FileCache filecahe = new FileCache(new ObjectBinder());
@@ -454,10 +454,10 @@ namespace Vista
                     txtUser.Text = emp.usuario;
                     txtPass.Text = emp.contrasenia;
                     //-------Cambiar a nombre
-                   /* TipoUsuario ti = new TipoUsuario();
+                    TipoUsuario ti = new TipoUsuario();
                     ti.id_tipo_user = emp.id_tipo_user;
                     ti.Read();
-                    cboTipoUser.Text = ti.descripcion_user;//Cambiar a nombre*/
+                    cboTipoUser.Text = ti.descripcion_user;//Cambiar a nombre
                     //--------------------
 
                     btnModificar.Visibility = Visibility.Visible;
@@ -619,10 +619,10 @@ namespace Vista
                     txtUser.Text = c.usuario;
                     txtPass.Text = c.contrasenia;
                     //-------Cambiar a nombre
-                    //Tipo_Usuario ti = new Tipo_Usuario();
-                   // ti.id_tipo_user = emp.id_tipo_user;
-                    //ti.Read();
-                    //cboTipoUser.Text = ti.descripcion_user;//Cambiar a nombre
+                    TipoUsuario ti = new TipoUsuario();
+                    ti.id_tipo_user = emp.id_tipo_user;
+                    ti.Read();
+                    cboTipoUser.Text = ti.descripcion_user;//Cambiar a nombre
                     //--------------------
 
                 }
