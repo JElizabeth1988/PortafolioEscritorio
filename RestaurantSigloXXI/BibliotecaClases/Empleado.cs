@@ -457,7 +457,7 @@ namespace BibliotecaNegocio
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_FILTRAR_RUT_EMP";
+                CMD.CommandText = "SP_FILTRAR_RUT_EM";
                 //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
                 CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = rut;
                 CMD.Parameters.Add(new OracleParameter("EMPLEADOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;

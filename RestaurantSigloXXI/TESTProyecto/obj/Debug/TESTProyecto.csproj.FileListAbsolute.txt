@@ -47,5 +47,3 @@ C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProy
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\obj\Debug\TESTProyecto.csproj.TESTProyecto.exe.config
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\obj\Debug\TESTProyecto.exe
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\obj\Debug\TESTProyecto.pdb
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\bin\Debug\EntityFramework.dll
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\TESTProyecto\bin\Debug\EntityFramework.xml

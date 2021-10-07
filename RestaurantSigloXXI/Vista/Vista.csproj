@@ -197,25 +197,25 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ComboBoxItemTipoUser.cs" />
-    <Compile Include="WPFListadoEmpleado.xaml.cs">
-      <DependentUpon>WPFListadoEmpleado.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WPFEmpleado.xaml.cs">
       <DependentUpon>WPFEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFListadoEmpleado.xaml.cs">
+      <DependentUpon>WPFListadoEmpleado.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFListadoCliente.xaml.cs">
       <DependentUpon>WPFListadoCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="ObjectBinder.cs" />
+    <Page Include="WPFEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPFListadoEmpleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFCliente.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WPFEmpleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,9 +13,9 @@ namespace TESTProyecto
         {
             TipoUsuario c = new TipoUsuario();
 
-            List<TipoUsuario> lista = c.ReadAll();
+            List<TipoUsuario> lista = c.listar();
 
-            foreach (var item in lista)
+            foreach (TipoUsuario item in lista)
             {
                 Console.WriteLine(item.descripcion_user);
             }
