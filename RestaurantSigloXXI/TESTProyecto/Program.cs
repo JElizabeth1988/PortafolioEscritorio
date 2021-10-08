@@ -11,15 +11,19 @@ namespace TESTProyecto
     {
         static void Main(string[] args)
         {
-            TipoUsuario c = new TipoUsuario();
+             TipoUsuario c = new TipoUsuario();
 
-            List<TipoUsuario> lista = c.ReadAll();
+             List<TipoUsuario> lista = c.ReadAll();
 
-            foreach (TipoUsuario item in lista)
-            {
-                Console.WriteLine(item.descripcion_user);
-            }
-            Console.ReadKey();
+             foreach (TipoUsuario item in lista)
+             {
+                 Console.WriteLine(item.descripcion_user);
+             }
+             Console.ReadKey();
+
+            
         }
+
+
     }
 }

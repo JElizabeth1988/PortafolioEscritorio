@@ -501,7 +501,7 @@ namespace BibliotecaNegocio
 
 
         //Lista Clientes para mostrar nombres en vez de id (para procedimientos con Joins)
-
+        [Serializable]
         public class ListaEmpleado
         {
             public string Rut { get; set; }

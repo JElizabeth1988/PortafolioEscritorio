@@ -49,7 +49,7 @@ namespace Vista
 
         //Hilo para cache
         Thread hilo = null;
-
+        public Thread h2 = null;
         //Instanciar BD
         OracleConnection conn = null;
         //Traer clase empleado
@@ -58,7 +58,9 @@ namespace Vista
         public WPFEmpleado()
         {
             InitializeComponent();
-
+            txtPass.IsEnabled = false;
+            txtUser.IsEnabled = false;
+            
             txtDV.IsEnabled = false;//DV no se puede editar
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnEliminar.Visibility = Visibility.Hidden;
@@ -85,15 +87,25 @@ namespace Vista
                     generaRespaldo();
                 }
             });
+            Task tarea2 = new Task(() =>
+            {
+                h2 = Thread.CurrentThread;
+                while (true)
+                {
+                    Thread.Sleep(5000);//cada 5 segundos guarda
+                    metodopass();
+                }
+            });
 
             tarea.Start();
+            tarea2.Start();
 
             FileCache filecache = new FileCache(new ObjectBinder());
 
             if (filecache["hora"] != null)
             {
                 lblCache.Content = filecache["hora"].ToString();
-            }
+                           }
             //---------------------------------
         }
         //Método generar respaldo------------------
@@ -102,55 +114,64 @@ namespace Vista
             Dispatcher.Invoke(() => {
 
                 //Llama a la clase cliente donde se gusradarán los datos
-                Empleado em = new Empleado();
+                Empleado.ListaEmpleado em = new Empleado.ListaEmpleado();
 
                 if (txtRut.Text != null)
-                {
+                {                    
                     //Guardo el rut 
-                    em.rut_empleado = txtRut.Text;
+                    String rut = txtRut.Text + "-" + txtDV.Text;
+                    if (rut.Length == 9)//Si el rut tiene solo 9 caracteres se le agrega cero al comienzo para que quede de 10
+                    {
+                        rut = "0" + txtRut.Text + "-" + txtDV.Text;
+                    }
+                    em.Rut = rut;
+                }
+                else
+                {
+                    em.Rut = null;
                 }
 
                 if (txtNombre.Text != null)
                 {
-                    em.primer_nom_emp = txtNombre.Text;
+                    em.Nombre = txtNombre.Text;
                 }
                 if (txtSegNombre.Text != null)
                 {
-                    em.segundo_nom_emp = txtSegNombre.Text;
+                    em.Segundo_Nombre = txtSegNombre.Text;
                 }
                 if (txtApPaterno.Text != null)
                 {
-                    em.apellido_pat_emp = txtApPaterno.Text;
+                    em.Apellido_Paterno = txtApPaterno.Text;
                 }
                 if (txtApeMaterno.Text != null)
                 {
-                    em.apellido_mat_emp  = txtApeMaterno.Text;
+                    em.Apellido_Materno  = txtApeMaterno.Text;
                 }
                 int Celular = 0;
                 if (int.TryParse(txtCelular.Text, out Celular))
                 {
-                    em.celular_emp = int.Parse(txtCelular.Text);
+                    em.Celular = int.Parse(txtCelular.Text);
                 }
                 int telefono = 0;
                 if (int.TryParse(txtTelefono.Text, out telefono))
                 {
-                    em.telefono_emp = int.Parse(txtTelefono.Text);
+                    em.Teléfono = int.Parse(txtTelefono.Text);
                 }
                 if (txtEmail.Text != null)
                 {
-                   em.correo_emp = txtEmail.Text;
+                   em.Email = txtEmail.Text;
                 }
                 if (txtUser.Text != null)
                 {
-                    em.usuario = txtUser.Text;
+                    em.Usuario = txtUser.Text;
                 }
                 if (txtPass.Text != null)
                 {
-                    em.contrasenia = txtPass.Text;
+                    em.Contraseña = txtPass.Text;
                 }
                 if (cboTipoUser.SelectedValue != null)
                 {
-                   em.id_tipo_user = ((comboBoxItemTipoUser)cboTipoUser.SelectedItem).id_tipo_user;
+                   em.Rol = cboTipoUser.Text;
                 }
                
                 
@@ -208,8 +229,10 @@ namespace Vista
             txtEmail.Clear();
             txtUser.Clear();
             txtPass.Clear();
-            cboTipoUser.SelectedItem = 0;
+            cboTipoUser.SelectedIndex = 0;
             txtRut.IsEnabled = true;
+            txtUser.IsEnabled = false;
+            txtPass.IsEnabled = false;
             
             lblCache.Content = null;
 
@@ -222,7 +245,6 @@ namespace Vista
             //Limpiar cache
             FileCache filecahe = new FileCache(new ObjectBinder());
             filecahe.Remove("empleado", null);
-
             try
             {
 
@@ -234,6 +256,19 @@ namespace Vista
                 lblCache.Content = "Error al limpiar";
                 Logger.Mensaje(ex.Message);
             }
+
+            Task tarea2 = new Task(() =>
+            {
+                h2 = Thread.CurrentThread;
+                while (true)
+                {
+                    Thread.Sleep(5000);//cada 5 segundos guarda
+                    metodopass();
+                }
+            });
+                       
+            tarea2.Start();
+
         }
 
         //-----------Botón Limpiar-------------------
@@ -242,10 +277,38 @@ namespace Vista
             Limpiar();
 
         }
+
+        //----------Método pass
+        public void metodopass()
+        {
+            string contra = null;
+            Dispatcher.Invoke(() =>
+            {
+                try
+                {
+
+                    string pas = txtNombre.Text;
+                    string pas2 = txtApPaterno.Text.Substring(0, 2).ToUpper();
+                    string pas3 = txtRut.Text.Substring(0, 2);
+                    contra = pas + pas2 + pas3;
+
+                    txtPass.Text = contra;
+                    txtUser.Text = txtRut.Text + '-' + txtDV.Text;
+                    return contra;
+
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                    MessageBox.Show("error metodo");
+                }
+            });
+
+        }     
         //------------------------CRUD----------------------------------------------------------------
         //--------------------------------------------------------------------------------------------
 
-        //----------------Botón Guardar-----------------------
+            //----------------Botón Guardar-----------------------
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -267,8 +330,9 @@ namespace Vista
                 int telefono = int.Parse(txtTelefono.Text); 
                 
                 String user = txtUser.Text;
-                
+                //txtPass.Text = metodopass();
                 string pass = txtPass.Text;
+
                 int tipo = ((comboBoxItemTipoUser)cboTipoUser.SelectedItem).id_tipo_user;//Guardo el id
 
                 Empleado em = new Empleado()
@@ -344,6 +408,9 @@ namespace Vista
         {
             try
             {
+                h2.Abort();
+                txtUser.IsEnabled = false;
+                txtPass.IsEnabled = true;
                 String rut = txtRut.Text + "-" + txtDV.Text;
                 String nombre = txtNombre.Text;
                 String segNombre = txtSegNombre.Text;
@@ -415,6 +482,9 @@ namespace Vista
         {
             try
             {
+                h2.Abort();
+                txtUser.IsEnabled = false;
+                txtPass.IsEnabled = true;
                 String rut = txtRut.Text + "-" + txtDV.Text;
                 if (rut.Length == 9)//Si el rut tiene solo 9 caracteres se le agrega cero al comienzo para que quede de 10
                 {
@@ -472,6 +542,7 @@ namespace Vista
         {
             try
             {
+
                 //Rescatar Rut
                 string rut = txtRut.Text + "-" + txtDV.Text;
                 if (rut.Length == 9)
@@ -589,24 +660,31 @@ namespace Vista
 
                 if (filecahe["empleado"] != null)
                 {
-                    Empleado c = (Empleado)filecahe["empleado"];
-                    txtRut.Text = c.rut_empleado;
-                    txtNombre.Text = c.primer_nom_emp;
-                    txtSegNombre.Text = c.segundo_nom_emp;
-                    txtApPaterno.Text = c.apellido_pat_emp;
-                    txtApeMaterno.Text = c.apellido_mat_emp;
-                    txtEmail.Text = c.correo_emp;
-                    txtCelular.Text = c.celular_emp.ToString();
-                    txtTelefono.Text = c.telefono_emp.ToString();
-                    txtUser.Text = c.usuario;
-                    txtPass.Text = c.contrasenia;
-                    //-------Cambiar a nombre
-                    TipoUsuario ti = new TipoUsuario();
-                    ti.id_tipo_user = c.id_tipo_user;
-                    ti.Read();
-                    cboTipoUser.Text = ti.descripcion_user;//Cambiar a nombre
-                    //--------------------
-
+                    Empleado.ListaEmpleado c = (Empleado.ListaEmpleado)filecahe["empleado"];
+                    //txtRut.Text = c.Rut;
+                                        
+                    txtNombre.Text = c.Nombre;
+                    txtSegNombre.Text = c.Segundo_Nombre;
+                    txtApPaterno.Text = c.Apellido_Paterno;
+                    txtApeMaterno.Text = c.Apellido_Materno;
+                    txtEmail.Text = c.Email;
+                    txtCelular.Text = c.Celular.ToString();
+                    txtTelefono.Text = c.Teléfono.ToString();
+                    txtUser.Text = c.Usuario;
+                    txtPass.Text = c.Contraseña;
+                    
+                    cboTipoUser.Text = c.Rol;//Cambiar a nombre
+                   
+                    if (c.Rut != null)
+                    {
+                        txtRut.Text = c.Rut.Substring(0, 8);
+                        txtDV.Text = c.Rut.Substring(9, 1);
+                    }
+                    else
+                    {
+                        txtRut.Text = null;
+                        txtDV.Text = null;
+                    }
                 }
                 else
                 {
@@ -626,9 +704,12 @@ namespace Vista
         {
             //Terminar con la tarea caché al cerrar la ventana
             hilo.Abort();
+            h2.Abort();
 
             //Parar Singleton
             _instancia = null;
         }
+
+        
     }
 }

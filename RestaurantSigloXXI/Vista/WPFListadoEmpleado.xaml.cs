@@ -131,6 +131,9 @@ namespace Vista
             btnPasar.Visibility = Visibility.Visible;
             try
             {
+                emp.h2.Abort();
+                emp.txtUser.IsEnabled = false;
+                emp.txtPass.IsEnabled = true;
                 Empleado.ListaEmpleado c = (Empleado.ListaEmpleado)dgLista.SelectedItem;
                 //Traspasar los datos del dataGrid a la ventana cliente
                 emp.txtRut.Text = c.Rut.Substring(0, 8);
