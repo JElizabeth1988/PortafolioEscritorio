@@ -56,6 +56,7 @@ namespace BibliotecaNegocio
                     TipoProducto tipo = new TipoProducto();
                     tipo.id_tipo_producto = item.ID_TIPO_PRODUCTO;
                     tipo.nombre_tipo = item.NOMBRE_TIPO;
+                    lista.Add(tipo);
 
                 }
                 return lista;

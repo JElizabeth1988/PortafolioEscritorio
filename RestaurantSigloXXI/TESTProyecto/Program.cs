@@ -9,21 +9,34 @@ namespace TESTProyecto
 {
     class Program
     {
+       /*  static void Main(string[] args)
+         {
+              TipoUsuario c = new TipoUsuario();
+
+              List<TipoUsuario> lista = c.ReadAll();
+
+              foreach (TipoUsuario item in lista)
+              {
+                  Console.WriteLine(item.descripcion_user);
+              }
+              Console.ReadKey();
+
+
+
+         }*/
         static void Main(string[] args)
         {
-             TipoUsuario c = new TipoUsuario();
+            TipoProducto c = new TipoProducto();
 
-             List<TipoUsuario> lista = c.ReadAll();
+            List<TipoProducto> lista = c.ReadAll();
 
-             foreach (TipoUsuario item in lista)
-             {
-                 Console.WriteLine(item.descripcion_user);
-             }
-             Console.ReadKey();
+            foreach (TipoProducto item in lista)
+            {
+                Console.WriteLine(item.nombre_tipo);
+            }
+            Console.ReadKey();
 
-            
+
         }
-
-
     }
 }

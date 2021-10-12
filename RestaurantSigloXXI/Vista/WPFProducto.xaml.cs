@@ -48,7 +48,7 @@ namespace Vista
             {
                 ComboBoxItemTipoProducto cbtp = new ComboBoxItemTipoProducto();
                 cbtp.id_tipo_producto = item.id_tipo_producto;
-                cbtp.nombre_tipo_producto = item.nombre_tipo;
+                cbtp.nombre_tipo = item.nombre_tipo;
                 cboTipoProducto.Items.Add(cbtp);
             }
 
@@ -272,7 +272,7 @@ namespace Vista
 
                 //ver porque me esta causando conflictos para guardar, ademas no despliega el listado en el cbo, y falta arreglar la vista, para que el al poner el nombre del tipo producto, se inserte automaticamente el id dle tipo
 
-                //int tipo = ((ComboBoxItemTipoProducto)cboTipoProducto.SelectedItem).id_tipo_producto;
+                int tipo = ((ComboBoxItemTipoProducto)cboTipoProducto.SelectedItem).id_tipo_producto;
 
                 Producto pro = new Producto()
                 {

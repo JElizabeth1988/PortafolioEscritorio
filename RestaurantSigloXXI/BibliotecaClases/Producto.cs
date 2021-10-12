@@ -130,7 +130,7 @@ namespace BibliotecaNegocio
                 //nombre del Procedimiento Almacenado
                 CMD.CommandText = "SP_AGREGAR_PRODUCTO";
                 //Se crea un nuevo tipo de parametro, nombre parametro, el tipo, el largo, y el valor es igual al de la clase.
-                CMD.Parameters.Add(new OracleParameter("P_ID_PROD", OracleDbType.Int32)).Value = prod.id_producto;
+                //CMD.Parameters.Add(new OracleParameter("P_ID_PROD", OracleDbType.Int32)).Value = prod.id_producto; -->Se agrega x Trigger con secuencia
                 CMD.Parameters.Add(new OracleParameter("P_NOM_PROD", OracleDbType.Varchar2, 50)).Value = prod.nombre_producto;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR_UNIDAD", OracleDbType.Int32)).Value = prod.valor_unidad;
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO_PROD", OracleDbType.Int32)).Value = prod.id_tipo_producto;
@@ -152,6 +152,7 @@ namespace BibliotecaNegocio
 
                 Logger.Mensaje(ex.Message);
                 return false;
+                conn.Close();
             }
         }
 
@@ -188,13 +189,14 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
+                Logger.Mensaje(ex.Message);
                 return false;
+                conn.Close();
             }
         }
 
         //------------------Método Buscar--------------
-        public async void Buscar(Int32 IdProd)
+        public async void Buscar(int IdProd)
         {
             try
             {
@@ -236,11 +238,12 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 Logger.Mensaje(ex.Message);
+                conn.Close();
             }
         }
 
         //---------Método Eliminar-----------------------------------------------
-        public bool Eliminar(Int32 IdProd) //Recibe ID por parametro
+        public bool Eliminar(int IdProd) //Recibe ID por parametro
         {
             try
             {
@@ -269,6 +272,7 @@ namespace BibliotecaNegocio
 
                 return false;
                 Logger.Mensaje(ex.Message);
+                conn.Close();
 
             }
         }
@@ -303,14 +307,14 @@ namespace BibliotecaNegocio
                     ListaProducto P = new ListaProducto();
 
                     //se obtiene el valor con getvalue es lo mismo pero con get
-                    P.id_producto = int.Parse(dr.GetValue(1).ToString());
-                    P.nombre_producto = dr.GetValue(2).ToString();
-                    P.valor_unidad = int.Parse(dr.GetValue(3).ToString());
-                    P.valor_kilo = int.Parse(dr.GetValue(4).ToString());
-                    P.stock = int.Parse(dr.GetValue(5).ToString());
-                    P.valor_total = int.Parse(dr.GetValue(6).ToString());
-                    P.id_tipo_producto = int.Parse(dr.GetValue(7).ToString());
-                    P.nombre_tipo = dr.GetValue(8).ToString();
+                    P.id_producto = int.Parse(dr.GetValue(0).ToString());
+                    P.nombre_producto = dr.GetValue(1).ToString();
+                    P.valor_unidad = int.Parse(dr.GetValue(2).ToString());
+                    P.valor_kilo = int.Parse(dr.GetValue(3).ToString());
+                    P.stock = int.Parse(dr.GetValue(4).ToString());
+                    P.valor_total = int.Parse(dr.GetValue(5).ToString());
+                    P.id_tipo_producto = int.Parse(dr.GetValue(6).ToString());
+                    P.nombre_tipo = dr.GetValue(7).ToString();
 
                     lista.Add(P);
                 }
@@ -323,6 +327,7 @@ namespace BibliotecaNegocio
             {
                 return null;
                 Logger.Mensaje(ex.Message);
+                conn.Close();
             }
         }
 
@@ -374,6 +379,7 @@ namespace BibliotecaNegocio
             {
                 return null;
                 Logger.Mensaje(ex.Message);
+                conn.Close();
 
             }
 
