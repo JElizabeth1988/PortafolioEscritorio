@@ -196,6 +196,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ComboBoxItemTipoProducto.cs" />
     <Compile Include="ComboBoxItemTipoUser.cs" />
     <Compile Include="WPFEmpleado.xaml.cs">
       <DependentUpon>WPFEmpleado.xaml</DependentUpon>
@@ -207,6 +208,12 @@
       <DependentUpon>WPFListadoCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="ObjectBinder.cs" />
+    <Compile Include="WPFListadoProducto.xaml.cs">
+      <DependentUpon>WPFListadoProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFProducto.xaml.cs">
+      <DependentUpon>WPFProducto.xaml</DependentUpon>
+    </Compile>
     <Page Include="WPFEmpleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -252,6 +259,14 @@
     <Page Include="Resources\IconsNonShared.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WPFListadoProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

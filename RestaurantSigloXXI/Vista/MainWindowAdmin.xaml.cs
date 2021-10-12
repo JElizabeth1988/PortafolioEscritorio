@@ -30,7 +30,7 @@ namespace Vista
         {
             InitializeComponent();
             this.DataContext = this;
-                       
+
 
         }
 
@@ -96,13 +96,13 @@ namespace Vista
 
             }
         }
-               //Listado Clientes
+        //Listado Clientes
         private void Tile_Click_ListadoCliente(object sender, RoutedEventArgs e)
         {
             WPFListadoCliente.ObtenerinstanciaLICLI().ShowDialog();
         }
 
-  
+
         private void Tile_Click_AdmEmp(object sender, RoutedEventArgs e)
         {
             WPFEmpleado.ObtenerinstanciaEM().ShowDialog();
@@ -111,6 +111,16 @@ namespace Vista
         private void Tile_Click_ListadoEmp(object sender, RoutedEventArgs e)
         {
             WPFListadoEmpleado.ObtenerinstanciaLILIE().ShowDialog();
+        }
+        // Producto
+        private void Tile_Click_AdmProducto(object sender, RoutedEventArgs e)
+        {
+            WPFProducto.ObtenerinstanciaPROD().ShowDialog();
+        }
+
+        private void Tile_Click_ListadoProducto(object sender, RoutedEventArgs e)
+        {
+            WPFListadoProducto.ObtnerInstanciaLIPRO().ShowDialog();
         }
     }
 }

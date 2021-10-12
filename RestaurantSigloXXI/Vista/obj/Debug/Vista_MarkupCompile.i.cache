@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\
+C:\Users\Felipe Cristian\Source\Repos\PortafolioEscritorio_3\RestaurantSigloXXI\Vista\obj\Debug\
 Vista
 none
 false
 DEBUG;TRACE
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\App.xaml
-82069395459
+C:\Users\Felipe Cristian\Source\Repos\PortafolioEscritorio_3\RestaurantSigloXXI\Vista\App.xaml
+101684030333
 
-1652496869
-60-1888313730
-WPFEmpleado.xaml;WPFListadoEmpleado.xaml;WPFCliente.xaml;WPFListadoCliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;
+161704292126
+60-989989402
+WPFEmpleado.xaml;WPFListadoEmpleado.xaml;WPFCliente.xaml;WPFListadoCliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;WPFListadoProducto.xaml;WPFProducto.xaml;
 
 True
 
