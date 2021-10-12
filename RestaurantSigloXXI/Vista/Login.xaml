@@ -8,7 +8,7 @@
      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="" Height="414.562" Width="530.536" TitleCharacterCasing="Normal" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal.png" BorderThickness="0" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False"   >
+        Title="" Height="414.562" Width="530.536" TitleCharacterCasing="Normal" WindowTitleBrush="Black" Icon="Imagenes/logoFinal2 .png" BorderThickness="0" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False"   >
     <Grid Background="#FFDBDFE3"  >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="151*"/>
@@ -21,7 +21,7 @@
             <PasswordBox x:Name="TxtContrasenia" Controls:TextBoxHelper.Watermark="Ingrese Contraseña" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Margin="137,240,0,0" VerticalAlignment="Top" Width="194" BorderBrush="Black"/>
             <Image x:Name="image" Height="128" Margin="163,47,164,0" VerticalAlignment="Top" Source="Imagenes/Business-Man02.png" Stretch="Fill" />
             <Button x:Name="btnLogin" Content="Ingresar" Margin="196,289,196,0" VerticalAlignment="Top" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Click="btnLogin_Click" Background="#FFCB5F21"/>
-            <Image x:Name="image2" HorizontalAlignment="Left" Height="104" Margin="308,0,0,0" VerticalAlignment="Top" Width="149" Source="Imagenes/Logo2.png"/>
+            <Image x:Name="image2" HorizontalAlignment="Left" Height="104" Margin="308,0,0,0" VerticalAlignment="Top" Width="149" Source="Imagenes/logoFinal3.png"/>
         </Grid>
     </Grid>
 </Controls:MetroWindow>

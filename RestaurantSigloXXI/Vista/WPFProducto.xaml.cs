@@ -34,7 +34,7 @@ namespace Vista
 
         //Hilo para cache
         Thread hilo = null;
-        public Thread h2 = null;
+
         //Instanciar BD
         OracleConnection conn = null;
         //Traer clase producto
@@ -64,18 +64,9 @@ namespace Vista
                     generaRespaldo();
                 }
             });
-            Task tarea2 = new Task(() =>
-            {
-                h2 = Thread.CurrentThread;
-                while (true)
-                {
-                    Thread.Sleep(5000);//cada 5 segundos guarda
 
-                }
-            });
 
             tarea.Start();
-            tarea2.Start();
 
             FileCache filecache = new FileCache(new ObjectBinder());
 
@@ -176,17 +167,7 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
 
-            Task tarea2 = new Task(() =>
-            {
-                h2 = Thread.CurrentThread;
-                while (true)
-                {
-                    Thread.Sleep(5000);//cada 5 segundos guarda
 
-                }
-            });
-
-            tarea2.Start();
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
@@ -351,7 +332,6 @@ namespace Vista
         {
             try
             {
-                h2.Abort();
                 int IdProducto = int.Parse(txtIdProd.Text);
                 String nombreProducto = txtNomProd.Text;
                 int ValorUnidad = int.Parse(txtValorUnidad.Text);
@@ -490,8 +470,6 @@ namespace Vista
         {
             try
             {
-                h2.Abort();
-
                 int IdProducto = int.Parse(txtIdProd.Text);
                 prod.Buscar(IdProducto);
                 if (prod != null)//Si la lista no esta vacía entrego parámetros a los textBox
@@ -534,7 +512,6 @@ namespace Vista
         {
             //Terminar con la tarea caché al cerrar la ventana
             hilo.Abort();
-            h2.Abort();
 
             //Parar Singleton
             _instancia = null;

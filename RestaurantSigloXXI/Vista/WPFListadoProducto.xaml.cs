@@ -102,7 +102,7 @@ namespace Vista
 
         private void btnFiltrarIDFor_Click(object sender, RoutedEventArgs e) //Revisar
         {
-            
+
         }
 
         private async void btnFiltrarID_Click(object sender, RoutedEventArgs e)
@@ -126,7 +126,7 @@ namespace Vista
 
         private void btnPasarAForm_Click(object sender, RoutedEventArgs e) //REVISAR
         {
-          
+
         }
 
         private async void btnPasar_Click(object sender, RoutedEventArgs e)
@@ -134,7 +134,6 @@ namespace Vista
             btnPasar.Visibility = Visibility.Visible;
             try
             {
-                prod.h2.Abort();
                 Producto.ListaProducto p = (Producto.ListaProducto)dgLista.SelectedItem;
                 prod.txtIdProd.Text = p.id_producto.ToString();
                 prod.txtNomProd.Text = p.nombre_tipo;

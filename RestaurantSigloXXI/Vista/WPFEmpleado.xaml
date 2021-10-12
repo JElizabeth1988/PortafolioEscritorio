@@ -10,7 +10,7 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Administrar Empleado" Height="638.312" Width="695.318" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal.png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+        Title="Administrar Empleado" Height="638.312" Width="695.318" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
     <Grid HorizontalAlignment="Left" Height="640" VerticalAlignment="Top" Width="695" Margin="0,0,-9,0">
         <Image x:Name="image" HorizontalAlignment="Left" Height="616" VerticalAlignment="Top" Width="701" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-6,0"/>
         <GroupBox x:Name="groupBox" Header="Información de Empleado" Margin="49,10,50,0" VerticalAlignment="Top" Height="495" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
@@ -41,7 +41,7 @@
                 <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="447,25,0,0" VerticalAlignment="Top" Height="25" Width="64" Cursor="Arrow" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnBuscar_Click"/>
                 <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="23,422,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
                 <Button x:Name="btnModificar" Content="Actualizar" HorizontalAlignment="Left" Margin="131,422,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnModificar_Click" />
-                <Image x:Name="image1" HorizontalAlignment="Left" Height="78" Margin="407,76,0,0" VerticalAlignment="Top" Width="156" Source="Imagenes/logo2.png" RenderTransformOrigin="1.091,0.822"/>
+                <Image x:Name="image1" HorizontalAlignment="Left" Height="78" Margin="407,76,0,0" VerticalAlignment="Top" Width="156" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
 
 
                 <TextBox x:Name="txtDV" HorizontalAlignment="Left" Height="23" Margin="350,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.422,0.462" FontWeight="Normal" IsEnabled="False"/>

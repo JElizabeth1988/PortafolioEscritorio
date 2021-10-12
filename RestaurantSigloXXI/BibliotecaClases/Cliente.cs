@@ -441,6 +441,7 @@ namespace BibliotecaNegocio
 
 
         //Lista Clientes para mostrar nombres en vez de id (para procedimientos con Joins)
+        [Serializable]
         public class ListaClientes
         {
             public string Rut { get; set; }

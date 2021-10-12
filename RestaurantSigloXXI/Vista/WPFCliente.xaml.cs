@@ -89,48 +89,56 @@ namespace Vista
         //Método generar respaldo------------------
         private void generaRespaldo()
         {
+
             Dispatcher.Invoke(()=> {
 
                 //Llama a la clase cliente donde se gusradarán los datos
-                Cliente cl = new Cliente();
+                Cliente.ListaClientes cl = new Cliente.ListaClientes();
 
                 if (txtRut.Text != null)
                 {
                     //Guardo el rut 
-                    cl.rut_cliente = txtRut.Text;
+                    String rut = txtRut.Text + "-" + txtDV.Text;
+                    if (rut.Length == 9)//Si el rut tiene solo 9 caracteres se le agrega cero al comienzo para que quede de 10
+                    {
+                        rut = "0" + txtRut.Text + "-" + txtDV.Text;
+                    }
+                    cl.Rut = rut;
                 }
-                
+                else
+                {
+                    cl.Rut = null;
+                }
+
                 if (txtNombre.Text != null)
                 {
-                    cl.primer_nom_cli = txtNombre.Text;
+                    cl.Nombre = txtNombre.Text;
                 }
                 if (txtSegNombre.Text != null)
                 {
-                    cl.segundo_nom_cli = txtSegNombre.Text;
+                    cl.Segundo_Nombre = txtSegNombre.Text;
                 }
                 if (txtApPaterno.Text != null)
                 {
-                    cl.ap_paterno_cli = txtApPaterno.Text;
+                    cl.Apellido_Paterno = txtApPaterno.Text;
                 }
                 if (txtApeMaterno.Text != null)
                 {
-                    cl.ap_materno_cli = txtApeMaterno.Text;
+                    cl.Apellido_Materno = txtApeMaterno.Text;
                 }
                 int Celular = 0;
                 if (int.TryParse(txtCelular.Text, out Celular))
                 {
-                    cl.celular_cli = int.Parse(txtCelular.Text);
+                    cl.Celular = int.Parse(txtCelular.Text);
                 }
                 int telefono = 0;
                 if (int.TryParse(txtTelefono.Text, out telefono))
                 {
-                    cl.telefono_cli = int.Parse(txtTelefono.Text);
+                    cl.Teléfono = int.Parse(txtTelefono.Text);
                 }
-                
-
                 if (txtEmail.Text != null)
                 {
-                    cl.correo_cli = txtEmail.Text;
+                    cl.Email = txtEmail.Text;
                 }
 
                 //Proceso de respaldo
@@ -563,17 +571,25 @@ namespace Vista
 
                 if (filecahe["cliente"] != null)
                 {
-                    Cliente c = (Cliente)filecahe["cliente"];
-                    txtRut.Text = c.rut_cliente;
-                    //txtRut.Text = c.rut_cliente.Substring(0, 8);
-                    //txtDV.Text = c.rut_cliente.Substring(9, 1);
-                    txtNombre.Text = c.primer_nom_cli;
-                    txtSegNombre.Text = c.segundo_nom_cli;
-                    txtApPaterno.Text = c.ap_paterno_cli;
-                    txtApeMaterno.Text = c.ap_materno_cli;
-                    txtEmail.Text = c.correo_cli;
-                    txtCelular.Text = c.celular_cli.ToString();
-                    txtTelefono.Text = c.telefono_cli.ToString();
+                    Cliente.ListaClientes c = (Cliente.ListaClientes)filecahe["cliente"];
+                    
+                    txtNombre.Text = c.Nombre;
+                    txtSegNombre.Text = c.Segundo_Nombre;
+                    txtApPaterno.Text = c.Apellido_Paterno;
+                    txtApeMaterno.Text = c.Apellido_Materno;
+                    txtEmail.Text = c.Email;
+                    txtCelular.Text = c.Celular.ToString();
+                    txtTelefono.Text = c.Teléfono.ToString();
+                    if (c.Rut != null)
+                    {
+                        txtRut.Text = c.Rut.Substring(0, 8);
+                        txtDV.Text = c.Rut.Substring(9, 1);
+                    }
+                    else
+                    {
+                        txtRut.Text = null;
+                        txtDV.Text = null;
+                    }
 
                 }
                 else

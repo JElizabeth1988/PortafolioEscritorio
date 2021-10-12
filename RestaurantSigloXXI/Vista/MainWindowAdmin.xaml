@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         
-        Title="  RESTAURANT SIGLO XXI - BIENVENIDO ADMINISTRADOR"  Height="648" Width="1143.334"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logoFinal.png"  IconEdgeMode="Aliased" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="2" TitleCaps="False" Cursor="Arrow">
+        Title="  RESTAURANT SIGLO XXI"  Height="648" Width="1143.334"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="Imagenes/logoFinal2 .png"  IconEdgeMode="Aliased" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="2" TitleCaps="False" Cursor="Arrow">
 
 
     <Controls:MetroWindow.LeftWindowCommands>
@@ -83,15 +83,18 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="620" VerticalAlignment="Top" Width="1151" Source="Imagenes/about-img.jpg" Margin="-17,0,-6,0" Stretch="Fill" Opacity="0.4" Cursor="Arrow"/>
 
 
-        <Controls:Tile ToolTip="Administrar Clientes" Margin="175,175,799,345" Click="Tile_Click_AdmCliente" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Administrar Clientes" Margin="101,216,873,288" Click="Tile_Click_AdmCliente" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
-            <Grid >
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="102" >
                 <Image x:Name="image4" Height="66" VerticalAlignment="Top" Source="Imagenes/User-Group.png" Margin="36,0">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label3" Content="Administrar Clientes" Margin="0,56,0,-0.333" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5">
+                <Label x:Name="label3" Content="Clientes" Margin="37,70,37,3" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>
@@ -99,16 +102,19 @@
 
             </Grid>
         </Controls:Tile>
-        <Label x:Name="label" Content="Bienvenido, Administrador" Margin="408,82,407,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
-        <Controls:Tile ToolTip="Listar Clientes" Margin="373,175,601,345" Click="Tile_Click_ListadoCliente" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Label x:Name="label" Content="Bienvenido, Administrador" Margin="404,81,403,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+        <Controls:Tile ToolTip="Listar Clientes" Margin="296,216,678,288" Click="Tile_Click_ListadoCliente" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
-            <Grid Height="90" >
-                <Image x:Name="image1" Height="61" VerticalAlignment="Top" Source="Imagenes/ListadoClientes.png" Margin="36,0,40.333,0">
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="112" >
+                <Image x:Name="image1" Height="61" VerticalAlignment="Top" Source="Imagenes/ListadoClientes.png" Margin="36,12,35.333,0">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label1" Content="Listar Clientes"  VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5" Margin="23,61,23.333,0">
+                <Label x:Name="label1" Content="Listar Clientes"  HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5" Margin="23,79,23.333,4">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>
@@ -116,15 +122,18 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile ToolTip="Administrar Empleados" Margin="573,176,377,344" Click="Tile_Click_AdmEmp" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Administrar Empleados" Margin="487,215,487,288" Click="Tile_Click_AdmEmp" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
-            <Grid Width="173" >
-                <Image x:Name="image2" Height="66" VerticalAlignment="Top" Source="Imagenes/User-Group.png" Margin="36,0">
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Width="147" >
+                <Image x:Name="image2" Height="72" VerticalAlignment="Top" HorizontalAlignment="Center" Source="Imagenes/empleados.png" Margin="10,0">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label2" Content="Administrar Empleados" Margin="0,52,0,-0.333" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="33" RenderTransformOrigin="0.5,0.5">
+                <Label x:Name="label2" Content="Empleados" Margin="36,64,28,-12.333" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Height="31" VerticalAlignment="Top">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>
@@ -132,15 +141,18 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile ToolTip="Listar Empleados" Margin="793,175,181,345" Click="Tile_Click_ListadoEmp" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Listar Empleados" Margin="678,216,296,288" Click="Tile_Click_ListadoEmp" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
-            <Grid Height="90" >
-                <Image x:Name="image3" Height="61" VerticalAlignment="Top" Source="Imagenes/ListadoClientes.png" Margin="36,0,40.333,0">
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="102" Width="144" >
+                <Image x:Name="image3" Height="80" VerticalAlignment="Top" Source="Imagenes/employee.png" Margin="27,0,28,0">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label4" Content="Listar Empleados"  VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5" Margin="23,61,23.333,0">
+                <Label x:Name="label4" Content="Listar Empleados"  VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5" Margin="10,70,10,0">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>
@@ -148,15 +160,19 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile ToolTip="Administrar Productos" Margin="175,304,798.6,216.2" Click="Tile_Click_AdmProducto" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Image x:Name="image2_Copy" Height="118" Margin="836,57,83,0" VerticalAlignment="Top" Source="Imagenes/logoFinal3.png"/>
+        <Controls:Tile ToolTip="Administrar Platos" Margin="101,411,873,93" Click="Platos_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
-            <Grid >
-                <Image x:Name="image5" Height="66" VerticalAlignment="Top" Source="Imagenes/comida.png" Margin="36,0">
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="112" Width="140" >
+                <Image x:Name="image5" Height="68" VerticalAlignment="Top" HorizontalAlignment="Center" Source="Imagenes/Bowl.png" Margin="36,10,22,0">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label5" Content="Administrar Productos" Margin="0,56,0,-0.333" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5">
+                <Label x:Name="label5" Content="Platos" Margin="44,78,44,3" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>
@@ -164,15 +180,94 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile ToolTip="Listar Productos" Margin="373,304,600.6,216.2" Click="Tile_Click_ListadoProducto" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Administrar Mesas" Margin="296,411,678,93" Click="Mesas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
-            <Grid Height="90" >
-                <Image x:Name="image6" Height="61" VerticalAlignment="Top" Source="Imagenes/ListadoClientes.png" Margin="36,0,40.333,0">
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="102" Width="157" >
+                <Image x:Name="image6" Height="61" VerticalAlignment="Top" Source="Imagenes/mesa.png" Margin="36,10,36,0">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label6" Content="Listar Productos"  VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5" Margin="23,61,23.333,0">
+                <Label x:Name="label6" Content="Mesas" Margin="52,74,52,-3" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile ToolTip="Administrar Disponibilidad de Mesas" Margin="487,411,487,93" Click="DisponibilidadMesas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="102" >
+                <Image x:Name="image7" Height="61" VerticalAlignment="Top" Source="Imagenes/disponibilidadmesa.png" Margin="36,10,36.333,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label7" Content="Disponibilidad" Margin="13,72,13.333,-1" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile ToolTip="Asignar Mesa a Garzón" Margin="873,216,101,288" Click="AsignarMesas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="112" >
+                <Image x:Name="image8" Height="66" VerticalAlignment="Top" Source="Imagenes/asignar.png" Margin="36,11,35.667,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label8" Content="Asignar Mesa" Margin="19,77,18.667,3" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile ToolTip="Administrar Bebidas" Margin="873,411,101,93" Click="Bebidas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="102" Width="147" >
+                <Image x:Name="image9" Height="66" VerticalAlignment="Top" Source="Imagenes/bebidas.png" Margin="36,5,36,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label9" Content="Bebidas" Margin="42,71,42,2" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile ToolTip="Administrar Menú" Margin="678,411,296,93" Click="Menu_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="102" Width="140" >
+                <Image x:Name="image10" Height="66" VerticalAlignment="Top" Source="Imagenes/menu.png" Margin="21,7,23,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label10" Content="Menú" Margin="45,71,45,2" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>

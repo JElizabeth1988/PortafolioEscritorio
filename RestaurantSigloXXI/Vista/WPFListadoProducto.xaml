@@ -12,7 +12,7 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Lista de Productos" Height="503.166" Width="724.667" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Cursor="Arrow" Icon="Imagenes/LogoFinal.png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Closing="MetroWindow_Closing"  >
+        Title="Lista de Productos" Height="503.166" Width="724.667" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Cursor="Arrow" Icon="Imagenes/logoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Closing="MetroWindow_Closing"  >
     <Grid Background="#FFDBDFE3">
 
         <Image x:Name="image" HorizontalAlignment="Left" Height="476" VerticalAlignment="Top" Width="732" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-12.667,0"/>
@@ -45,7 +45,7 @@
             </Button.Background>
         </Button>
         <Button x:Name="btnPasarAForm" Content="Traspasar" HorizontalAlignment="Left" Margin="396,400,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnPasarAForm_Click"/>
-        <Image x:Name="images" HorizontalAlignment="Left" Height="64" Margin="527,39,0,0" VerticalAlignment="Top" Width="117" Source="Imagenes/logo2.png"/>
+        <Image x:Name="images" HorizontalAlignment="Left" Height="64" Margin="527,39,0,0" VerticalAlignment="Top" Width="117" Source="Imagenes/logoFinal3.png"/>
         <Button x:Name="btnRefrescar2" HorizontalAlignment="Left" Margin="634,396,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar3_Click"  >
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>

@@ -198,6 +198,21 @@
     </ApplicationDefinition>
     <Compile Include="ComboBoxItemTipoProducto.cs" />
     <Compile Include="ComboBoxItemTipoUser.cs" />
+    <Compile Include="WindowBodega.xaml.cs">
+      <DependentUpon>WindowBodega.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowCocina.xaml.cs">
+      <DependentUpon>WindowCocina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFinanza.xaml.cs">
+      <DependentUpon>WindowFinanza.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowGarzon.xaml.cs">
+      <DependentUpon>WindowGarzon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowRecepcion.xaml.cs">
+      <DependentUpon>WindowRecepcion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFEmpleado.xaml.cs">
       <DependentUpon>WPFEmpleado.xaml</DependentUpon>
     </Compile>
@@ -211,9 +226,32 @@
     <Compile Include="WPFListadoProducto.xaml.cs">
       <DependentUpon>WPFListadoProducto.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFMesa.xaml.cs">
+      <DependentUpon>WPFMesa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFProducto.xaml.cs">
       <DependentUpon>WPFProducto.xaml</DependentUpon>
     </Compile>
+    <Page Include="WindowBodega.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowCocina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFinanza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowGarzon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowRecepcion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPFEmpleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -264,6 +302,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPFMesa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPFProducto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -298,6 +340,7 @@
     <Resource Include="Imagenes\logo .png" />
     <Resource Include="Imagenes\logo2.png" />
     <Resource Include="Imagenes\LogoFinal.png" />
+    <Resource Include="Imagenes\logoFinal3.png" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -336,6 +379,38 @@
     <Resource Include="Imagenes\Restaurant.png" />
     <Resource Include="Imagenes\Spices-Salt-Pepper.png" />
     <Resource Include="Imagenes\User-Group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\logoFinal2 .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Cash.png" />
+    <Resource Include="Imagenes\Chef.png" />
+    <Resource Include="Imagenes\codigo.png" />
+    <Resource Include="Imagenes\Customer finance.png" />
+    <Resource Include="Imagenes\descarga.png" />
+    <Resource Include="Imagenes\empleados.png" />
+    <Resource Include="Imagenes\images.png" />
+    <Resource Include="Imagenes\listado.png" />
+    <Resource Include="Imagenes\LISTADO2.png" />
+    <Resource Include="Imagenes\listadoProducto.png" />
+    <Resource Include="Imagenes\mesa.png" />
+    <Resource Include="Imagenes\Money-Credit-Card.png" />
+    <Resource Include="Imagenes\Product.png" />
+    <Resource Include="Imagenes\producto.png" />
+    <Resource Include="Imagenes\receta.png" />
+    <Resource Include="Imagenes\RESERVA.png" />
+    <Resource Include="Imagenes\Source-Code.png" />
+    <Resource Include="Imagenes\STOCK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\asignar.png" />
+    <Resource Include="Imagenes\bebidas.png" />
+    <Resource Include="Imagenes\disponibilidadmesa.png" />
+    <Resource Include="Imagenes\png-clipart-waiter-computer-icons-restaurant-table-reservation-resturant-miscellaneous-public-relations.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\menu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -196,6 +196,7 @@ namespace BibliotecaNegocio
                 //se ejecuta la query
                 CMD.ExecuteNonQuery();
 
+
                 //tipo_user = Convert.ToInt32(CMD.Parameters["P_TIPO"].Value); --->Dio error
                 //Se le entrega el resultado a la variable que es el resultado del procedure parseado
                 tipo_user = int.Parse(CMD.Parameters["P_TIPO"].Value.ToString());
@@ -208,6 +209,7 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 Logger.Mensaje(ex.Message);
+                conn.Close();
                 return 0;
                 
             }
@@ -499,6 +501,63 @@ namespace BibliotecaNegocio
 
         }
 
+        //------------Filtrar por Rol--------------------
+        public List<ListaEmpleado> FiltrarRol(int tipo)
+        {
+            try
+            {
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //Lista de Clientes
+                List<ListaEmpleado> lista = new List<ListaEmpleado>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_ROL_EM";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_ROL", OracleDbType.Int32)).Value = tipo;
+                CMD.Parameters.Add(new OracleParameter("EMPLEADOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                //Reader
+                OracleDataReader reader = CMD.ExecuteReader();
+                //Mientras lee
+                while (reader.Read())
+                {
+                    ListaEmpleado e = new ListaEmpleado();
+
+                    //lee cada valor en su posición
+                    e.Rut = reader[0].ToString();
+                    e.Nombre = reader[1].ToString();
+                    e.Segundo_Nombre = reader[2].ToString();
+                    e.Apellido_Paterno = reader[3].ToString();
+                    e.Apellido_Materno = reader[4].ToString();
+                    e.Celular = int.Parse(reader[5].ToString());
+                    e.Teléfono = int.Parse(reader[6].ToString());
+                    e.Email = reader[7].ToString();
+                    e.Usuario = reader[8].ToString();
+                    e.Contraseña = reader[9].ToString();
+                    e.Rol = reader[10].ToString();
+
+                    //Agrega los valores a la lista, que luego es devuelta por el método
+                    lista.Add(e);
+
+                }
+                conn.Close();
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                return null;
+                Logger.Mensaje(ex.Message);
+
+            }
+
+        }
 
         //Lista Clientes para mostrar nombres en vez de id (para procedimientos con Joins)
         [Serializable]

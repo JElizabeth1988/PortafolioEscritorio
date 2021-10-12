@@ -35,39 +35,113 @@ namespace Vista
         //----Botón Login llama al método login
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            //Rescatar parámetros de los textBox
-            string usuario = txtUsuario.Text;
-            string paswd = TxtContrasenia.Password.ToString();
-            //Guardar el resultado en una variable int y entregar parámetros al método login
-            int resp = emp.Metodologin(usuario, paswd);
-            //Si la respuesta no es cero quiere decir que es un usuario registrado que ingresó bien sus credenciales, si es cero las credenciales no son válidas
-            if (resp !=0)
+            try
             {
-                //Si el tipo de usuario es = 1 es un administrador
-                if (resp == 1)
+                //Rescatar parámetros de los textBox
+                string usuario = txtUsuario.Text;
+                string paswd = TxtContrasenia.Password.ToString();
+                //Guardar el resultado en una variable int y entregar parámetros al método login
+                int resp = emp.Metodologin(usuario, paswd);
+                //Si la respuesta no es cero quiere decir que es un usuario registrado que ingresó bien sus credenciales, 
+                //si es cero las credenciales no son válidas
+                if (resp != 0)
                 {
-                    await this.ShowMessageAsync("Mensaje:",
-                    //----------------------Nombre del user Con primera letra mayúscula
-                    //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
-                    "Bienvenido Administrador");
-                    MainWindowAdmin main = new MainWindowAdmin();
-                    this.Close();
-                    main.ShowDialog();
+                    //Si el tipo de usuario es = 1 es un administrador
+                    if (resp == 1)
+                    {
+                        await this.ShowMessageAsync("Mensaje:",
+                        //----------------------Nombre del user Con primera letra mayúscula
+                        //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
+                        "Bienvenido Administrador");
+                        MainWindowAdmin main = new MainWindowAdmin();
+                        this.Close();
+                        main.ShowDialog();
+                    }
+                    //Si el tipo de usuario es = 3 es un encargado de cocina
+                    if (resp == 3)
+                    {
+                        await this.ShowMessageAsync("Mensaje:",
+                        //----------------------Nombre del user Con primera letra mayúscula
+                        //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
+                        "Bienvenido Encargado de Cocina");
+                        WindowCocina coc = new WindowCocina();
+                        this.Close();
+                        coc.ShowDialog();
+                    }
+                    //Si el tipo de usuario es = 5 es un recepcionista
+                    if (resp == 5)
+                    {
+                        await this.ShowMessageAsync("Mensaje:",
+                        //----------------------Nombre del user Con primera letra mayúscula
+                        //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
+                        "Bienvenido Recepcionista");
+                        WindowRecepcion rec = new WindowRecepcion();
+                        this.Close();
+                        rec.ShowDialog();
+                    }
+                    //Si el tipo de usuario es = 6 es finanzas
+                    if (resp == 6)
+                    {
+                        await this.ShowMessageAsync("Mensaje:",
+                        //----------------------Nombre del user Con primera letra mayúscula
+                        //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
+                        "Bienvenido Encargado de Finanzas");
+                        WindowFinanza fin = new WindowFinanza();
+                        this.Close();
+                        fin.ShowDialog();
+                    }
+                    //Si el tipo de usuario es = 7 es Bodega
+                    if (resp == 7)
+                    {
+                        await this.ShowMessageAsync("Mensaje:",
+                        //----------------------Nombre del user Con primera letra mayúscula
+                        //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
+                        "Bienvenido Encargado de Bodega");
+                        WindowBodega bod = new WindowBodega();
+                        this.Close();
+                        bod.ShowDialog();
+                    }
+                    //Si el tipo de usuario es = 4 es Garzón
+                    if (resp == 4)
+                    {
+                        await this.ShowMessageAsync("Mensaje:",
+                        //----------------------Nombre del user Con primera letra mayúscula
+                        //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
+                        "Bienvenido, Garzón");
+                        WindowGarzon bod = new WindowGarzon();
+                        this.Close();
+                        bod.ShowDialog();
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error:",
+                          string.Format("Los sentimos, no tiene los suficientes permisos para utilizar este sistema"));
+                        txtUsuario.Clear();
+                        TxtContrasenia.Clear();
+                        txtUsuario.Focus();
+
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No es un admin");
+                    await this.ShowMessageAsync("Mensaje:",
+                                        string.Format("¡Error de Credenciales!"));
+                    txtUsuario.Clear();
+                    TxtContrasenia.Clear();
+                    txtUsuario.Focus();
                 }
-            }      
-                
-            else
+            }
+            catch (Exception ex)
             {
+
                 await this.ShowMessageAsync("Mensaje:",
-                                    string.Format("¡Error de Credenciales!"));
+                                        string.Format("¡Error de Credenciales!"));
+                Logger.Mensaje(ex.Message);
                 txtUsuario.Clear();
                 TxtContrasenia.Clear();
                 txtUsuario.Focus();
             }
+            
                 
         }
     }

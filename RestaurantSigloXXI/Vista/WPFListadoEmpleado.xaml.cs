@@ -65,6 +65,18 @@ namespace Vista
             btnFiltrarRutFor.Visibility = Visibility.Hidden;//No se ve
             btnRefrescar2.Visibility = Visibility.Hidden;//No se ve
             CargarGrilla();
+
+            //Llenar el combobox
+            foreach (TipoUsuario item in new TipoUsuario().ReadAll())
+            {
+                comboBoxItemTipoUser cb = new comboBoxItemTipoUser();
+                cb.id_tipo_user = item.id_tipo_user;
+                cb.descripcion_user = item.descripcion_user;
+                cboRol.Items.Add(cb);
+            }
+
+            cboRol.SelectedIndex = 0;
+
         }
         //-----------------Llamado desde Adm. Empleados---------------------------------
         //-----------------------------------------------------------------------
@@ -80,6 +92,17 @@ namespace Vista
             btnFiltrarRut.Visibility = Visibility.Visible;
             btnFiltrarRutFor.Visibility = Visibility.Hidden;
             CargarGrilla();
+
+            //Llenar el combobox
+            foreach (TipoUsuario item in new TipoUsuario().ReadAll())
+            {
+                comboBoxItemTipoUser cb = new comboBoxItemTipoUser();
+                cb.id_tipo_user = item.id_tipo_user;
+                cb.descripcion_user = item.descripcion_user;
+                cboRol.Items.Add(cb);
+            }
+
+            cboRol.SelectedIndex = 0;
         }
 
         //------------Cargar Grilla---------------------
@@ -105,19 +128,18 @@ namespace Vista
             btnFiltrarRut.Visibility = Visibility.Visible;
             btnFiltrarRutFor.Visibility = Visibility.Hidden;
             CargarGrilla();
+            txtFiltroRut.Clear();
+            cboRol.SelectedIndex = 0;
         }
 
         //-----------Refrescar 2 (informe)---------------------------------------------------------
         private void btnRefrescar2_Click(object sender, RoutedEventArgs e)
-        { /*
-
-            btnRefrescar.Visibility = Visibility.Hidden;
-            btnPasar.Visibility = Visibility.Hidden;
-            btnPasarAForm.Visibility = Visibility.Visible;
-            btnFiltrarRut.Visibility = Visibility.Hidden;
-            btnFiltrarRutFor.Visibility = Visibility.Visible;
-
-            CargarInforme();*/
+        {
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            CargarGrilla();
+            txtFiltroRut.Clear();
+            cboRol.SelectedIndex = 0;
         }
         //--------------Salir---------------------------------------
         private void btnSalir_Click(object sender, RoutedEventArgs e)
@@ -208,6 +230,26 @@ namespace Vista
                 CargarGrilla();
             }
         }
+        //Filtro por cargo
+        private async void Rol_Click(object sender, RoutedEventArgs e)
+        {
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+
+            try
+            {
+                int tipo = ((comboBoxItemTipoUser)cboRol.SelectedItem).id_tipo_user;//Guardo el id
+                dgLista.ItemsSource = em.FiltrarRol(tipo);
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+                CargarGrilla();
+            }
+
+        }
         //Filtro Rut que sirve para informe (Clientes con solicitudes)
         private async void btnFiltrarRutFor_Click(object sender, RoutedEventArgs e)
         {
@@ -268,5 +310,6 @@ namespace Vista
             _instancia = null;
         }
 
+       
     }
 }

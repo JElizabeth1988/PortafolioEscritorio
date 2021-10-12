@@ -376,14 +376,7 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format((exa.Message)));
-                DaoErrores de = emp.retornar();
-                string li = "";
-                foreach (string item in de.ListarErrores())
-                {
-                    li += item + " \n";
-                }
-                await this.ShowMessageAsync("Mensaje:",
-                    string.Format(li));
+               
             }
             catch (Exception ex)
             {
