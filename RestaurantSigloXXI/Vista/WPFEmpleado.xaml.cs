@@ -278,7 +278,7 @@ namespace Vista
 
         }
 
-        //----------Método pass
+        //----------Método pass para llenar el password y user generado por campos
         public void metodopass()
         {
             string contra = null;

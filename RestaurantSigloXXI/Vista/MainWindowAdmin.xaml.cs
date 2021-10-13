@@ -120,7 +120,7 @@ namespace Vista
 
         private void Mesas_Click(object sender, RoutedEventArgs e)
         {
-
+            WPFMesa.ObtenerinstanciaME().ShowDialog();
         }
 
         private void DisponibilidadMesas_Click(object sender, RoutedEventArgs e)

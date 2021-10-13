@@ -33,6 +33,8 @@ namespace Vista
     {
         //This (Origen)
         WPFEmpleado emp;
+        //This (Origen)
+        WPFMesa mes;
 
         //Clase cliente
         Empleado em = new Empleado();
@@ -56,14 +58,28 @@ namespace Vista
         public WPFListadoEmpleado()
         {
             InitializeComponent();
-            //Se instancia la conexión a la BD
-            //conn = new Conexion().Getcone();
+            
             txtFiltroRut.Focus();//Cursor inicia en la casilla de filtro
-            btnPasar.Visibility = Visibility.Hidden;//el botón traspasar no se ve
-            btnPasarAForm.Visibility = Visibility.Hidden;//no se ve
-            btnFiltrarRut.Visibility = Visibility.Visible;//Se ve
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;//No se ve
-            btnRefrescar2.Visibility = Visibility.Hidden;//No se ve
+                       
+            //Mostrar(Visibility) y esconder(Hidden) botones
+            //---Botones traspasar
+            btnPasar.Visibility = Visibility.Hidden;
+            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnPasarAMesa.Visibility = Visibility.Hidden;
+
+            //----Botones Resfrescar
+            btnRefrescar.Visibility = Visibility.Visible;
+            btnRefrescar2.Visibility = Visibility.Hidden;
+            btnRefrescarmesa.Visibility = Visibility.Hidden;
+
+            //---Botones filtrar rut
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            btnFiltrarRutMesa.Visibility = Visibility.Hidden;
+
+            //----Botones filtrar rol
+            btnFiltrarRol.Visibility = Visibility.Visible;
+
             CargarGrilla();
 
             //Llenar el combobox
@@ -85,13 +101,68 @@ namespace Vista
             InitializeComponent();
             emp = origen;
             //Mostrar(Visibility) y esconder(Hidden) botones
+            //---Botones traspasar
             btnPasar.Visibility = Visibility.Visible;
             btnPasarAForm.Visibility = Visibility.Hidden;
+            btnPasarAMesa.Visibility = Visibility.Hidden;
+
+            //----Botones Resfrescar
             btnRefrescar.Visibility = Visibility.Visible;
             btnRefrescar2.Visibility = Visibility.Hidden;
+            btnRefrescarmesa.Visibility = Visibility.Hidden;
+
+            //---Botones filtrar rut
             btnFiltrarRut.Visibility = Visibility.Visible;
             btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            btnFiltrarRutMesa.Visibility = Visibility.Hidden;
+
+            //----Botones filtrar rol
+            btnFiltrarRol.Visibility = Visibility.Visible;
+
             CargarGrilla();
+
+            //Llenar el combobox
+            foreach (TipoUsuario item in new TipoUsuario().ReadAll())
+            {
+                comboBoxItemTipoUser cb = new comboBoxItemTipoUser();
+                cb.id_tipo_user = item.id_tipo_user;
+                cb.descripcion_user = item.descripcion_user;
+                cboRol.Items.Add(cb);
+            }
+
+            cboRol.SelectedIndex = 0;
+        }
+
+        //-----------------Llamado desde Adm. Mesas---------------------------------
+        //-----------------------------------------------------------------------
+        public WPFListadoEmpleado(WPFMesa origen)
+        {
+            InitializeComponent();
+            mes = origen;
+            //Mostrar(Visibility) y esconder(Hidden) botones
+            //----Botones traspasar
+            btnPasar.Visibility = Visibility.Hidden;
+            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnPasarAMesa.Visibility = Visibility.Visible;
+
+            //---Botones refrescar
+            btnRefrescar.Visibility = Visibility.Hidden;
+            btnRefrescar2.Visibility = Visibility.Hidden;
+            btnRefrescarmesa.Visibility = Visibility.Visible;
+
+            //----Botones filtro rut
+            btnFiltrarRut.Visibility = Visibility.Hidden;
+            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            btnFiltrarRutMesa.Visibility = Visibility.Visible;
+
+            //----Botones filtro Rol
+            btnFiltrarRol.Visibility = Visibility.Hidden;
+
+            //Filtro no se ve
+            lblRol.Visibility = Visibility.Hidden;
+            cboRol.Visibility = Visibility.Hidden;
+
+            CargarGrillaMesa();
 
             //Llenar el combobox
             foreach (TipoUsuario item in new TipoUsuario().ReadAll())
@@ -121,13 +192,77 @@ namespace Vista
             }
 
         }
+        //------------Cargar Grillamesa---------------------
+        private void CargarGrillaMesa()
+        {
+            try
+            {
+                //Trae la lista del método Listar mesa
+                dgLista.ItemsSource = em.ListarMesa();
+                dgLista.Items.Refresh();
+            }
+            catch (Exception ex)
+            {
 
-        //-----------Botón Refrescar -------------------------------
+                throw;
+            }
+
+        }
+
+        //-----------Botón Refrescar listado empleado -------------------------------
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
+            //----Botones traspasar
+            //btnPasar.Visibility = Visibility.Hidden;
+            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnPasarAMesa.Visibility = Visibility.Hidden;
+
+            //---Botones refrescar
+           // btnRefrescar.Visibility = Visibility.Hidden;
+            btnRefrescar2.Visibility = Visibility.Hidden;
+            btnRefrescarmesa.Visibility = Visibility.Visible;
+
+            //----Botones filtro rut
             btnFiltrarRut.Visibility = Visibility.Visible;
             btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            btnFiltrarRutMesa.Visibility = Visibility.Hidden;
+
+            //----Botones filtro Rol
+            btnFiltrarRol.Visibility = Visibility.Visible;
+          
+
             CargarGrilla();
+            txtFiltroRut.Clear();
+            cboRol.SelectedIndex = 0;
+        }
+
+        //-----------Botón Refrescar mesa
+        private void btnRefrescarMesa_Click(object sender, RoutedEventArgs e)
+        {
+
+            //----Botones traspasar
+            btnPasar.Visibility = Visibility.Hidden;
+            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnPasarAMesa.Visibility = Visibility.Visible;
+
+            //---Botones refrescar
+            btnRefrescar.Visibility = Visibility.Hidden;
+            btnRefrescar2.Visibility = Visibility.Hidden;
+            btnRefrescarmesa.Visibility = Visibility.Visible;
+
+            //----Botones filtro rut
+            btnFiltrarRut.Visibility = Visibility.Hidden;
+            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            btnFiltrarRutMesa.Visibility = Visibility.Visible;
+
+            //----Botones filtro Rol
+            btnFiltrarRol.Visibility = Visibility.Hidden;
+
+            //Filtro no se ve
+            lblRol.Visibility = Visibility.Hidden;
+            cboRol.Visibility = Visibility.Hidden;
+
+            CargarGrillaMesa();
             txtFiltroRut.Clear();
             cboRol.SelectedIndex = 0;
         }
@@ -135,11 +270,11 @@ namespace Vista
         //-----------Refrescar 2 (informe)---------------------------------------------------------
         private void btnRefrescar2_Click(object sender, RoutedEventArgs e)
         {
-            btnFiltrarRut.Visibility = Visibility.Visible;
+           /* btnFiltrarRut.Visibility = Visibility.Visible;
             btnFiltrarRutFor.Visibility = Visibility.Hidden;
             CargarGrilla();
             txtFiltroRut.Clear();
-            cboRol.SelectedIndex = 0;
+            cboRol.SelectedIndex = 0;*/
         }
         //--------------Salir---------------------------------------
         private void btnSalir_Click(object sender, RoutedEventArgs e)
@@ -190,6 +325,36 @@ namespace Vista
             }
         }
 
+        //---------------Botón pasar a mesa
+        private async void btnPasarAMesa_Click(object sender, RoutedEventArgs e)
+        {
+            btnPasarAMesa.Visibility = Visibility.Visible;
+            try
+            {
+                Empleado.ListaEmpleadoMesa2 c = (Empleado.ListaEmpleadoMesa2)dgLista.SelectedItem;
+                //Traspasar los datos del dataGrid a la ventana cliente
+                mes.txtRut.Text = c.Rut;
+                              
+                mes.txtNombre.Text = c.Nombre+' '+c.Apellido_Paterno;
+                mes.txtNombre.IsEnabled = false;
+                
+                //Esconder y mostrar botones
+                //mes.btnModificar.Visibility = Visibility.Visible;
+                //mes.btnGuardar.Visibility = Visibility.Hidden;
+                //mes.btnEliminar.Visibility = Visibility.Visible;
+                //Cerrar listado
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al traspasar la Información"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
+            }
+        }
+
         //---------------Botón Pasar a Formulario (Traspasa la info del cliente y solicitud al formulario)
         private async void btnPasarAForm_Click(object sender, RoutedEventArgs e)
         { /* 
@@ -211,7 +376,7 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }*/
         }
-        //---------------Filtro para Cliente-----------
+        //---------------Filtro para Empleados-----------
         private async void btnFiltrarRut_Click(object sender, RoutedEventArgs e)
         {
             btnFiltrarRut.Visibility = Visibility.Visible;
@@ -230,6 +395,7 @@ namespace Vista
                 CargarGrilla();
             }
         }
+
         //Filtro por cargo
         private async void Rol_Click(object sender, RoutedEventArgs e)
         {
@@ -240,6 +406,46 @@ namespace Vista
             {
                 int tipo = ((comboBoxItemTipoUser)cboRol.SelectedItem).id_tipo_user;//Guardo el id
                 dgLista.ItemsSource = em.FiltrarRol(tipo);
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+                CargarGrilla();
+            }
+
+        }
+        //---------------Filtro para Empleados-----------
+        private async void btnFiltrarRutmesa_Click(object sender, RoutedEventArgs e)
+        {
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+
+            try
+            {
+                String rut = txtFiltroRut.Text;
+                dgLista.ItemsSource = em.FiltrarMesa(rut);
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+                CargarGrilla();
+            }
+        }
+
+        //Filtro por cargo
+        private async void Rolmesa_Click(object sender, RoutedEventArgs e)
+        {
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+
+            try
+            {
+                int tipo = ((comboBoxItemTipoUser)cboRol.SelectedItem).id_tipo_user;//Guardo el id
+                dgLista.ItemsSource = em.FiltrarMesaRol(tipo);
             }
             catch (Exception ex)
             {

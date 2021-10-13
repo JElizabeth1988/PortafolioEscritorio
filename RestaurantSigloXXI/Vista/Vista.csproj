@@ -198,6 +198,7 @@
     </ApplicationDefinition>
     <Compile Include="ComboBoxItemTipoProducto.cs" />
     <Compile Include="ComboBoxItemTipoUser.cs" />
+    <Compile Include="NotificatioCenter.cs" />
     <Compile Include="WindowBodega.xaml.cs">
       <DependentUpon>WindowBodega.xaml</DependentUpon>
     </Compile>

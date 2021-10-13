@@ -254,7 +254,8 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 Logger.Mensaje(ex.Message);
-                return false;               
+                return false;
+                conn.Close();             
 
             }
         }
@@ -299,6 +300,8 @@ namespace BibliotecaNegocio
             {
 
                 return false;
+                Logger.Mensaje(ex.Message);
+                conn.Close();
             }
         }
 
@@ -350,8 +353,11 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 Logger.Mensaje(ex.Message);
+                conn.Close();
             }
         }
+
+        
 
         //---------Método Eliminar-----------------------------------------------
         public bool Eliminar(String rut) //Recibe rut pot parametro
@@ -383,11 +389,12 @@ namespace BibliotecaNegocio
 
                 return false;
                 Logger.Mensaje(ex.Message);
+                conn.Close();
 
             }
         }
 
-        //------------Listar Clientes-------------
+        //------------Listar Empleados-------------
         //Llamo a la lista creada más abajo, porque trae nombres en vez de id y porque las variables se ven mejor en la grilla
         public List<ListaEmpleado> Listar()
         {
@@ -440,6 +447,7 @@ namespace BibliotecaNegocio
             {
                 return null;
                 Logger.Mensaje(ex.Message);
+                conn.Close();
             }
         }
 
@@ -496,6 +504,7 @@ namespace BibliotecaNegocio
             {
                 return null;
                 Logger.Mensaje(ex.Message);
+                conn.Close();
 
             }
 
@@ -554,9 +563,214 @@ namespace BibliotecaNegocio
             {
                 return null;
                 Logger.Mensaje(ex.Message);
+                conn.Close();
 
             }
 
+        }
+        //--------------------------Para mesa----------------------------
+        
+        //-----------Listar empleados llamado desde mesa
+        public List<ListaEmpleadoMesa2> ListarMesa()
+        {
+            try
+            {
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                //Lista de clientes
+                List<ListaEmpleadoMesa2> lista = new List<ListaEmpleadoMesa2>();
+                //se ejecutan los comandos de procedimientos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_LISTAR_EMPLEADO_MESA";
+                //Se agrega el parámetro de salida
+                cmd.Parameters.Add(new OracleParameter("EMPLEADOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+                //mientras lea
+                while (dr.Read())
+                {
+                    ListaEmpleadoMesa2 e = new ListaEmpleadoMesa2();
+
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    e.Rut = dr.GetValue(0).ToString();
+                    e.Nombre = dr.GetValue(1).ToString();
+                    e.Segundo_Nombre = dr.GetValue(2).ToString();
+                    e.Apellido_Paterno = dr.GetValue(3).ToString();
+                    e.Apellido_Materno = dr.GetValue(4).ToString();
+                    e.Rol = dr.GetValue(5).ToString();
+
+                    lista.Add(e);
+                }
+                //Cerrar la conexión
+                conn.Close();
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+                Logger.Mensaje(ex.Message);
+                conn.Close();
+            }
+        }
+
+        //------------Filtro mesa
+        public List<ListaEmpleadoMesa2> FiltrarMesa(string rut)
+        {
+            try
+            {
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //Lista de Clientes
+                List<ListaEmpleadoMesa2> lista = new List<ListaEmpleadoMesa2>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_EMPLEADO_MESA";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("EMPLEADOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                //Reader
+                OracleDataReader reader = CMD.ExecuteReader();
+                //Mientras lee
+                while (reader.Read())
+                {
+                    ListaEmpleadoMesa2 e = new ListaEmpleadoMesa2();
+
+                    //lee cada valor en su posición
+                    e.Rut = reader[0].ToString();
+                    e.Nombre = reader[1].ToString();
+                    e.Segundo_Nombre = reader[2].ToString();
+                    e.Apellido_Paterno = reader[3].ToString();
+                    e.Apellido_Materno = reader[4].ToString();
+                    e.Rol = reader[5].ToString();
+
+                    //Agrega los valores a la lista, que luego es devuelta por el método
+                    lista.Add(e);
+
+                }
+                conn.Close();
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                return null;
+                Logger.Mensaje(ex.Message);
+                conn.Close();
+
+            }
+
+        }
+
+        //------------Filtro mesa rol
+        public List<ListaEmpleadoMesa2> FiltrarMesaRol(int rol)
+        {
+            try
+            {
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //Lista de Clientes
+                List<ListaEmpleadoMesa2> lista = new List<ListaEmpleadoMesa2>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_ROL_MESA";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_ROL", OracleDbType.Int32)).Value = rol;
+                CMD.Parameters.Add(new OracleParameter("EMPLEADOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                //Reader
+                OracleDataReader reader = CMD.ExecuteReader();
+                //Mientras lee
+                while (reader.Read())
+                {
+                    ListaEmpleadoMesa2 e = new ListaEmpleadoMesa2();
+
+                    //lee cada valor en su posición
+                    e.Rut = reader[0].ToString();
+                    e.Nombre = reader[1].ToString();
+                    e.Segundo_Nombre = reader[2].ToString();
+                    e.Apellido_Paterno = reader[3].ToString();
+                    e.Apellido_Materno = reader[4].ToString();
+                    e.Rol = reader[5].ToString();
+
+                    //Agrega los valores a la lista, que luego es devuelta por el método
+                    lista.Add(e);
+
+                }
+                conn.Close();
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                return null;
+                Logger.Mensaje(ex.Message);
+                conn.Close();
+
+            }
+
+        }
+        //---------------------------------------------------------------
+        //Buscar empleado para mesa
+        public async void BuscarEmpMesa(String rut)
+        {
+
+            try
+            {
+                //Instanciar la conexión
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                List<ListaEmpleadoMesa> list = new List<ListaEmpleadoMesa>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_BUSCAR_EMPLEADO_MESA";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("EMPLEADOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                OracleDataReader reader = CMD.ExecuteReader();
+                ListaEmpleadoMesa e = null;
+                while (reader.Read())//Mientras lee
+                {
+                    e = new ListaEmpleadoMesa();
+
+                    e.Rut = reader[0].ToString();
+                    e.Nombre = reader[1].ToString();
+
+                    list.Add(e);
+
+                }
+                //Cerrar conexión
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Logger.Mensaje(ex.Message);
+                conn.Close();
+            }
         }
 
         //Lista Clientes para mostrar nombres en vez de id (para procedimientos con Joins)
@@ -577,6 +791,40 @@ namespace BibliotecaNegocio
 
 
             public ListaEmpleado()
+            {
+
+            }
+        }
+
+        [Serializable]
+        public class ListaEmpleadoMesa
+        {
+            public string Rut { get; set; }
+            public string Nombre { get; set; }
+            //No es serializable
+            [NonSerialized]
+            //Crear objeto de la Bdd
+            OracleConnection conn = null;
+
+            public ListaEmpleadoMesa()
+            {
+
+            }
+
+           
+        }
+
+        [Serializable]
+        public class ListaEmpleadoMesa2
+        {
+            public string Rut { get; set; }
+            public string Nombre { get; set; }
+            public string Segundo_Nombre { get; set; }
+            public string Apellido_Paterno { get; set; }
+            public string Apellido_Materno { get; set; }
+            public String Rol { get; set; }//Tipo de usuario
+
+            public ListaEmpleadoMesa2()
             {
 
             }
