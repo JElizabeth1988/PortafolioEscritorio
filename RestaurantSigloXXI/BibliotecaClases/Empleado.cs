@@ -729,49 +729,7 @@ namespace BibliotecaNegocio
 
         }
         //---------------------------------------------------------------
-        //Buscar empleado para mesa
-        public async void BuscarEmpMesa(String rut)
-        {
-
-            try
-            {
-                //Instanciar la conexión
-                conn = new Conexion().Getcone();
-                OracleCommand CMD = new OracleCommand();
-                CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                List<ListaEmpleadoMesa> list = new List<ListaEmpleadoMesa>();
-                //nombre de la conexion
-                CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_EMPLEADO_MESA";
-                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = rut;
-                CMD.Parameters.Add(new OracleParameter("EMPLEADOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-
-                //se abre la conexion
-                conn.Open();
-                OracleDataReader reader = CMD.ExecuteReader();
-                ListaEmpleadoMesa e = null;
-                while (reader.Read())//Mientras lee
-                {
-                    e = new ListaEmpleadoMesa();
-
-                    e.Rut = reader[0].ToString();
-                    e.Nombre = reader[1].ToString();
-
-                    list.Add(e);
-
-                }
-                //Cerrar conexión
-                conn.Close();
-
-            }
-            catch (Exception ex)
-            {
-                Logger.Mensaje(ex.Message);
-                conn.Close();
-            }
-        }
+        
 
         //Lista Clientes para mostrar nombres en vez de id (para procedimientos con Joins)
         [Serializable]
@@ -810,8 +768,50 @@ namespace BibliotecaNegocio
             {
 
             }
+            //Buscar empleado para mesa
+            public async void BuscarEmpMesa(String rut)
+            {
 
-           
+                try
+                {
+                    //Instanciar la conexión
+                    conn = new Conexion().Getcone();
+                    OracleCommand CMD = new OracleCommand();
+                    CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                    List<ListaEmpleadoMesa> list = new List<ListaEmpleadoMesa>();
+                    //nombre de la conexion
+                    CMD.Connection = conn;
+                    //nombre del procedimeinto almacenado
+                    CMD.CommandText = "SP_BUSCAR_EMPLEADO_MESA";
+                    //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// 
+                    CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = rut;
+                    CMD.Parameters.Add(new OracleParameter("EMPLEADOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                    //se abre la conexion
+                    conn.Open();
+                    OracleDataReader reader = CMD.ExecuteReader();
+                    ListaEmpleadoMesa e = null;
+                    while (reader.Read())//Mientras lee
+                    {
+                        e = new ListaEmpleadoMesa();
+
+                        Rut = reader[0].ToString();
+                        Nombre = reader[1].ToString();
+
+                        list.Add(e);
+
+                    }
+                    //Cerrar conexión
+                    conn.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    Logger.Mensaje(ex.Message);
+                    conn.Close();
+                }
+            }
+
         }
 
         [Serializable]

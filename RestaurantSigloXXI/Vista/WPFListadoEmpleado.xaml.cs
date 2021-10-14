@@ -339,8 +339,8 @@ namespace Vista
                 mes.txtNombre.IsEnabled = false;
                 
                 //Esconder y mostrar botones
-                //mes.btnModificar.Visibility = Visibility.Visible;
-                //mes.btnGuardar.Visibility = Visibility.Hidden;
+                //mes.btnModificar.Visibility = Visibility.Hidden;
+                //mes.btnGuardar.Visibility = Visibility.Visible;
                 //mes.btnEliminar.Visibility = Visibility.Visible;
                 //Cerrar listado
                 Close();
@@ -416,7 +416,7 @@ namespace Vista
             }
 
         }
-        //---------------Filtro para Empleados-----------
+        //---------------Filtro para mesa (Garzones)-----------
         private async void btnFiltrarRutmesa_Click(object sender, RoutedEventArgs e)
         {
             btnFiltrarRut.Visibility = Visibility.Visible;
@@ -436,26 +436,7 @@ namespace Vista
             }
         }
 
-        //Filtro por cargo
-        private async void Rolmesa_Click(object sender, RoutedEventArgs e)
-        {
-            btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
-
-            try
-            {
-                int tipo = ((comboBoxItemTipoUser)cboRol.SelectedItem).id_tipo_user;//Guardo el id
-                dgLista.ItemsSource = em.FiltrarMesaRol(tipo);
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Error al filtrar la Información"));
-                Logger.Mensaje(ex.Message);
-                CargarGrilla();
-            }
-
-        }
+        
         //Filtro Rut que sirve para informe (Clientes con solicitudes)
         private async void btnFiltrarRutFor_Click(object sender, RoutedEventArgs e)
         {
