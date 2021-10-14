@@ -214,6 +214,9 @@
     <Compile Include="WindowRecepcion.xaml.cs">
       <DependentUpon>WindowRecepcion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFBebida.xaml.cs">
+      <DependentUpon>WPFBebida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFEmpleado.xaml.cs">
       <DependentUpon>WPFEmpleado.xaml</DependentUpon>
     </Compile>
@@ -250,6 +253,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowRecepcion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFBebida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

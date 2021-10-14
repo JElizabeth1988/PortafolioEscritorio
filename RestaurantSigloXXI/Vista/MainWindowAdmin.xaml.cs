@@ -102,22 +102,24 @@ namespace Vista
             WPFListadoCliente.ObtenerinstanciaLICLI().ShowDialog();
         }
 
-  
+        //----Administrar Empleados
         private void Tile_Click_AdmEmp(object sender, RoutedEventArgs e)
         {
             WPFEmpleado.ObtenerinstanciaEM().ShowDialog();
         }
 
+        //-----------Listado Empleados--------------------
         private void Tile_Click_ListadoEmp(object sender, RoutedEventArgs e)
         {
             WPFListadoEmpleado.ObtenerinstanciaLILIE().ShowDialog();
         }
 
+        //-------------Administrar Platos----------------------
         private void Platos_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
+        //------------Administrar Mesas---------------------------
         private void Mesas_Click(object sender, RoutedEventArgs e)
         {
             WPFMesa.ObtenerinstanciaME().ShowDialog();
@@ -137,10 +139,10 @@ namespace Vista
         {
 
         }
-
+        //-----------Administrar Bebidas------------------------
         private void Bebidas_Click(object sender, RoutedEventArgs e)
         {
-
+            WPFBebida.ObtenerinstanciaBE().ShowDialog();
         }
     }
 }
