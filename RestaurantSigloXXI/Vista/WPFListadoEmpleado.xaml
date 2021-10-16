@@ -36,11 +36,10 @@
                 <Label x:Name="label" Content="Rut Empleado:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,-1,0,0" Width="113" FontSize="12"/>
                 <TextBox x:Name="txtFiltroRut"  Controls:TextBoxHelper.Watermark="Ej. 11222333-1" HorizontalAlignment="Left" Height="23" Margin="203,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
                 <Button x:Name="btnFiltrarRut" Content="Filtrar" HorizontalAlignment="Left" Margin="420,0,-79,65" VerticalAlignment="Bottom" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltrarRut_Click"/>
-                <Button x:Name="btnFiltrarRutFor" Content="Filtrar" HorizontalAlignment="Left" Margin="420,0,-79,67" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltrarRutFor_Click"/>
                 <Label x:Name="lblRol" Content="Cargo del Empleado:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,34,0,0" Width="142" FontSize="12"/>
                 <ComboBox x:Name="cboRol" HorizontalAlignment="Left" Margin="203,34,0,0" VerticalAlignment="Top" Width="184" FontWeight="Normal"/>
                 <Button x:Name="btnFiltrarRol" Content="Filtrar" HorizontalAlignment="Left" Margin="420,34,-79,33" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="Rol_Click"/>
-                <Button x:Name="btnFiltrarRutMesa" Content="Filtrar" HorizontalAlignment="Left" Margin="420,1,-79,66" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltrarRutmesa_Click"/>
+                <Button x:Name="btnFiltrarRutMesa" Content="Filtrar" HorizontalAlignment="Left" Margin="420,3,-79,64" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltrarRutmesa_Click"/>
             </Grid>
         </GroupBox>
         <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="776,373,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
@@ -48,13 +47,7 @@
                 <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnPasarAForm" Content="Traspasar" HorizontalAlignment="Left" Margin="529,377,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnPasarAForm_Click"/>
         <Image x:Name="images" HorizontalAlignment="Left" Height="91" Margin="663,30,0,0" VerticalAlignment="Top" Width="142" Source="Imagenes/logoFinal3.png"/>
-        <Button x:Name="btnRefrescar2" HorizontalAlignment="Left" Margin="776,373,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar2_Click"  >
-            <Button.Background>
-                <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
-            </Button.Background>
-        </Button>
         <Button x:Name="btnPasarAMesa" Content="Traspasar" HorizontalAlignment="Left" Margin="529,377,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnPasarAMesa_Click"/>
         <Button x:Name="btnRefrescarmesa" HorizontalAlignment="Left" Margin="776,373,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescarMesa_Click"  >
             <Button.Background>

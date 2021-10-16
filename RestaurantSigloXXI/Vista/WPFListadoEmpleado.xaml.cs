@@ -13,22 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+//Metro
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
+//Biblioteca de clases
 using BibliotecaNegocio;
-
-
+//Using para conexión
 using Oracle.ManagedDataAccess.Client;
 
 using System.Data;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para ListadoEmpleado.xaml
-    /// </summary>
     public partial class WPFListadoEmpleado : MetroWindow
     {
         //This (Origen)
@@ -63,18 +61,15 @@ namespace Vista
                        
             //Mostrar(Visibility) y esconder(Hidden) botones
             //---Botones traspasar
-            btnPasar.Visibility = Visibility.Hidden;
-            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnPasar.Visibility = Visibility.Hidden;            
             btnPasarAMesa.Visibility = Visibility.Hidden;
 
             //----Botones Resfrescar
-            btnRefrescar.Visibility = Visibility.Visible;
-            btnRefrescar2.Visibility = Visibility.Hidden;
+            btnRefrescar.Visibility = Visibility.Visible;           
             btnRefrescarmesa.Visibility = Visibility.Hidden;
 
             //---Botones filtrar rut
-            btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            btnFiltrarRut.Visibility = Visibility.Visible;           
             btnFiltrarRutMesa.Visibility = Visibility.Hidden;
 
             //----Botones filtrar rol
@@ -102,18 +97,15 @@ namespace Vista
             emp = origen;
             //Mostrar(Visibility) y esconder(Hidden) botones
             //---Botones traspasar
-            btnPasar.Visibility = Visibility.Visible;
-            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnPasar.Visibility = Visibility.Visible;            
             btnPasarAMesa.Visibility = Visibility.Hidden;
 
             //----Botones Resfrescar
-            btnRefrescar.Visibility = Visibility.Visible;
-            btnRefrescar2.Visibility = Visibility.Hidden;
+            btnRefrescar.Visibility = Visibility.Visible;           
             btnRefrescarmesa.Visibility = Visibility.Hidden;
 
             //---Botones filtrar rut
-            btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            btnFiltrarRut.Visibility = Visibility.Visible;           
             btnFiltrarRutMesa.Visibility = Visibility.Hidden;
 
             //----Botones filtrar rol
@@ -141,18 +133,15 @@ namespace Vista
             mes = origen;
             //Mostrar(Visibility) y esconder(Hidden) botones
             //----Botones traspasar
-            btnPasar.Visibility = Visibility.Hidden;
-            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnPasar.Visibility = Visibility.Hidden;            
             btnPasarAMesa.Visibility = Visibility.Visible;
 
             //---Botones refrescar
-            btnRefrescar.Visibility = Visibility.Hidden;
-            btnRefrescar2.Visibility = Visibility.Hidden;
+            btnRefrescar.Visibility = Visibility.Hidden;            
             btnRefrescarmesa.Visibility = Visibility.Visible;
 
             //----Botones filtro rut
-            btnFiltrarRut.Visibility = Visibility.Hidden;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            btnFiltrarRut.Visibility = Visibility.Hidden;            
             btnFiltrarRutMesa.Visibility = Visibility.Visible;
 
             //----Botones filtro Rol
@@ -188,7 +177,7 @@ namespace Vista
             catch (Exception ex)
             {
 
-                throw;
+                Logger.Mensaje(ex.Message);
             }
 
         }
@@ -204,7 +193,7 @@ namespace Vista
             catch (Exception ex)
             {
 
-                throw;
+                Logger.Mensaje(ex.Message);
             }
 
         }
@@ -214,17 +203,15 @@ namespace Vista
         {
             //----Botones traspasar
             //btnPasar.Visibility = Visibility.Hidden;
-            btnPasarAForm.Visibility = Visibility.Hidden;
+            
             btnPasarAMesa.Visibility = Visibility.Hidden;
 
             //---Botones refrescar
-           // btnRefrescar.Visibility = Visibility.Hidden;
-            btnRefrescar2.Visibility = Visibility.Hidden;
-            btnRefrescarmesa.Visibility = Visibility.Visible;
+            btnRefrescar.Visibility = Visibility.Visible;            
+            btnRefrescarmesa.Visibility = Visibility.Hidden;
 
             //----Botones filtro rut
-            btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            btnFiltrarRut.Visibility = Visibility.Visible;           
             btnFiltrarRutMesa.Visibility = Visibility.Hidden;
 
             //----Botones filtro Rol
@@ -239,20 +226,16 @@ namespace Vista
         //-----------Botón Refrescar mesa
         private void btnRefrescarMesa_Click(object sender, RoutedEventArgs e)
         {
-
             //----Botones traspasar
-            btnPasar.Visibility = Visibility.Hidden;
-            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnPasar.Visibility = Visibility.Hidden;            
             btnPasarAMesa.Visibility = Visibility.Visible;
 
             //---Botones refrescar
-            btnRefrescar.Visibility = Visibility.Hidden;
-            btnRefrescar2.Visibility = Visibility.Hidden;
+            btnRefrescar.Visibility = Visibility.Hidden;            
             btnRefrescarmesa.Visibility = Visibility.Visible;
 
             //----Botones filtro rut
-            btnFiltrarRut.Visibility = Visibility.Hidden;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
+            btnFiltrarRut.Visibility = Visibility.Hidden;            
             btnFiltrarRutMesa.Visibility = Visibility.Visible;
 
             //----Botones filtro Rol
@@ -267,15 +250,7 @@ namespace Vista
             cboRol.SelectedIndex = 0;
         }
 
-        //-----------Refrescar 2 (informe)---------------------------------------------------------
-        private void btnRefrescar2_Click(object sender, RoutedEventArgs e)
-        {
-           /* btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
-            CargarGrilla();
-            txtFiltroRut.Clear();
-            cboRol.SelectedIndex = 0;*/
-        }
+       
         //--------------Salir---------------------------------------
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
@@ -292,6 +267,7 @@ namespace Vista
                 emp.txtUser.IsEnabled = false;
                 emp.txtPass.IsEnabled = true;
                 Empleado.ListaEmpleado c = (Empleado.ListaEmpleado)dgLista.SelectedItem;
+
                 //Traspasar los datos del dataGrid a la ventana cliente
                 emp.txtRut.Text = c.Rut.Substring(0, 8);
                 emp.txtDV.Text = c.Rut.Substring(9, 1);
@@ -355,37 +331,29 @@ namespace Vista
             }
         }
 
-        //---------------Botón Pasar a Formulario (Traspasa la info del cliente y solicitud al formulario)
-        private async void btnPasarAForm_Click(object sender, RoutedEventArgs e)
-        { /* 
-            btnPasar.Visibility = Visibility.Hidden;
-            btnPasarAForm.Visibility = Visibility.Visible;
-            try
-            {
-                BibliotecaNegocio.Solicitud.ListaSolicitud cl = (BibliotecaNegocio.Solicitud.ListaSolicitud)dgLista.SelectedItem;
-                string rutbuscar = form.txtRutCliente.Text;
-                form.txtRutCliente.Text = cl.Rut;
-                form.Buscar();
-                Close();
-            }
-            catch (Exception ex)
-            {
-
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Error al traspasar la Información"));
-                Logger.Mensaje(ex.Message);
-            }*/
-        }
+       
         //---------------Filtro para Empleados-----------
         private async void btnFiltrarRut_Click(object sender, RoutedEventArgs e)
         {
             btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
-
             try
             {
                 String rut = txtFiltroRut.Text;
-                dgLista.ItemsSource = em.Filtrar(rut);
+                if (em.Filtrar(rut) !=null)
+                {
+                    dgLista.ItemsSource = em.Filtrar(rut);
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Empleados:");
+                    dt.Rows.Add("No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+                    txtFiltroRut.Clear();
+                    
+                }
+                
             }
             catch (Exception ex)
             {
@@ -400,12 +368,24 @@ namespace Vista
         private async void Rol_Click(object sender, RoutedEventArgs e)
         {
             btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
-
+            
             try
             {
                 int tipo = ((comboBoxItemTipoUser)cboRol.SelectedItem).id_tipo_user;//Guardo el id
-                dgLista.ItemsSource = em.FiltrarRol(tipo);
+                if (em.FiltrarRol(tipo) !=null)
+                {
+                    dgLista.ItemsSource = em.FiltrarRol(tipo);
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Empleados:");
+                    dt.Rows.Add("No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+                    cboRol.SelectedIndex = 0;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -420,12 +400,24 @@ namespace Vista
         private async void btnFiltrarRutmesa_Click(object sender, RoutedEventArgs e)
         {
             btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
-
+            
             try
             {
                 String rut = txtFiltroRut.Text;
-                dgLista.ItemsSource = em.FiltrarMesa(rut);
+                if (em.FiltrarMesa(rut) != null)
+                {
+                    dgLista.ItemsSource = em.FiltrarMesa(rut);
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Empleados:");
+                    dt.Rows.Add("No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+                    txtFiltroRut.Clear();
+                }
+                
             }
             catch (Exception ex)
             {
@@ -435,62 +427,7 @@ namespace Vista
                 CargarGrilla();
             }
         }
-
         
-        //Filtro Rut que sirve para informe (Clientes con solicitudes)
-        private async void btnFiltrarRutFor_Click(object sender, RoutedEventArgs e)
-        {
-            /*btnFiltrarRut.Visibility = Visibility.Hidden;
-            btnFiltrarRutFor.Visibility = Visibility.Visible;
-            try
-            {
-                string rut = txtFiltroRut.Text;
-                OracleCommand CMD = new OracleCommand();
-                //que tipo de comando voy a ejecutar
-                CMD.CommandType = System.Data.CommandType.StoredProcedure;
-
-                List<BibliotecaNegocio.Solicitud.ListaSolicitud> clie = new List<BibliotecaNegocio.Solicitud.ListaSolicitud>();
-                //nombre de la conexion
-                CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_CLI";
-                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 20)).Value = rut;
-                CMD.Parameters.Add(new OracleParameter("INFORMES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-
-                //se abre la conexion
-                conn.Open();
-                OracleDataReader reader = CMD.ExecuteReader();
-                BibliotecaNegocio.Solicitud.ListaSolicitud c = null;
-                while (reader.Read())
-                {
-                    c = new BibliotecaNegocio.Solicitud.ListaSolicitud();
-
-                    c.Rut = reader[0].ToString();
-                    c.Nombre = reader[1].ToString();
-                    c.Fecha = DateTime.Parse(reader[2].ToString());
-                    c.id_solicitud = int.Parse(reader[3].ToString());
-                    c.Direccion = reader[4].ToString();
-                    c.Constructora = reader[5].ToString();
-                    c.Comuna= reader[6].ToString();
-
-                    clie.Add(c);
-
-                }
-                conn.Close();
-                dgLista.ItemsSource = clie;
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Error al filtrar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
-            /*Logger.Mensaje(ex.Message);
-
-            CargarInforme();
-        }*/
-        }
-
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //Parar Singleton

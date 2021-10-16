@@ -236,6 +236,9 @@
     <Compile Include="WPFProducto.xaml.cs">
       <DependentUpon>WPFProducto.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFVerPedidosListos.xaml.cs">
+      <DependentUpon>WPFVerPedidosListos.xaml</DependentUpon>
+    </Compile>
     <Page Include="WindowBodega.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -315,6 +318,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFVerPedidosListos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

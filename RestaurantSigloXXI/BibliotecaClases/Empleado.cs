@@ -456,6 +456,7 @@ namespace BibliotecaNegocio
         {
             try
             {
+                int contador = 0;
                 //Se instancia la conexión a la BD
                 conn = new Conexion().Getcone();
                 OracleCommand CMD = new OracleCommand();
@@ -495,10 +496,19 @@ namespace BibliotecaNegocio
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(e);
+                    contador = 1;
 
                 }
                 conn.Close();
-                return lista;
+                if (contador ==1)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -515,6 +525,7 @@ namespace BibliotecaNegocio
         {
             try
             {
+                int contador = 0;
                 //Se instancia la conexión a la BD
                 conn = new Conexion().Getcone();
                 OracleCommand CMD = new OracleCommand();
@@ -554,10 +565,18 @@ namespace BibliotecaNegocio
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(e);
-
+                    contador = 1;
                 }
                 conn.Close();
-                return lista;
+                if (contador ==1)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -626,6 +645,7 @@ namespace BibliotecaNegocio
         {
             try
             {
+                int contador = 0;
                 //Se instancia la conexión a la BD
                 conn = new Conexion().Getcone();
                 OracleCommand CMD = new OracleCommand();
@@ -660,64 +680,18 @@ namespace BibliotecaNegocio
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(e);
-
+                    contador = 1;
                 }
                 conn.Close();
-                return lista;
-            }
-            catch (Exception ex)
-            {
-                return null;
-                Logger.Mensaje(ex.Message);
-                conn.Close();
-
-            }
-
-        }
-
-        //------------Filtro mesa rol
-        public List<ListaEmpleadoMesa2> FiltrarMesaRol(int rol)
-        {
-            try
-            {
-                //Se instancia la conexión a la BD
-                conn = new Conexion().Getcone();
-                OracleCommand CMD = new OracleCommand();
-                //que tipo comando voy a ejecutar
-                CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                //Lista de Clientes
-                List<ListaEmpleadoMesa2> lista = new List<ListaEmpleadoMesa2>();
-                //nombre de la conexion
-                CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_FILTRAR_ROL_MESA";
-                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_ROL", OracleDbType.Int32)).Value = rol;
-                CMD.Parameters.Add(new OracleParameter("EMPLEADOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-
-                //se abre la conexion
-                conn.Open();
-                //Reader
-                OracleDataReader reader = CMD.ExecuteReader();
-                //Mientras lee
-                while (reader.Read())
+                if (contador ==1)
                 {
-                    ListaEmpleadoMesa2 e = new ListaEmpleadoMesa2();
-
-                    //lee cada valor en su posición
-                    e.Rut = reader[0].ToString();
-                    e.Nombre = reader[1].ToString();
-                    e.Segundo_Nombre = reader[2].ToString();
-                    e.Apellido_Paterno = reader[3].ToString();
-                    e.Apellido_Materno = reader[4].ToString();
-                    e.Rol = reader[5].ToString();
-
-                    //Agrega los valores a la lista, que luego es devuelta por el método
-                    lista.Add(e);
-
+                    return lista;
                 }
-                conn.Close();
-                return lista;
+                else
+                {
+                    return null;
+                }
+               
             }
             catch (Exception ex)
             {
@@ -728,6 +702,7 @@ namespace BibliotecaNegocio
             }
 
         }
+                
         //---------------------------------------------------------------
         
 

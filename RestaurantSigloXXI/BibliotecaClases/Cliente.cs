@@ -389,6 +389,7 @@ namespace BibliotecaNegocio
         {
             try
             {
+                int contador = 0;
                 //Se instancia la conexión a la BD
                 conn = new Conexion().Getcone();
                 OracleCommand CMD = new OracleCommand();
@@ -425,10 +426,18 @@ namespace BibliotecaNegocio
                     
                     //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(c);
-
+                    contador = 1;
                 }
                 conn.Close();
-                return lista;
+                if (contador ==1)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+                
             }
             catch (Exception ex)
             {

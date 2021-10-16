@@ -1,0 +1,52 @@
+﻿<Controls:MetroWindow x:Class="Vista.WPFVerPedidosListos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                      
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      
+        xmlns:local="clr-namespace:Vista"
+        mc:Ignorable="d"
+        BorderThickness="2" BorderBrush="Black"
+        Title="Visualizar Pedidos" Height="468.166" Width="874" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Cursor="Arrow" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Closing="MetroWindow_Closing"  >
+    <Grid Background="#FFDBDFE3">
+
+        <Image x:Name="image" HorizontalAlignment="Left" Height="437" VerticalAlignment="Top" Width="879" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-14.333,-0.333"/>
+        <DataGrid x:Name="dgLista" Margin="41,145,52.667,0" VerticalAlignment="Top" Height="212" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" >
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Style.Triggers>
+                        <Trigger Property="DataGridCell.IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FFFAA575" />
+                            <Setter Property="Foreground" Value="Black" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="644,377,0,0" VerticalAlignment="Top" Width="77"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+        <GroupBox x:Name="gbFiltrar" Header="Filtrar Información" HorizontalAlignment="Left" Margin="41,20,0,0" VerticalAlignment="Top" Height="102" Width="528"  Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+            <Grid HorizontalAlignment="Left" Height="70" Margin="10,0,0,-3.333" VerticalAlignment="Top" Width="557">
+                <Label x:Name="label" Content="Rut Cliente:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,-1,0,0" Width="113" FontSize="12"/>
+                <TextBox x:Name="txtFiltroRut"  Controls:TextBoxHelper.Watermark="Ej. 11222333-1" HorizontalAlignment="Left" Height="23" Margin="173,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
+                <Label x:Name="lblRol" Content="Fecha:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,34,0,0" Width="113" FontSize="12"/>
+                <Button x:Name="btnFiltroFecha" Content="Filtrar" HorizontalAlignment="Left" Margin="360,36,0,6" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltroFecha_Click"/>
+                <Button x:Name="btnFiltro" Content="Filtrar" HorizontalAlignment="Left" Margin="360,1,0,41" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltro_Click"/>
+                <DatePicker x:Name="dpFecha" HorizontalAlignment="Left" Margin="173,36,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+            </Grid>
+        </GroupBox>
+        <Image x:Name="images" HorizontalAlignment="Left" Height="91" Margin="663,30,0,0" VerticalAlignment="Top" Width="142" Source="Imagenes/logoFinal3.png"/>
+        <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left" Margin="537,377,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnPasar_Click"/>
+        <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="772,371,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Controls:MetroWindow>
