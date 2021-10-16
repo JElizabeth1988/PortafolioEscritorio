@@ -1,0 +1,131 @@
+﻿<Controls:MetroWindow x:Class="Vista.WindowFinanza"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Vista"
+        mc:Ignorable="d"
+        
+        Title="  RESTAURANT SIGLO XXI"  Height="648" Width="1143.334"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logoFinal2 .png"  IconEdgeMode="Aliased" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="2" TitleCaps="False" Cursor="Arrow">
+
+
+    <Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+            <!--Acceso directo a Facebook-->
+            <Button ToolTip="Facebook" Name="FacebookButton" Click="FacebookButton_Click">
+                <Rectangle Width="22" Height="22" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Uniform"
+                                     Visual="{StaticResource appbar_social_facebook}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <!--Acceso directo a Twitter-->
+            <Button ToolTip="Twitter" Name="TwitterButton" Click="TwitterButton_Click">
+                <Rectangle Width="22" Height="22" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Uniform"
+                                     Visual="{StaticResource appbar_twitter_bird}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+
+            <!--Acceso directo a Instagram-->
+            <Button ToolTip="Instagram"  Name="GoogleButton" Click="InstagramButton_Click">
+
+                <Rectangle Width="22"  Height="22" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Uniform"
+                                     Visual="{StaticResource appbar_camera}"
+                                     />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
+
+    <Controls:MetroWindow.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF87A6DA" Offset="0"/>
+            <GradientStop Color="#FFC6D6F2" Offset="0.994"/>
+        </LinearGradientBrush>
+    </Controls:MetroWindow.Background>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <!--Acceso directo a Cerrar Sesión-->
+            <Button ToolTip="Cerrar Sesión" Name="CerrarSesionButton" Click="CerrarSesion_Click">
+                <Rectangle Width="22" Height="22" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Uniform"
+                                     Visual="{StaticResource appbar_door_leave}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <!--
+            Acceso directo a Contactar
+            <Button ToolTip="Contactar" Name="ContactButton" >
+                <Rectangle Width="22" Height="22" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Uniform"
+                                     Visual="{StaticResource appbar_email_minimal}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button> -->
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Grid Margin="10,0,0,0">
+
+        <Image x:Name="image" HorizontalAlignment="Left" Height="620" VerticalAlignment="Top" Width="1151" Source="Imagenes/about-img.jpg" Margin="-17,0,-6,0" Stretch="Fill" Opacity="0.4" Cursor="Arrow"/>
+
+
+        <Controls:Tile ToolTip="Administrar Reservas" Margin="329,266,645,241" Click="Reservas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            
+            <Grid Height="109" Width="149" >
+                <Image x:Name="image4" Height="74" VerticalAlignment="Top" Source="Imagenes/codigo.png" Margin="33,13,33,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label3" Content="Reservas" Margin="40,77,40,3" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
+        <Label x:Name="label" Content="Bienvenido, Enacragado de Finanzas" Margin="346,82,347,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+        <Controls:Tile ToolTip="Administrar Pagos" Margin="645,266,329,241" Click="Pagos_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+
+            <Grid Height="109" Width="154" >
+                <Image x:Name="image1" Height="66" VerticalAlignment="Top" Source="Imagenes/Money-Credit-Card.png" Margin="38,11,38,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label1" Content="Pagos" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Margin="51,77,51,3">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
+        <Image x:Name="image2" Height="118" Margin="844,82,75,0" VerticalAlignment="Top" Source="Imagenes/logoFinal3.png"/>
+
+    </Grid>
+
+</Controls:MetroWindow>
