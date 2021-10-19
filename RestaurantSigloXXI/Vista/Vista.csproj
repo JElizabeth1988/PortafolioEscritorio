@@ -231,9 +231,6 @@
       <DependentUpon>WPFListadoCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="ObjectBinder.cs" />
-    <Compile Include="WPFListadoProducto.xaml.cs">
-      <DependentUpon>WPFListadoProducto.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WPFMesa.xaml.cs">
       <DependentUpon>WPFMesa.xaml</DependentUpon>
     </Compile>
@@ -319,10 +316,6 @@
     <Page Include="Resources\IconsNonShared.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="WPFListadoProducto.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFMesa.xaml">
       <SubType>Designer</SubType>

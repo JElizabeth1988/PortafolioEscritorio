@@ -1023,9 +1023,7 @@ C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\Vista\o
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\Vista\obj\Debug\WPFListadoProducto.baml
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\Vista\obj\Debug\WPFMesa.baml
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\Vista\obj\Debug\WPFProducto.baml
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFListadoProducto.g.cs
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFProducto.g.cs
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFListadoProducto.baml
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFProducto.baml
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFBebida.g.cs
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFBebida.baml

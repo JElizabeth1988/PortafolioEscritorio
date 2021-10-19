@@ -1,18 +1,32 @@
-﻿//Bibliotecas
-using BibliotecaNegocio;
-//using System.Data.OracleClient;
-
-//Metro
-using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
-using Oracle.ManagedDataAccess.Client;
-using System;
-//FileCache
-using System.Runtime.Caching;
-using System.Threading; //Hilos
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+using Oracle.ManagedDataAccess.Client;
+//using System.Data.OracleClient;
+
+using System.Data;
+//Metro
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
+//Bibliotecas
+using BibliotecaNegocio;
+
+
+using System.Threading; //Hilos
+//FileCache
+using System.Runtime.Caching;
 
 namespace Vista
 {
@@ -54,6 +68,9 @@ namespace Vista
 
             cboTipoProducto.SelectedIndex = 0;
 
+            btnModificar.Visibility = Visibility.Hidden;
+            btnGuardar.Visibility = Visibility.Visible;
+
             //---Tarea automática CACHÉ-------
             Task tarea = new Task(() =>
             {
@@ -74,6 +91,12 @@ namespace Vista
             {
                 lblCache.Content = filecache["hora"].ToString();
             }
+
+            CargarGrilla();
+            //Cuando se guarda una mesa nueva se refresca la grilla
+            NotificationCenter.Subscribe("producto_guardado", CargarGrilla);
+            NotificationCenter.Subscribe("producto_actualizado", CargarGrilla);
+            NotificationCenter.Subscribe("producto_borrado", CargarGrilla);
         }
         //---------------------------------
         //Método generar respaldo------------------
@@ -89,32 +112,36 @@ namespace Vista
                 int Id = 0;
                 if (int.TryParse(txtIdProd.Text, out Id))
                 {
-                    pr.id_producto = int.Parse(txtIdProd.Text);
+                    pr.Id = int.Parse(txtIdProd.Text);
                 }
 
                 if (txtNomProd.Text != null)
                 {
-                    pr.nombre_producto = txtNomProd.Text;
+                    pr.Nombre = txtNomProd.Text;
                 }
                 int ValorUnidad = 0;
                 if (int.TryParse(txtValorUnidad.Text, out ValorUnidad))
                 {
-                    pr.valor_unidad = int.Parse(txtValorUnidad.Text);
+                    pr.Valor_Unidad = txtValorUnidad.Text;
                 }
                 int Stock = 0;
                 if (int.TryParse(txtStock.Text, out Stock))
                 {
-                    pr.stock = int.Parse(txtStock.Text);
+                    pr.Stock = txtStock.Text;
                 }
                 int valorKg = 0;
                 if (int.TryParse(txtValorKg.Text, out valorKg))
                 {
-                    pr.valor_kilo = int.Parse(txtValorKg.Text);
+                    pr.valor_kilo = txtValorKg.Text;
                 }
-                int valorUnidad = 0;
-                if (int.TryParse(txtValorUnidad.Text, out valorUnidad))
+                int valorTotal = 0;
+                if (int.TryParse(txtValorUnidad.Text, out valorTotal))
                 {
-                    pr.valor_unidad = int.Parse(txtValorUnidad.Text);
+                    pr.valor_total = txtValorTotal.Text;
+                }
+                if (cboTipoProducto.SelectedValue != null)
+                {
+                    pr.Categoria = cboTipoProducto.Text;
                 }
 
                 //Proceso de respaldo
@@ -131,7 +158,55 @@ namespace Vista
             });
         }
 
+        //---------Cargar Grilla----------------------------
+        //----------Validación Solo acepta valores numéricos
+        private void txtNumeros_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
 
+        }
+
+        //------------Evento que oculta la primera columna (id) para que no sea modificada
+        private void dgLista_LoadingRow(object sender, DataGridRowEventArgs e)
+         {
+             if(this.dgLista.Columns != null)
+             {
+                 this.dgLista.Columns[0].Visibility = Visibility.Collapsed;
+             }
+         }
+
+        //---------------Cargar Grilla
+        private void CargarGrilla()
+        {
+            try
+            {
+                // Dispatcher invoke: Permite ejecutar una acción de forma asincrónica
+                //desde un subproceso o desde otra ventana (es un método q llama a una acción)
+                //(() => { }); función anónima
+                Dispatcher.Invoke(() => {
+                    dgLista.ItemsSource = prod.Listar();
+                    dgLista.Items.Refresh();
+                });
+            }
+            catch (Exception ex)
+            {
+                Logger.Mensaje(ex.Message); throw;
+            }
+
+        }
+
+        //---------Botón Refrescar
+        private void btnRefrescar_Click(object sender, RoutedEventArgs e)
+        {
+            CargarGrilla();
+        }
         private async void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -160,11 +235,11 @@ namespace Vista
             txtValorTotal.Clear();
             txtValorUnidad.Clear();
             lblCache.Content = null;
+            cboTipoProducto.SelectedIndex = 0;
 
             btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
-            btnEliminar.Visibility = Visibility.Hidden;
-
+           
             //Limpiar cache
             FileCache filecahe = new FileCache(new ObjectBinder());
             filecahe.Remove("Producto", null);
@@ -191,49 +266,18 @@ namespace Vista
 
         //////CRUD Producto
 
-        ///Boton Guardar
+        //-------Boton Guardar
 
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                //int IdProducto = int.Parse(txtIdProd.Text);
-                int IdProducto = 0;
-                if (int.TryParse(txtIdProd.Text, out IdProducto))
-                {
-
-                }
-                else
-                {
-                    return;
-                }
-
+            {              
+              
                 String nombreProducto = txtNomProd.Text;
-
-                //int ValorUnidad = int.Parse(txtValorUnidad.Text);
-                int ValorUnidad = 0;
-                if (int.TryParse(txtValorUnidad.Text, out ValorUnidad))
-                {
-
-                }
-                else
-                {
-                    return;
-                }
-
-                //int IdTipo = int.Parse(txtIdTipo.Text);
-                int IdTipo = 0;
-                if (int.TryParse(txtIdTipo.Text, out IdTipo))
-                {
-
-                }
-                else
-                {
-                    return;
-                }
-
-                //int Stock = int.Parse(txtStock.Text);
-                int Stock = 0;
+                int ValorUnidad = int.Parse(txtValorUnidad.Text);               
+                
+                int Stock = int.Parse(txtStock.Text);
+                /*int Stock = 0;
                 if (int.TryParse(txtStock.Text, out Stock))
                 {
 
@@ -241,10 +285,9 @@ namespace Vista
                 else
                 {
                     return;
-                }
-
-                //int Valorkg = int.Parse(txtValorKg.Text);
-                int ValorKg = 0;
+                }*/
+                int Valorkg = int.Parse(txtValorKg.Text);
+                /*int ValorKg = 0;
                 if (int.TryParse(txtValorKg.Text, out ValorKg))
                 {
 
@@ -252,10 +295,9 @@ namespace Vista
                 else
                 {
                     return;
-                }
-
-                //int Valorkg = int.Parse(txtValorKg.Text);
-                int ValorTotal = 0;
+                }*/
+                int valorTotal = int.Parse(txtValorTotal.Text);
+                /*int ValorTotal = 0;
                 if (int.TryParse(txtValorTotal.Text, out ValorTotal))
                 {
 
@@ -263,21 +305,18 @@ namespace Vista
                 else
                 {
                     return;
-                }
-
-                //ver porque me esta causando conflictos para guardar, ademas no despliega el listado en el cbo, y falta arreglar la vista, para que el al poner el nombre del tipo producto, se inserte automaticamente el id dle tipo
+                }*/
 
                 int tipo = ((ComboBoxItemTipoProducto)cboTipoProducto.SelectedItem).id_tipo_producto;
 
                 Producto pro = new Producto()
-                {
-                    id_producto = IdProducto,
+                {                   
                     nombre_producto = nombreProducto,
-                    valor_unidad = ValorUnidad,
-                    id_tipo_producto = IdTipo,
+                    valor_unidad = ValorUnidad,                   
                     stock = Stock,
-                    valor_kilo = ValorKg,
-                    valor_total = ValorTotal,
+                    valor_kilo = Valorkg,
+                    valor_total = valorTotal,
+                    id_tipo_producto = tipo
                 };
 
                 bool resp = prod.AgregarProducto(pro);
@@ -299,6 +338,9 @@ namespace Vista
                 else
                 {
                     Limpiar();
+                    //Notificación (Actualiza la grilla en tiempo real)
+                    NotificationCenter.Notify("producto_guardado");
+                    txtNomProd.Focus();
                 }
             }
             catch (ArgumentException ex)//mensajes de reglas de negocios
@@ -329,17 +371,7 @@ namespace Vista
                 await this.ShowMessageAsync("Mensaje:",
                     string.Format(li));
             }
-        }
-
-        private void txtIdProd_LostFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        }      
 
         //----------Botón Actualizar
         private async void btnModificar_Click(object sender, RoutedEventArgs e)
@@ -349,7 +381,6 @@ namespace Vista
                 int IdProducto = int.Parse(txtIdProd.Text);
                 String nombreProducto = txtNomProd.Text;
                 int ValorUnidad = int.Parse(txtValorUnidad.Text);
-                int IdTipo = int.Parse(txtIdTipo.Text);
                 int Stock = int.Parse(txtStock.Text);
                 int ValorKg = int.Parse(txtValorKg.Text);
                 int ValorTotal = int.Parse(txtValorTotal.Text);
@@ -359,11 +390,11 @@ namespace Vista
                 {
                     id_producto = IdProducto,
                     nombre_producto = nombreProducto,
-                    valor_unidad = ValorUnidad,
-                    id_tipo_producto = IdTipo,
+                    valor_unidad = ValorUnidad,                   
                     stock = Stock,
                     valor_kilo = ValorKg,
                     valor_total = ValorTotal,
+                    id_tipo_producto = tipo,
                 };
                 bool resp = prod.Actualizar(pro);
                 await this.ShowMessageAsync("Mensaje:",
@@ -386,6 +417,9 @@ namespace Vista
                 else
                 {
                     Limpiar();
+                    //Notificación (Actualiza la grilla en tiempo real)
+                    NotificationCenter.Notify("producto_actualizado");
+                    txtNomProd.Focus();
                 }
 
             }
@@ -408,22 +442,26 @@ namespace Vista
         {
             try
             {
-                int IdProducto = int.Parse(txtIdProd.Text);
-                Producto pro1 = new Producto();
+                //Rescatar id
+                Producto.ListaProducto m = (Producto.ListaProducto)dgLista.SelectedItem;
+                int id = m.Id;
 
-                string nombreProducto = txtNomProd.Text;
+                Producto p = new Producto();
 
                 var x = await this.ShowMessageAsync("Eliminar Datos: ",
-                         "¿Está Seguro de eliminar a " + nombreProducto + "?",
+                         "¿Está Seguro de eliminar el registro? ",
                         MessageDialogStyle.AffirmativeAndNegative);
                 if (x == MessageDialogResult.Affirmative)
                 {
-                    bool resp = prod.Eliminar(IdProducto);//Entrega ID por parametro
+                    bool resp = prod.Eliminar(id);//Entrega id por parametro
                     if (resp == true)//Si el método fue éxitoso muestra el mensaje
                     {
                         await this.ShowMessageAsync("Éxito:",
-                          string.Format("Producto Eliminado"));
+                          string.Format("Registro Eliminado"));
+                        //Notificación (Actualiza la grilla en tiempo real)
+                        NotificationCenter.Notify("producto_borrado");
                         Limpiar();
+                        txtNomProd.Focus();
                     }
                     else
                     {
@@ -457,15 +495,15 @@ namespace Vista
                 {
                     Producto.ListaProducto p = (Producto.ListaProducto)filecahe["producto"];
 
-                    txtIdProd.Text = p.id_producto.ToString();
-                    txtNomProd.Text = p.nombre_producto;
-                    txtIdTipo.Text = p.id_tipo_producto.ToString();
-                    txtValorUnidad.Text = p.valor_unidad.ToString();
-                    txtStock.Text = p.stock.ToString();
-                    txtValorKg.Text = p.valor_kilo.ToString();
-                    txtValorTotal.Text = p.valor_total.ToString();
+                    txtIdProd.Text = p.Id.ToString();
+                    txtNomProd.Text = p.Nombre;
+                    
+                    txtValorUnidad.Text = p.Valor_Unidad;
+                    txtValorKg.Text = p.valor_kilo;
+                    txtValorTotal.Text = p.valor_total;
+                    txtStock.Text = p.Stock;
 
-                    cboTipoProducto.Text = p.nombre_tipo;
+                    cboTipoProducto.Text = p.Categoria;
                 }
                 else
                 {
@@ -480,47 +518,7 @@ namespace Vista
             }
         }
 
-        private async void btnBuscar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                int IdProducto = int.Parse(txtIdProd.Text);
-                prod.Buscar(IdProducto);
-                if (prod != null)//Si la lista no esta vacía entrego parámetros a los textBox
-                {
-                    txtIdProd.Text = prod.id_producto.ToString();
-                    txtNomProd.Text = prod.nombre_producto;
-                    txtIdTipo.Text = prod.id_tipo_producto.ToString();
-                    txtValorUnidad.Text = prod.valor_unidad.ToString();
-                    txtStock.Text = prod.stock.ToString();
-                    txtValorKg.Text = prod.valor_kilo.ToString();
-                    txtValorTotal.Text = prod.valor_total.ToString();
-                    TipoProducto tp = new TipoProducto();
-                    tp.id_tipo_producto = prod.id_tipo_producto;
-                    tp.Read();
-                    cboTipoProducto.Text = tp.nombre_tipo;
-                    //--------------------
-
-                    btnModificar.Visibility = Visibility.Visible;
-                    btnGuardar.Visibility = Visibility.Hidden;
-                    btnEliminar.Visibility = Visibility.Visible;
-
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format("No se encontraron resultados!"));
-                }
-            }
-            catch (Exception ex)
-            {
-
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Debe ingresar un ID correcto"));
-                /*MessageBox.Show("error al Filtrar Información");*/
-                Logger.Mensaje(ex.Message);
-            }
-        }
+        
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -531,6 +529,36 @@ namespace Vista
             _instancia = null;
         }
 
+        private void btnPasar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Producto.ListaProducto m = (Producto.ListaProducto)dgLista.SelectedItem;
+                txtIdProd.Text = m.Id.ToString();
+                txtNomProd.Text = m.Nombre;
+
+                //---Medir el largo para quitar signos $ y U
+                var lUnidad = (m.Valor_Unidad.Length - 2);
+                var lKG = (m.valor_kilo.Length - 2);
+                var lTotal = (m.valor_total.Length - 2);
+                var lStock = (m.Stock.Length - 2);
+
+                
+                txtValorUnidad.Text = m.Valor_Unidad.Substring(2, lUnidad);
+                txtValorKg.Text = m.valor_kilo.Substring(2, lKG);
+                txtValorTotal.Text = m.valor_total.Substring(2, lTotal);
+                txtStock.Text = m.Stock.Substring(0, lStock);
+                cboTipoProducto.Text = m.Categoria;
+                               
+
+                btnGuardar.Visibility = Visibility.Hidden;
+                btnModificar.Visibility = Visibility.Visible;
+            }
+            catch (Exception ex)
+            {
+                Logger.Mensaje(ex.Message);
+            }
+        }
     }
 }
 

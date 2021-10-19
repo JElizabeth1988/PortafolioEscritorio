@@ -81,10 +81,6 @@ namespace Vista
         {
 
         }
-        //---------Listado de Productos-----------
-        private void ProductosList_CLick(object sender, RoutedEventArgs e)
-        {
-            WPFListadoProducto.ObtnerInstanciaLIPRO().ShowDialog();
-        }
+       
     }
 }
