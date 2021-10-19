@@ -559,6 +559,46 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
+
+        //------Método calcular total
+        public int calcular()
+        {
+            try
+            {
+                int kilo = 0;
+                int stock = 0;
+                int total = 0;
+                if (txtValorKg.Text != null)
+                {
+                    kilo = int.Parse(txtValorKg.Text);
+                    if (txtStock.Text != null)
+                    {
+                        stock = int.Parse(txtStock.Text);
+                        total = kilo * stock;
+                    }
+                }
+                return total;
+                
+            }
+            catch (Exception ex)
+            {
+                return 0;
+                Logger.Mensaje(ex.Message);
+            }
+        }
+        private async void btnCalcular_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtValorTotal.Text =  calcular().ToString();
+                
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Mensaje(ex.Message);
+            }
+        }
     }
 }
 
