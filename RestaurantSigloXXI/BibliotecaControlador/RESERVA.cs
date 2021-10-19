@@ -16,14 +16,14 @@ namespace BibliotecaDALC
     {
         public int ID_RESERVA { get; set; }
         public System.DateTime FECHA_RESERVA { get; set; }
-        public System.DateTime HORA_RESERVA { get; set; }
+        public string HORA_RESERVA { get; set; }
         public int CANTIDAD_PERSONAS { get; set; }
         public string OBSERVACIONES { get; set; }
         public string ESTADO_RESERVA { get; set; }
         public string RUT_CLIENTE { get; set; }
-        public int NUM_MESA { get; set; }
+        public int ID_AGENDA { get; set; }
     
+        public virtual AGENDA AGENDA { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
-        public virtual MESA MESA { get; set; }
     }
 }

@@ -22,17 +22,22 @@ namespace BibliotecaDALC
         public int ID_ORDEN { get; set; }
         public string DETALLE_ORDEN { get; set; }
         public System.DateTime FECHA_ORDEN { get; set; }
-        public System.DateTime HORA_ORDEN { get; set; }
+        public string HORA_ORDEN { get; set; }
         public int CANTIDAD_PRODUCTO { get; set; }
         public string RUT_CLIENTE { get; set; }
         public string ESTADO_ORDEN { get; set; }
         public int VALOR_ORDEN { get; set; }
+        public string CLIENTE_ACTIVO { get; set; }
         public int ID_MENU { get; set; }
         public string RUT_EMPLEADO { get; set; }
+        public Nullable<int> ID_PLATO { get; set; }
+        public Nullable<int> ID_BEBIDA { get; set; }
     
+        public virtual BEBIDA BEBIDA { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
         public virtual MENU MENU { get; set; }
+        public virtual PLATO PLATO { get; set; }
         public virtual ICollection<PAGO> PAGO { get; set; }
     }
 }

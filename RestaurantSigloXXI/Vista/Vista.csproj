@@ -196,6 +196,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="comboBoxItem1.cs" />
     <Compile Include="ComboBoxItemTipoProducto.cs" />
     <Compile Include="ComboBoxItemTipoUser.cs" />
     <Compile Include="NotificatioCenter.cs" />
@@ -213,6 +214,9 @@
     </Compile>
     <Compile Include="WindowRecepcion.xaml.cs">
       <DependentUpon>WindowRecepcion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFAgenda.xaml.cs">
+      <DependentUpon>WPFAgenda.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFBebida.xaml.cs">
       <DependentUpon>WPFBebida.xaml</DependentUpon>
@@ -232,6 +236,9 @@
     </Compile>
     <Compile Include="WPFMesa.xaml.cs">
       <DependentUpon>WPFMesa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFPlato.xaml.cs">
+      <DependentUpon>WPFPlato.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFProducto.xaml.cs">
       <DependentUpon>WPFProducto.xaml</DependentUpon>
@@ -256,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowRecepcion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFAgenda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -314,6 +325,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFMesa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFPlato.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

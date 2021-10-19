@@ -31,6 +31,7 @@ namespace BibliotecaNegocio
         {
 
         }
+                
         //**********************************************************
         //----------------CRUD--------------------------------------
         //***********************************************************
@@ -65,10 +66,9 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
-                return false;
-                Logger.Mensaje(ex.Message);
                 conn.Close();
+                return false;
+                Logger.Mensaje(ex.Message);               
 
             }
         }
@@ -104,10 +104,9 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
-                return false;
-                Logger.Mensaje(ex.Message);
                 conn.Close();
+                return false;
+                Logger.Mensaje(ex.Message);                
             }
         }
 
@@ -183,10 +182,9 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
-                return false;
-                Logger.Mensaje(ex.Message);
                 conn.Close();
+                return false;
+                Logger.Mensaje(ex.Message);               
 
             }
         }
@@ -237,6 +235,7 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return null;
                 Logger.Mensaje(ex.Message);
             }
@@ -256,6 +255,66 @@ namespace BibliotecaNegocio
             public ListaMesa()
             {
 
+            }
+        }
+
+        //Lista Mesas para cbo
+        [Serializable]
+        public class ListaMesaCBO
+        {
+            public int Número { get; set; }
+            [NonSerialized]
+            //Crear objeto de la Bdd
+            OracleConnection conn = null;
+
+            public ListaMesaCBO()
+            {
+
+            }
+
+            public List<ListaMesaCBO> ListarCbo()
+            {
+                try
+                {
+                    //Se instancia la conexión a la BD
+                    conn = new Conexion().Getcone();
+                    //se crea un comando de oracle
+                    OracleCommand cmd = new OracleCommand();
+                    //Lista de clientes
+                    List<ListaMesaCBO> lista = new List<ListaMesaCBO>();
+                    //se ejecutan los comandos de procedimientos
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    //conexion
+                    cmd.Connection = conn;
+                    //procedimiento
+                    cmd.CommandText = "SP_LISTAR_MESA_CB";
+                    //Se agrega el parámetro de salida
+                    cmd.Parameters.Add(new OracleParameter("MESAS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                    //se abre la conexion
+                    conn.Open();
+                    //se crea un reader
+                    OracleDataReader dr = cmd.ExecuteReader();
+                    //mientras lea
+                    while (dr.Read())
+                    {
+                        ListaMesaCBO C = new ListaMesaCBO();
+
+                        //se obtiene el valor con getvalue es lo mismo pero con get
+                        C.Número = int.Parse(dr.GetValue(0).ToString());
+                        
+                        lista.Add(C);
+                    }
+                    //Cerrar la conexión
+                    conn.Close();
+                    return lista;
+
+                }
+                catch (Exception ex)
+                {
+                    conn.Close();
+                    return null;
+                    Logger.Mensaje(ex.Message);
+                }
             }
         }
     }

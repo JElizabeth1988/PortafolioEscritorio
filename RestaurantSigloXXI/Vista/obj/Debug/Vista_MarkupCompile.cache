@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\App.xaml
-18812852385
+201317775497
 
-24800993692
+27-136948994
 60-1888313730
-WindowBodega.xaml;WindowCocina.xaml;WindowFinanza.xaml;WindowGarzon.xaml;WindowRecepcion.xaml;WPFBebida.xaml;WPFEmpleado.xaml;WPFListadoEmpleado.xaml;WPFCliente.xaml;WPFListadoCliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;WPFListadoProducto.xaml;WPFMesa.xaml;WPFProducto.xaml;WPFVerPedidosListos.xaml;
+WindowBodega.xaml;WindowCocina.xaml;WindowFinanza.xaml;WindowGarzon.xaml;WindowRecepcion.xaml;WPFAgenda.xaml;WPFBebida.xaml;WPFEmpleado.xaml;WPFListadoEmpleado.xaml;WPFCliente.xaml;WPFListadoCliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;WPFListadoProducto.xaml;WPFMesa.xaml;WPFPlato.xaml;WPFProducto.xaml;WPFVerPedidosListos.xaml;
 
 False
 

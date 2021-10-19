@@ -23,6 +23,7 @@ namespace BibliotecaDALC
         public string NOMBRE { get; set; }
         public string ESTADO { get; set; }
         public int PRECIO { get; set; }
+        public byte[] FOTO { get; set; }
         public int ID_BEBIDA { get; set; }
         public int ID_PLATO { get; set; }
         public int ID_CATEGORIA { get; set; }

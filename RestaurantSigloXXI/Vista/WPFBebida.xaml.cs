@@ -30,9 +30,6 @@ using System.Runtime.Caching;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para WPFBebida.xaml
-    /// </summary>
     public partial class WPFBebida : MetroWindow
     {
         //PatronSingleton--------------------------
@@ -56,15 +53,19 @@ namespace Vista
         OracleConnection conn = null;
         //Traer clase Bebida
         Bebida bebi = new Bebida();
-        
+
         public WPFBebida()
         {
             InitializeComponent();
             txtNum.IsEnabled = false;//No es editable
 
+            txtMl.Text = "0";
+            txtStock.Text = "0";
+            txtValor.Text = "0";
+
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnGuardar.Visibility = Visibility.Visible;
-            
+
             txtNombre.Focus();//Focus en el nombre
 
             //Llenar el combobox
@@ -109,7 +110,8 @@ namespace Vista
         //Método generar respaldo------------------
         private void generaRespaldo()
         {
-            Dispatcher.Invoke(() => {
+            Dispatcher.Invoke(() =>
+            {
 
                 //Llama a la clase cliente donde se gusradarán los datos
                 Bebida.ListaBebida be = new Bebida.ListaBebida();
@@ -142,7 +144,7 @@ namespace Vista
                 {
                     be.Tipo = cboTipo.Text;
                 }
-                
+
 
                 //Proceso de respaldo
                 //Con la ampolleta agregó el using Runtime.Caching
@@ -167,6 +169,7 @@ namespace Vista
             }
             else
             {
+                
                 e.Handled = true;
             }
 
@@ -189,7 +192,8 @@ namespace Vista
                 // Dispatcher invoke: Permite ejecutar una acción de forma asincrónica
                 //desde un subproceso o desde otra ventana (es un método q llama a una acción)
                 //(() => { }); función anónima
-                Dispatcher.Invoke(() => {
+                Dispatcher.Invoke(() =>
+                {
                     dgLista.ItemsSource = bebi.Listar();
                     dgLista.Items.Refresh();
                 });
@@ -208,9 +212,23 @@ namespace Vista
         }
 
         //-----------Botón Cancelar-------------------
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        private async void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            try
+            {
+                var x = await this.ShowMessageAsync("Mensaje de Confirmación: ",
+                              "¿Está seguro que desea cancelar la operación? ",
+                             MessageDialogStyle.AffirmativeAndNegative);
+                if (x == MessageDialogResult.Affirmative)
+                {                    
+                    this.Close();
+                }
+                
+            }
+            catch (Exception ex)
+            {                
+                Logger.Mensaje(ex.Message);
+            }
         }
 
         //------------Limpiar-------------------------------------------
@@ -225,7 +243,7 @@ namespace Vista
             cboTipo.SelectedIndex = 0;
 
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
-            btnGuardar.Visibility = Visibility.Visible;           
+            btnGuardar.Visibility = Visibility.Visible;
             txtNombre.Focus();
 
             //Limpiar cache
@@ -253,7 +271,7 @@ namespace Vista
         //---------------------------------------------------------
         //----------CRUD-------------------------------------------
         //---------------------------------------------------------
-        
+
         //--------Modificar -----------------------------------------------
         private async void btnModificar_Click(object sender, RoutedEventArgs e)
         {
@@ -315,7 +333,7 @@ namespace Vista
                 int valor = int.Parse(txtValor.Text);
                 int stock = int.Parse(txtStock.Text);
                 int tipo = ((ComboBoxItemTipoProducto)cboTipo.SelectedItem).id_tipo_producto;//Guardo el id
-               
+
 
                 Bebida b = new Bebida()
                 {
@@ -357,7 +375,7 @@ namespace Vista
                 //Rescatar id
                 Bebida.ListaBebida b = (Bebida.ListaBebida)dgLista.SelectedItem;
                 int id = b.Id;
-                               
+
                 var x = await this.ShowMessageAsync("Eliminar Datos: ",
                          "¿Está Seguro de eliminar? ",
                         MessageDialogStyle.AffirmativeAndNegative);
@@ -394,13 +412,7 @@ namespace Vista
             }
         }
 
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        
-
+       
         private void BtnCache_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -464,5 +476,7 @@ namespace Vista
             //Parar Singleton
             _instancia = null;
         }
+
+       
     }
 }

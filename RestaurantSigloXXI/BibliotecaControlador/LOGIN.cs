@@ -14,14 +14,14 @@ namespace BibliotecaDALC
     
     public partial class LOGIN
     {
-        public string CONTRASENIA { get; set; }
         public string USUARIO { get; set; }
+        public string CONTRASENIA { get; set; }
         public int ID_TIPO_USER { get; set; }
         public string RUT_CLIENTE { get; set; }
         public string RUT_EMPLEADO { get; set; }
     
         public virtual CLIENTE CLIENTE { get; set; }
-        public virtual TIPO_USUARIO TIPO_USUARIO { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
+        public virtual TIPO_USUARIO TIPO_USUARIO { get; set; }
     }
 }

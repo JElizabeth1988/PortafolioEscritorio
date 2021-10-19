@@ -218,18 +218,18 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile ToolTip="Asignar Mesa a Garzón" Margin="873,216,101,288" Click="AsignarMesas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Administrar Agenda" Margin="873,216,101,288" Click="Agenda_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
             </Controls:Tile.Effect>
             <Grid Height="112" >
-                <Image x:Name="image8" Height="66" VerticalAlignment="Top" Source="Imagenes/asignar.png" Margin="36,11,35.667,0">
+                <Image x:Name="image8" Height="66" VerticalAlignment="Top" Source="Imagenes/Agenda-Blanco.png" Margin="36,11,35.667,0">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label8" Content="Asignar Mesa" Margin="19,77,18.667,3" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
+                <Label x:Name="label8" VerticalAlignment="Top" Content="Agenda" Margin="19,77,18.667,3" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>

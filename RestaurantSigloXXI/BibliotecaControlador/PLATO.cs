@@ -17,6 +17,7 @@ namespace BibliotecaDALC
         public PLATO()
         {
             this.MENU = new HashSet<MENU>();
+            this.ORDEN = new HashSet<ORDEN>();
         }
     
         public int ID_PLATO { get; set; }
@@ -31,6 +32,7 @@ namespace BibliotecaDALC
     
         public virtual CATEGORIA CATEGORIA { get; set; }
         public virtual ICollection<MENU> MENU { get; set; }
+        public virtual ICollection<ORDEN> ORDEN { get; set; }
         public virtual PRODUCTO PRODUCTO { get; set; }
         public virtual RECETA RECETA { get; set; }
     }

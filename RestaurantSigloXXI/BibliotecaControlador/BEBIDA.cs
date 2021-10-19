@@ -17,6 +17,7 @@ namespace BibliotecaDALC
         public BEBIDA()
         {
             this.MENU = new HashSet<MENU>();
+            this.ORDEN = new HashSet<ORDEN>();
         }
     
         public int ID_BEBIDA { get; set; }
@@ -28,5 +29,6 @@ namespace BibliotecaDALC
     
         public virtual TIPO_PRODUCTO TIPO_PRODUCTO { get; set; }
         public virtual ICollection<MENU> MENU { get; set; }
+        public virtual ICollection<ORDEN> ORDEN { get; set; }
     }
 }

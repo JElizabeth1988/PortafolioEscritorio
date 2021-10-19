@@ -16,16 +16,15 @@ namespace BibliotecaDALC
     {
         public MESA()
         {
-            this.RESERVA = new HashSet<RESERVA>();
+            this.AGENDA = new HashSet<AGENDA>();
         }
     
         public int NUM_MESA { get; set; }
-        public System.DateTime FECHA_DISPONIBILIDAD_MESA { get; set; }
-        public System.DateTime HORA_DISPONIBILIDAD_MESA { get; set; }
         public int CAPACIDAD_PERSONA { get; set; }
+        public string DISPONIBILIDAD { get; set; }
         public string RUT_EMPLEADO { get; set; }
     
+        public virtual ICollection<AGENDA> AGENDA { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
-        public virtual ICollection<RESERVA> RESERVA { get; set; }
     }
 }

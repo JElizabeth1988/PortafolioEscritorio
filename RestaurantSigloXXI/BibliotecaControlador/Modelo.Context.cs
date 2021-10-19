@@ -25,6 +25,7 @@ namespace BibliotecaDALC
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<AGENDA> AGENDA { get; set; }
         public DbSet<BEBIDA> BEBIDA { get; set; }
         public DbSet<BOLETA> BOLETA { get; set; }
         public DbSet<CATEGORIA> CATEGORIA { get; set; }

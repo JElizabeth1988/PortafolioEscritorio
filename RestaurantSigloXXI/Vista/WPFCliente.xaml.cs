@@ -169,9 +169,23 @@ namespace Vista
 
         }
         //-----------Botón Cancelar-------------------
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        private async void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            try
+            {
+                var x = await this.ShowMessageAsync("Mensaje de Confirmación: ",
+                              "¿Está seguro que desea cancelar la operación? ",
+                             MessageDialogStyle.AffirmativeAndNegative);
+                if (x == MessageDialogResult.Affirmative)
+                {
+                    this.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Logger.Mensaje(ex.Message);
+            }
         }
         //-----------Botón Pregunta Llama al listado de Clientes en caso de que se desconozca el Rut-------------------
         private async void btnPregunta_Click(object sender, RoutedEventArgs e)

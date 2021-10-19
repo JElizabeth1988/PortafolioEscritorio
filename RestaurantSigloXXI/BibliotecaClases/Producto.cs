@@ -113,6 +113,49 @@ namespace BibliotecaNegocio
 
         }
 
+        //Crear objeto de la Bdd modelo
+        [NonSerialized]
+        private RSXXI_Entities bdd = new RSXXI_Entities();
+
+        public bool Read()
+        {
+            try
+            {
+                PRODUCTO prod =
+                    bdd.PRODUCTO.First(tip => tip.ID_PRODUCTO == id_producto);
+                nombre_producto = prod.NOM_PRODUCTO;
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
+        public List<Producto> ReadAll()
+        {
+            try
+            {
+                List<Producto> lista = new List<Producto>();
+                var lista_prod_bdd = bdd.PRODUCTO.ToList();
+                foreach (PRODUCTO item in lista_prod_bdd)
+                {
+                    Producto tipo = new Producto();
+                    tipo.id_producto = item.ID_PRODUCTO;
+                    tipo.nombre_producto = item.NOM_PRODUCTO;
+                    lista.Add(tipo);
+
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
+
         //CRUD
         //------------Método Agregar-----------
 

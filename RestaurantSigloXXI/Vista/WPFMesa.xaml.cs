@@ -30,9 +30,7 @@ using System.Runtime.Caching;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para WPFMesa.xaml
-    /// </summary>
+   
     public partial class WPFMesa : MetroWindow
     {
         //PatronSingleton--------------------------
@@ -57,21 +55,13 @@ namespace Vista
         //Traer clase Mesa
         Mesa mes = new Mesa();
         //Empleado
-        Empleado emp = new Empleado();
-
-        //Inicializar txthora y minuto
-        /*int horita = int.Parse(DateTime.Now.Hour.ToString()),
-            minutin = int.Parse(DateTime.Now.Minute.ToString());*/
+        Empleado emp = new Empleado();           
            
 
         public WPFMesa()
         {
             InitializeComponent();
-
-           // txtHora.Text = DateTime.Now.Hour.ToString();//Hora
-           // txtMinutos.Text = DateTime.Now.Minute.ToString();//Minuto
-
-            //dpFecha.SelectedDate = DateTime.Now;//Día actual
+                       
             txtNombre.IsEnabled = false;//No se ve xq se llena del buscar o traspasar
                         
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
@@ -212,9 +202,23 @@ namespace Vista
         }
 
         //-----------Botón Cancelar-------------------
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        private async void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            try
+            {
+                var x = await this.ShowMessageAsync("Mensaje de Confirmación: ",
+                              "¿Está seguro que desea cancelar la operación? ",
+                             MessageDialogStyle.AffirmativeAndNegative);
+                if (x == MessageDialogResult.Affirmative)
+                {
+                    this.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Logger.Mensaje(ex.Message);
+            }
         }
 
         //------------Limpiar-------------------------------------------
@@ -370,19 +374,7 @@ namespace Vista
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                /*DateTime Fecha = dpFecha.SelectedDate.Value.Date;
-                string hour= txtHora.Text;
-                if (hour.Length < 2)
-                {
-                    hour = "0" + txtHora.Text;//agrego un cero antes si es de 1 dígito
-                }
-                string minuto = txtMinutos.Text;
-                if (minuto.Length < 2)
-                {
-                    minuto = "0" + txtMinutos.Text;
-                }
-                string Hora = hour + ":" + minuto;*/ //Borrar después
+            {                
                 string disponible = null;
                 if (rb_disponible.IsChecked == true)
                 {
@@ -479,52 +471,8 @@ namespace Vista
         {
             Close();
         }
-        
-        //--------------------------------------------------------------------
-        //---------------Botones hora y minuto--------------------------------
-        //--------------------------------------------------------------------
-       /* private void btnMasHora_Click(object sender, RoutedEventArgs e)
-        {
-            horita++;
-            if (horita == 24)
-            {
-                horita = 0;
-            }
-            txtHora.Text = horita.ToString();
-        }
-
-        private void btnMenosHora_Click(object sender, RoutedEventArgs e)
-        {
-            horita--;
-            if (horita < 0)
-            {
-                horita = 23;
-            }
-            txtHora.Text = horita.ToString();
-        }
-
-        private void btnMasMin_Click(object sender, RoutedEventArgs e)
-        {
-            minutin++;
-            if (minutin == 60)
-            {
-                minutin = 0;
-            }
-
-            txtMinutos.Text = minutin.ToString();
-        }
-
-        private void btnMenosMin_Click(object sender, RoutedEventArgs e)
-        {
-            minutin--;
-            if (minutin < 0)
-            {
-                minutin = 59;
-            }
-            txtMinutos.Text = minutin.ToString();
-        }*/
-
-        
+               
+        //------Recuperar caché---------------------------------------
         private void BtnCache_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -555,12 +503,7 @@ namespace Vista
                     {
                         txtRut.Text = null;
                     }
-                  /*  if (c.HoraDisponibilidad != null)
-                    {
-                        txtHora.Text = c.HoraDisponibilidad.Substring(0, 2);
-                        txtMinutos.Text = c.HoraDisponibilidad.Substring(3, 2);
-                    }*/
-
+                  
                 }
                 else
                 {

@@ -117,7 +117,7 @@ namespace Vista
         //-------------Administrar Platos----------------------
         private void Platos_Click(object sender, RoutedEventArgs e)
         {
-
+            WPFPlato.ObtenerinstanciaPL().ShowDialog();
         }
         //------------Administrar Mesas---------------------------
         private void Mesas_Click(object sender, RoutedEventArgs e)
@@ -130,11 +130,7 @@ namespace Vista
 
         }
 
-        private void AsignarMesas_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
         private void Menu_Click(object sender, RoutedEventArgs e)
         {
 
@@ -143,6 +139,11 @@ namespace Vista
         private void Bebidas_Click(object sender, RoutedEventArgs e)
         {
             WPFBebida.ObtenerinstanciaBE().ShowDialog();
+        }
+
+        private void Agenda_Click(object sender, RoutedEventArgs e)
+        {
+            WPFAgenda.ObtenerinstanciaAGE().ShowDialog();
         }
     }
 }

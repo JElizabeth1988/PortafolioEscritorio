@@ -16,11 +16,11 @@ namespace BibliotecaDALC
     {
         public EMPLEADO()
         {
+            this.LOGIN = new HashSet<LOGIN>();
             this.MESA = new HashSet<MESA>();
             this.ORDEN = new HashSet<ORDEN>();
             this.PEDIDO_PROVEEDOR = new HashSet<PEDIDO_PROVEEDOR>();
             this.RECETA = new HashSet<RECETA>();
-            this.LOGIN = new HashSet<LOGIN>();
         }
     
         public string RUT_EMPLEADO { get; set; }
@@ -36,10 +36,10 @@ namespace BibliotecaDALC
         public string CONTRASENIA { get; set; }
     
         public virtual TIPO_USUARIO TIPO_USUARIO { get; set; }
+        public virtual ICollection<LOGIN> LOGIN { get; set; }
         public virtual ICollection<MESA> MESA { get; set; }
         public virtual ICollection<ORDEN> ORDEN { get; set; }
         public virtual ICollection<PEDIDO_PROVEEDOR> PEDIDO_PROVEEDOR { get; set; }
         public virtual ICollection<RECETA> RECETA { get; set; }
-        public virtual ICollection<LOGIN> LOGIN { get; set; }
     }
 }
