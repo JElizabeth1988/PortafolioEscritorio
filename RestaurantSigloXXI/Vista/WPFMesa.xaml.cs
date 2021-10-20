@@ -132,10 +132,10 @@ namespace Vista
                 {
                     me.Disponibilidad = "No Disponible";
                 }
-                int capacidad = 0;
-                if (int.TryParse(txtCapacidad.Text, out capacidad))
+                
+                if (txtCapacidad.Text != null)
                 {
-                   me.Capacidad = int.Parse(txtCapacidad.Text);
+                   me.Capacidad = txtCapacidad.Text;
                 }
                 
                  //Proceso de respaldo
@@ -485,7 +485,7 @@ namespace Vista
                     //txtRut.Text = c.Rut;
 
                     txtNombre.Text = c.Nombre_Empleado;                   
-                    txtCapacidad.Text = c.Capacidad.ToString();
+                    txtCapacidad.Text = c.Capacidad;
                     if (c.Disponibilidad == "Disponible")
                     {
                         rb_disponible.IsChecked = true;
@@ -525,7 +525,8 @@ namespace Vista
             {
                 Mesa.ListaMesa m = (Mesa.ListaMesa)dgLista.SelectedItem;
                 txtNum.Text = m.Número.ToString();
-                txtCapacidad.Text = m.Capacidad.ToString();
+                var capLargo = (m.Capacidad.Length - 9);
+                txtCapacidad.Text = m.Capacidad.Substring(0,capLargo);
                 if (m.Disponibilidad == "Disponible")
                 {
                     rb_disponible.IsChecked = true;

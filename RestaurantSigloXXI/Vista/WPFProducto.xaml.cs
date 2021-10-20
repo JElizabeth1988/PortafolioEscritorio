@@ -535,6 +535,7 @@ namespace Vista
                 txtValorUnidad.Text = m.Valor.Substring(2, lUnidad);
                 txtValorTotal.Text = m.Total.Substring(2, lTotal);
                 txtStock.Text = m.Stock.Substring(0, lStock);
+
                 cboTipoProducto.Text = m.Categoria;
                                
 

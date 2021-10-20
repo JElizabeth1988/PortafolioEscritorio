@@ -125,9 +125,9 @@ namespace Vista
                 //Llama a la clase cliente donde se gusradarán los datos
                 Plato.ListaPlato i = new Plato.ListaPlato();
                 int id = 0;
-                if (int.TryParse(txtNum.Text, out id))
+                if (int.TryParse(lblId.Content.ToString(), out id))
                 {
-                   i.Id = int.Parse(txtNum.Text);
+                   i.Id = int.Parse(lblId.Content.ToString());
                 }
                 if (txtNomb.Text != null)
                 {
@@ -166,7 +166,7 @@ namespace Vista
                 if (cboProducto.SelectedValue != null)
                 {
                     i.Producto = cboProducto.Text;
-                }
+                }               
 
                 //Proceso de respaldo
                 //Con la ampolleta agregó el using Runtime.Caching
@@ -236,7 +236,7 @@ namespace Vista
         //-------Metodo limpiar-------------------
         public void Limpiar()
         {
-            txtNum.Clear();
+            lblId.Content ="";
             txtNomb.Clear();
             txtPrecio.Clear();
             txtDescripcion.Clear();
@@ -361,7 +361,7 @@ namespace Vista
         {
             try
             {
-                int id = int.Parse(txtNum.Text);
+                int id = int.Parse(lblId.Content.ToString());
                 string nombre = txtNomb.Text;
                 int precio = int.Parse(txtPrecio.Text);
                 string desc = txtDescripcion.Text;
@@ -495,7 +495,7 @@ namespace Vista
             try
             {
                 Plato.ListaPlato lp = (Plato.ListaPlato)dgLista.SelectedItem;
-                txtNum.Text = lp.Id.ToString();
+                lblId.Content = lp.Id.ToString();
 
                 txtNomb.Text = lp.Nombre;
                 var largoP = (lp.Precio.Length - 2);
@@ -539,14 +539,17 @@ namespace Vista
                 {
                     Plato.ListaPlato lp = (Plato.ListaPlato)filecahe["plato"];
 
-                    txtNum.Text = lp.Id.ToString();
+                    lblId.Content = lp.Id.ToString();
 
                     txtNomb.Text = lp.Nombre;
-                    var largoP = (lp.Precio.Length - 2);
-                    var largoT = (lp.Tiempo_Preparación.Length - 8);
-                    txtPrecio.Text = lp.Precio.Substring(2, largoP);
+                    
+                    txtPrecio.Text = lp.Precio;
                     txtDescripcion.Text = lp.Descripcion;
-                    txtTiempo.Text = lp.Tiempo_Preparación.Substring(0, largoT);
+                    txtTiempo.Text = lp.Tiempo_Preparación;
+
+                    cboReceta.Text = lp.Receta;
+                    cboCategoria.Text = lp.Categoria;
+                    cboProducto.Text = lp.Producto;
 
                     if (lp.Estado == "Disponible")
                     {
@@ -556,9 +559,7 @@ namespace Vista
                     {
                         rb_NoDisponible.IsChecked = true;
                     }
-                    cboReceta.Text = lp.Receta;
-                    cboCategoria.Text = lp.Categoria;
-                    cboProducto.Text = lp.Producto;
+                    
 
                 }
                 else

@@ -221,7 +221,7 @@ namespace BibliotecaNegocio
 
                     //se obtiene el valor con getvalue es lo mismo pero con get
                     C.Número = int.Parse(dr.GetValue(0).ToString());
-                    C.Capacidad = int.Parse(dr.GetValue(1).ToString());
+                    C.Capacidad = dr.GetValue(1).ToString() + " Personas";
                     C.Disponibilidad = dr.GetValue(2).ToString();
                     C.Rut_Empleado = dr.GetValue(3).ToString();
                     C.Nombre_Empleado = dr.GetValue(4).ToString();
@@ -247,7 +247,7 @@ namespace BibliotecaNegocio
         public class ListaMesa
         {
             public int Número { get; set; }
-            public int Capacidad { get; set; }
+            public string Capacidad { get; set; }
             public string Disponibilidad { get; set; }
             public string Rut_Empleado { get; set; }
             public string Nombre_Empleado { get; set; }

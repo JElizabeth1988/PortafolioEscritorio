@@ -184,9 +184,9 @@ namespace BibliotecaNegocio
                     //se obtiene el valor con getvalue es lo mismo pero con get
                     C.Id = int.Parse(dr.GetValue(0).ToString());
                     C.Nombre = dr.GetValue(1).ToString();
-                    C.Ml = int.Parse(dr.GetValue(2).ToString());
-                    C.Valor = int.Parse(dr.GetValue(3).ToString());
-                    C.Stock = int.Parse(dr.GetValue(4).ToString());
+                    C.Ml = dr.GetValue(2).ToString()+ " Ml";
+                    C.Valor = "$ "+dr.GetValue(3).ToString();
+                    C.Stock = dr.GetValue(4).ToString()+ " Unidades";
                     C.Tipo = dr.GetValue(5).ToString();
 
                     lista.Add(C);
@@ -210,9 +210,9 @@ namespace BibliotecaNegocio
         {
             public int Id { get; set; }
             public string Nombre { get; set; }
-            public int Ml { get; set; }
-            public int Valor { get; set; }
-            public int Stock { get; set; }
+            public string Ml { get; set; }
+            public string Valor { get; set; }
+            public string Stock { get; set; }
             public string Tipo { get; set; }
 
             public ListaBebida()

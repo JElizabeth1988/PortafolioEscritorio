@@ -124,20 +124,20 @@ namespace Vista
                 {
                     be.Nombre = txtNombre.Text;
                 }
-                int ml = 0;
-                if (int.TryParse(txtMl.Text, out ml))
+               
+                if (txtMl.Text != null)
                 {
-                    be.Ml = int.Parse(txtMl.Text);
+                    be.Ml = txtMl.Text;
                 }
-                int valor = 0;
-                if (int.TryParse(txtValor.Text, out valor))
+                
+                if (txtValor.Text != null)
                 {
-                    be.Valor = int.Parse(txtValor.Text);
+                    be.Valor = txtValor.Text;
                 }
-                int stock = 0;
-                if (int.TryParse(txtStock.Text, out stock))
+                
+                if (txtStock.Text !=null)
                 {
-                    be.Stock = int.Parse(txtStock.Text);
+                    be.Stock = txtStock.Text;
                 }
                 if (cboTipo.SelectedValue != null)
                 {
@@ -454,9 +454,14 @@ namespace Vista
                 Bebida.ListaBebida b = (Bebida.ListaBebida)dgLista.SelectedItem;
                 lblId.Content = b.Id.ToString();
                 txtNombre.Text = b.Nombre;
-                txtMl.Text = b.Ml.ToString();
-                txtValor.Text = b.Valor.ToString();
-                txtStock.Text = b.Stock.ToString();
+
+                var mlLargo = (b.Ml.Length - 3);
+                var valLargo = (b.Valor.Length -2);
+                var stoLargo = (b.Stock.Length -9);
+
+                txtMl.Text = b.Ml.Substring(0, mlLargo);
+                txtValor.Text = b.Valor.Substring(2, valLargo);
+                txtStock.Text = b.Stock.Substring(0, stoLargo);
                 cboTipo.Text = b.Tipo;
 
                 btnGuardar.Visibility = Visibility.Hidden;
