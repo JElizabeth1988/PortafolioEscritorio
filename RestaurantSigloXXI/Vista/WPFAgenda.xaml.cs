@@ -68,6 +68,7 @@ namespace Vista
             InitializeComponent();
             txtHora.Text = DateTime.Now.Hour.ToString();//Hora
             txtMinuto.Text = DateTime.Now.Minute.ToString();//Minuto
+            dpFiltro.SelectedDate = DateTime.Now;
 
             dpFecha.DisplayDate = DateTime.Now;
             dpFecha.SelectedDate = DateTime.Now;//Día actual
@@ -122,9 +123,9 @@ namespace Vista
                 Agenda.ListaAgenda ag = new Agenda.ListaAgenda();
 
                 int id = 0;
-                if (int.TryParse(txtNum.Text, out id))
+                if (int.TryParse(lblId.Content.ToString(), out id))
                 {
-                    ag.Id = int.Parse(txtNum.Text);
+                    ag.Id = int.Parse(lblId.Content.ToString());
                 }
                 if (dpFecha.SelectedDate != null)
                 {
@@ -267,9 +268,10 @@ namespace Vista
         //-------Metodo limpiar-------------------
         public void Limpiar()
         {
-            txtNum.Clear();
+            lblId.Content = "";
             dpFecha.DisplayDate = DateTime.Now;
             dpFecha.SelectedDate = DateTime.Now;
+            dpFiltro.SelectedDate = DateTime.Now;
             txtHora.Text = DateTime.Now.Hour.ToString();//Hora
             txtMinuto.Text = DateTime.Now.Minute.ToString();//Minuto
             rbSi.IsChecked = true;
@@ -305,6 +307,7 @@ namespace Vista
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
             CargarGrilla();
+            dpFiltro.SelectedDate = DateTime.Now;
         }
 
         //----------Botón Guardar-----------------------------------
@@ -399,7 +402,7 @@ namespace Vista
         {
             try
             {
-                int id = int.Parse(txtNum.Text);
+                int id = int.Parse(lblId.Content.ToString());
                 DateTime Fecha = dpFecha.SelectedDate.Value.Date;
                 string hour = txtHora.Text;
                 if (hour.Length < 2)
@@ -537,7 +540,7 @@ namespace Vista
             try
             {
                 Agenda.ListaAgenda la = (Agenda.ListaAgenda)dgLista.SelectedItem;
-                txtNum.Text = la.Id.ToString();
+                lblId.Content = la.Id.ToString();
                 var cultureInfo = new CultureInfo("es-ES");
                 DateTime fechita = DateTime.Parse(la.fecha, cultureInfo);
 
@@ -579,7 +582,7 @@ namespace Vista
                 {
                     Agenda.ListaAgenda i = (Agenda.ListaAgenda)filecahe["agenda"];
 
-                    txtNum.Text = i.Id.ToString();
+                    lblId.Content = i.Id.ToString();
                     var cultureInfo = new CultureInfo("es-ES");
                     DateTime fechita = DateTime.Parse(i.fecha, cultureInfo);
 
@@ -610,6 +613,46 @@ namespace Vista
             {
 
                 Logger.Mensaje(ex.Message);
+            }
+        }
+
+        //---Filtro por fecha--------------------------
+        private async void btnFiltrar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DateTime fech = dpFiltro.SelectedDate.Value;
+                if (horario.Filtrar(fech) != null)
+                {
+                    dgLista.ItemsSource = horario.Filtrar(fech);
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Agenda:");
+                    dt.Rows.Add("No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+                    dpFiltro.SelectedDate = DateTime.Now;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+                CargarGrilla();
+            }
+        }
+
+        //------------Evento que oculta la primera columna (id) para que no sea modificada
+        private void dgLista_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            if (this.dgLista.Columns != null)
+            {
+                this.dgLista.Columns[0].Visibility = Visibility.Collapsed;
             }
         }
 

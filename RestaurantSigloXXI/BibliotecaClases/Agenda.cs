@@ -247,6 +247,68 @@ namespace BibliotecaNegocio
             }
         }
 
+        //------------Filtro fecha
+        public List<ListaAgenda> Filtrar(DateTime fecha)
+        {
+            try
+            {
+                int contador = 0;
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //Lista de Clientes
+                List<ListaAgenda> lista = new List<ListaAgenda>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_AGENDA";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_FECHA", OracleDbType.Date)).Value = fecha;
+                CMD.Parameters.Add(new OracleParameter("AGENDAS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                //Reader
+                OracleDataReader reader = CMD.ExecuteReader();
+                //Mientras lee
+                while (reader.Read())
+                {
+                    ListaAgenda e = new ListaAgenda();
+
+                    //lee cada valor en su posición
+                    e.Id = int.Parse(reader[0].ToString());
+                    e.fecha = reader[1].ToString();
+                    e.hora = reader[2].ToString();
+                    e.disponibilidad = reader[3].ToString();
+                    e.Mesa = int.Parse(reader[4].ToString());
+                    
+                    //Agrega los valores a la lista, que luego es devuelta por el método
+                    lista.Add(e);
+                    contador = 1;
+                }
+                conn.Close();
+                if (contador == 1)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                return null;
+                Logger.Mensaje(ex.Message);                
+
+            }
+
+        }
+
         //-------Lista Agenda
         [Serializable]
         public class ListaAgenda
