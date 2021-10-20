@@ -56,7 +56,7 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = fantita.nom_bebida;
                 CMD.Parameters.Add(new OracleParameter("P_ML", OracleDbType.Int32)).Value = fantita.ml_bebida;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = fantita.valor_bebida;
-                CMD.Parameters.Add(new OracleParameter("P_SCTOCK", OracleDbType.Int32)).Value = fantita.stock;
+                CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = fantita.stock;
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO", OracleDbType.Int32)).Value = fantita.id_tipo_producto;
 
                 //Se abre la conexión
@@ -97,7 +97,7 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = fantita.nom_bebida;
                 CMD.Parameters.Add(new OracleParameter("P_ML", OracleDbType.Int32)).Value = fantita.ml_bebida;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = fantita.valor_bebida;
-                CMD.Parameters.Add(new OracleParameter("P_SCTOCK", OracleDbType.Int32)).Value = fantita.stock;
+                CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = fantita.stock;
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO", OracleDbType.Int32)).Value = fantita.id_tipo_producto;
 
                 //Se abre la conexión

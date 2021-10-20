@@ -15,24 +15,25 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="620" VerticalAlignment="Top" Width="652" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-12,-15"/>
         <GroupBox x:Name="groupBox" Header="Información de Bebida" Margin="49,10,56,0" VerticalAlignment="Top" Height="252" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="221" VerticalAlignment="Top" Width="535" Margin="0,-2,-10.333,-1.667" Background="{x:Null}">
-                <Label x:Name="label_Copy" Content="Valor ($):" HorizontalAlignment="Left" Margin="23,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <TextBox x:Name="txtNum" HorizontalAlignment="Left"  Height="8" Margin="166,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" SelectionBrush="#FFCB5F21" IsEnabled="False" />
-                <TextBox x:Name="txtNombre" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese un Nombre" Height="8" Margin="166,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="0.5,0.5" SelectionBrush="#FFCB5F21"/>
-                <TextBox x:Name="txtMl" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Cantidad" Height="8" Margin="166,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
-                <TextBox x:Name="txtValor" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Valor" KeyDown="txtNumeros_KeyDown" Height="8" Margin="166,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21" />
-                <TextBox x:Name="txtStock" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Stock" KeyDown="txtNumeros_KeyDown" Height="8" Margin="166,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21" />
-                <ComboBox x:Name="cboTipo" HorizontalAlignment="Left" Margin="166,152,0,0" VerticalAlignment="Top" Width="156" FontWeight="Normal"/>
+                <Label x:Name="label_Copy" Content="Valor ($):" HorizontalAlignment="Left" Margin="23,77,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <TextBox x:Name="txtNombre" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese un Nombre" Height="8" Margin="166,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="0.5,0.5" SelectionBrush="#FFCB5F21"/>
+                <TextBox x:Name="txtMl" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Cantidad" Height="8" Margin="166,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
+                <TextBox x:Name="txtValor" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Valor" KeyDown="txtNumeros_KeyDown" Height="8" Margin="166,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21" />
+                <TextBox x:Name="txtStock" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Stock" KeyDown="txtNumeros_KeyDown" Height="8" Margin="166,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21" />
+                <ComboBox x:Name="cboTipo" HorizontalAlignment="Left" Margin="166,147,0,0" VerticalAlignment="Top" Width="156" FontWeight="Normal"/>
                 <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="120,185,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnGuardar_Click"/>
                 <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="426,185,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
                 <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="23,185,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
                 <Button x:Name="btnModificar" Content="Actualizar" HorizontalAlignment="Left" Margin="120,185,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnModificar_Click" />
                 <Image x:Name="image1" HorizontalAlignment="Left" Height="78" Margin="367,10,0,0" VerticalAlignment="Top" Width="156" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
-                <Label x:Name="label_Copy7" Content="Stock:" HorizontalAlignment="Left" Margin="23,121,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="label_Copy5" Content="Mililitros (Ml):" HorizontalAlignment="Left" Margin="23,61,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy7" Content="Stock:" HorizontalAlignment="Left" Margin="23,112,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy5" Content="Mililitros (Ml):" HorizontalAlignment="Left" Margin="23,42
+                       ,0,0" VerticalAlignment="Top" FontSize="12"/>
                   
-                <Label x:Name="label_Copy2" Content="Identificador único:" HorizontalAlignment="Left" Margin="23,1,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="label_Copy1" Content="Nombre:" HorizontalAlignment="Left" Margin="23,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="label_Copy3" Content="Tipo de Producto:" HorizontalAlignment="Left" Margin="23,152,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="lblId" Visibility="Hidden" Content="" HorizontalAlignment="Left" Margin="23,1,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy1" Content="Nombre:" HorizontalAlignment="Left" Margin="23,7
+                       ,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy3" Content="Tipo de Producto:" HorizontalAlignment="Left" Margin="23,147,0,0" VerticalAlignment="Top" FontSize="12"/>
                 
 
             </Grid>
@@ -48,7 +49,7 @@
         <GroupBox x:Name="groupBox_Copy" Header="Listado de Bebidas" Margin="49,267,56,0" VerticalAlignment="Top" Height="264" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="222" VerticalAlignment="Top" Width="525" Margin="0,-2,-0.333,0" Background="{x:Null}">
 
-                <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="163" Width="505" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black"  >
+                <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="163" Width="505" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">

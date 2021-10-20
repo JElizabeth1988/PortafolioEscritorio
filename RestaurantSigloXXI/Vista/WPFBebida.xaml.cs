@@ -57,8 +57,7 @@ namespace Vista
         public WPFBebida()
         {
             InitializeComponent();
-            txtNum.IsEnabled = false;//No es editable
-
+            
             txtMl.Text = "0";
             txtStock.Text = "0";
             txtValor.Text = "0";
@@ -117,9 +116,9 @@ namespace Vista
                 Bebida.ListaBebida be = new Bebida.ListaBebida();
 
                 int id = 0;
-                if (int.TryParse(txtNum.Text, out id))
+                if (int.TryParse(lblId.Content.ToString(), out id))
                 {
-                    be.Id = int.Parse(txtNum.Text);
+                    be.Id = int.Parse(lblId.Content.ToString());
                 }
                 if (txtNombre.Text != null)
                 {
@@ -176,13 +175,13 @@ namespace Vista
         }
 
         //------------Evento que oculta la primera columna (id) para que no sea modificada
-        /* private void dgLista_LoadingRow(object sender, DataGridRowEventArgs e)
+        private void dgLista_LoadingRow(object sender, DataGridRowEventArgs e)
          {
              if(this.dgLista.Columns != null)
              {
                  this.dgLista.Columns[0].Visibility = Visibility.Collapsed;
              }
-         }*/
+         }
 
         //---------------Cargar Grilla
         private void CargarGrilla()
@@ -235,12 +234,15 @@ namespace Vista
         //----Método limpiar
         private void Limpiar()
         {
-            txtNum.Clear();
+            lblId.Content = "";
             txtNombre.Clear();
             txtMl.Clear();
             txtValor.Clear();
             txtStock.Clear();
             cboTipo.SelectedIndex = 0;
+            txtMl.Text = "0";
+            txtValor.Text = "0";
+            txtStock.Text = "0";
 
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnGuardar.Visibility = Visibility.Visible;
@@ -277,7 +279,7 @@ namespace Vista
         {
             try
             {
-                int id = int.Parse(txtNum.Text);
+                int id = int.Parse(lblId.Content.ToString());
                 string nombre = txtNombre.Text;
                 int ml = int.Parse(txtMl.Text);
                 int valor = int.Parse(txtValor.Text);
@@ -423,7 +425,7 @@ namespace Vista
                 {
                     Bebida.ListaBebida b = (Bebida.ListaBebida)filecahe["bebida"];
 
-                    txtNum.Text = b.Id.ToString();
+                    lblId.Content = b.Id.ToString();
                     txtNombre.Text = b.Nombre;
                     txtMl.Text = b.Ml.ToString();
                     txtValor.Text = b.Valor.ToString();
@@ -450,7 +452,7 @@ namespace Vista
             try
             {
                 Bebida.ListaBebida b = (Bebida.ListaBebida)dgLista.SelectedItem;
-                txtNum.Text = b.Id.ToString();
+                lblId.Content = b.Id.ToString();
                 txtNombre.Text = b.Nombre;
                 txtMl.Text = b.Ml.ToString();
                 txtValor.Text = b.Valor.ToString();
