@@ -41,7 +41,6 @@
             </Grid>
         </GroupBox>
         <Image x:Name="images" HorizontalAlignment="Left" Height="91" Margin="663,30,0,0" VerticalAlignment="Top" Width="142" Source="Imagenes/logoFinal3.png"/>
-        <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left" Margin="537,377,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnPasar_Click"/>
         <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="772,371,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>

@@ -21,11 +21,9 @@ namespace BibliotecaNegocio
         public string rut_cliente { get; set; }
         public string estado_orden { get; set; }
         public int valor_orden { get; set; }
-        public string cliente_activo { get; set; }
         public int id_menu { get; set; }
         public string rut_empleado { get; set; }
-        public int id_plato { get; set; }
-        public int id_bebida { get; set; }
+
 
         public Orden()
         {
@@ -77,16 +75,13 @@ namespace BibliotecaNegocio
                     i.Detalle = dr.GetValue(1).ToString();
                     i.Fecha = dr.GetValue(2).ToString();
                     i.Hora = dr.GetValue(3).ToString();
-                    i.Cantidad = int.Parse(dr.GetValue(4).ToString());
+                    i.Cantidad = dr.GetValue(4).ToString()+ " U.";
                     i.Rut_Cliente = dr.GetValue(5).ToString();
                     i.Cliente = dr.GetValue(6).ToString();
                     i.Estado = dr.GetValue(7).ToString();
                     i.Menú = dr.GetValue(8).ToString();
-                    i.Plato = dr.GetValue(9).ToString();
-                    i.Bebida = dr.GetValue(10).ToString();
-                    i.Garzón = dr.GetValue(11).ToString();
-                    i.Valor = int.Parse(dr.GetValue(12).ToString());
-                    i.cliente_activo = dr.GetValue(13).ToString();
+                    i.Garzón = dr.GetValue(9).ToString();
+                    i.Valor = "$ "+dr.GetValue(10).ToString();
 
                     lista.Add(i);
                 }
@@ -138,16 +133,13 @@ namespace BibliotecaNegocio
                     i.Detalle = reader[1].ToString();
                     i.Fecha = reader[2].ToString();
                     i.Hora = reader[3].ToString();
-                    i.Cantidad = int.Parse(reader[4].ToString());
+                    i.Cantidad = reader[4].ToString()+" U.";
                     i.Rut_Cliente = reader[5].ToString();
                     i.Cliente = reader[6].ToString();
                     i.Estado = reader[7].ToString();
                     i.Menú = reader[8].ToString();
-                    i.Plato = reader[9].ToString();
-                    i.Bebida = reader[10].ToString();
-                    i.Garzón = reader[11].ToString();
-                    i.Valor = int.Parse(reader[12].ToString());
-                    i.cliente_activo = reader[13].ToString();
+                    i.Garzón = reader[9].ToString();
+                    i.Valor = "$ "+reader[10].ToString();
                     
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
@@ -173,7 +165,7 @@ namespace BibliotecaNegocio
             }
 
         }
-        //-----------Filtro fecha----------------
+        //-----------Filtro rut----------------
         public List<ListaOrden> FiltrarRut(string rut)
         {
             try
@@ -208,16 +200,13 @@ namespace BibliotecaNegocio
                     i.Detalle = reader[1].ToString();
                     i.Fecha = reader[2].ToString();
                     i.Hora = reader[3].ToString();
-                    i.Cantidad = int.Parse(reader[4].ToString());
+                    i.Cantidad = reader[4].ToString()+" U.";
                     i.Rut_Cliente = reader[5].ToString();
                     i.Cliente = reader[6].ToString();
                     i.Estado = reader[7].ToString();
                     i.Menú = reader[8].ToString();
-                    i.Plato = reader[9].ToString();
-                    i.Bebida = reader[10].ToString();
-                    i.Garzón = reader[11].ToString();
-                    i.Valor = int.Parse(reader[12].ToString());
-                    i.cliente_activo = reader[13].ToString();
+                    i.Garzón = reader[9].ToString();
+                    i.Valor = "$ "+reader[10].ToString();
 
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
@@ -254,14 +243,11 @@ namespace BibliotecaNegocio
             public string Hora { get; set; }            
             public string Rut_Cliente { get; set; }
             public string Cliente { get; set; }
-            public string cliente_activo { get; set; }
             public string Garzón { get; set; }
             public string Estado { get; set; }                   
             public string Menú { get; set; }            
-            public string Plato { get; set; }
-            public string Bebida { get; set; }
-            public int Cantidad { get; set; }
-            public int Valor { get; set; }
+            public string Cantidad { get; set; }
+            public string Valor { get; set; }
             public string Detalle { get; set; }
 
             public ListaOrden()

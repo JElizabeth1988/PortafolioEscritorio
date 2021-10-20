@@ -53,8 +53,7 @@ namespace Vista
             InitializeComponent();
             //Inicializar datePicker en la fecha actual
             dpFecha.SelectedDate = DateTime.Now;//Día actual
-            btnPasar.Visibility = Visibility.Hidden;
-
+           
             //Cargar Grilla
             CargarGrilla();
 
@@ -97,6 +96,7 @@ namespace Vista
                 }
                 else
                 {
+                    dgLista.Columns[0].Visibility = Visibility.Visible;
                     dgLista.ItemsSource = null;
                     DataTable dt = new DataTable();
                     dt.Columns.Add("Pedidos:");
@@ -127,6 +127,7 @@ namespace Vista
                 }
                 else
                 {
+                    dgLista.Columns[0].Visibility = Visibility.Visible;
                     dgLista.ItemsSource = null;
                     DataTable dt = new DataTable();
                     dt.Columns.Add("Pedidos:");
@@ -152,12 +153,7 @@ namespace Vista
             this.Close();
         }
 
-       
-
-        private void btnPasar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+             
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -165,6 +161,6 @@ namespace Vista
             _instancia = null;
         }
 
-
+        
     }
 }
