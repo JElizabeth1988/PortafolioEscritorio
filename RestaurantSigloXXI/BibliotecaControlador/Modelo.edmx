@@ -88,6 +88,21 @@
           <Property Name="NRO_CUENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="TIPO_CTA" Type="varchar2" MaxLength="45" Nullable="false" />
         </EntityType>
+        <EntityType Name="EXTRA">
+          <Key>
+            <PropertyRef Name="ID_EXTRA" />
+          </Key>
+          <Property Name="ID_EXTRA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_EXTRA" Type="date" Nullable="false" />
+          <Property Name="HORA_EXTRA" Type="varchar2" MaxLength="5" Nullable="false" />
+          <Property Name="CANTIDAD_EXTRA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOTAL_EXTRA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="ID_BEBIDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
+          <Property Name="RUT_EMPLEADO" Type="varchar2" MaxLength="12" Nullable="false" />
+          <Property Name="ID_ORDEN" Type="number" Precision="38" Scale="0" />
+        </EntityType>
         <EntityType Name="INGRESOS">
           <Key>
             <PropertyRef Name="ID" />
@@ -105,6 +120,7 @@
           <Property Name="USUARIO" Type="varchar2" MaxLength="45" Nullable="false" />
           <Property Name="CONTRASENIA" Type="varchar2" MaxLength="60" Nullable="false" />
           <Property Name="ID_TIPO_USER" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_ACTIVO" Type="varchar2" MaxLength="1" />
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" />
           <Property Name="RUT_EMPLEADO" Type="varchar2" MaxLength="12" />
         </EntityType>
@@ -150,11 +166,8 @@
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
           <Property Name="ESTADO_ORDEN" Type="varchar2" MaxLength="50" Nullable="false" />
           <Property Name="VALOR_ORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="CLIENTE_ACTIVO" Type="varchar2" MaxLength="2" />
           <Property Name="ID_MENU" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="RUT_EMPLEADO" Type="varchar2" MaxLength="12" Nullable="false" />
-          <Property Name="ID_PLATO" Type="number" Precision="38" Scale="0" />
-          <Property Name="ID_BEBIDA" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="PAGO">
           <Key>
@@ -166,7 +179,7 @@
           <Property Name="DESCUENTO" Type="number" Precision="38" Scale="0" />
           <Property Name="ID_METODO_PAGO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
-          <Property Name="ID_ORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="PAGO_EXTERNO">
           <Key>
@@ -174,6 +187,16 @@
           </Key>
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
           <Property Name="CLAVE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PEDIDO">
+          <Key>
+            <PropertyRef Name="ID_PEDIDO" />
+          </Key>
+          <Property Name="ID_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_PEDIDO" Type="date" Nullable="false" />
+          <Property Name="HORA_PEDIDO" Type="varchar2" MaxLength="5" Nullable="false" />
+          <Property Name="TOTAL_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
         </EntityType>
         <EntityType Name="PEDIDO_PROVEEDOR">
           <Key>
@@ -206,9 +229,8 @@
             <PropertyRef Name="ID_PRODUCTO" />
           </Key>
           <Property Name="ID_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="NOM_PRODUCTO" Type="varchar2" MaxLength="50" Nullable="false" />
-          <Property Name="VALOR_UNIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="VALOR_KILO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="VALOR" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="STOCK" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="VALOR_TOTAL" Type="number" Precision="38" Scale="0" />
           <Property Name="ID_TIPO_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -314,6 +336,58 @@
             </Principal>
             <Dependent Role="EMPLEADO">
               <PropertyRef Name="ID_TIPO_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EXTRA_BEBIDA_FK">
+          <End Role="BEBIDA" Type="Self.BEBIDA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EXTRA" Type="Self.EXTRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEBIDA">
+              <PropertyRef Name="ID_BEBIDA" />
+            </Principal>
+            <Dependent Role="EXTRA">
+              <PropertyRef Name="ID_BEBIDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EXTRA_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="EXTRA" Type="Self.EXTRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLIENTE" />
+            </Principal>
+            <Dependent Role="EXTRA">
+              <PropertyRef Name="RUT_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EXTRA_EMPLEADO_FK">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="EXTRA" Type="Self.EXTRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="RUT_EMPLEADO" />
+            </Principal>
+            <Dependent Role="EXTRA">
+              <PropertyRef Name="RUT_EMPLEADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EXTRA_ORDEN_FK">
+          <End Role="ORDEN" Type="Self.ORDEN" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EXTRA" Type="Self.EXTRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDEN">
+              <PropertyRef Name="ID_ORDEN" />
+            </Principal>
+            <Dependent Role="EXTRA">
+              <PropertyRef Name="ID_ORDEN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -429,18 +503,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ORDEN_BEBIDA_FK">
-          <End Role="BEBIDA" Type="Self.BEBIDA" Multiplicity="0..1" />
-          <End Role="ORDEN" Type="Self.ORDEN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BEBIDA">
-              <PropertyRef Name="ID_BEBIDA" />
-            </Principal>
-            <Dependent Role="ORDEN">
-              <PropertyRef Name="ID_BEBIDA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="ORDEN_CLIENTE_FK">
           <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -483,18 +545,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ORDEN_PLATO_FK">
-          <End Role="PLATO" Type="Self.PLATO" Multiplicity="0..1" />
-          <End Role="ORDEN" Type="Self.ORDEN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PLATO">
-              <PropertyRef Name="ID_PLATO" />
-            </Principal>
-            <Dependent Role="ORDEN">
-              <PropertyRef Name="ID_PLATO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="PAGO_CLIENTE_FK">
           <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -523,17 +573,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PAGO_ORDEN_FK">
-          <End Role="ORDEN" Type="Self.ORDEN" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="PAGO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
           <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ORDEN">
-              <PropertyRef Name="ID_ORDEN" />
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
             </Principal>
             <Dependent Role="PAGO">
-              <PropertyRef Name="ID_ORDEN" />
+              <PropertyRef Name="ID_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PEDIDO_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLIENTE" />
+            </Principal>
+            <Dependent Role="PEDIDO">
+              <PropertyRef Name="RUT_CLIENTE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -697,6 +759,7 @@
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="ENTIDAD_BANCARIA" EntityType="Self.ENTIDAD_BANCARIA" Schema="RSXXI" store:Type="Tables" />
+          <EntitySet Name="EXTRA" EntityType="Self.EXTRA" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="INGRESOS" EntityType="Self.INGRESOS" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="LOGIN" EntityType="Self.LOGIN" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="MENU" EntityType="Self.MENU" Schema="RSXXI" store:Type="Tables" />
@@ -705,6 +768,7 @@
           <EntitySet Name="ORDEN" EntityType="Self.ORDEN" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="PAGO" EntityType="Self.PAGO" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="PAGO_EXTERNO" EntityType="Self.PAGO_EXTERNO" Schema="RSXXI" store:Type="Tables" />
+          <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="PEDIDO_PROVEEDOR" EntityType="Self.PEDIDO_PROVEEDOR" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="PLATO" EntityType="Self.PLATO" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="RSXXI" store:Type="Tables" />
@@ -728,6 +792,22 @@
           <AssociationSet Name="EMPLEADO_TIPO_USUARIO_FK" Association="Self.EMPLEADO_TIPO_USUARIO_FK">
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="EXTRA_BEBIDA_FK" Association="Self.EXTRA_BEBIDA_FK">
+            <End Role="BEBIDA" EntitySet="BEBIDA" />
+            <End Role="EXTRA" EntitySet="EXTRA" />
+          </AssociationSet>
+          <AssociationSet Name="EXTRA_CLIENTE_FK" Association="Self.EXTRA_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="EXTRA" EntitySet="EXTRA" />
+          </AssociationSet>
+          <AssociationSet Name="EXTRA_EMPLEADO_FK" Association="Self.EXTRA_EMPLEADO_FK">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="EXTRA" EntitySet="EXTRA" />
+          </AssociationSet>
+          <AssociationSet Name="EXTRA_ORDEN_FK" Association="Self.EXTRA_ORDEN_FK">
+            <End Role="ORDEN" EntitySet="ORDEN" />
+            <End Role="EXTRA" EntitySet="EXTRA" />
           </AssociationSet>
           <AssociationSet Name="LOGIN_CLIENTE_FK" Association="Self.LOGIN_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
@@ -761,10 +841,6 @@
             <End Role="ENTIDAD_BANCARIA" EntitySet="ENTIDAD_BANCARIA" />
             <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
           </AssociationSet>
-          <AssociationSet Name="ORDEN_BEBIDA_FK" Association="Self.ORDEN_BEBIDA_FK">
-            <End Role="BEBIDA" EntitySet="BEBIDA" />
-            <End Role="ORDEN" EntitySet="ORDEN" />
-          </AssociationSet>
           <AssociationSet Name="ORDEN_CLIENTE_FK" Association="Self.ORDEN_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="ORDEN" EntitySet="ORDEN" />
@@ -777,10 +853,6 @@
             <End Role="MENU" EntitySet="MENU" />
             <End Role="ORDEN" EntitySet="ORDEN" />
           </AssociationSet>
-          <AssociationSet Name="ORDEN_PLATO_FK" Association="Self.ORDEN_PLATO_FK">
-            <End Role="PLATO" EntitySet="PLATO" />
-            <End Role="ORDEN" EntitySet="ORDEN" />
-          </AssociationSet>
           <AssociationSet Name="PAGO_CLIENTE_FK" Association="Self.PAGO_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="PAGO" EntitySet="PAGO" />
@@ -789,9 +861,13 @@
             <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
             <End Role="PAGO" EntitySet="PAGO" />
           </AssociationSet>
-          <AssociationSet Name="PAGO_ORDEN_FK" Association="Self.PAGO_ORDEN_FK">
-            <End Role="ORDEN" EntitySet="ORDEN" />
+          <AssociationSet Name="PAGO_PEDIDO_FK" Association="Self.PAGO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
             <End Role="PAGO" EntitySet="PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="PEDIDO_CLIENTE_FK" Association="Self.PEDIDO_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
           </AssociationSet>
           <AssociationSet Name="PEDIDO_PROVEEDOR_EMPLEADO_FK" Association="Self.PEDIDO_PROVEEDOR_EMPLEADO_FK">
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
@@ -850,6 +926,7 @@
           <EntitySet Name="CLIENTE" EntityType="Modelo.CLIENTE" />
           <EntitySet Name="EMPLEADO" EntityType="Modelo.EMPLEADO" />
           <EntitySet Name="ENTIDAD_BANCARIA" EntityType="Modelo.ENTIDAD_BANCARIA" />
+          <EntitySet Name="EXTRA" EntityType="Modelo.EXTRA" />
           <EntitySet Name="INGRESOS" EntityType="Modelo.INGRESOS" />
           <EntitySet Name="LOGIN" EntityType="Modelo.LOGIN" />
           <EntitySet Name="MENU" EntityType="Modelo.MENU" />
@@ -858,6 +935,7 @@
           <EntitySet Name="ORDEN" EntityType="Modelo.ORDEN" />
           <EntitySet Name="PAGO" EntityType="Modelo.PAGO" />
           <EntitySet Name="PAGO_EXTERNO" EntityType="Modelo.PAGO_EXTERNO" />
+          <EntitySet Name="PEDIDO" EntityType="Modelo.PEDIDO" />
           <EntitySet Name="PEDIDO_PROVEEDOR" EntityType="Modelo.PEDIDO_PROVEEDOR" />
           <EntitySet Name="PLATO" EntityType="Modelo.PLATO" />
           <EntitySet Name="PRODUCTO" EntityType="Modelo.PRODUCTO" />
@@ -878,13 +956,13 @@
             <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
             <End Role="BEBIDA" EntitySet="BEBIDA" />
           </AssociationSet>
+          <AssociationSet Name="EXTRA_BEBIDA_FK" Association="Modelo.EXTRA_BEBIDA_FK">
+            <End Role="BEBIDA" EntitySet="BEBIDA" />
+            <End Role="EXTRA" EntitySet="EXTRA" />
+          </AssociationSet>
           <AssociationSet Name="MENU_BEBIDA_FK" Association="Modelo.MENU_BEBIDA_FK">
             <End Role="BEBIDA" EntitySet="BEBIDA" />
             <End Role="MENU" EntitySet="MENU" />
-          </AssociationSet>
-          <AssociationSet Name="ORDEN_BEBIDA_FK" Association="Modelo.ORDEN_BEBIDA_FK">
-            <End Role="BEBIDA" EntitySet="BEBIDA" />
-            <End Role="ORDEN" EntitySet="ORDEN" />
           </AssociationSet>
           <AssociationSet Name="BOLETA_PAGO_FK" Association="Modelo.BOLETA_PAGO_FK">
             <End Role="PAGO" EntitySet="PAGO" />
@@ -898,6 +976,10 @@
             <End Role="CATEGORIA" EntitySet="CATEGORIA" />
             <End Role="PLATO" EntitySet="PLATO" />
           </AssociationSet>
+          <AssociationSet Name="EXTRA_CLIENTE_FK" Association="Modelo.EXTRA_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="EXTRA" EntitySet="EXTRA" />
+          </AssociationSet>
           <AssociationSet Name="LOGIN_CLIENTE_FK" Association="Modelo.LOGIN_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="LOGIN" EntitySet="LOGIN" />
@@ -910,6 +992,10 @@
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="PAGO" EntitySet="PAGO" />
           </AssociationSet>
+          <AssociationSet Name="PEDIDO_CLIENTE_FK" Association="Modelo.PEDIDO_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+          </AssociationSet>
           <AssociationSet Name="RESERVA_CLIENTE_FK" Association="Modelo.RESERVA_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="RESERVA" EntitySet="RESERVA" />
@@ -917,6 +1003,10 @@
           <AssociationSet Name="EMPLEADO_TIPO_USUARIO_FK" Association="Modelo.EMPLEADO_TIPO_USUARIO_FK">
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="EXTRA_EMPLEADO_FK" Association="Modelo.EXTRA_EMPLEADO_FK">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="EXTRA" EntitySet="EXTRA" />
           </AssociationSet>
           <AssociationSet Name="LOGIN_EMPLEADO_FK" Association="Modelo.LOGIN_EMPLEADO_FK">
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
@@ -942,6 +1032,10 @@
             <End Role="ENTIDAD_BANCARIA" EntitySet="ENTIDAD_BANCARIA" />
             <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
           </AssociationSet>
+          <AssociationSet Name="EXTRA_ORDEN_FK" Association="Modelo.EXTRA_ORDEN_FK">
+            <End Role="ORDEN" EntitySet="ORDEN" />
+            <End Role="EXTRA" EntitySet="EXTRA" />
+          </AssociationSet>
           <AssociationSet Name="LOGIN_TIPO_USUARIO_FK" Association="Modelo.LOGIN_TIPO_USUARIO_FK">
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="LOGIN" EntitySet="LOGIN" />
@@ -958,12 +1052,8 @@
             <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
             <End Role="PAGO" EntitySet="PAGO" />
           </AssociationSet>
-          <AssociationSet Name="ORDEN_PLATO_FK" Association="Modelo.ORDEN_PLATO_FK">
-            <End Role="PLATO" EntitySet="PLATO" />
-            <End Role="ORDEN" EntitySet="ORDEN" />
-          </AssociationSet>
-          <AssociationSet Name="PAGO_ORDEN_FK" Association="Modelo.PAGO_ORDEN_FK">
-            <End Role="ORDEN" EntitySet="ORDEN" />
+          <AssociationSet Name="PAGO_PEDIDO_FK" Association="Modelo.PAGO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
             <End Role="PAGO" EntitySet="PAGO" />
           </AssociationSet>
           <AssociationSet Name="PEDIDO_PROVEEDOR_PRODUCTO_FK" Association="Modelo.PEDIDO_PROVEEDOR_PRODUCTO_FK">
@@ -1014,8 +1104,8 @@
           <Property Name="STOCK" Type="Int32" Nullable="false" />
           <Property Name="ID_TIPO_PRODUCTO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TIPO_PRODUCTO" Relationship="Modelo.BEBIDA_TIPO_PRODUCTO_FK" FromRole="BEBIDA" ToRole="TIPO_PRODUCTO" />
+          <NavigationProperty Name="EXTRA" Relationship="Modelo.EXTRA_BEBIDA_FK" FromRole="BEBIDA" ToRole="EXTRA" />
           <NavigationProperty Name="MENU" Relationship="Modelo.MENU_BEBIDA_FK" FromRole="BEBIDA" ToRole="MENU" />
-          <NavigationProperty Name="ORDEN" Relationship="Modelo.ORDEN_BEBIDA_FK" FromRole="BEBIDA" ToRole="ORDEN" />
         </EntityType>
         <EntityType Name="BOLETA">
           <Key>
@@ -1055,9 +1145,11 @@
           <Property Name="CELULAR_CLI" Type="Int32" Nullable="false" />
           <Property Name="TELEFONO_CLI" Type="Int32" />
           <Property Name="CORREO_CLI" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EXTRA" Relationship="Modelo.EXTRA_CLIENTE_FK" FromRole="CLIENTE" ToRole="EXTRA" />
           <NavigationProperty Name="LOGIN" Relationship="Modelo.LOGIN_CLIENTE_FK" FromRole="CLIENTE" ToRole="LOGIN" />
           <NavigationProperty Name="ORDEN" Relationship="Modelo.ORDEN_CLIENTE_FK" FromRole="CLIENTE" ToRole="ORDEN" />
           <NavigationProperty Name="PAGO" Relationship="Modelo.PAGO_CLIENTE_FK" FromRole="CLIENTE" ToRole="PAGO" />
+          <NavigationProperty Name="PEDIDO" Relationship="Modelo.PEDIDO_CLIENTE_FK" FromRole="CLIENTE" ToRole="PEDIDO" />
           <NavigationProperty Name="RESERVA" Relationship="Modelo.RESERVA_CLIENTE_FK" FromRole="CLIENTE" ToRole="RESERVA" />
         </EntityType>
         <EntityType Name="EMPLEADO">
@@ -1076,6 +1168,7 @@
           <Property Name="USUARIO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="CONTRASENIA" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TIPO_USUARIO" Relationship="Modelo.EMPLEADO_TIPO_USUARIO_FK" FromRole="EMPLEADO" ToRole="TIPO_USUARIO" />
+          <NavigationProperty Name="EXTRA" Relationship="Modelo.EXTRA_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="EXTRA" />
           <NavigationProperty Name="LOGIN" Relationship="Modelo.LOGIN_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="LOGIN" />
           <NavigationProperty Name="MESA" Relationship="Modelo.MESA_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="MESA" />
           <NavigationProperty Name="ORDEN" Relationship="Modelo.ORDEN_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="ORDEN" />
@@ -1092,6 +1185,25 @@
           <Property Name="NRO_CUENTA" Type="Int32" Nullable="false" />
           <Property Name="TIPO_CTA" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="METODO_PAGO" Relationship="Modelo.METODO_PAGO_ENT_BANC_FK" FromRole="ENTIDAD_BANCARIA" ToRole="METODO_PAGO" />
+        </EntityType>
+        <EntityType Name="EXTRA">
+          <Key>
+            <PropertyRef Name="ID_EXTRA" />
+          </Key>
+          <Property Name="ID_EXTRA" Type="Int32" Nullable="false" />
+          <Property Name="FECHA_EXTRA" Type="DateTime" Nullable="false" />
+          <Property Name="HORA_EXTRA" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CANTIDAD_EXTRA" Type="Int32" Nullable="false" />
+          <Property Name="TOTAL_EXTRA" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_BEBIDA" Type="Int32" Nullable="false" />
+          <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="RUT_EMPLEADO" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ORDEN" Type="Int32" />
+          <NavigationProperty Name="BEBIDA" Relationship="Modelo.EXTRA_BEBIDA_FK" FromRole="EXTRA" ToRole="BEBIDA" />
+          <NavigationProperty Name="CLIENTE" Relationship="Modelo.EXTRA_CLIENTE_FK" FromRole="EXTRA" ToRole="CLIENTE" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Modelo.EXTRA_EMPLEADO_FK" FromRole="EXTRA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="ORDEN" Relationship="Modelo.EXTRA_ORDEN_FK" FromRole="EXTRA" ToRole="ORDEN" />
         </EntityType>
         <EntityType Name="INGRESOS">
           <Key>
@@ -1110,6 +1222,7 @@
           <Property Name="USUARIO" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="CONTRASENIA" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="ID_TIPO_USER" Type="Int32" Nullable="false" />
+          <Property Name="CLIENTE_ACTIVO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="RUT_CLIENTE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="RUT_EMPLEADO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CLIENTE" Relationship="Modelo.LOGIN_CLIENTE_FK" FromRole="LOGIN" ToRole="CLIENTE" />
@@ -1166,17 +1279,12 @@
           <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="ESTADO_ORDEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="VALOR_ORDEN" Type="Int32" Nullable="false" />
-          <Property Name="CLIENTE_ACTIVO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="ID_MENU" Type="Int32" Nullable="false" />
           <Property Name="RUT_EMPLEADO" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="ID_PLATO" Type="Int32" />
-          <Property Name="ID_BEBIDA" Type="Int32" />
-          <NavigationProperty Name="BEBIDA" Relationship="Modelo.ORDEN_BEBIDA_FK" FromRole="ORDEN" ToRole="BEBIDA" />
           <NavigationProperty Name="CLIENTE" Relationship="Modelo.ORDEN_CLIENTE_FK" FromRole="ORDEN" ToRole="CLIENTE" />
           <NavigationProperty Name="EMPLEADO" Relationship="Modelo.ORDEN_EMPLEADO_FK" FromRole="ORDEN" ToRole="EMPLEADO" />
+          <NavigationProperty Name="EXTRA" Relationship="Modelo.EXTRA_ORDEN_FK" FromRole="ORDEN" ToRole="EXTRA" />
           <NavigationProperty Name="MENU" Relationship="Modelo.ORDEN_MENU_FK" FromRole="ORDEN" ToRole="MENU" />
-          <NavigationProperty Name="PLATO" Relationship="Modelo.ORDEN_PLATO_FK" FromRole="ORDEN" ToRole="PLATO" />
-          <NavigationProperty Name="PAGO" Relationship="Modelo.PAGO_ORDEN_FK" FromRole="ORDEN" ToRole="PAGO" />
         </EntityType>
         <EntityType Name="PAGO">
           <Key>
@@ -1188,11 +1296,11 @@
           <Property Name="DESCUENTO" Type="Int32" />
           <Property Name="ID_METODO_PAGO" Type="Int32" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="ID_ORDEN" Type="Int32" Nullable="false" />
+          <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BOLETA" Relationship="Modelo.BOLETA_PAGO_FK" FromRole="PAGO" ToRole="BOLETA" />
           <NavigationProperty Name="CLIENTE" Relationship="Modelo.PAGO_CLIENTE_FK" FromRole="PAGO" ToRole="CLIENTE" />
           <NavigationProperty Name="METODO_PAGO" Relationship="Modelo.PAGO_METODO_PAGO_FK" FromRole="PAGO" ToRole="METODO_PAGO" />
-          <NavigationProperty Name="ORDEN" Relationship="Modelo.PAGO_ORDEN_FK" FromRole="PAGO" ToRole="ORDEN" />
+          <NavigationProperty Name="PEDIDO" Relationship="Modelo.PAGO_PEDIDO_FK" FromRole="PAGO" ToRole="PEDIDO" />
         </EntityType>
         <EntityType Name="PAGO_EXTERNO">
           <Key>
@@ -1200,6 +1308,18 @@
           </Key>
           <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="CLAVE" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PEDIDO">
+          <Key>
+            <PropertyRef Name="ID_PEDIDO" />
+          </Key>
+          <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
+          <Property Name="FECHA_PEDIDO" Type="DateTime" Nullable="false" />
+          <Property Name="HORA_PEDIDO" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TOTAL_PEDIDO" Type="Int32" Nullable="false" />
+          <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Modelo.PEDIDO_CLIENTE_FK" FromRole="PEDIDO" ToRole="CLIENTE" />
+          <NavigationProperty Name="PAGO" Relationship="Modelo.PAGO_PEDIDO_FK" FromRole="PEDIDO" ToRole="PAGO" />
         </EntityType>
         <EntityType Name="PEDIDO_PROVEEDOR">
           <Key>
@@ -1231,7 +1351,6 @@
           <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CATEGORIA" Relationship="Modelo.PLATO_CATEGORIA_FK" FromRole="PLATO" ToRole="CATEGORIA" />
           <NavigationProperty Name="MENU" Relationship="Modelo.MENU_PLATO_FK" FromRole="PLATO" ToRole="MENU" />
-          <NavigationProperty Name="ORDEN" Relationship="Modelo.ORDEN_PLATO_FK" FromRole="PLATO" ToRole="ORDEN" />
           <NavigationProperty Name="PRODUCTO" Relationship="Modelo.PLATO_PRODUCTO_FK" FromRole="PLATO" ToRole="PRODUCTO" />
           <NavigationProperty Name="RECETA" Relationship="Modelo.PLATO_RECETA_FK" FromRole="PLATO" ToRole="RECETA" />
         </EntityType>
@@ -1240,9 +1359,8 @@
             <PropertyRef Name="ID_PRODUCTO" />
           </Key>
           <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" />
-          <Property Name="NOM_PRODUCTO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="VALOR_UNIDAD" Type="Int32" Nullable="false" />
-          <Property Name="VALOR_KILO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VALOR" Type="Int32" Nullable="false" />
           <Property Name="STOCK" Type="Int32" Nullable="false" />
           <Property Name="VALOR_TOTAL" Type="Int32" />
           <Property Name="ID_TIPO_PRODUCTO" Type="Int32" Nullable="false" />
@@ -1349,6 +1467,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="EXTRA_BEBIDA_FK">
+          <End Type="Modelo.BEBIDA" Role="BEBIDA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Modelo.EXTRA" Role="EXTRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEBIDA">
+              <PropertyRef Name="ID_BEBIDA" />
+            </Principal>
+            <Dependent Role="EXTRA">
+              <PropertyRef Name="ID_BEBIDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="MENU_BEBIDA_FK">
           <End Type="Modelo.BEBIDA" Role="BEBIDA" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1359,18 +1491,6 @@
               <PropertyRef Name="ID_BEBIDA" />
             </Principal>
             <Dependent Role="MENU">
-              <PropertyRef Name="ID_BEBIDA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ORDEN_BEBIDA_FK">
-          <End Type="Modelo.BEBIDA" Role="BEBIDA" Multiplicity="0..1" />
-          <End Type="Modelo.ORDEN" Role="ORDEN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BEBIDA">
-              <PropertyRef Name="ID_BEBIDA" />
-            </Principal>
-            <Dependent Role="ORDEN">
               <PropertyRef Name="ID_BEBIDA" />
             </Dependent>
           </ReferentialConstraint>
@@ -1417,6 +1537,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="EXTRA_CLIENTE_FK">
+          <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+          <End Type="Modelo.EXTRA" Role="EXTRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLIENTE" />
+            </Principal>
+            <Dependent Role="EXTRA">
+              <PropertyRef Name="RUT_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="LOGIN_CLIENTE_FK">
           <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1459,6 +1591,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="PEDIDO_CLIENTE_FK">
+          <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Modelo.PEDIDO" Role="PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLIENTE" />
+            </Principal>
+            <Dependent Role="PEDIDO">
+              <PropertyRef Name="RUT_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="RESERVA_CLIENTE_FK">
           <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1484,6 +1630,18 @@
             </Principal>
             <Dependent Role="EMPLEADO">
               <PropertyRef Name="ID_TIPO_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EXTRA_EMPLEADO_FK">
+          <End Type="Modelo.EMPLEADO" Role="EMPLEADO" Multiplicity="1" />
+          <End Type="Modelo.EXTRA" Role="EXTRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="RUT_EMPLEADO" />
+            </Principal>
+            <Dependent Role="EXTRA">
+              <PropertyRef Name="RUT_EMPLEADO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1571,6 +1729,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="EXTRA_ORDEN_FK">
+          <End Type="Modelo.ORDEN" Role="ORDEN" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Modelo.EXTRA" Role="EXTRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDEN">
+              <PropertyRef Name="ID_ORDEN" />
+            </Principal>
+            <Dependent Role="EXTRA">
+              <PropertyRef Name="ID_ORDEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="LOGIN_TIPO_USUARIO_FK">
           <End Type="Modelo.TIPO_USUARIO" Role="TIPO_USUARIO" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1627,29 +1799,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ORDEN_PLATO_FK">
-          <End Type="Modelo.PLATO" Role="PLATO" Multiplicity="0..1" />
-          <End Type="Modelo.ORDEN" Role="ORDEN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PLATO">
-              <PropertyRef Name="ID_PLATO" />
-            </Principal>
-            <Dependent Role="ORDEN">
-              <PropertyRef Name="ID_PLATO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PAGO_ORDEN_FK">
-          <End Type="Modelo.ORDEN" Role="ORDEN" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="PAGO_PEDIDO_FK">
+          <End Type="Modelo.PEDIDO" Role="PEDIDO" Multiplicity="1" />
           <End Type="Modelo.PAGO" Role="PAGO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ORDEN">
-              <PropertyRef Name="ID_ORDEN" />
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
             </Principal>
             <Dependent Role="PAGO">
-              <PropertyRef Name="ID_ORDEN" />
+              <PropertyRef Name="ID_PEDIDO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1833,6 +1991,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EXTRA">
+            <EntityTypeMapping TypeName="Modelo.EXTRA">
+              <MappingFragment StoreEntitySet="EXTRA">
+                <ScalarProperty Name="ID_ORDEN" ColumnName="ID_ORDEN" />
+                <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
+                <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+                <ScalarProperty Name="ID_BEBIDA" ColumnName="ID_BEBIDA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="TOTAL_EXTRA" ColumnName="TOTAL_EXTRA" />
+                <ScalarProperty Name="CANTIDAD_EXTRA" ColumnName="CANTIDAD_EXTRA" />
+                <ScalarProperty Name="HORA_EXTRA" ColumnName="HORA_EXTRA" />
+                <ScalarProperty Name="FECHA_EXTRA" ColumnName="FECHA_EXTRA" />
+                <ScalarProperty Name="ID_EXTRA" ColumnName="ID_EXTRA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="INGRESOS">
             <EntityTypeMapping TypeName="Modelo.INGRESOS">
               <MappingFragment StoreEntitySet="INGRESOS">
@@ -1848,6 +2022,7 @@
               <MappingFragment StoreEntitySet="LOGIN">
                 <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
                 <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+                <ScalarProperty Name="CLIENTE_ACTIVO" ColumnName="CLIENTE_ACTIVO" />
                 <ScalarProperty Name="ID_TIPO_USER" ColumnName="ID_TIPO_USER" />
                 <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
                 <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
@@ -1890,11 +2065,8 @@
           <EntitySetMapping Name="ORDEN">
             <EntityTypeMapping TypeName="Modelo.ORDEN">
               <MappingFragment StoreEntitySet="ORDEN">
-                <ScalarProperty Name="ID_BEBIDA" ColumnName="ID_BEBIDA" />
-                <ScalarProperty Name="ID_PLATO" ColumnName="ID_PLATO" />
                 <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
                 <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
-                <ScalarProperty Name="CLIENTE_ACTIVO" ColumnName="CLIENTE_ACTIVO" />
                 <ScalarProperty Name="VALOR_ORDEN" ColumnName="VALOR_ORDEN" />
                 <ScalarProperty Name="ESTADO_ORDEN" ColumnName="ESTADO_ORDEN" />
                 <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
@@ -1909,7 +2081,7 @@
           <EntitySetMapping Name="PAGO">
             <EntityTypeMapping TypeName="Modelo.PAGO">
               <MappingFragment StoreEntitySet="PAGO">
-                <ScalarProperty Name="ID_ORDEN" ColumnName="ID_ORDEN" />
+                <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
                 <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
                 <ScalarProperty Name="ID_METODO_PAGO" ColumnName="ID_METODO_PAGO" />
                 <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
@@ -1924,6 +2096,17 @@
               <MappingFragment StoreEntitySet="PAGO_EXTERNO">
                 <ScalarProperty Name="CLAVE" ColumnName="CLAVE" />
                 <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PEDIDO">
+            <EntityTypeMapping TypeName="Modelo.PEDIDO">
+              <MappingFragment StoreEntitySet="PEDIDO">
+                <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+                <ScalarProperty Name="TOTAL_PEDIDO" ColumnName="TOTAL_PEDIDO" />
+                <ScalarProperty Name="HORA_PEDIDO" ColumnName="HORA_PEDIDO" />
+                <ScalarProperty Name="FECHA_PEDIDO" ColumnName="FECHA_PEDIDO" />
+                <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1961,9 +2144,8 @@
                 <ScalarProperty Name="ID_TIPO_PRODUCTO" ColumnName="ID_TIPO_PRODUCTO" />
                 <ScalarProperty Name="VALOR_TOTAL" ColumnName="VALOR_TOTAL" />
                 <ScalarProperty Name="STOCK" ColumnName="STOCK" />
-                <ScalarProperty Name="VALOR_KILO" ColumnName="VALOR_KILO" />
-                <ScalarProperty Name="VALOR_UNIDAD" ColumnName="VALOR_UNIDAD" />
-                <ScalarProperty Name="NOM_PRODUCTO" ColumnName="NOM_PRODUCTO" />
+                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
               </MappingFragment>
             </EntityTypeMapping>

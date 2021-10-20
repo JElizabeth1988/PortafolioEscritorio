@@ -12,27 +12,22 @@ namespace BibliotecaDALC
     using System;
     using System.Collections.Generic;
     
-    public partial class ORDEN
+    public partial class EXTRA
     {
-        public ORDEN()
-        {
-            this.EXTRA = new HashSet<EXTRA>();
-        }
-    
-        public int ID_ORDEN { get; set; }
-        public string DETALLE_ORDEN { get; set; }
-        public System.DateTime FECHA_ORDEN { get; set; }
-        public string HORA_ORDEN { get; set; }
-        public int CANTIDAD_PRODUCTO { get; set; }
+        public int ID_EXTRA { get; set; }
+        public System.DateTime FECHA_EXTRA { get; set; }
+        public string HORA_EXTRA { get; set; }
+        public int CANTIDAD_EXTRA { get; set; }
+        public int TOTAL_EXTRA { get; set; }
+        public string ESTADO { get; set; }
+        public int ID_BEBIDA { get; set; }
         public string RUT_CLIENTE { get; set; }
-        public string ESTADO_ORDEN { get; set; }
-        public int VALOR_ORDEN { get; set; }
-        public int ID_MENU { get; set; }
         public string RUT_EMPLEADO { get; set; }
+        public Nullable<int> ID_ORDEN { get; set; }
     
+        public virtual BEBIDA BEBIDA { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
-        public virtual ICollection<EXTRA> EXTRA { get; set; }
-        public virtual MENU MENU { get; set; }
+        public virtual ORDEN ORDEN { get; set; }
     }
 }

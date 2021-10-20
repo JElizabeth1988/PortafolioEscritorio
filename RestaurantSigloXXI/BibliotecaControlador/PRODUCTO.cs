@@ -22,9 +22,8 @@ namespace BibliotecaDALC
         }
     
         public int ID_PRODUCTO { get; set; }
-        public string NOM_PRODUCTO { get; set; }
-        public int VALOR_UNIDAD { get; set; }
-        public int VALOR_KILO { get; set; }
+        public string NOMBRE { get; set; }
+        public int VALOR { get; set; }
         public int STOCK { get; set; }
         public Nullable<int> VALOR_TOTAL { get; set; }
         public int ID_TIPO_PRODUCTO { get; set; }

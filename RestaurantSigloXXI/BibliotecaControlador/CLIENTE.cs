@@ -16,9 +16,11 @@ namespace BibliotecaDALC
     {
         public CLIENTE()
         {
+            this.EXTRA = new HashSet<EXTRA>();
             this.LOGIN = new HashSet<LOGIN>();
             this.ORDEN = new HashSet<ORDEN>();
             this.PAGO = new HashSet<PAGO>();
+            this.PEDIDO = new HashSet<PEDIDO>();
             this.RESERVA = new HashSet<RESERVA>();
         }
     
@@ -31,9 +33,11 @@ namespace BibliotecaDALC
         public Nullable<int> TELEFONO_CLI { get; set; }
         public string CORREO_CLI { get; set; }
     
+        public virtual ICollection<EXTRA> EXTRA { get; set; }
         public virtual ICollection<LOGIN> LOGIN { get; set; }
         public virtual ICollection<ORDEN> ORDEN { get; set; }
         public virtual ICollection<PAGO> PAGO { get; set; }
+        public virtual ICollection<PEDIDO> PEDIDO { get; set; }
         public virtual ICollection<RESERVA> RESERVA { get; set; }
     }
 }

@@ -4,55 +4,60 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="23526ed0aef14cb682db280a00b1621f" Name="Diagram1" ZoomLevel="63">
-        <EntityTypeShape EntityType="Modelo.AGENDA" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Modelo.BEBIDA" Width="1.5" PointX="0.75" PointY="19.625" />
-        <EntityTypeShape EntityType="Modelo.BOLETA" Width="1.5" PointX="10.5" PointY="6.25" />
-        <EntityTypeShape EntityType="Modelo.CATEGORIA" Width="1.5" PointX="1.5" PointY="27.125" />
-        <EntityTypeShape EntityType="Modelo.CLIENTE" Width="1.5" PointX="0.75" PointY="6.25" />
-        <EntityTypeShape EntityType="Modelo.EMPLEADO" Width="1.5" PointX="1.5" PointY="11.125" />
-        <EntityTypeShape EntityType="Modelo.ENTIDAD_BANCARIA" Width="1.5" PointX="3.75" PointY="11.875" />
-        <EntityTypeShape EntityType="Modelo.INGRESOS" Width="1.5" PointX="8.75" PointY="1.5" />
-        <EntityTypeShape EntityType="Modelo.LOGIN" Width="1.5" PointX="6" PointY="6.625" />
-        <EntityTypeShape EntityType="Modelo.MENU" Width="1.5" PointX="0.75" PointY="30" />
-        <EntityTypeShape EntityType="Modelo.MESA" Width="1.5" PointX="1.5" PointY="0.875" />
-        <EntityTypeShape EntityType="Modelo.METODO_PAGO" Width="1.5" PointX="6" PointY="12" />
-        <EntityTypeShape EntityType="Modelo.ORDEN" Width="1.5" PointX="3" PointY="5.625" />
-        <EntityTypeShape EntityType="Modelo.PAGO" Width="1.5" PointX="8.25" PointY="6.375" />
-        <EntityTypeShape EntityType="Modelo.PAGO_EXTERNO" Width="1.5" PointX="8.75" PointY="10.5" />
-        <EntityTypeShape EntityType="Modelo.PEDIDO_PROVEEDOR" Width="1.5" PointX="3.75" PointY="26" />
-        <EntityTypeShape EntityType="Modelo.PLATO" Width="1.5" PointX="1.5" PointY="36.125" />
-        <EntityTypeShape EntityType="Modelo.PRODUCTO" Width="1.5" PointX="1.5" PointY="40.625" />
-        <EntityTypeShape EntityType="Modelo.PROVEEDOR" Width="1.5" PointX="1.5" PointY="48.25" />
-        <EntityTypeShape EntityType="Modelo.RECETA" Width="1.5" PointX="1.5" PointY="44.5" />
-        <EntityTypeShape EntityType="Modelo.RESERVA" Width="1.5" PointX="6" PointY="2.5" />
-        <EntityTypeShape EntityType="Modelo.TIPO_PRODUCTO" Width="1.5" PointX="1.5" PointY="24.125" />
-        <EntityTypeShape EntityType="Modelo.TIPO_USUARIO" Width="1.5" PointX="1.5" PointY="16.375" />
+      <Diagram DiagramId="23526ed0aef14cb682db280a00b1621f" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="Modelo.AGENDA" Width="1.5" PointX="7.5" PointY="32.625" />
+        <EntityTypeShape EntityType="Modelo.BEBIDA" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="Modelo.BOLETA" Width="1.5" PointX="9.75" PointY="17.75" />
+        <EntityTypeShape EntityType="Modelo.CATEGORIA" Width="1.5" PointX="7.5" PointY="4.5" />
+        <EntityTypeShape EntityType="Modelo.CLIENTE" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="Modelo.EMPLEADO" Width="1.5" PointX="3" PointY="12" />
+        <EntityTypeShape EntityType="Modelo.ENTIDAD_BANCARIA" Width="1.5" PointX="3" PointY="24.375" />
+        <EntityTypeShape EntityType="Modelo.EXTRA" Width="1.5" PointX="10.5" PointY="12.375" />
+        <EntityTypeShape EntityType="Modelo.INGRESOS" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="Modelo.LOGIN" Width="1.5" PointX="5.25" PointY="8.875" />
+        <EntityTypeShape EntityType="Modelo.MENU" Width="1.5" PointX="9.75" PointY="7.625" />
+        <EntityTypeShape EntityType="Modelo.MESA" Width="1.5" PointX="5.25" PointY="32.75" />
+        <EntityTypeShape EntityType="Modelo.METODO_PAGO" Width="1.5" PointX="5.25" PointY="24.375" />
+        <EntityTypeShape EntityType="Modelo.ORDEN" Width="1.5" PointX="8.25" PointY="12.375" />
+        <EntityTypeShape EntityType="Modelo.PAGO" Width="1.5" PointX="7.5" PointY="16.875" />
+        <EntityTypeShape EntityType="Modelo.PAGO_EXTERNO" Width="1.5" PointX="2.75" PointY="1.375" />
+        <EntityTypeShape EntityType="Modelo.PEDIDO" Width="1.5" PointX="5.25" PointY="21" />
+        <EntityTypeShape EntityType="Modelo.PEDIDO_PROVEEDOR" Width="1.5" PointX="5.25" PointY="16.75" />
+        <EntityTypeShape EntityType="Modelo.PLATO" Width="1.5" PointX="7.5" PointY="7.5" />
+        <EntityTypeShape EntityType="Modelo.PRODUCTO" Width="1.5" PointX="5.25" PointY="4.75" />
+        <EntityTypeShape EntityType="Modelo.PROVEEDOR" Width="1.5" PointX="3" PointY="18" />
+        <EntityTypeShape EntityType="Modelo.RECETA" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="Modelo.RESERVA" Width="1.5" PointX="9.75" PointY="32.375" />
+        <EntityTypeShape EntityType="Modelo.TIPO_PRODUCTO" Width="1.5" PointX="6" PointY="1.625" />
+        <EntityTypeShape EntityType="Modelo.TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="13.375" />
         <AssociationConnector Association="Modelo.AGENDA_MESA_FK" />
         <AssociationConnector Association="Modelo.RESERVA_AGENDA_FK" />
         <AssociationConnector Association="Modelo.BEBIDA_TIPO_PRODUCTO_FK" />
+        <AssociationConnector Association="Modelo.EXTRA_BEBIDA_FK" />
         <AssociationConnector Association="Modelo.MENU_BEBIDA_FK" />
-        <AssociationConnector Association="Modelo.ORDEN_BEBIDA_FK" />
         <AssociationConnector Association="Modelo.BOLETA_PAGO_FK" />
         <AssociationConnector Association="Modelo.MENU_CATEGORIA_FK" />
         <AssociationConnector Association="Modelo.PLATO_CATEGORIA_FK" />
+        <AssociationConnector Association="Modelo.EXTRA_CLIENTE_FK" />
         <AssociationConnector Association="Modelo.LOGIN_CLIENTE_FK" />
         <AssociationConnector Association="Modelo.ORDEN_CLIENTE_FK" />
         <AssociationConnector Association="Modelo.PAGO_CLIENTE_FK" />
+        <AssociationConnector Association="Modelo.PEDIDO_CLIENTE_FK" />
         <AssociationConnector Association="Modelo.RESERVA_CLIENTE_FK" />
         <AssociationConnector Association="Modelo.EMPLEADO_TIPO_USUARIO_FK" />
+        <AssociationConnector Association="Modelo.EXTRA_EMPLEADO_FK" />
         <AssociationConnector Association="Modelo.LOGIN_EMPLEADO_FK" />
         <AssociationConnector Association="Modelo.MESA_EMPLEADO_FK" />
         <AssociationConnector Association="Modelo.ORDEN_EMPLEADO_FK" />
         <AssociationConnector Association="Modelo.PEDIDO_PROVEEDOR_EMPLEADO_FK" />
         <AssociationConnector Association="Modelo.RECETA_EMPLEADO_FK" />
         <AssociationConnector Association="Modelo.METODO_PAGO_ENT_BANC_FK" />
+        <AssociationConnector Association="Modelo.EXTRA_ORDEN_FK" />
         <AssociationConnector Association="Modelo.LOGIN_TIPO_USUARIO_FK" />
         <AssociationConnector Association="Modelo.MENU_PLATO_FK" />
         <AssociationConnector Association="Modelo.ORDEN_MENU_FK" />
         <AssociationConnector Association="Modelo.PAGO_METODO_PAGO_FK" />
-        <AssociationConnector Association="Modelo.ORDEN_PLATO_FK" />
-        <AssociationConnector Association="Modelo.PAGO_ORDEN_FK" />
+        <AssociationConnector Association="Modelo.PAGO_PEDIDO_FK" />
         <AssociationConnector Association="Modelo.PEDIDO_PROVEEDOR_PRODUCTO_FK" />
         <AssociationConnector Association="Modelo.PEDIDO_PROVEEDOR_PROVEEDOR_FK" />
         <AssociationConnector Association="Modelo.PLATO_PRODUCTO_FK" />

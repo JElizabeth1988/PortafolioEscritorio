@@ -94,6 +94,9 @@
     <Compile Include="ENTIDAD_BANCARIA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="EXTRA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="INGRESOS.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -131,6 +134,9 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="PAGO_EXTERNO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PEDIDO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="PEDIDO_PROVEEDOR.cs">

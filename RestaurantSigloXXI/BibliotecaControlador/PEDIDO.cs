@@ -12,24 +12,20 @@ namespace BibliotecaDALC
     using System;
     using System.Collections.Generic;
     
-    public partial class PAGO
+    public partial class PEDIDO
     {
-        public PAGO()
+        public PEDIDO()
         {
-            this.BOLETA = new HashSet<BOLETA>();
+            this.PAGO = new HashSet<PAGO>();
         }
     
-        public int N_TRANSACCION { get; set; }
-        public int VALOR_PAGO { get; set; }
-        public string ESTADO_PAGO { get; set; }
-        public Nullable<int> DESCUENTO { get; set; }
-        public int ID_METODO_PAGO { get; set; }
-        public string RUT_CLIENTE { get; set; }
         public int ID_PEDIDO { get; set; }
+        public System.DateTime FECHA_PEDIDO { get; set; }
+        public string HORA_PEDIDO { get; set; }
+        public int TOTAL_PEDIDO { get; set; }
+        public string RUT_CLIENTE { get; set; }
     
-        public virtual ICollection<BOLETA> BOLETA { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
-        public virtual METODO_PAGO METODO_PAGO { get; set; }
-        public virtual PEDIDO PEDIDO { get; set; }
+        public virtual ICollection<PAGO> PAGO { get; set; }
     }
 }

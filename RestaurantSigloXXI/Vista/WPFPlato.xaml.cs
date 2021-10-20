@@ -80,7 +80,7 @@ namespace Vista
             {
                 comboBoxItem1 cb = new comboBoxItem1();
                 cb.id = item.id_producto;
-                cb.nombre = item.nombre_producto;
+                cb.nombre = item.nombre;
                 cboProducto.Items.Add(cb);
             }
             //--------------------------------------

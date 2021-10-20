@@ -17,6 +17,7 @@ namespace BibliotecaDALC
         public string USUARIO { get; set; }
         public string CONTRASENIA { get; set; }
         public int ID_TIPO_USER { get; set; }
+        public string CLIENTE_ACTIVO { get; set; }
         public string RUT_CLIENTE { get; set; }
         public string RUT_EMPLEADO { get; set; }
     

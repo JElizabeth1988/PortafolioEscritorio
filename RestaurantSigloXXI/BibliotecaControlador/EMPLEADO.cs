@@ -16,6 +16,7 @@ namespace BibliotecaDALC
     {
         public EMPLEADO()
         {
+            this.EXTRA = new HashSet<EXTRA>();
             this.LOGIN = new HashSet<LOGIN>();
             this.MESA = new HashSet<MESA>();
             this.ORDEN = new HashSet<ORDEN>();
@@ -36,6 +37,7 @@ namespace BibliotecaDALC
         public string CONTRASENIA { get; set; }
     
         public virtual TIPO_USUARIO TIPO_USUARIO { get; set; }
+        public virtual ICollection<EXTRA> EXTRA { get; set; }
         public virtual ICollection<LOGIN> LOGIN { get; set; }
         public virtual ICollection<MESA> MESA { get; set; }
         public virtual ICollection<ORDEN> ORDEN { get; set; }

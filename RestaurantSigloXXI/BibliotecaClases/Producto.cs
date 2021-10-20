@@ -16,16 +16,16 @@ namespace BibliotecaNegocio
     {
         public int id_producto { get; set; }
 
-        private string _nombre_producto;
+        private string _nombre;
 
-        public string nombre_producto
+        public string nombre
         {
-            get { return _nombre_producto; }
+            get { return _nombre; }
             set
             {
                 if (!value.Equals(""))
                 {
-                    _nombre_producto = value;
+                    _nombre = value;
                 }
                 else
                 {
@@ -36,16 +36,16 @@ namespace BibliotecaNegocio
             }
         }
 
-        private int _valor_unidad;
+        private int _valor;
 
-        public int valor_unidad
+        public int valor
         {
-            get { return _valor_unidad; }
+            get { return _valor; }
             set
             {
                 if (value != 0)
                 {
-                    _valor_unidad = value;
+                    _valor = value;
                 }
                 else
                 {
@@ -74,26 +74,7 @@ namespace BibliotecaNegocio
             }
         }
 
-        private int _valor_kilo;
-
-        public int valor_kilo
-        {
-            get { return _valor_kilo; }
-            set
-            {
-                if (value != 0)
-                {
-                    _valor_kilo = value;
-                }
-                else
-                {
-                    //throw new Exception("Error, el Campo Valor Kilo es Obligatorio.");
-                    err.AgregarError("Campo Valor Kilo es Obligatorio");
-                }
-            }
-
-        }
-
+        
         public int valor_total { get; set; }
 
         //Foranea
@@ -123,7 +104,7 @@ namespace BibliotecaNegocio
             {
                 PRODUCTO prod =
                     bdd.PRODUCTO.First(tip => tip.ID_PRODUCTO == id_producto);
-                nombre_producto = prod.NOM_PRODUCTO;
+                nombre = prod.NOMBRE;
                 return true;
             }
             catch (Exception ex)
@@ -143,7 +124,7 @@ namespace BibliotecaNegocio
                 {
                     Producto tipo = new Producto();
                     tipo.id_producto = item.ID_PRODUCTO;
-                    tipo.nombre_producto = item.NOM_PRODUCTO;
+                    tipo.nombre = item.NOMBRE;
                     lista.Add(tipo);
 
                 }
@@ -174,11 +155,10 @@ namespace BibliotecaNegocio
                 CMD.CommandText = "SP_AGREGAR_PRODUCTO";
                 //Se crea un nuevo tipo de parametro, nombre parametro, el tipo, el largo, y el valor es igual al de la clase.
                 //CMD.Parameters.Add(new OracleParameter("P_ID_PROD", OracleDbType.Int32)).Value = prod.id_producto; -->Se agrega x Trigger con secuencia
-                CMD.Parameters.Add(new OracleParameter("P_NOM_PROD", OracleDbType.Varchar2, 50)).Value = prod.nombre_producto;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR_UNIDAD", OracleDbType.Int32)).Value = prod.valor_unidad;
+                CMD.Parameters.Add(new OracleParameter("P_NOM_PROD", OracleDbType.Varchar2, 50)).Value = prod.nombre;
+                CMD.Parameters.Add(new OracleParameter("P_VALOR_UNIDAD", OracleDbType.Int32)).Value = prod.valor;
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO_PROD", OracleDbType.Int32)).Value = prod.id_tipo_producto;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = prod.stock;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR_KILO", OracleDbType.Int32)).Value = prod.valor_kilo;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR_TOTAL", OracleDbType.Int32)).Value = prod.valor_total;
 
                 // Se abre la conexión
@@ -214,11 +194,10 @@ namespace BibliotecaNegocio
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_ACTUALIZAR_PRODUCTO";
                 CMD.Parameters.Add(new OracleParameter("P_ID_PROD", OracleDbType.Int32)).Value = prod.id_producto;
-                CMD.Parameters.Add(new OracleParameter("P_NOM_PROD", OracleDbType.Varchar2, 50)).Value = prod.nombre_producto;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR_UNIDAD", OracleDbType.Int32)).Value = prod.valor_unidad;
+                CMD.Parameters.Add(new OracleParameter("P_NOM_PROD", OracleDbType.Varchar2, 50)).Value = prod.nombre;
+                CMD.Parameters.Add(new OracleParameter("P_VALOR_UNIDAD", OracleDbType.Int32)).Value = prod.valor;
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO_PROD", OracleDbType.Int32)).Value = prod.id_tipo_producto;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = prod.stock;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR_KILO", OracleDbType.Int32)).Value = prod.valor_kilo;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR_TOTAL", OracleDbType.Int32)).Value = prod.valor_total;
 
                 //Se abre la conexión
@@ -264,12 +243,11 @@ namespace BibliotecaNegocio
                     p = new Producto();
 
                     id_producto = int.Parse(reader[0].ToString());
-                    nombre_producto = reader[1].ToString();
-                    valor_unidad = int.Parse(reader[2].ToString());
-                    valor_kilo = int.Parse(reader[3].ToString());
-                    stock = int.Parse(reader[4].ToString());
+                    nombre = reader[1].ToString();
+                    valor = int.Parse(reader[2].ToString());
+                    stock = int.Parse(reader[3].ToString());
                     valor_total = int.Parse(reader[5].ToString());
-                    id_tipo_producto = int.Parse(reader[6].ToString());
+                    id_tipo_producto = int.Parse(reader[5].ToString());
 
                     list.Add(p);
 
@@ -352,11 +330,10 @@ namespace BibliotecaNegocio
                     //se obtiene el valor con getvalue es lo mismo pero con get
                     P.Id = int.Parse(dr.GetValue(0).ToString());
                     P.Nombre = dr.GetValue(1).ToString();
-                    P.Valor_Unidad ="$ "+dr.GetValue(2).ToString();
-                    P.valor_kilo = "$ " + dr.GetValue(3).ToString();
-                    P.Stock = dr.GetValue(4).ToString() +" U";
-                    P.valor_total = "$ " + dr.GetValue(5).ToString();
-                    P.Categoria = dr.GetValue(6).ToString();
+                    P.Valor ="$ "+dr.GetValue(2).ToString();
+                    P.Stock = dr.GetValue(3).ToString() +" U";
+                    P.Total = "$ " + dr.GetValue(4).ToString();
+                    P.Categoria = dr.GetValue(5).ToString();
                    
                     lista.Add(P);
                 }
@@ -403,11 +380,10 @@ namespace BibliotecaNegocio
 
                     p.Id = int.Parse(reader[0].ToString());
                     p.Nombre = reader[1].ToString();
-                    p.Valor_Unidad = "$ " + reader[2].ToString();
-                    p.valor_kilo = "$ " + reader[3].ToString();
-                    p.Stock = reader[4].ToString()+" U";
-                    p.valor_total = "$ " + reader[5].ToString();
-                    p.Categoria = reader[6].ToString();                   
+                    p.Valor = "$ " + reader[2].ToString();
+                    p.Stock = reader[3].ToString()+" U";
+                    p.Total = "$ " + reader[4].ToString();
+                    p.Categoria = reader[5].ToString();                   
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(p);
@@ -433,10 +409,9 @@ namespace BibliotecaNegocio
         {
             public int Id { get; set; }
             public String Nombre { get; set; }
-            public string Valor_Unidad { get; set; }
+            public string Valor { get; set; }
             public string Stock { get; set; }
-            public string valor_kilo { get; set; }
-            public string valor_total { get; set; }
+            public string Total { get; set; }
             public string Categoria { get; set; }
 
 

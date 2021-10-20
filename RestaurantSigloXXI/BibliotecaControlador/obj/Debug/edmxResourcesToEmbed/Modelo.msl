@@ -91,6 +91,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="EXTRA">
+      <EntityTypeMapping TypeName="Modelo.EXTRA">
+        <MappingFragment StoreEntitySet="EXTRA">
+          <ScalarProperty Name="ID_ORDEN" ColumnName="ID_ORDEN" />
+          <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="ID_BEBIDA" ColumnName="ID_BEBIDA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="TOTAL_EXTRA" ColumnName="TOTAL_EXTRA" />
+          <ScalarProperty Name="CANTIDAD_EXTRA" ColumnName="CANTIDAD_EXTRA" />
+          <ScalarProperty Name="HORA_EXTRA" ColumnName="HORA_EXTRA" />
+          <ScalarProperty Name="FECHA_EXTRA" ColumnName="FECHA_EXTRA" />
+          <ScalarProperty Name="ID_EXTRA" ColumnName="ID_EXTRA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="INGRESOS">
       <EntityTypeMapping TypeName="Modelo.INGRESOS">
         <MappingFragment StoreEntitySet="INGRESOS">
@@ -106,6 +122,7 @@
         <MappingFragment StoreEntitySet="LOGIN">
           <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="CLIENTE_ACTIVO" ColumnName="CLIENTE_ACTIVO" />
           <ScalarProperty Name="ID_TIPO_USER" ColumnName="ID_TIPO_USER" />
           <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
           <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
@@ -148,11 +165,8 @@
     <EntitySetMapping Name="ORDEN">
       <EntityTypeMapping TypeName="Modelo.ORDEN">
         <MappingFragment StoreEntitySet="ORDEN">
-          <ScalarProperty Name="ID_BEBIDA" ColumnName="ID_BEBIDA" />
-          <ScalarProperty Name="ID_PLATO" ColumnName="ID_PLATO" />
           <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
           <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
-          <ScalarProperty Name="CLIENTE_ACTIVO" ColumnName="CLIENTE_ACTIVO" />
           <ScalarProperty Name="VALOR_ORDEN" ColumnName="VALOR_ORDEN" />
           <ScalarProperty Name="ESTADO_ORDEN" ColumnName="ESTADO_ORDEN" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
@@ -167,7 +181,7 @@
     <EntitySetMapping Name="PAGO">
       <EntityTypeMapping TypeName="Modelo.PAGO">
         <MappingFragment StoreEntitySet="PAGO">
-          <ScalarProperty Name="ID_ORDEN" ColumnName="ID_ORDEN" />
+          <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
           <ScalarProperty Name="ID_METODO_PAGO" ColumnName="ID_METODO_PAGO" />
           <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
@@ -182,6 +196,17 @@
         <MappingFragment StoreEntitySet="PAGO_EXTERNO">
           <ScalarProperty Name="CLAVE" ColumnName="CLAVE" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEDIDO">
+      <EntityTypeMapping TypeName="Modelo.PEDIDO">
+        <MappingFragment StoreEntitySet="PEDIDO">
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="TOTAL_PEDIDO" ColumnName="TOTAL_PEDIDO" />
+          <ScalarProperty Name="HORA_PEDIDO" ColumnName="HORA_PEDIDO" />
+          <ScalarProperty Name="FECHA_PEDIDO" ColumnName="FECHA_PEDIDO" />
+          <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -219,9 +244,8 @@
           <ScalarProperty Name="ID_TIPO_PRODUCTO" ColumnName="ID_TIPO_PRODUCTO" />
           <ScalarProperty Name="VALOR_TOTAL" ColumnName="VALOR_TOTAL" />
           <ScalarProperty Name="STOCK" ColumnName="STOCK" />
-          <ScalarProperty Name="VALOR_KILO" ColumnName="VALOR_KILO" />
-          <ScalarProperty Name="VALOR_UNIDAD" ColumnName="VALOR_UNIDAD" />
-          <ScalarProperty Name="NOM_PRODUCTO" ColumnName="NOM_PRODUCTO" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
         </MappingFragment>
       </EntityTypeMapping>
