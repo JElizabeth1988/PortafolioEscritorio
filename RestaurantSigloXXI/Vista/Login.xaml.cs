@@ -113,6 +113,17 @@ namespace Vista
                     this.Close();
                     bod.ShowDialog();
                 }
+                //Si las credenciales no están bien
+                if (cliente.Login(usuario, paswd) == 0)
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                                        string.Format("¡Error de Credenciales!"));
+                   
+                    txtUsuario.Clear();
+                    TxtContrasenia.Clear();
+                    txtUsuario.Focus();
+                }
+
                 else
                 {
                     await this.ShowMessageAsync("Error:",
