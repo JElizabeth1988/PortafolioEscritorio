@@ -65,6 +65,9 @@ namespace Vista
             btnEliminar.Visibility = Visibility.Hidden;
             txtRut.Focus();//Focus en el rut
 
+            txtTelefono.Text = "0";
+            txtCelular.Text = "0";
+
             //---Tarea automática CACHÉ-------
             Task tarea = new Task(() =>
             {
@@ -209,6 +212,9 @@ namespace Vista
             txtEmail.Clear();
             txtRut.IsEnabled = true;
             lblCache.Content = null;
+
+            txtTelefono.Text = "0";
+            txtCelular.Text = "0";
 
             btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece

@@ -67,6 +67,17 @@ namespace Vista
             }
 
             cboTipoProducto.SelectedIndex = 0;
+
+            foreach (TipoProducto item in new TipoProducto().ReadAll())
+            {
+                ComboBoxItemTipoProducto cbtp = new ComboBoxItemTipoProducto();
+                cbtp.id_tipo_producto = item.id_tipo_producto;
+                cbtp.nombre_tipo = item.nombre_tipo;
+                cboTipFiltro.Items.Add(cbtp);
+            }
+
+            cboTipFiltro.SelectedIndex = 0;
+
             txtValorUnidad.Text = "0";
             txtValorTotal.Text = "0";
             txtStock.Text = "0";
@@ -517,6 +528,37 @@ namespace Vista
             //Parar Singleton
             _instancia = null;
         }
+        //--------Botón filtrar----------------------------------------
+        private async void btnFiltrar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string tipo = cboTipFiltro.Text;
+                if (prod.Filtrar(tipo) != null)
+                {
+                    dgLista.ItemsSource = prod.Filtrar(tipo);
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("");
+                    dt.Columns.Add("Productos:");
+                    dt.Rows.Add("", "No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+                    cboTipFiltro.SelectedIndex = 0;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+                CargarGrilla();
+            }
+        }
 
         private void btnPasar_Click(object sender, RoutedEventArgs e)
         {
@@ -589,6 +631,8 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
+
+        
     }
 }
 

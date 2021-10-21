@@ -55,7 +55,7 @@
         <GroupBox x:Name="groupBox_Copy" Header="Listado de Platos" Margin="448,106,91,0" VerticalAlignment="Top" Height="324" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="606" Margin="0,-2,-6.667,-6.333" Background="{x:Null}">
 
-                <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="235" Width="565" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
+                <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="18,51,0,0" VerticalAlignment="Top" Height="194" Width="565" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">
@@ -75,6 +75,9 @@
                 </Button>
                 <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="454,255,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFDF0D0D" FontSize="12" Click="btnEliminar_Click"/>
                 <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnPasar_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="18,255,0,0"/>
+                <ComboBox x:Name="cboFiltro" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="144" FontWeight="Normal"/>
+                <Button x:Name="btnFiltrar" Content="Filtrar" HorizontalAlignment="Left" Margin="288,10,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltrar_Click"/>
+                <Label x:Name="label_Copy2" Content="Categoría:" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" FontSize="12"/>
 
 
 

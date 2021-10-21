@@ -351,10 +351,11 @@ namespace BibliotecaNegocio
         }
 
         //------------Filtrar por ID--------------------
-        public List<ListaProducto> Filtrar(int IdProd)
+        public List<ListaProducto> Filtrar(string tipo)
         {
             try
             {
+                int contador = 0;
                 //Se instancia la conexión a la BD
                 conn = new Conexion().Getcone();
                 OracleCommand CMD = new OracleCommand();
@@ -365,8 +366,8 @@ namespace BibliotecaNegocio
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_FILTRAR_ID_PRODUCTO";
-                CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = IdProd;
+                CMD.CommandText = "SP_FILTRAR_TIPO_P";
+                CMD.Parameters.Add(new OracleParameter("P_TIPO", OracleDbType.Varchar2)).Value = tipo;
                 CMD.Parameters.Add(new OracleParameter("PRODUCTOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
 
                 //se abre la conexion
@@ -387,16 +388,25 @@ namespace BibliotecaNegocio
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(p);
+                    contador = 1;
 
                 }
                 conn.Close();
-                return lista;
+                if (contador == 1)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+                
             }
             catch (Exception ex)
             {
-                return null;
-                Logger.Mensaje(ex.Message);
                 conn.Close();
+                return null;
+                Logger.Mensaje(ex.Message);                
 
             }
 

@@ -77,6 +77,16 @@ namespace Vista
             }
 
             cboTipo.SelectedIndex = 0;
+            //Llenar el combobox
+            foreach (TipoProducto item in new TipoProducto().ReadAll())
+            {
+                ComboBoxItemTipoProducto cb = new ComboBoxItemTipoProducto();
+                cb.id_tipo_producto = item.id_tipo_producto;
+                cb.nombre_tipo = item.nombre_tipo;
+                cbofiltro.Items.Add(cb);
+            }
+
+            cbofiltro.SelectedIndex = 0;
 
             CargarGrilla();
             //Cuando se guarda una bebida nueva se refresca la grilla
@@ -414,7 +424,39 @@ namespace Vista
             }
         }
 
-       
+        //------Botón Filtrar x tipo
+        private async void btnFiltrar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string tipo = cbofiltro.Text;
+                if (bebi.Filtrar(tipo) != null)
+                {
+                    dgLista.ItemsSource = bebi.Filtrar(tipo);
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("");
+                    dt.Columns.Add("Bebidas:");
+                    dt.Rows.Add("","No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+                    cbofiltro.SelectedIndex = 0;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+                CargarGrilla();
+            }
+        }
+
+        //--------Botón cache--------------------------
         private void BtnCache_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -484,6 +526,6 @@ namespace Vista
             _instancia = null;
         }
 
-       
+        
     }
 }

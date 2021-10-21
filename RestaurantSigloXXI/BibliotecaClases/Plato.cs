@@ -260,10 +260,11 @@ namespace BibliotecaNegocio
         }
 
         //------------Listar---------------------------------------
-        public List<ListaPlato> Filtrar(String nombre)
+        public List<ListaPlato> Filtrar(String cat)
         {
             try
             {
+                int contador = 0;
                 //Se instancia la conexión a la BD
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
@@ -276,7 +277,7 @@ namespace BibliotecaNegocio
                 cmd.Connection = conn;
                 //procedimiento
                 cmd.CommandText = "SP_FILTRAR_PLATO";
-                cmd.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = nombre;
+                cmd.Parameters.Add(new OracleParameter("P_CATEGORIA", OracleDbType.Varchar2)).Value = cat;
                 //Se agrega el parámetro de salida
                 cmd.Parameters.Add(new OracleParameter("PLATOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion
@@ -300,10 +301,19 @@ namespace BibliotecaNegocio
                     i.Producto = dr.GetValue(8).ToString();
 
                     lista.Add(i);
+                    contador = 1;
                 }
                 //Cerrar la conexión
                 conn.Close();
-                return lista;
+                if (contador ==1)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+               
 
             }
             catch (Exception ex)

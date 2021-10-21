@@ -218,8 +218,14 @@
     <Compile Include="WPFAgenda.xaml.cs">
       <DependentUpon>WPFAgenda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFAsignarMesa.xaml.cs">
+      <DependentUpon>WPFAsignarMesa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFBebida.xaml.cs">
       <DependentUpon>WPFBebida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFCliente2.xaml.cs">
+      <DependentUpon>WPFCliente2.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFEmpleado.xaml.cs">
       <DependentUpon>WPFEmpleado.xaml</DependentUpon>
@@ -239,6 +245,9 @@
     </Compile>
     <Compile Include="WPFProducto.xaml.cs">
       <DependentUpon>WPFProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFReserva.xaml.cs">
+      <DependentUpon>WPFReserva.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFVerPedidosListos.xaml.cs">
       <DependentUpon>WPFVerPedidosListos.xaml</DependentUpon>
@@ -267,7 +276,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPFAsignarMesa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPFBebida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFCliente2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -326,6 +343,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFReserva.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

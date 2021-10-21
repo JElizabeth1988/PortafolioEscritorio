@@ -744,7 +744,7 @@ namespace BibliotecaNegocio
 
             }
             //Buscar empleado para mesa
-            public async void BuscarEmpMesa(String rut)
+            public void BuscarEmpMesa(String rut)
             {
 
                 try

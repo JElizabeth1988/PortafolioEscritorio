@@ -1,0 +1,56 @@
+﻿<Controls:MetroWindow x:Class="Vista.WPFReserva"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                      
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      
+        xmlns:local="clr-namespace:Vista"
+        mc:Ignorable="d"
+        BorderThickness="2" BorderBrush="Black"
+        Title="Verificar Reserva" Height="397.002" Width="844.813" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Cursor="Arrow" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Closing="MetroWindow_Closing"  >
+    <Grid Background="#FFDBDFE3">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="384" VerticalAlignment="Top" Width="852" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-16.667,-18"/>
+
+        <GroupBox x:Name="gbFiltrar" Header="Buscar Información" Margin="41,21,42.333,31"  Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+            <Grid HorizontalAlignment="Left" Height="260" Margin="10,4,0,0" VerticalAlignment="Top" Width="732">
+                <Image x:Name="images" HorizontalAlignment="Left" Margin="544,0,0,185" Width="164" Source="Imagenes/logoFinal3.png"/>
+                <DataGrid x:Name="dgLista" Margin="10,80,21,0" VerticalAlignment="Top" Height="123" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" >
+
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FFFAA575" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+                <Label x:Name="label" Content="Código de Reserva:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,3,0,0" Width="123" FontSize="12"/>
+                <TextBox x:Name="txtCodigo"  Controls:TextBoxHelper.Watermark="Ingrese Código" HorizontalAlignment="Left" Height="23" Margin="169,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
+                <Button x:Name="btnCodigo" Content="Verificar" HorizontalAlignment="Left" Margin="339,3,0,232" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCodigo_Click"/>
+                <Label x:Name="label_Copy" Content="Rut Cliente:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,36,0,0" Width="93" FontSize="12"/>
+                <TextBox x:Name="txtRut"  Controls:TextBoxHelper.Watermark="Ej. 11222333-1" HorizontalAlignment="Left" Height="23" Margin="170,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
+                <Button x:Name="btnRut" Content="Verificar" HorizontalAlignment="Left" Margin="339,36,0,198" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnRut_Click"/>
+
+                <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="675,226,0,-2" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </GroupBox>
+
+
+
+
+
+    </Grid>
+</Controls:MetroWindow>

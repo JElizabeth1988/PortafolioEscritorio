@@ -95,7 +95,7 @@
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label3" Content="Asiganar Mesa" Margin="16,84,16,3" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5">
+                <Label x:Name="label3" Content="Asignar Mesa" Margin="20,79,20,-3" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>

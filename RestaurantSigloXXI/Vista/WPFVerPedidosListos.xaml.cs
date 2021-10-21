@@ -96,11 +96,11 @@ namespace Vista
                 }
                 else
                 {
-                    dgLista.Columns[0].Visibility = Visibility.Visible;
                     dgLista.ItemsSource = null;
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("Pedidos:");
-                    dt.Rows.Add("No hay información relacionada a su búsqueda");
+                    dt.Columns.Add("");
+                    dt.Columns.Add("Pedidos:");                    
+                    dt.Rows.Add("","No hay información relacionada a su búsqueda");
                     dgLista.ItemsSource = dt.DefaultView;
                     txtFiltroRut.Clear();
                     dpFecha.SelectedDate = DateTime.Now;
@@ -127,11 +127,11 @@ namespace Vista
                 }
                 else
                 {
-                    dgLista.Columns[0].Visibility = Visibility.Visible;
                     dgLista.ItemsSource = null;
                     DataTable dt = new DataTable();
+                    dt.Columns.Add("");
                     dt.Columns.Add("Pedidos:");
-                    dt.Rows.Add("No hay información relacionada a su búsqueda");
+                    dt.Rows.Add("", "No hay información relacionada a su búsqueda");
                     dgLista.ItemsSource = dt.DefaultView;
                     txtFiltroRut.Clear();
                     dpFecha.SelectedDate = DateTime.Now;
@@ -161,6 +161,12 @@ namespace Vista
             _instancia = null;
         }
 
-        
+        private void dgLista_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            if (this.dgLista.Columns != null)
+            {
+                this.dgLista.Columns[0].Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

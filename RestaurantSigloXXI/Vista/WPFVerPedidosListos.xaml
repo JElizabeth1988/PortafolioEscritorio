@@ -16,7 +16,7 @@
     <Grid Background="#FFDBDFE3">
 
         <Image x:Name="image" HorizontalAlignment="Left" Height="437" VerticalAlignment="Top" Width="879" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-14.333,-0.333"/>
-        <DataGrid x:Name="dgLista" Margin="41,145,52.667,0" VerticalAlignment="Top" Height="212" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" >
+        <DataGrid x:Name="dgLista" Margin="41,145,52.667,0" VerticalAlignment="Top" Height="212" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">

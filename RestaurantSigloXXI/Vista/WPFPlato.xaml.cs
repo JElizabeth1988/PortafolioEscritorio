@@ -30,7 +30,7 @@ using System.Runtime.Caching;
 
 namespace Vista
 {
-   
+
     public partial class WPFPlato : MetroWindow
     {
         //PatronSingleton--------------------------
@@ -54,7 +54,7 @@ namespace Vista
         OracleConnection conn = null;
         //Traer clase Mesa
         Plato pla = new Plato();
-        
+
         public WPFPlato()
         {
             InitializeComponent();
@@ -83,10 +83,19 @@ namespace Vista
                 cb.nombre = item.nombre;
                 cboProducto.Items.Add(cb);
             }
+
+            foreach (Categoria item in new Categoria().ReadAll())
+            {
+                comboBoxItem1 cb = new comboBoxItem1();
+                cb.id = item.id_categoria;
+                cb.nombre = item.nombre_cat;
+                cboFiltro.Items.Add(cb);
+            }
             //--------------------------------------
             cboReceta.SelectedIndex = 0;
             cboCategoria.SelectedIndex = 0;
             cboProducto.SelectedIndex = 0;
+            cboFiltro.SelectedIndex = 0;
             txtNomb.Focus();
 
             CargarGrilla();
@@ -120,14 +129,15 @@ namespace Vista
         //Método generar respaldo------------------
         private void generaRespaldo()
         {
-            Dispatcher.Invoke(() => {
+            Dispatcher.Invoke(() =>
+            {
 
                 //Llama a la clase cliente donde se gusradarán los datos
                 Plato.ListaPlato i = new Plato.ListaPlato();
                 int id = 0;
                 if (int.TryParse(lblId.Content.ToString(), out id))
                 {
-                   i.Id = int.Parse(lblId.Content.ToString());
+                    i.Id = int.Parse(lblId.Content.ToString());
                 }
                 if (txtNomb.Text != null)
                 {
@@ -151,13 +161,13 @@ namespace Vista
                 {
                     i.Estado = "Disponible";
                 }
-                if (rb_NoDisponible.IsChecked == true)                
+                if (rb_NoDisponible.IsChecked == true)
                 {
                     i.Estado = "No Disponible";
                 }
                 if (cboReceta.SelectedValue != null)
                 {
-                   i.Receta = cboReceta.Text;
+                    i.Receta = cboReceta.Text;
                 }
                 if (cboCategoria.SelectedValue != null)
                 {
@@ -166,13 +176,14 @@ namespace Vista
                 if (cboProducto.SelectedValue != null)
                 {
                     i.Producto = cboProducto.Text;
-                }               
+                }
 
                 //Proceso de respaldo
                 //Con la ampolleta agregó el using Runtime.Caching
                 FileCache filecahe = new FileCache(new ObjectBinder());
 
                 String hora = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+                               
 
                 filecahe["plato"] = i;
                 filecahe["hora"] = hora;
@@ -213,7 +224,8 @@ namespace Vista
                 // Dispatcher invoke: Permite ejecutar una acción de forma asincrónica
                 //desde un subproceso o desde otra ventana (es un método q llama a una acción)
                 //(() => { }); función anónima
-                Dispatcher.Invoke(() => {
+                Dispatcher.Invoke(() =>
+                {
                     dgLista.ItemsSource = pla.Listar();
                     dgLista.Items.Refresh();
                 });
@@ -236,7 +248,7 @@ namespace Vista
         //-------Metodo limpiar-------------------
         public void Limpiar()
         {
-            lblId.Content ="";
+            lblId.Content = "";
             txtNomb.Clear();
             txtPrecio.Clear();
             txtDescripcion.Clear();
@@ -294,7 +306,7 @@ namespace Vista
                 int receta = ((comboBoxItem1)cboReceta.SelectedItem).id;//Guardo el id
                 int cat = ((comboBoxItem1)cboCategoria.SelectedItem).id;//Guardo el id
                 int prod = ((comboBoxItem1)cboProducto.SelectedItem).id;//Guardo el id
-                                
+
                 Plato i = new Plato()
                 {
                     nom_plato = nombre,
@@ -448,7 +460,7 @@ namespace Vista
             try
             {
                 //Rescatar id
-               Plato.ListaPlato lp = (Plato.ListaPlato)dgLista.SelectedItem;
+                Plato.ListaPlato lp = (Plato.ListaPlato)dgLista.SelectedItem;
                 int id = lp.Id;
 
                 Plato platillo = new Plato();
@@ -502,9 +514,9 @@ namespace Vista
                 var largoT = (lp.Tiempo_Preparación.Length - 8);
                 txtPrecio.Text = lp.Precio.Substring(2, largoP);
                 txtDescripcion.Text = lp.Descripcion;
-                txtTiempo.Text = lp.Tiempo_Preparación.Substring(0, largoT );
-                
-                
+                txtTiempo.Text = lp.Tiempo_Preparación.Substring(0, largoT);
+
+
                 if (lp.Estado == "Disponible")
                 {
                     rb_disponible.IsChecked = true;
@@ -525,8 +537,37 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
+        //--Botón filtrar------------------------------------------------
+        private async void btnFiltrar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string cate = cboFiltro.Text;
+                if (pla.Filtrar(cate) != null)
+                {
+                    dgLista.ItemsSource = pla.Filtrar(cate);
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("");
+                    dt.Columns.Add("Platos:");
+                    dt.Rows.Add("", "No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+                    cboFiltro.SelectedIndex = 0;
 
-        
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+                CargarGrilla();
+            }
+        }
 
         //-------Recuperar caché----------------------------------
         private void BtnCache_Click(object sender, RoutedEventArgs e)
@@ -542,7 +583,7 @@ namespace Vista
                     lblId.Content = lp.Id.ToString();
 
                     txtNomb.Text = lp.Nombre;
-                    
+
                     txtPrecio.Text = lp.Precio;
                     txtDescripcion.Text = lp.Descripcion;
                     txtTiempo.Text = lp.Tiempo_Preparación;
@@ -559,7 +600,7 @@ namespace Vista
                     {
                         rb_NoDisponible.IsChecked = true;
                     }
-                    
+
 
                 }
                 else
@@ -585,6 +626,6 @@ namespace Vista
             _instancia = null;
         }
 
-                
+
     }
 }

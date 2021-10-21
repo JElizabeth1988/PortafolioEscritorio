@@ -17,7 +17,7 @@
 
         <Image x:Name="image" HorizontalAlignment="Left" Height="457" VerticalAlignment="Top" Width="925" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-17.667,0"/>
         <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left" Margin="561,400,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnPasar_Click"/>
-        <DataGrid x:Name="dgLista" Margin="41,132,43.333,0" VerticalAlignment="Top" Height="239" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" >
+        <DataGrid x:Name="dgLista" Margin="41,132,43.333,0" VerticalAlignment="Top" Height="239" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">
@@ -36,6 +36,7 @@
                 <Label x:Name="label" Content="Rut Cliente:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,1,0,0" Width="93"/>
                 <TextBox x:Name="txtFiltroRut"  Controls:TextBoxHelper.Watermark="Ej. 11222333-1" HorizontalAlignment="Left" Height="23" Margin="160,3,-14,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
                 <Button x:Name="btnFiltrarRut" Content="Filtrar" HorizontalAlignment="Left" Margin="393,0,-114,14" VerticalAlignment="Bottom" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltrarRut_Click"/>
+                <Button x:Name="btnFiltrarRut2" Content="Filtrar" HorizontalAlignment="Left" Margin="393,0,-114,14.333" VerticalAlignment="Bottom" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltrarRut2_Click"/>
 
             </Grid>
         </GroupBox>
@@ -46,6 +47,12 @@
         </Button>
 
         <Image x:Name="images" HorizontalAlignment="Left" Margin="633,21,0,348.333" Width="197" Source="Imagenes/logoFinal3.png"/>
+        <Button x:Name="btnPasar2" Content="Traspasar" HorizontalAlignment="Left" Margin="561,400,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnPasar2_Click"/>
+        <Button x:Name="btnRefrescar2" HorizontalAlignment="Left" Margin="815,396,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar2_Click"  >
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
+            </Button.Background>
+        </Button>
 
 
     </Grid>
