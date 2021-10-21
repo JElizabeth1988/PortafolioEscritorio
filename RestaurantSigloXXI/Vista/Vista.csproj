@@ -200,6 +200,11 @@
     <Compile Include="ComboBoxItemTipoProducto.cs" />
     <Compile Include="ComboBoxItemTipoUser.cs" />
     <Compile Include="NotificatioCenter.cs" />
+    <Compile Include="Service References\WEBServiceLogin\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="WindowBodega.xaml.cs">
       <DependentUpon>WindowBodega.xaml</DependentUpon>
     </Compile>
@@ -379,6 +384,19 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\WEBServiceLogin\Vista.WEBServiceLogin.Cliente_activoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WEBServiceLogin\Vista.WEBServiceLogin.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WEBServiceLogin\Vista.WEBServiceLogin.Sacar_rutClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WEBServiceLogin\WSLOGIN.wsdl" />
+    <None Include="Service References\WEBServiceLogin\WSLOGIN.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <Resource Include="Imagenes\Business-Man02.png" />
     <Resource Include="Imagenes\Command-Refresh-blue.png" />
     <Resource Include="Imagenes\logo .png" />
@@ -455,6 +473,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WEBServiceLogin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WEBServiceLogin\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WEBServiceLogin\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WEBServiceLogin\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

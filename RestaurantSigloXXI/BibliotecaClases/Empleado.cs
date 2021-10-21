@@ -151,8 +151,7 @@ namespace BibliotecaNegocio
         }
         //Foranea
         public int id_tipo_user { get; set; }
-        public string usuario { get; set; }
-        public string contrasenia { get; set; }
+        
 
         //No es serializable
         [NonSerialized]
@@ -170,7 +169,7 @@ namespace BibliotecaNegocio
 
         //CRUD
         //----------------Método Login de Empleado
-        public int Metodologin(string user, string pass)
+        /*public int Metodologin(string user, string pass)
         {
             try
             {
@@ -213,10 +212,10 @@ namespace BibliotecaNegocio
                 return 0;
                 
             }
-        }
+        }*/
 
         //----------------Método agregar----------------------
-        public bool Agregar(Empleado emplea)
+        public bool Agregar(Empleado emplea, Login login)
         {
             try
             {
@@ -238,8 +237,8 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = emplea.celular_emp;
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = emplea.telefono_emp;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 80)).Value = emplea.correo_emp;
-                CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = emplea.usuario;
-                CMD.Parameters.Add(new OracleParameter("P_PASS", OracleDbType.Varchar2, 20)).Value = emplea.contrasenia;
+                CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = login.usuario;
+                CMD.Parameters.Add(new OracleParameter("P_PASS", OracleDbType.Varchar2, 20)).Value = login.contrasenia;
                 CMD.Parameters.Add(new OracleParameter("P_TIPO_USER", OracleDbType.Int32)).Value = emplea.id_tipo_user;
 
                 //Se abre la conexión
@@ -261,7 +260,7 @@ namespace BibliotecaNegocio
         }
 
         //------------Método Actualizar------------------------------------------
-        public bool Actualizar(Empleado emp)
+        public bool Actualizar(Empleado emp, Login login)
         {
             try
             {
@@ -283,8 +282,8 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = emp.celular_emp;
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = emp.telefono_emp;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 80)).Value = emp.correo_emp;
-                CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = emp.usuario;
-                CMD.Parameters.Add(new OracleParameter("P_PASS", OracleDbType.Varchar2, 20)).Value = emp.contrasenia;
+                CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = login.usuario;
+                CMD.Parameters.Add(new OracleParameter("P_PASS", OracleDbType.Varchar2, 20)).Value = login.contrasenia;
                 CMD.Parameters.Add(new OracleParameter("P_TIPO_USER", OracleDbType.Int32)).Value = emp.id_tipo_user;
 
                 //Se abre la conexión
@@ -314,7 +313,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 OracleCommand CMD = new OracleCommand();
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                List<Empleado> list = new List<Empleado>();
+                List<ListaEmpleado> list = new List<ListaEmpleado>();
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
@@ -326,22 +325,23 @@ namespace BibliotecaNegocio
                 //se abre la conexion
                 conn.Open();
                 OracleDataReader reader = CMD.ExecuteReader();
-                Empleado e = null;
+                ListaEmpleado e = null;
                 while (reader.Read())//Mientras lee
                 {
-                    e = new Empleado();
+                    e = new ListaEmpleado();
+                    
 
-                    rut_empleado = reader[0].ToString();
-                    primer_nom_emp = reader[1].ToString();
-                    segundo_nom_emp = reader[2].ToString();
-                    apellido_pat_emp = reader[3].ToString();
-                    apellido_mat_emp = reader[4].ToString();
-                    correo_emp = reader[5].ToString();
-                    celular_emp = int.Parse(reader[6].ToString());
-                    telefono_emp = int.Parse(reader[7].ToString());
+                    e.Rut = reader[0].ToString();
+                    e.Nombre = reader[1].ToString();
+                    e.Segundo_Nombre = reader[2].ToString();
+                    e.Apellido_Paterno = reader[3].ToString();
+                    e.Apellido_Materno = reader[4].ToString();
+                    e.Email = reader[5].ToString();
+                    e.Celular = int.Parse(reader[6].ToString());
+                    e.Teléfono = int.Parse(reader[7].ToString());
                     id_tipo_user = int.Parse(reader[8].ToString());
-                    usuario = reader[9].ToString();
-                    contrasenia = reader[10].ToString();
+                    e.Usuario = reader[9].ToString();
+                    e.Contraseña = reader[10].ToString();
                     
                     list.Add(e);
 

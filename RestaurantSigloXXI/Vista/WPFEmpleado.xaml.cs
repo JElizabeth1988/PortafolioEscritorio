@@ -359,14 +359,17 @@ namespace Vista
                     apellido_mat_emp = apMaterno,
                     celular_emp = celular,
                     telefono_emp = telefono,
-                    correo_emp = mail,
-                    usuario = user,
-                    contrasenia = pass,
+                    correo_emp = mail,                    
                     id_tipo_user = tipo,
 
                 };
-
-                bool resp = emp.Agregar(em);
+                BibliotecaNegocio.Login lo = new BibliotecaNegocio.Login()
+                {
+                    usuario = user,
+                    contrasenia = pass,
+                };
+                
+                bool resp = emp.Agregar(em, lo);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
                 //-----------------------------------------------------------------------------------------------
@@ -441,12 +444,16 @@ namespace Vista
                     celular_emp = celular,
                     telefono_emp = telefono,
                     correo_emp = mail,
-                    usuario = usuario,
-                    contrasenia = Pass,
                     id_tipo_user = tipo
 
                 };
-                bool resp = emp.Actualizar(em);
+
+                BibliotecaNegocio.Login lo = new BibliotecaNegocio.Login()
+                {
+                    usuario = usuario,
+                    contrasenia = Pass,
+                };
+                bool resp = emp.Actualizar(em, lo);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
 
@@ -490,6 +497,7 @@ namespace Vista
         {
             try
             {
+                Empleado.ListaEmpleado em = new Empleado.ListaEmpleado();
                 h2.Abort();
                 txtUser.IsEnabled = false;
                 txtPass.IsEnabled = true;
@@ -499,22 +507,22 @@ namespace Vista
                     rut = "0" + txtRut.Text + "-" + txtDV.Text;
                 }
                 emp.Buscar(rut);
-                if (emp != null)//Si la lista no esta vacía entrego parámetros a los textBox
+                if (em != null)//Si la lista no esta vacía entrego parámetros a los textBox
                 {
-                    txtRut.Text = emp.rut_empleado.Substring(0, 8);
-                    txtDV.Text = emp.rut_empleado.Substring(9, 1);
+                    txtRut.Text = em.Rut.Substring(0, 8);
+                    txtDV.Text = em.Rut.Substring(9, 1);
                     txtRut.IsEnabled = false;//Rut no se modifica
                     txtDV.IsEnabled = false;//DV tampoco
 
-                    txtNombre.Text = emp.primer_nom_emp;
-                    txtSegNombre.Text = emp.segundo_nom_emp;
-                    txtApPaterno.Text = emp.apellido_pat_emp;
-                    txtApeMaterno.Text = emp.apellido_mat_emp;
-                    txtEmail.Text = emp.correo_emp;
-                    txtCelular.Text = emp.celular_emp.ToString();
-                    txtTelefono.Text = emp.telefono_emp.ToString();
-                    txtUser.Text = emp.usuario;
-                    txtPass.Text = emp.contrasenia;
+                    txtNombre.Text = em.Nombre;
+                    txtSegNombre.Text = em.Segundo_Nombre;
+                    txtApPaterno.Text = em.Apellido_Paterno;
+                    txtApeMaterno.Text = em.Apellido_Materno;
+                    txtEmail.Text = em.Email;
+                    txtCelular.Text = em.Celular.ToString();
+                    txtTelefono.Text = em.Teléfono.ToString();
+                    txtUser.Text = em.Usuario;
+                    txtPass.Text = em.Contraseña;
                     //-------Cambiar a nombre
                     TipoUsuario ti = new TipoUsuario();
                     ti.id_tipo_user = emp.id_tipo_user;

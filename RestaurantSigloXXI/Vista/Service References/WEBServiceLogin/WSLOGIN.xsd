@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws/" targetNamespace="http://ws/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Cliente_activo" type="tns:Cliente_activo" />
+  <xs:element name="Cliente_activoResponse" type="tns:Cliente_activoResponse" />
+  <xs:element name="Login" type="tns:Login" />
+  <xs:element name="LoginResponse" type="tns:LoginResponse" />
+  <xs:element name="Sacar_rutCliente" type="tns:Sacar_rutCliente" />
+  <xs:element name="Sacar_rutClienteResponse" type="tns:Sacar_rutClienteResponse" />
+  <xs:complexType name="Cliente_activo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string" />
+      <xs:element minOccurs="0" name="pass" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Cliente_activoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Sacar_rutCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string" />
+      <xs:element minOccurs="0" name="pass" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Sacar_rutClienteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Login">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string" />
+      <xs:element minOccurs="0" name="pass" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LoginResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
