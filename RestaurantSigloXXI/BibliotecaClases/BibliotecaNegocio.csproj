@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agenda.cs" />
+    <Compile Include="Atencion.cs" />
     <Compile Include="Bebida.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />

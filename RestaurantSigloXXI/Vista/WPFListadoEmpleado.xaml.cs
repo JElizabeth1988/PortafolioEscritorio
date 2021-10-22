@@ -123,6 +123,7 @@ namespace Vista
             }
 
             cboRol.SelectedIndex = 0;
+            emp.h2.Abort();
         }
 
         //-----------------Llamado desde Adm. Mesas---------------------------------
@@ -263,7 +264,7 @@ namespace Vista
             btnPasar.Visibility = Visibility.Visible;
             try
             {
-                emp.h2.Abort();
+                
                 emp.txtUser.IsEnabled = false;
                 emp.txtPass.IsEnabled = true;
                 Empleado.ListaEmpleado c = (Empleado.ListaEmpleado)dgLista.SelectedItem;
@@ -290,6 +291,9 @@ namespace Vista
                 emp.btnEliminar.Visibility = Visibility.Visible;
                 //Cerrar listado
                 Close();
+
+                emp.h2.Abort();
+                
             }
             catch (Exception ex)
             {

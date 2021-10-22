@@ -151,7 +151,12 @@ namespace BibliotecaNegocio
         }
         //Foranea
         public int id_tipo_user { get; set; }
-        
+
+        //------------------------------
+        //Variables para vista
+        public string usuario { get; set; }
+        public string contrasenia { get; set; }
+        //-----------------------------
 
         //No es serializable
         [NonSerialized]
@@ -313,7 +318,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 OracleCommand CMD = new OracleCommand();
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                List<ListaEmpleado> list = new List<ListaEmpleado>();
+                List<Empleado> list = new List<Empleado>();
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
@@ -325,23 +330,23 @@ namespace BibliotecaNegocio
                 //se abre la conexion
                 conn.Open();
                 OracleDataReader reader = CMD.ExecuteReader();
-                ListaEmpleado e = null;
+                Empleado e = null;
                 while (reader.Read())//Mientras lee
                 {
-                    e = new ListaEmpleado();
+                    e = new Empleado();
                     
 
-                    e.Rut = reader[0].ToString();
-                    e.Nombre = reader[1].ToString();
-                    e.Segundo_Nombre = reader[2].ToString();
-                    e.Apellido_Paterno = reader[3].ToString();
-                    e.Apellido_Materno = reader[4].ToString();
-                    e.Email = reader[5].ToString();
-                    e.Celular = int.Parse(reader[6].ToString());
-                    e.Teléfono = int.Parse(reader[7].ToString());
+                    rut_empleado = reader[0].ToString();
+                    primer_nom_emp = reader[1].ToString();
+                    segundo_nom_emp = reader[2].ToString();
+                    apellido_pat_emp = reader[3].ToString();
+                    apellido_mat_emp = reader[4].ToString();
+                    correo_emp = reader[5].ToString();
+                    celular_emp = int.Parse(reader[6].ToString());
+                    telefono_emp = int.Parse(reader[7].ToString());
                     id_tipo_user = int.Parse(reader[8].ToString());
-                    e.Usuario = reader[9].ToString();
-                    e.Contraseña = reader[10].ToString();
+                    usuario = reader[9].ToString();
+                    contrasenia = reader[10].ToString();
                     
                     list.Add(e);
 

@@ -46,6 +46,16 @@ namespace Vista
 
                 //Si la respuesta no es cero quiere decir que es un usuario registrado que ingresó bien sus credenciales, 
                 //si es cero las credenciales no son válidas
+                if (cliente.Login(usuario, paswd) == 0)
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                                        string.Format("¡Error de Credenciales!"));
+
+                    txtUsuario.Clear();
+                    TxtContrasenia.Clear();
+                    txtUsuario.Focus();
+                }
+
                 //Validar Credenciales en el WS
                 //Si el tipo de usuario es = 1 es un administrador
                 if (cliente.Login(usuario, paswd) == 1)
@@ -53,7 +63,7 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                     //----------------------Nombre del user Con primera letra mayúscula
                     //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
-                    "Bienvenido Administrador");
+                    "Bienvenido, Administrador");
                     MainWindowAdmin main = new MainWindowAdmin();
                     this.Close();
                     main.ShowDialog();
@@ -64,7 +74,7 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                     //----------------------Nombre del user Con primera letra mayúscula
                     //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
-                    "Bienvenido Encargado de Cocina");
+                    "Bienvenido, Encargado de Cocina");
                     WindowCocina coc = new WindowCocina();
                     this.Close();
                     coc.ShowDialog();
@@ -75,7 +85,7 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                     //----------------------Nombre del user Con primera letra mayúscula
                     //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
-                    "Bienvenido Recepcionista");
+                    "Bienvenido, Recepcionista");
                     WindowRecepcion rec = new WindowRecepcion();
                     this.Close();
                     rec.ShowDialog();
@@ -86,7 +96,7 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                     //----------------------Nombre del user Con primera letra mayúscula
                     //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
-                    "Bienvenido Encargado de Finanzas");
+                    "Bienvenido, Encargado de Finanzas");
                     WindowFinanza fin = new WindowFinanza();
                     this.Close();
                     fin.ShowDialog();
@@ -97,7 +107,7 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                     //----------------------Nombre del user Con primera letra mayúscula
                     //string.Format("Bienvenido " + usuario.Substring(0, 1).ToUpper()) + usuario.Substring(1).ToLower());
-                    "Bienvenido Encargado de Bodega");
+                    "Bienvenido, Encargado de Bodega");
                     WindowBodega bod = new WindowBodega();
                     this.Close();
                     bod.ShowDialog();
@@ -112,18 +122,8 @@ namespace Vista
                     WindowGarzon bod = new WindowGarzon();
                     this.Close();
                     bod.ShowDialog();
-                }
-                //Si las credenciales no están bien
-                if (cliente.Login(usuario, paswd) == 0)
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                                        string.Format("¡Error de Credenciales!"));
-                   
-                    txtUsuario.Clear();
-                    TxtContrasenia.Clear();
-                    txtUsuario.Focus();
-                }
-
+                } 
+                //---Si es otro tipo de usuario no eestá autorizado para utilizar el sistema               
                 else
                 {
                     await this.ShowMessageAsync("Error:",

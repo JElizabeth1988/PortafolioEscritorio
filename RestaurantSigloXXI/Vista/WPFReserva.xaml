@@ -45,6 +45,7 @@
                         <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
                     </Button.Background>
                 </Button>
+                <Button x:Name="btnIngreso" Content="Notificar Ingreso" HorizontalAlignment="Left" Margin="525,228,0,0" VerticalAlignment="Top" Width="112"  FontWeight="Normal" Click="btnNotificar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
             </Grid>
         </GroupBox>
 

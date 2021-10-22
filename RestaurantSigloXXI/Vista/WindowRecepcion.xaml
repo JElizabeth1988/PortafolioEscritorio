@@ -83,7 +83,7 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="620" VerticalAlignment="Top" Width="1151" Source="Imagenes/about-img.jpg" Margin="-17,0,-6,0" Stretch="Fill" Opacity="0.4" Cursor="Arrow"/>
 
 
-        <Controls:Tile ToolTip="Asignar Mesa" Margin="334,270,640,230" Click="Mesas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Asignar Mesa" Margin="222,270,752,230" Click="Mesas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
 
             <Controls:Tile.Effect>
@@ -104,18 +104,18 @@
             </Grid>
         </Controls:Tile>
         <Label x:Name="label" Content="Bienvenido, Recepcionista" Margin="408,82,407,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
-        <Controls:Tile ToolTip="Verificar Reserva" Margin="639,267,335,233" Click="Reserva_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Verificar Reserva" Margin="487,267,487,233" Click="Reserva_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
             </Controls:Tile.Effect>
             <Grid Height="116" Width="146" >
-                <Image x:Name="image1" Height="65" VerticalAlignment="Top" Source="Imagenes/RESERVA.png" Margin="25,19,24,0">
+                <Image x:Name="image3" Height="65" VerticalAlignment="Top" Source="Imagenes/RESERVA.png" Margin="25,19,24,0">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label1" HorizontalAlignment="Center" Content="Verificar Reserva" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5" Margin="10,84,10,3">
+                <Label x:Name="label2" HorizontalAlignment="Center" Content="Verificar Reserva" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5" Margin="10,84,10,3">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>
@@ -124,6 +124,25 @@
             </Grid>
         </Controls:Tile>
         <Image x:Name="image2" Height="118" Margin="843,82,76,0" VerticalAlignment="Top" Source="Imagenes/logoFinal3.png"/>
+        <Controls:Tile ToolTip="Notificar Salida de Cliente" Margin="752,270,222,230" Click="Salida_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="116" Width="146" >
+                <Image x:Name="image1" Height="65" VerticalAlignment="Top" Source="Imagenes/Logout.png" Margin="25,19,24,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label1" HorizontalAlignment="Center" Content="Notificar Salida" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5" Margin="10,84,10,3">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
 
     </Grid>
 

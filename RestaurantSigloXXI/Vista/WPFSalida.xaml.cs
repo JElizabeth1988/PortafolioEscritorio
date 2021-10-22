@@ -10,8 +10,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
@@ -23,37 +23,32 @@ using Oracle.ManagedDataAccess.Client;
 
 using System.Data;
 
-
 namespace Vista
-{
-
-    public partial class WPFReserva : MetroWindow
+{    
+    public partial class WPFSalida : MetroWindow
     {
         //PatronSingleton--------------------------
-        private static WPFReserva _instancia;
+        private static WPFSalida _instancia;
 
 
-        public static WPFReserva ObtenerinstanciaRE()
+        public static WPFSalida ObtenerinstanciaSA()
         {
             if (_instancia == null)
             {
-                _instancia = new WPFReserva();
+                _instancia = new WPFSalida();
             }
 
             return _instancia;
         }
         //----------------------------------------
 
-
-        Reserva rs = new Reserva();
         Atencion at = new Atencion();
 
-        public WPFReserva()
+        public WPFSalida()
         {
             InitializeComponent();
 
-            //Botón no se ve
-            btnIngreso.Visibility = Visibility.Hidden;
+            btnSalida.Visibility = Visibility.Hidden;//No se ve hasta que se presenta la información
         }
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -61,8 +56,6 @@ namespace Vista
             //Parar Singleton
             _instancia = null;
         }
-
-       
         //----Botón Salir-------------------------------------------
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
@@ -75,7 +68,7 @@ namespace Vista
             {
                 dgLista.Columns.Clear();
                 //Botón no se ve
-                btnIngreso.Visibility = Visibility.Hidden;
+                btnSalida.Visibility = Visibility.Hidden;
             }
             catch (Exception)
             {
@@ -92,50 +85,18 @@ namespace Vista
         {
             try
             {
-                int codigo = int.Parse(txtCodigo.Text);
-                if (rs.BuscarCodigo(codigo) != null)
+                int numero = int.Parse(txtCodigo.Text);
+                if (at.Buscar(numero) != null)
                 {
-                    dgLista.ItemsSource = rs.BuscarCodigo(codigo);
+                    dgLista.ItemsSource = at.Buscar(numero);
                     //Botón se ve
-                    btnIngreso.Visibility = Visibility.Visible;
+                    btnSalida.Visibility = Visibility.Visible;
                 }
                 else
                 {
                     dgLista.ItemsSource = null;
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("Reservas:");
-                    dt.Rows.Add("No Existe información relacionada a su búsqueda");
-                    dgLista.ItemsSource = dt.DefaultView;
-                    txtCodigo.Clear();
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Error al filtrar la Información"));
-                Logger.Mensaje(ex.Message);
-                
-            }
-        }
-
-        private async void btnRut_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                string rut = txtRut.Text;
-                if (rs.BuscarRut(rut) != null)
-                {
-                    dgLista.ItemsSource = rs.BuscarRut(rut);
-                    //Botón se ve
-                    btnIngreso.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    dgLista.ItemsSource = null;
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("Reservas:");
+                    dt.Columns.Add("Resultado:");
                     dt.Rows.Add("No Existe información relacionada a su búsqueda");
                     dgLista.ItemsSource = dt.DefaultView;
                     txtCodigo.Clear();
@@ -158,9 +119,9 @@ namespace Vista
             try
             {
                 //Rescatar datos
-                Reserva.ListaReserva i = (Reserva.ListaReserva)dgLista.SelectedItem;
+                Atencion i = (Atencion)dgLista.SelectedItem;
                 string rut = i.rut_cliente;
-                int mesa = i.Mesa;
+                int mesa = i.mesa;
 
                 Atencion a = new Atencion()
                 {
@@ -168,14 +129,14 @@ namespace Vista
                     mesa = mesa
 
                 };
-                bool resp = at.Entrada(a);
+                bool resp = at.Salida(a);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Realizado" : "No Realizado"));
                 if (resp == true)
                 {
                     limpiar();
-                }              
-                
+                }
+
 
             }
             catch (ArgumentException exa)//mensajes de reglas de negocios
@@ -192,6 +153,13 @@ namespace Vista
 
             }
         }
+
+        private void dgLista_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            if (this.dgLista.Columns != null)
+            {
+                this.dgLista.Columns[0].Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }
-

@@ -75,5 +75,10 @@ namespace Vista
         {
             WPFReserva.ObtenerinstanciaRE().ShowDialog();
         }
+
+        private void Salida_Click(object sender, RoutedEventArgs e)
+        {
+            WPFSalida.ObtenerinstanciaSA().ShowDialog();
+        }
     }
 }

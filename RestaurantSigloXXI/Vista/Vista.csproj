@@ -254,6 +254,9 @@
     <Compile Include="WPFReserva.xaml.cs">
       <DependentUpon>WPFReserva.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFSalida.xaml.cs">
+      <DependentUpon>WPFSalida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFVerPedidosListos.xaml.cs">
       <DependentUpon>WPFVerPedidosListos.xaml</DependentUpon>
     </Compile>
@@ -352,6 +355,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFReserva.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFSalida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

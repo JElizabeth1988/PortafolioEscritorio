@@ -369,7 +369,7 @@ namespace Vista
                 int celular = int.Parse(txtCelular.Text);
                 int telefono = int.Parse(txtTelefono.Text);
                                 
-                BibliotecaNegocio.Cliente c = new BibliotecaNegocio.Cliente()
+                Cliente c = new Cliente()
                 {
                     rut_cliente = rut,
                     primer_nom_cli = nombre,
