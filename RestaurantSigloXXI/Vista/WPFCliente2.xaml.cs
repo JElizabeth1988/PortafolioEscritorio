@@ -363,7 +363,8 @@ namespace Vista
                 }
                 else
                 {
-                    Limpiar();
+                    Limpiar();                   
+                    
                 }
             }
             catch (ArgumentException exa)//mensajes de reglas de negocios
@@ -670,6 +671,6 @@ namespace Vista
             _instancia = null;
         }
 
-        
+      
     }
 }

@@ -122,7 +122,7 @@ namespace Vista
 
                 if (txtNombre.Text != null)
                 {
-                    me.Nombre_Empleado = txtNombre.Text;
+                    me.Empleado = txtNombre.Text;
                 }
                 if (rb_disponible.IsChecked == true)
                 {
@@ -132,7 +132,15 @@ namespace Vista
                 {
                     me.Disponibilidad = "No Disponible";
                 }
-                
+                if (rbOnLine.IsChecked == true)
+                {
+                    me.asignacion = "Online";
+                }
+                else
+                {
+                    me.asignacion = "Presencial";
+                }
+
                 if (txtCapacidad.Text != null)
                 {
                    me.Capacidad = txtCapacidad.Text;
@@ -230,6 +238,8 @@ namespace Vista
             txtNombre.IsEnabled = false;//No se ve xq se llena del buscar o traspasar
             rb_disponible.IsChecked = true;//Si queda seleccionado
             rb_NoDisponible.IsChecked = false;
+            rbOnLine.IsChecked = true;
+            rbPresencial.IsChecked = false;
 
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnGuardar.Visibility = Visibility.Visible;
@@ -326,6 +336,16 @@ namespace Vista
                     disponible = "No Disponible";
                 }
 
+                string asignada = null;
+                if (rbOnLine.IsChecked == true)
+                {
+                    asignada = "Online";
+                }
+                if (rbPresencial.IsChecked == true)
+                {
+                    asignada = "Presencial";
+                }
+
                 int capacidad = int.Parse(txtCapacidad.Text);
                 string rut = txtRut.Text; 
                 if (rut.Length == 9)//Si el rut tiene solo 9 caracteres se le agrega cero al comienzo para que quede de 10
@@ -338,6 +358,7 @@ namespace Vista
                     num_mesa = id,
                     capacidad_persona = capacidad,
                     disponibilidad = disponible,
+                    asignacion = asignada,
                     rut_empleado = rut
                 };
                 bool resp = mes.Actualizar(m);
@@ -384,6 +405,15 @@ namespace Vista
                 {
                     disponible = "No Disponible";
                 }
+                string asignada = null;
+                if (rbOnLine.IsChecked == true)
+                {
+                    asignada = "Online";
+                }
+                if (rbPresencial.IsChecked == true)
+                {
+                    asignada = "Presencial";
+                }
                 int capacidad = int.Parse(txtCapacidad.Text);
                 string rut = txtRut.Text;
                 if (rut.Length == 9)//Si el rut tiene solo 9 caracteres se le agrega cero al comienzo para que quede de 10
@@ -395,6 +425,7 @@ namespace Vista
                 {
                     capacidad_persona = capacidad,
                     disponibilidad = disponible,
+                    asignacion = asignada,
                     rut_empleado = rut
                 };
 
@@ -484,15 +515,25 @@ namespace Vista
                     Mesa.ListaMesa c = (Mesa.ListaMesa)filecahe["mesa"];
                     //txtRut.Text = c.Rut;
 
-                    txtNombre.Text = c.Nombre_Empleado;                   
+                    txtNombre.Text = c.Empleado;                   
                     txtCapacidad.Text = c.Capacidad;
                     if (c.Disponibilidad == "Disponible")
                     {
                         rb_disponible.IsChecked = true;
                     }
-                    else
+                    if (c.Disponibilidad == "No Disponible")
                     {
                         rb_NoDisponible.IsChecked = true;
+                    }
+
+
+                    if (c.asignacion == "Online")
+                    {
+                        rbOnLine.IsChecked = true;
+                    }
+                    if (c.asignacion == "Presencial")
+                    {
+                        rbPresencial.IsChecked = true;
                     }
 
                     if (c.Rut_Empleado != null)
@@ -531,13 +572,24 @@ namespace Vista
                 {
                     rb_disponible.IsChecked = true;
                 }
-                else
+                if (m.Disponibilidad == "No Disponible")
                 {
                     rb_NoDisponible.IsChecked = true;
                 }
+                
+
+                if (m.asignacion == "Online")
+                {
+                    rbOnLine.IsChecked = true;
+                }
+                if (m.asignacion == "Presencial")
+                {
+                    rb_NoDisponible.IsChecked = true;
+                }
+                 
 
                 txtRut.Text = m.Rut_Empleado;
-                txtNombre.Text = m.Nombre_Empleado;
+                txtNombre.Text = m.Empleado;
 
                 btnGuardar.Visibility = Visibility.Hidden;
                 btnModificar.Visibility = Visibility.Visible;

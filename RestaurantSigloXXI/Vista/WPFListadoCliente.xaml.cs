@@ -31,6 +31,7 @@ namespace Vista
         //This (Origen)
         WPFCliente cli;
         WPFCliente2 cli2;
+        WPFAsignarMesa asi;
 
         //Clase cliente
         Cliente cl = new Cliente();
@@ -59,7 +60,8 @@ namespace Vista
             txtFiltroRut.Focus();//Cursor inicia en la casilla de filtro
             btnPasar.Visibility = Visibility.Hidden;//el botón traspasar no se ve
             btnPasar2.Visibility = Visibility.Hidden;
-            
+            btnPasar3.Visibility = Visibility.Hidden;
+
             btnFiltrarRut.Visibility = Visibility.Visible;//Se ve
             btnFiltrarRut2.Visibility = Visibility.Hidden;//No Se ve
             btnRefrescar2.Visibility = Visibility.Hidden;//Se ve
@@ -76,6 +78,7 @@ namespace Vista
             //Mostrar(Visibility) y esconder(Hidden) botones
             btnPasar.Visibility = Visibility.Visible;
             btnPasar2.Visibility = Visibility.Hidden;
+            btnPasar3.Visibility = Visibility.Hidden;
             btnRefrescar.Visibility = Visibility.Visible;
             btnRefrescar2.Visibility = Visibility.Hidden;
             btnFiltrarRut.Visibility = Visibility.Visible;
@@ -93,12 +96,33 @@ namespace Vista
             //Mostrar(Visibility) y esconder(Hidden) botones
             btnPasar2.Visibility = Visibility.Visible;
             btnPasar.Visibility = Visibility.Hidden;
+            btnPasar3.Visibility = Visibility.Hidden;
+
             btnRefrescar.Visibility = Visibility.Hidden;
             btnRefrescar2.Visibility = Visibility.Visible;
             btnFiltrarRut.Visibility = Visibility.Hidden;
             btnFiltrarRut2.Visibility = Visibility.Visible;
 
             CargarGrilla2();
+        }
+
+        //-----------------Llamado desde Asignar mesa---------------------------------
+        //-----------------------------------------------------------------------
+        public WPFListadoCliente(WPFAsignarMesa origen)
+        {
+            InitializeComponent();
+            asi = origen;
+            //Mostrar(Visibility) y esconder(Hidden) botones
+            btnPasar3.Visibility = Visibility.Visible;
+            
+            btnPasar2.Visibility = Visibility.Hidden;
+            btnPasar.Visibility = Visibility.Hidden;
+            btnRefrescar.Visibility = Visibility.Visible;
+            btnRefrescar2.Visibility = Visibility.Hidden;
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRut2.Visibility = Visibility.Hidden;
+
+            CargarGrilla();
         }
 
         //------------Cargar Grilla---------------------
@@ -160,9 +184,10 @@ namespace Vista
         //-----------------Botón pasar a Cliente---------------------
         private async void btnPasar_Click(object sender, RoutedEventArgs e)
         {
+            
             btnPasar.Visibility = Visibility.Visible;
             try
-            {
+            {               
                 Cliente.ListaClientes c = (Cliente.ListaClientes)dgLista.SelectedItem;
                 //Traspasar los datos del dataGrid a la ventana cliente
                 cli.txtRut.Text = c.Rut.Substring(0, 8);
@@ -228,6 +253,30 @@ namespace Vista
                 cli2.btnModificar.Visibility = Visibility.Visible;
                 cli2.btnGuardar.Visibility = Visibility.Hidden;
                //Cerrar listado
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al traspasar la Información"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
+            }
+        }
+        //Botón pasar de asignar mesa
+        private async void btnPasar3_Click(object sender, RoutedEventArgs e)
+        {
+
+            btnPasar3.Visibility = Visibility.Visible;
+            try
+            {
+                Cliente.ListaClientes c = (Cliente.ListaClientes)dgLista.SelectedItem;
+                //Traspasar los datos del dataGrid a la ventana cliente
+                asi.txtRut.Text = c.Rut;                
+                asi.txtRut.IsEnabled = false;//Rut no se modifica                
+                asi.txtNombre.Text = c.Nombre+" "+c.Apellido_Paterno;                
+                //Cerrar listado
                 Close();
             }
             catch (Exception ex)

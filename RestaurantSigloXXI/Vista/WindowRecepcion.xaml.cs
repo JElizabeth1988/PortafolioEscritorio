@@ -68,7 +68,7 @@ namespace Vista
 
         private void Mesas_Click(object sender, RoutedEventArgs e)
         {
-            WPFCliente2.ObtenerinstanciaCLI2().ShowDialog();
+            WPFAsignarMesa.ObtenerinstanciaAM().ShowDialog();
         }
 
         private void Reserva_Click(object sender, RoutedEventArgs e)

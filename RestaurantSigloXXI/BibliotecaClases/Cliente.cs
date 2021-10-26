@@ -248,10 +248,11 @@ namespace BibliotecaNegocio
         }
 
         //------------------Método Buscar--------------
-        public async void Buscar(String rut)
+        public List<Cliente> Buscar(String rut)
         {
             try
             {
+                int contador = 0;
                 //Instanciar la conexión
                 conn = new Conexion().Getcone();
                 OracleCommand CMD = new OracleCommand();
@@ -284,16 +285,26 @@ namespace BibliotecaNegocio
 
 
                     clie.Add(c);
+                    contador = 1;
 
                 }
                 //Cerrar conexión
                 conn.Close();
+                if (contador == 1)
+                {
+                    return clie;
+                }
+                else
+                {
+                    return null;
+                }
 
             }
             catch (Exception ex)
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
+                return null;
             }
         }
 
@@ -543,8 +554,7 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
             }
         }
-
-       
+        
 
         //------------Listar Clientes-------------
         //Llamo a la lista creada más abajo, porque trae nombres en vez de id y porque las variables se ven mejor en la grilla
@@ -671,6 +681,9 @@ namespace BibliotecaNegocio
             }
 
         }
+
+       
+
         //Lista Clientes para mostrar nombres en vez de id (para procedimientos con Joins)
         [Serializable]
         public class ListaClientes
@@ -688,6 +701,60 @@ namespace BibliotecaNegocio
             public ListaClientes()
             {
 
+            }
+        }
+
+        //------------------Método Buscar para asignar mesa--------------
+        public List<Cliente> BuscarCL(String rut)
+        {
+            try
+            {
+                int contador = 0;
+                //Instanciar la conexión
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                List<Cliente> clie = new List<Cliente>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_BUSCAR_CL_MESA";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                OracleDataReader reader = CMD.ExecuteReader();
+                Cliente c = null;
+                while (reader.Read())//Mientras lee
+                {
+                    c = new Cliente();
+
+                    primer_nom_cli = reader[0].ToString();
+                    
+                    clie.Add(c);
+                    contador = 1;
+
+                }
+                //Cerrar conexión
+                conn.Close();
+                if (contador == 1)
+                {
+                    return clie;
+                }
+                else
+                {
+                    return null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Logger.Mensaje(ex.Message);
+                return null;
             }
         }
 
@@ -716,10 +783,11 @@ namespace BibliotecaNegocio
             //Crear objeto de la Bdd
             OracleConnection conn = null;
             //------------------Método Buscar--------------
-            public void BuscarCli(String rut)
+            public List<ListaClientes2> BuscarCli(String rut)
             {
                 try
                 {
+                    int contador = 0;
                     //Instanciar la conexión
                     conn = new Conexion().Getcone();
                     OracleCommand CMD = new OracleCommand();
@@ -755,19 +823,31 @@ namespace BibliotecaNegocio
 
 
                         clie.Add(c);
+                        contador = 1;
 
                     }
                     //Cerrar conexión
                     conn.Close();
+                    if (contador ==1)
+                    {
+                        return clie;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                    
                 }
                 catch (Exception ex)
                 {
                     conn.Close();
                     Logger.Mensaje(ex.Message);
+                    return null;
                 }
             }
         }
+
+       
 
 
 

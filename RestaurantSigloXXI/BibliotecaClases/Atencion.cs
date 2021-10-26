@@ -18,6 +18,8 @@ namespace BibliotecaNegocio
         public int mesa { get; set; }
         public string estado { get; set; }
         public string fecha { get; set; }
+        public string hora_entrada { get; set; }
+        public string hora_salida { get; set; }
 
         public Atencion()
         {
@@ -153,6 +155,41 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 return null;
+                Logger.Mensaje(ex.Message);
+
+            }
+        }
+        //Asignar mesa
+        public bool asignarMesa(Atencion ate)
+        {
+            try
+            {
+                //Instanciar la conexión
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_ASIGNAR_MESA";
+                //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = ate.rut_cliente;
+                CMD.Parameters.Add(new OracleParameter("P_MESA", OracleDbType.Int32)).Value = ate.mesa;
+
+                //Se abre la conexión
+                conn.Open();
+                //se ejecuta la query 
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                //Retorno
+                return true;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                return false;
                 Logger.Mensaje(ex.Message);
 
             }

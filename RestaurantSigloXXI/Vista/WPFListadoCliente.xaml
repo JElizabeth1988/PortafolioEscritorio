@@ -53,6 +53,7 @@
                 <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
             </Button.Background>
         </Button>
+        <Button x:Name="btnPasar3" Content="Traspasar" HorizontalAlignment="Left" Margin="561,400,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnPasar3_Click"/>
 
 
     </Grid>
