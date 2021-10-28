@@ -83,7 +83,7 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="620" VerticalAlignment="Top" Width="1151" Source="Imagenes/about-img.jpg" Margin="-17,0,-6,0" Stretch="Fill" Opacity="0.4" Cursor="Arrow"/>
 
 
-        <Controls:Tile ToolTip="Administrar Productos" Margin="224,240,750,266" Click="Productos_CLick" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85"   >
+        <Controls:Tile ToolTip="Administrar Productos" Margin="174,240,800,266" Click="Productos_CLick" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85"   >
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
             </Controls:Tile.Effect>
@@ -103,7 +103,7 @@
             </Grid>
         </Controls:Tile>
         <Label x:Name="label" Content="Bienvenido, Encargado de Bodega" Margin="357,82,358,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
-        <Controls:Tile ToolTip="Controlar Stock" Margin="487,241,487,265" Click="Stock_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Controlar Stock" Margin="379,241,595,265" Click="Stock_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
@@ -122,7 +122,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile ToolTip="Administrar Recetas" Margin="757,240,217,266" Click="Recetas_CLick" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Administrar Recetas" Margin="799,240,175,266" Click="Recetas_CLick" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
@@ -142,6 +142,25 @@
             </Grid>
         </Controls:Tile>
         <Image x:Name="image2_Copy" HorizontalAlignment="Left" Height="118" Margin="845,51,0,0" VerticalAlignment="Top" Width="205" Source="Imagenes/logoFinal3.png"/>
+        <Controls:Tile ToolTip="Calcular Pedido a Proveedor" Margin="595,241,379,265" Click="Pedido_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+            <Grid Height="110" Width="140" >
+                <Image x:Name="image3" Height="66" VerticalAlignment="Top" Source="Imagenes/LISTADO2.png" Margin="37,10,38,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label4" Content="Calcular pedido"  HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Margin="10,76,10,0" Height="34" VerticalAlignment="Top" Width="120">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
 
     </Grid>
 

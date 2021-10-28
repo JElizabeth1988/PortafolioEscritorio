@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\App.xaml
-231708266145
+25492833597
 
-351376584100
+372065923301
 60-1888313730
-WindowBodega.xaml;WindowCocina.xaml;WindowFinanza.xaml;WindowGarzon.xaml;WindowRecepcion.xaml;WPFAgenda.xaml;WPFAsignarMesa.xaml;WPFBebida.xaml;WPFCliente2.xaml;WPFEmpleado.xaml;WPFListadoEmpleado.xaml;WPFCliente.xaml;WPFListadoCliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;WPFMesa.xaml;WPFPlato.xaml;WPFProducto.xaml;WPFReserva.xaml;WPFSalida.xaml;WPFVerPedidosListos.xaml;
+WindowBodega.xaml;WindowCocina.xaml;WindowFinanza.xaml;WindowGarzon.xaml;WindowRecepcion.xaml;WPFAgenda.xaml;WPFAsignarMesa.xaml;WPFBebida.xaml;WPFCliente2.xaml;WPFEmpleado.xaml;WPFListadoEmpleado.xaml;WPFCliente.xaml;WPFListadoCliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;WPFMesa.xaml;WPFPedidos.xaml;WPFPlato.xaml;WPFProducto.xaml;WPFReserva.xaml;WPFSalida.xaml;WPFTableroEjecucion.xaml;WPFVerPedidosListos.xaml;
 
-True
+False
 

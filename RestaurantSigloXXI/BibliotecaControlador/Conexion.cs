@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
-//using System.Data.OracleClient;
 
 using System.Configuration;
 using System.Data;

@@ -81,6 +81,10 @@ namespace Vista
         {
 
         }
-       
+
+        private void Pedido_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -76,5 +76,10 @@ namespace Vista
         {
 
         }
+
+        private void Boleta_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

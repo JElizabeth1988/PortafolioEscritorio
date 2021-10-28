@@ -245,6 +245,9 @@
     <Compile Include="WPFMesa.xaml.cs">
       <DependentUpon>WPFMesa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFPedidos.xaml.cs">
+      <DependentUpon>WPFPedidos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFPlato.xaml.cs">
       <DependentUpon>WPFPlato.xaml</DependentUpon>
     </Compile>
@@ -256,6 +259,9 @@
     </Compile>
     <Compile Include="WPFSalida.xaml.cs">
       <DependentUpon>WPFSalida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFTableroEjecucion.xaml.cs">
+      <DependentUpon>WPFTableroEjecucion.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFVerPedidosListos.xaml.cs">
       <DependentUpon>WPFVerPedidosListos.xaml</DependentUpon>
@@ -346,6 +352,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPFPedidos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPFPlato.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -359,6 +369,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFSalida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFTableroEjecucion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -504,6 +518,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\tableblack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\boleta.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

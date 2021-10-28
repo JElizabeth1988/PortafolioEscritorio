@@ -83,12 +83,12 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="620" VerticalAlignment="Top" Width="1151" Source="Imagenes/about-img.jpg" Margin="-17,0,-6,0" Stretch="Fill" Opacity="0.4" Cursor="Arrow"/>
 
 
-        <Controls:Tile ToolTip="Administrar Reservas" Margin="329,266,645,241" Click="Reservas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Administrar Reservas" Margin="225,266,749,241" Click="Reservas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
             </Controls:Tile.Effect>
-            
+
             <Grid Height="109" Width="149" >
                 <Image x:Name="image4" Height="74" VerticalAlignment="Top" Source="Imagenes/codigo.png" Margin="33,13,33,0">
                     <Image.Effect>
@@ -104,7 +104,7 @@
             </Grid>
         </Controls:Tile>
         <Label x:Name="label" Content="Bienvenido, Enacragado de Finanzas" Margin="346,82,347,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
-        <Controls:Tile ToolTip="Administrar Pagos" Margin="645,266,329,241" Click="Pagos_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Administrar Pagos" Margin="487,266,487,241" Click="Pagos_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
@@ -125,6 +125,26 @@
             </Grid>
         </Controls:Tile>
         <Image x:Name="image2" Height="118" Margin="844,82,75,0" VerticalAlignment="Top" Source="Imagenes/logoFinal3.png"/>
+        <Controls:Tile ToolTip="Emitir Boleta" Margin="748,266,226,241" Click="Boleta_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </Controls:Tile.Effect>
+
+            <Grid Height="109" Width="154" >
+                <Image x:Name="image3" Height="77" VerticalAlignment="Top" Source="Imagenes/boleta.png" Margin="31,6,32,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label2" Content="Boleta" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Margin="51,77,47,3">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
 
     </Grid>
 
