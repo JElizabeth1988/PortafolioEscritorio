@@ -40,13 +40,13 @@ namespace Vista
         //Twitter
         private void TwitterButton_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.twitter.com");
+            System.Diagnostics.Process.Start("https://twitter.com/XxiRestaurant");
         }
 
         //Insta
         private void InstagramButton_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.Instagram.com");
+            System.Diagnostics.Process.Start("https://www.instagram.com/sigloxxi.restaurant/");
         }
 
         //CerrarSesion_Click
