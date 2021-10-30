@@ -254,6 +254,9 @@
     <Compile Include="WPFProducto.xaml.cs">
       <DependentUpon>WPFProducto.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFReceta.xaml.cs">
+      <DependentUpon>WPFReceta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFReserva.xaml.cs">
       <DependentUpon>WPFReserva.xaml</DependentUpon>
     </Compile>
@@ -361,6 +364,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFReceta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

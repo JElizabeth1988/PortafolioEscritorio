@@ -18,18 +18,15 @@
                 <Label x:Name="label_Copy" Content="Descripción:" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <TextBox x:Name="txtNomb" HorizontalAlignment="Left" Height="23" Margin="152,41,0,0" mah:TextBoxHelper.Watermark="Ingrese Nombre"  TextWrapping="Wrap" VerticalAlignment="Top" Width="144" mah:TextBoxHelper.ClearTextButton="True"  FontWeight="Normal"/>
                 <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Precio" Height="8" Margin="152,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
-                <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese una Descripción" Height="100" Margin="152,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
-                <TextBox x:Name="txtTiempo" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese minutos" Height="8" Margin="152,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
+                <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese una Descripción" Height="137" Margin="152,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
                 <RadioButton x:Name="rb_disponible" IsChecked="True" Content="Disponible" HorizontalAlignment="Left" Margin="152,253,0,0" VerticalAlignment="Top" FontWeight="Bold" />
                 <RadioButton x:Name="rb_NoDisponible" Content="No Disponible" HorizontalAlignment="Left" Margin="253,253,0,0" VerticalAlignment="Top" FontWeight="Bold" />
                 <ComboBox x:Name="cboReceta" HorizontalAlignment="Left" Margin="152,288,0,0" VerticalAlignment="Top" Width="144" FontWeight="Normal"/>
                 <ComboBox x:Name="cboCategoria" HorizontalAlignment="Left" Margin="152,323,0,0" VerticalAlignment="Top" Width="144" FontWeight="Normal"/>
-                <ComboBox x:Name="cboProducto" HorizontalAlignment="Left" Margin="152,358,0,0" VerticalAlignment="Top" Width="144" FontWeight="Normal"/>
 
                 <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="103,429,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnGuardar_Click"/>
                 <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="307,430,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
                 <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="19,430,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
-                <Label x:Name="label_Copy7" Content="Tiempo de Preparación:" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy5" Content="Precio ($):" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Button x:Name="btnModificar" Content="Actualizar" HorizontalAlignment="Left" Margin="99,430,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnModificar_Click" />
                 <Label x:Name="lblId" Visibility="Hidden" Content="" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -39,7 +36,6 @@
                 <Label x:Name="label_Copy3" Content="Estado:" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy4" Content="Receta:" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy6" Content="Categoría:" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="label_Copy8" Content="Producto:" HorizontalAlignment="Left" Margin="10,358,0,0" VerticalAlignment="Top" FontSize="12"/>
 
 
             </Grid>

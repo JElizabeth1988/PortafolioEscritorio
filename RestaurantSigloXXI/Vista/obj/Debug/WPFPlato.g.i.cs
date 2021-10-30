@@ -97,7 +97,7 @@ namespace Vista {
         
         #line 22 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox txtTiempo;
+        internal System.Windows.Controls.RadioButton rb_disponible;
         
         #line default
         #line hidden
@@ -105,7 +105,7 @@ namespace Vista {
         
         #line 23 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.RadioButton rb_disponible;
+        internal System.Windows.Controls.RadioButton rb_NoDisponible;
         
         #line default
         #line hidden
@@ -113,21 +113,13 @@ namespace Vista {
         
         #line 24 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.RadioButton rb_NoDisponible;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 25 "..\..\WPFPlato.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox cboReceta;
         
         #line default
         #line hidden
         
         
-        #line 26 "..\..\WPFPlato.xaml"
+        #line 25 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox cboCategoria;
         
@@ -137,21 +129,13 @@ namespace Vista {
         
         #line 27 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.ComboBox cboProducto;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 29 "..\..\WPFPlato.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnGuardar;
         
         #line default
         #line hidden
         
         
-        #line 30 "..\..\WPFPlato.xaml"
+        #line 28 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnCancelar;
         
@@ -159,7 +143,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 31 "..\..\WPFPlato.xaml"
+        #line 29 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnLimpiar;
         
@@ -167,15 +151,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 32 "..\..\WPFPlato.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Label label_Copy7;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 33 "..\..\WPFPlato.xaml"
+        #line 30 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy5;
         
@@ -183,7 +159,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 34 "..\..\WPFPlato.xaml"
+        #line 31 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnModificar;
         
@@ -191,7 +167,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 35 "..\..\WPFPlato.xaml"
+        #line 32 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label lblId;
         
@@ -199,7 +175,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 37 "..\..\WPFPlato.xaml"
+        #line 34 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy1;
         
@@ -207,7 +183,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 39 "..\..\WPFPlato.xaml"
+        #line 36 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy3;
         
@@ -215,7 +191,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 40 "..\..\WPFPlato.xaml"
+        #line 37 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy4;
         
@@ -223,7 +199,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 41 "..\..\WPFPlato.xaml"
+        #line 38 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy6;
         
@@ -231,15 +207,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 42 "..\..\WPFPlato.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Label label_Copy8;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 47 "..\..\WPFPlato.xaml"
+        #line 43 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.GroupBox groupBox1;
         
@@ -247,7 +215,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 49 "..\..\WPFPlato.xaml"
+        #line 45 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label2;
         
@@ -255,7 +223,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 50 "..\..\WPFPlato.xaml"
+        #line 46 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label lblCache;
         
@@ -263,7 +231,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 51 "..\..\WPFPlato.xaml"
+        #line 47 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnCache;
         
@@ -271,7 +239,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 55 "..\..\WPFPlato.xaml"
+        #line 51 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.GroupBox groupBox_Copy;
         
@@ -279,7 +247,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 58 "..\..\WPFPlato.xaml"
+        #line 54 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.DataGrid dgLista;
         
@@ -287,7 +255,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 71 "..\..\WPFPlato.xaml"
+        #line 67 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnRefrescar;
         
@@ -295,7 +263,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 76 "..\..\WPFPlato.xaml"
+        #line 72 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnEliminar;
         
@@ -303,7 +271,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 77 "..\..\WPFPlato.xaml"
+        #line 73 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnPasar;
         
@@ -311,7 +279,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 78 "..\..\WPFPlato.xaml"
+        #line 74 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox cboFiltro;
         
@@ -319,7 +287,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 79 "..\..\WPFPlato.xaml"
+        #line 75 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnFiltrar;
         
@@ -327,7 +295,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 80 "..\..\WPFPlato.xaml"
+        #line 76 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy2;
         
@@ -335,7 +303,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 88 "..\..\WPFPlato.xaml"
+        #line 84 "..\..\WPFPlato.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Image image1;
         
@@ -411,162 +379,144 @@ namespace Vista {
             #line hidden
             return;
             case 8:
-            this.txtTiempo = ((System.Windows.Controls.TextBox)(target));
-            
-            #line 22 "..\..\WPFPlato.xaml"
-            this.txtTiempo.KeyDown += new System.Windows.Input.KeyEventHandler(this.txtNumeros_KeyDown);
-            
-            #line default
-            #line hidden
-            return;
-            case 9:
             this.rb_disponible = ((System.Windows.Controls.RadioButton)(target));
             return;
-            case 10:
+            case 9:
             this.rb_NoDisponible = ((System.Windows.Controls.RadioButton)(target));
             return;
-            case 11:
+            case 10:
             this.cboReceta = ((System.Windows.Controls.ComboBox)(target));
             return;
-            case 12:
+            case 11:
             this.cboCategoria = ((System.Windows.Controls.ComboBox)(target));
             return;
-            case 13:
-            this.cboProducto = ((System.Windows.Controls.ComboBox)(target));
-            return;
-            case 14:
+            case 12:
             this.btnGuardar = ((System.Windows.Controls.Button)(target));
             
-            #line 29 "..\..\WPFPlato.xaml"
+            #line 27 "..\..\WPFPlato.xaml"
             this.btnGuardar.Click += new System.Windows.RoutedEventHandler(this.btnGuardar_Click);
             
             #line default
             #line hidden
             return;
-            case 15:
+            case 13:
             this.btnCancelar = ((System.Windows.Controls.Button)(target));
             
-            #line 30 "..\..\WPFPlato.xaml"
+            #line 28 "..\..\WPFPlato.xaml"
             this.btnCancelar.Click += new System.Windows.RoutedEventHandler(this.btnCancelar_Click);
             
             #line default
             #line hidden
             return;
-            case 16:
+            case 14:
             this.btnLimpiar = ((System.Windows.Controls.Button)(target));
             
-            #line 31 "..\..\WPFPlato.xaml"
+            #line 29 "..\..\WPFPlato.xaml"
             this.btnLimpiar.Click += new System.Windows.RoutedEventHandler(this.btnLimpiar_Click);
             
             #line default
             #line hidden
             return;
-            case 17:
-            this.label_Copy7 = ((System.Windows.Controls.Label)(target));
-            return;
-            case 18:
+            case 15:
             this.label_Copy5 = ((System.Windows.Controls.Label)(target));
             return;
-            case 19:
+            case 16:
             this.btnModificar = ((System.Windows.Controls.Button)(target));
             
-            #line 34 "..\..\WPFPlato.xaml"
+            #line 31 "..\..\WPFPlato.xaml"
             this.btnModificar.Click += new System.Windows.RoutedEventHandler(this.btnModificar_Click);
             
             #line default
             #line hidden
             return;
-            case 20:
+            case 17:
             this.lblId = ((System.Windows.Controls.Label)(target));
             return;
-            case 21:
+            case 18:
             this.label_Copy1 = ((System.Windows.Controls.Label)(target));
             return;
-            case 22:
+            case 19:
             this.label_Copy3 = ((System.Windows.Controls.Label)(target));
             return;
-            case 23:
+            case 20:
             this.label_Copy4 = ((System.Windows.Controls.Label)(target));
             return;
-            case 24:
+            case 21:
             this.label_Copy6 = ((System.Windows.Controls.Label)(target));
             return;
-            case 25:
-            this.label_Copy8 = ((System.Windows.Controls.Label)(target));
-            return;
-            case 26:
+            case 22:
             this.groupBox1 = ((System.Windows.Controls.GroupBox)(target));
             return;
-            case 27:
+            case 23:
             this.label2 = ((System.Windows.Controls.Label)(target));
             return;
-            case 28:
+            case 24:
             this.lblCache = ((System.Windows.Controls.Label)(target));
             return;
-            case 29:
+            case 25:
             this.btnCache = ((System.Windows.Controls.Button)(target));
             
-            #line 51 "..\..\WPFPlato.xaml"
+            #line 47 "..\..\WPFPlato.xaml"
             this.btnCache.Click += new System.Windows.RoutedEventHandler(this.BtnCache_Click);
             
             #line default
             #line hidden
             return;
-            case 30:
+            case 26:
             this.groupBox_Copy = ((System.Windows.Controls.GroupBox)(target));
             return;
-            case 31:
+            case 27:
             this.dgLista = ((System.Windows.Controls.DataGrid)(target));
             
-            #line 58 "..\..\WPFPlato.xaml"
+            #line 54 "..\..\WPFPlato.xaml"
             this.dgLista.LoadingRow += new System.EventHandler<System.Windows.Controls.DataGridRowEventArgs>(this.dgLista_LoadingRow);
             
             #line default
             #line hidden
             return;
-            case 32:
+            case 28:
             this.btnRefrescar = ((System.Windows.Controls.Button)(target));
             
-            #line 71 "..\..\WPFPlato.xaml"
+            #line 67 "..\..\WPFPlato.xaml"
             this.btnRefrescar.Click += new System.Windows.RoutedEventHandler(this.btnRefrescar_Click);
             
             #line default
             #line hidden
             return;
-            case 33:
+            case 29:
             this.btnEliminar = ((System.Windows.Controls.Button)(target));
             
-            #line 76 "..\..\WPFPlato.xaml"
+            #line 72 "..\..\WPFPlato.xaml"
             this.btnEliminar.Click += new System.Windows.RoutedEventHandler(this.btnEliminar_Click);
             
             #line default
             #line hidden
             return;
-            case 34:
+            case 30:
             this.btnPasar = ((System.Windows.Controls.Button)(target));
             
-            #line 77 "..\..\WPFPlato.xaml"
+            #line 73 "..\..\WPFPlato.xaml"
             this.btnPasar.Click += new System.Windows.RoutedEventHandler(this.btnPasar_Click);
             
             #line default
             #line hidden
             return;
-            case 35:
+            case 31:
             this.cboFiltro = ((System.Windows.Controls.ComboBox)(target));
             return;
-            case 36:
+            case 32:
             this.btnFiltrar = ((System.Windows.Controls.Button)(target));
             
-            #line 79 "..\..\WPFPlato.xaml"
+            #line 75 "..\..\WPFPlato.xaml"
             this.btnFiltrar.Click += new System.Windows.RoutedEventHandler(this.btnFiltrar_Click);
             
             #line default
             #line hidden
             return;
-            case 37:
+            case 33:
             this.label_Copy2 = ((System.Windows.Controls.Label)(target));
             return;
-            case 38:
+            case 34:
             this.image1 = ((System.Windows.Controls.Image)(target));
             return;
             }

@@ -498,10 +498,7 @@ namespace Vista
             }
         }
 
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        
                
         //------Recuperar caché---------------------------------------
         private void BtnCache_Click(object sender, RoutedEventArgs e)

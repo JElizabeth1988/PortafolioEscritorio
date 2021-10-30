@@ -81,6 +81,7 @@ namespace Vista
             txtValorUnidad.Text = "0";
             txtValorTotal.Text = "0";
             txtStock.Text = "0";
+            txtCantidad.Text = "0";
             lblId.Visibility = Visibility.Hidden;//id no se ve
 
             btnModificar.Visibility = Visibility.Hidden;
@@ -135,6 +136,31 @@ namespace Vista
                 if (txtNomProd.Text != null)
                 {
                     pr.Nombre = txtNomProd.Text;
+                }
+                int Cant = 0;
+                if (int.TryParse(txtCantidad.Text, out Cant))
+                {
+                    pr.Contenido = int.Parse(txtCantidad.Text);
+                }                
+                if (RbKg.IsChecked == true)
+                {
+                    pr.UnidadMedida = "Kg";
+                }
+                if (RbGr.IsChecked == true)
+                {
+                    pr.UnidadMedida = "Gr";
+                }
+                if (RbL.IsChecked == true)
+                {
+                    pr.UnidadMedida = "L";
+                }
+                if (RbMl.IsChecked == true)
+                {
+                    pr.UnidadMedida = "Ml";
+                }
+                if (RbU.IsChecked == true)
+                {
+                    pr.UnidadMedida = "U";
                 }
                 int Valor = 0;
                 if (int.TryParse(txtValorUnidad.Text, out Valor))
@@ -244,12 +270,18 @@ namespace Vista
             lblId.Content = "";
             lblId.Visibility = Visibility.Hidden;
             txtNomProd.Clear();
-            txtStock.Clear();
-            txtValorTotal.Clear();
-            txtValorUnidad.Clear();
+            txtStock.Text = "0";
+            txtValorTotal.Text = "0";
+            txtValorUnidad.Text = "0";
             lblCache.Content = null;
             cboTipoProducto.SelectedIndex = 0;
-
+            txtCantidad.Text = "0";
+            RbU.IsChecked = false;
+            RbMl.IsChecked = false;
+            RbL.IsChecked = false;
+            RbGr.IsChecked = false;
+            RbKg.IsChecked = true;
+            
             btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
            
@@ -287,6 +319,28 @@ namespace Vista
             {              
               
                 String nombreProducto = txtNomProd.Text;
+                int cant = int.Parse(txtCantidad.Text);
+                string medida = null;
+                if (RbKg.IsChecked == true)
+                {
+                    medida = "Kg";
+                }
+                if (RbGr.IsChecked == true)
+                {
+                    medida = "Gr";
+                }
+                if (RbL.IsChecked == true)
+                {
+                    medida = "L";
+                }
+                if (RbMl.IsChecked == true)
+                {
+                    medida = "Ml";
+                }
+                if (RbU.IsChecked == true)
+                {
+                    medida = "U";
+                }
                 int Valor = int.Parse(txtValorUnidad.Text);               
                 
                 int Stock = int.Parse(txtStock.Text);
@@ -316,7 +370,9 @@ namespace Vista
                 Producto pro = new Producto()
                 {                   
                     nombre = nombreProducto,
-                    valor = Valor,                   
+                    cantidad_embase = cant,
+                    u_medida = medida,
+                    valor_unitario = Valor,                   
                     stock = Stock,
                     valor_total = valorTotal,
                     id_tipo_producto = tipo
@@ -383,6 +439,28 @@ namespace Vista
             {
                 int IdProducto = int.Parse(lblId.Content.ToString());
                 String nombreProducto = txtNomProd.Text;
+                int cant = int.Parse(txtCantidad.Text);
+                string medida = null;
+                if (RbKg.IsChecked == true)
+                {
+                    medida = "Kg";
+                }
+                if (RbGr.IsChecked == true)
+                {
+                    medida = "Gr";
+                }
+                if (RbL.IsChecked == true)
+                {
+                    medida = "L";
+                }
+                if (RbMl.IsChecked == true)
+                {
+                    medida = "Ml";
+                }
+                if (RbU.IsChecked == true)
+                {
+                    medida = "U";
+                }
                 int Valor = int.Parse(txtValorUnidad.Text);
                 int Stock = int.Parse(txtStock.Text);
                 int ValorTotal = int.Parse(txtValorTotal.Text);
@@ -391,8 +469,10 @@ namespace Vista
                 Producto pro = new Producto()
                 {
                     id_producto = IdProducto,
+                    cantidad_embase = cant,
+                    u_medida = medida,
                     nombre = nombreProducto,
-                    valor = Valor,                   
+                    valor_unitario = Valor,                   
                     stock = Stock,
                     valor_total = ValorTotal,
                     id_tipo_producto = tipo,
@@ -498,12 +578,34 @@ namespace Vista
 
                     lblId.Content = p.Id.ToString();
                     txtNomProd.Text = p.Nombre;
-                    
+                    txtCantidad.Text = p.Categoria.ToString();
+                                        
                     txtValorUnidad.Text = p.Valor;
                     txtValorTotal.Text = p.Total;
                     txtStock.Text = p.Stock;
 
                     cboTipoProducto.Text = p.Categoria;
+
+                    if (p.UnidadMedida == "Kg")
+                    {
+                        RbKg.IsChecked = true;
+                    }
+                    if (p.UnidadMedida == "Gr")
+                    {
+                        RbGr.IsChecked = true;
+                    }
+                    if (p.UnidadMedida == "Ml")
+                    {
+                        RbMl.IsChecked = true;
+                    }
+                    if (p.UnidadMedida == "L")
+                    {
+                        RbL.IsChecked = true;
+                    }
+                    if (p.UnidadMedida == "U")
+                    {
+                        RbU.IsChecked = true;
+                    }
                 }
                 else
                 {
@@ -577,6 +679,27 @@ namespace Vista
                 txtValorUnidad.Text = m.Valor.Substring(2, lUnidad);
                 txtValorTotal.Text = m.Total.Substring(2, lTotal);
                 txtStock.Text = m.Stock.Substring(0, lStock);
+                txtCantidad.Text = m.Contenido.ToString();
+                if (m.UnidadMedida == "Kg")
+                {
+                    RbKg.IsChecked = true;
+                }
+                if (m.UnidadMedida == "Gr")
+                {
+                    RbGr.IsChecked = true;
+                }
+                if (m.UnidadMedida == "Ml")
+                {
+                    RbMl.IsChecked = true;
+                }
+                if (m.UnidadMedida == "L")
+                {
+                    RbL.IsChecked = true;
+                }
+                if (m.UnidadMedida == "U")
+                {
+                    RbU.IsChecked = true;
+                }
 
                 cboTipoProducto.Text = m.Categoria;
                                

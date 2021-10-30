@@ -23,7 +23,7 @@ namespace BibliotecaNegocio
             get { return _nombre; }
             set
             {
-                if (!value.Equals(""))
+                if (value != string.Empty)
                 {
                     _nombre = value;
                 }
@@ -36,9 +36,29 @@ namespace BibliotecaNegocio
             }
         }
 
+        public int cantidad_embase { get; set; }
+
+        private string _unidad;
+        public string u_medida
+        {
+            get { return _unidad; }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _unidad = value;
+                }
+                else
+                {
+                    //throw new Exception("Error, el Campo Valor Unidad es Obligatorio.");
+                    err.AgregarError("Campo Unidad de Medida es Obligatorio");
+                }
+            }
+        }
+
         private int _valor;
 
-        public int valor
+        public int valor_unitario
         {
             get { return _valor; }
             set
@@ -50,7 +70,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new Exception("Error, el Campo Valor Unidad es Obligatorio.");
-                    err.AgregarError("Campo Valor Unidad es Obligatorio");
+                    err.AgregarError("Campo Valor Unitario es Obligatorio");
                 }
             }
         }
@@ -155,8 +175,10 @@ namespace BibliotecaNegocio
                 CMD.CommandText = "SP_AGREGAR_PRODUCTO";
                 //Se crea un nuevo tipo de parametro, nombre parametro, el tipo, el largo, y el valor es igual al de la clase.
                 //CMD.Parameters.Add(new OracleParameter("P_ID_PROD", OracleDbType.Int32)).Value = prod.id_producto; -->Se agrega x Trigger con secuencia
-                CMD.Parameters.Add(new OracleParameter("P_NOM_PROD", OracleDbType.Varchar2, 50)).Value = prod.nombre;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR_UNIDAD", OracleDbType.Int32)).Value = prod.valor;
+                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = prod.nombre;
+                CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = prod.cantidad_embase;
+                CMD.Parameters.Add(new OracleParameter("P_UNIDAD", OracleDbType.Varchar2, 10)).Value = prod.u_medida;
+                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = prod.valor_unitario;
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO_PROD", OracleDbType.Int32)).Value = prod.id_tipo_producto;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = prod.stock;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR_TOTAL", OracleDbType.Int32)).Value = prod.valor_total;
@@ -194,8 +216,10 @@ namespace BibliotecaNegocio
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_ACTUALIZAR_PRODUCTO";
                 CMD.Parameters.Add(new OracleParameter("P_ID_PROD", OracleDbType.Int32)).Value = prod.id_producto;
-                CMD.Parameters.Add(new OracleParameter("P_NOM_PROD", OracleDbType.Varchar2, 50)).Value = prod.nombre;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR_UNIDAD", OracleDbType.Int32)).Value = prod.valor;
+                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = prod.nombre;
+                CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = prod.cantidad_embase;
+                CMD.Parameters.Add(new OracleParameter("P_UNIDAD", OracleDbType.Varchar2, 10)).Value = prod.u_medida;
+                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = prod.valor_unitario;
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO_PROD", OracleDbType.Int32)).Value = prod.id_tipo_producto;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = prod.stock;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR_TOTAL", OracleDbType.Int32)).Value = prod.valor_total;
@@ -244,10 +268,12 @@ namespace BibliotecaNegocio
 
                     id_producto = int.Parse(reader[0].ToString());
                     nombre = reader[1].ToString();
-                    valor = int.Parse(reader[2].ToString());
-                    stock = int.Parse(reader[3].ToString());
-                    valor_total = int.Parse(reader[5].ToString());
-                    id_tipo_producto = int.Parse(reader[5].ToString());
+                    cantidad_embase = int.Parse(reader[2].ToString());
+                    u_medida = reader[3].ToString();
+                    valor_unitario = int.Parse(reader[4].ToString());
+                    stock = int.Parse(reader[5].ToString());
+                    valor_total = int.Parse(reader[6].ToString());
+                    id_tipo_producto = int.Parse(reader[7].ToString());
 
                     list.Add(p);
 
@@ -330,10 +356,12 @@ namespace BibliotecaNegocio
                     //se obtiene el valor con getvalue es lo mismo pero con get
                     P.Id = int.Parse(dr.GetValue(0).ToString());
                     P.Nombre = dr.GetValue(1).ToString();
-                    P.Valor ="$ "+dr.GetValue(2).ToString();
-                    P.Stock = dr.GetValue(3).ToString() +" U";
-                    P.Total = "$ " + dr.GetValue(4).ToString();
-                    P.Categoria = dr.GetValue(5).ToString();
+                    P.Contenido = int.Parse(dr.GetValue(2).ToString());
+                    P.UnidadMedida =  dr.GetValue(3).ToString();
+                    P.Valor ="$ "+dr.GetValue(4).ToString();
+                    P.Stock = dr.GetValue(5).ToString() +" U";
+                    P.Total = "$ " + dr.GetValue(6).ToString();
+                    P.Categoria = dr.GetValue(7).ToString();
                    
                     lista.Add(P);
                 }
@@ -381,10 +409,12 @@ namespace BibliotecaNegocio
 
                     p.Id = int.Parse(reader[0].ToString());
                     p.Nombre = reader[1].ToString();
-                    p.Valor = "$ " + reader[2].ToString();
-                    p.Stock = reader[3].ToString()+" U";
-                    p.Total = "$ " + reader[4].ToString();
-                    p.Categoria = reader[5].ToString();                   
+                    p.Contenido = int.Parse(reader[2].ToString());
+                    p.UnidadMedida = reader[3].ToString();
+                    p.Valor = "$ " + reader[4].ToString();
+                    p.Stock = reader[5].ToString()+" U";
+                    p.Total = "$ " + reader[6].ToString();
+                    p.Categoria = reader[7].ToString();                   
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(p);
@@ -418,7 +448,9 @@ namespace BibliotecaNegocio
         public class ListaProducto
         {
             public int Id { get; set; }
-            public String Nombre { get; set; }
+            public string Nombre { get; set; }
+            public int Contenido { get; set; }
+            public string UnidadMedida { get; set; }
             public string Valor { get; set; }
             public string Stock { get; set; }
             public string Total { get; set; }

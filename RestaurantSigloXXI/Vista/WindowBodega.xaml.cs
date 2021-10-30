@@ -79,7 +79,7 @@ namespace Vista
         //------------Recetas-------------------
         private void Recetas_CLick(object sender, RoutedEventArgs e)
         {
-
+            WPFReceta.ObtenerinstanciaREC().ShowDialog();
         }
 
         private void Pedido_Click(object sender, RoutedEventArgs e)

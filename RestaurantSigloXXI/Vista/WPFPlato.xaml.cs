@@ -75,15 +75,7 @@ namespace Vista
                 cb.nombre = item.nombre_cat;
                 cboCategoria.Items.Add(cb);
             }
-
-            foreach (Producto item in new Producto().ReadAll())
-            {
-                comboBoxItem1 cb = new comboBoxItem1();
-                cb.id = item.id_producto;
-                cb.nombre = item.nombre;
-                cboProducto.Items.Add(cb);
-            }
-
+            
             foreach (Categoria item in new Categoria().ReadAll())
             {
                 comboBoxItem1 cb = new comboBoxItem1();
@@ -94,8 +86,8 @@ namespace Vista
             //--------------------------------------
             cboReceta.SelectedIndex = 0;
             cboCategoria.SelectedIndex = 0;
-            cboProducto.SelectedIndex = 0;
             cboFiltro.SelectedIndex = 0;
+            txtPrecio.Text = "0";
             txtNomb.Focus();
 
             CargarGrilla();
@@ -152,11 +144,7 @@ namespace Vista
                 {
                     i.Descripcion = txtDescripcion.Text;
                 }
-                int tiempo = 0;
-                if (int.TryParse(txtTiempo.Text, out tiempo))
-                {
-                    i.Tiempo_Preparación = txtTiempo.Text;
-                }
+               
                 if (rb_disponible.IsChecked == true)
                 {
                     i.Estado = "Disponible";
@@ -173,10 +161,7 @@ namespace Vista
                 {
                     i.Categoria = cboCategoria.Text;
                 }
-                if (cboProducto.SelectedValue != null)
-                {
-                    i.Producto = cboProducto.Text;
-                }
+               
 
                 //Proceso de respaldo
                 //Con la ampolleta agregó el using Runtime.Caching
@@ -250,14 +235,12 @@ namespace Vista
         {
             lblId.Content = "";
             txtNomb.Clear();
-            txtPrecio.Clear();
+            txtPrecio.Text = "0";
             txtDescripcion.Clear();
-            txtTiempo.Clear();
             rb_disponible.IsChecked = true;
             rb_NoDisponible.IsChecked = false;
             cboReceta.SelectedIndex = 0;
             cboCategoria.SelectedIndex = 0;
-            cboProducto.SelectedIndex = 0;
             txtNomb.Focus();
 
             btnGuardar.Visibility = Visibility.Visible;
@@ -293,7 +276,6 @@ namespace Vista
                 string nombre = txtNomb.Text;
                 int precio = int.Parse(txtPrecio.Text);
                 string desc = txtDescripcion.Text;
-                int tiempo = int.Parse(txtTiempo.Text);
                 string estado = null;
                 if (rb_disponible.IsChecked == true)
                 {
@@ -305,18 +287,15 @@ namespace Vista
                 }
                 int receta = ((comboBoxItem1)cboReceta.SelectedItem).id;//Guardo el id
                 int cat = ((comboBoxItem1)cboCategoria.SelectedItem).id;//Guardo el id
-                int prod = ((comboBoxItem1)cboProducto.SelectedItem).id;//Guardo el id
 
                 Plato i = new Plato()
                 {
                     nom_plato = nombre,
                     precio_plato = precio,
                     descripcion = desc,
-                    tiempo_preparacion = tiempo,
                     estado = estado,
                     id_receta = receta,
-                    id_categoria = cat,
-                    id_producto = prod
+                    id_categoria = cat
                 };
 
                 bool resp = pla.Agregar(i);
@@ -377,7 +356,6 @@ namespace Vista
                 string nombre = txtNomb.Text;
                 int precio = int.Parse(txtPrecio.Text);
                 string desc = txtDescripcion.Text;
-                int tiempo = int.Parse(txtTiempo.Text);
                 string estado = null;
                 if (rb_disponible.IsChecked == true)
                 {
@@ -389,7 +367,6 @@ namespace Vista
                 }
                 int receta = ((comboBoxItem1)cboReceta.SelectedItem).id;//Guardo el id
                 int cat = ((comboBoxItem1)cboCategoria.SelectedItem).id;//Guardo el id
-                int prod = ((comboBoxItem1)cboProducto.SelectedItem).id;//Guardo el id
 
                 Plato i = new Plato()
                 {
@@ -397,11 +374,9 @@ namespace Vista
                     nom_plato = nombre,
                     precio_plato = precio,
                     descripcion = desc,
-                    tiempo_preparacion = tiempo,
                     estado = estado,
                     id_receta = receta,
-                    id_categoria = cat,
-                    id_producto = prod
+                    id_categoria = cat
                 };
                 bool resp = pla.Actualizar(i);
                 await this.ShowMessageAsync("Mensaje:",
@@ -511,10 +486,8 @@ namespace Vista
 
                 txtNomb.Text = lp.Nombre;
                 var largoP = (lp.Precio.Length - 2);
-                var largoT = (lp.Tiempo_Preparación.Length - 8);
                 txtPrecio.Text = lp.Precio.Substring(2, largoP);
                 txtDescripcion.Text = lp.Descripcion;
-                txtTiempo.Text = lp.Tiempo_Preparación.Substring(0, largoT);
 
 
                 if (lp.Estado == "Disponible")
@@ -527,7 +500,6 @@ namespace Vista
                 }
                 cboReceta.Text = lp.Receta;
                 cboCategoria.Text = lp.Categoria;
-                cboProducto.Text = lp.Producto;
 
                 btnGuardar.Visibility = Visibility.Hidden;
                 btnModificar.Visibility = Visibility.Visible;
@@ -586,11 +558,9 @@ namespace Vista
 
                     txtPrecio.Text = lp.Precio;
                     txtDescripcion.Text = lp.Descripcion;
-                    txtTiempo.Text = lp.Tiempo_Preparación;
 
                     cboReceta.Text = lp.Receta;
                     cboCategoria.Text = lp.Categoria;
-                    cboProducto.Text = lp.Producto;
 
                     if (lp.Estado == "Disponible")
                     {

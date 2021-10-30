@@ -18,11 +18,9 @@ namespace BibliotecaNegocio
         public string nom_plato { get; set; }
         public int precio_plato { get; set; }
         public string descripcion { get; set; }
-        public int tiempo_preparacion { get; set; }
         public string estado { get; set; }
         public int id_receta { get; set; }
         public int id_categoria { get; set; }
-        public int id_producto { get; set; }
 
 
         [NonSerialized]
@@ -59,11 +57,9 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = platito.nom_plato;
                 CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
                 CMD.Parameters.Add(new OracleParameter("P_DESCRIPCION", OracleDbType.Varchar2, 200)).Value = platito.descripcion;
-                CMD.Parameters.Add(new OracleParameter("P_TIEMPO", OracleDbType.Int32)).Value = platito.tiempo_preparacion;
                 CMD.Parameters.Add(new OracleParameter("P_ESTADO", OracleDbType.Varchar2, 50)).Value = platito.estado;
                 CMD.Parameters.Add(new OracleParameter("P_RECETA", OracleDbType.Int32)).Value = platito.id_receta;
                 CMD.Parameters.Add(new OracleParameter("P_CATEGORIA", OracleDbType.Int32)).Value = platito.id_categoria;
-                CMD.Parameters.Add(new OracleParameter("P_PRODUCTO", OracleDbType.Int32)).Value = platito.id_producto;
 
                 //Se abre la conexión
                 conn.Open();
@@ -102,11 +98,9 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = platito.nom_plato;
                 CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
                 CMD.Parameters.Add(new OracleParameter("P_DESCRIPCION", OracleDbType.Varchar2, 200)).Value = platito.descripcion;
-                CMD.Parameters.Add(new OracleParameter("P_TIEMPO", OracleDbType.Int32)).Value = platito.tiempo_preparacion;
                 CMD.Parameters.Add(new OracleParameter("P_ESTADO", OracleDbType.Varchar2, 50)).Value = platito.estado;
                 CMD.Parameters.Add(new OracleParameter("P_RECETA", OracleDbType.Int32)).Value = platito.id_receta;
                 CMD.Parameters.Add(new OracleParameter("P_CATEGORIA", OracleDbType.Int32)).Value = platito.id_categoria;
-                CMD.Parameters.Add(new OracleParameter("P_PRODUCTO", OracleDbType.Int32)).Value = platito.id_producto;
 
                 //Se abre la conexión
                 conn.Open();
@@ -294,11 +288,9 @@ namespace BibliotecaNegocio
                     i.Nombre = dr.GetValue(1).ToString();
                     i.Precio = "$ "+dr.GetValue(2).ToString();
                     i.Descripcion = dr.GetValue(3).ToString();
-                    i.Tiempo_Preparación = dr.GetValue(4).ToString()+ " Minutos";
-                    i.Estado = dr.GetValue(5).ToString();
-                    i.Receta = dr.GetValue(6).ToString();
-                    i.Categoria = dr.GetValue(7).ToString();
-                    i.Producto = dr.GetValue(8).ToString();
+                    i.Estado = dr.GetValue(4).ToString();
+                    i.Receta = dr.GetValue(5).ToString();
+                    i.Categoria = dr.GetValue(6).ToString();
 
                     lista.Add(i);
                     contador = 1;
@@ -332,11 +324,9 @@ namespace BibliotecaNegocio
             public string Nombre { get; set; }
             public string Precio { get; set; }
             public string Descripcion { get; set; }
-            public string Tiempo_Preparación { get; set; }
             public string Estado { get; set; }
             public string Receta { get; set; }
             public string Categoria { get; set; }
-            public string Producto { get; set; }
 
             public ListaPlato()
             {
