@@ -250,7 +250,133 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
             }
         }
+        //-----------------------------------------------------------------
+        //----Filtrar por asignación
+        public List<ListaMesa> FiltrarAsign(string asig)
+        {
+            try
+            {
+                int contador = 0;
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //Lista 
+                List<ListaMesa> lista = new List<ListaMesa>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_MESA_ASIG";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_ASIG", OracleDbType.Varchar2, 10)).Value = asig;
+                CMD.Parameters.Add(new OracleParameter("MESAS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
 
+                //se abre la conexion
+                conn.Open();
+                //Reader
+                OracleDataReader reader = CMD.ExecuteReader();
+                //Mientras lee
+                while (reader.Read())
+                {
+                    ListaMesa i = new ListaMesa();
+
+                    //lee cada valor en su posición
+                    i.Número = int.Parse(reader[0].ToString());
+                    i.Capacidad = reader[1].ToString();
+                    i.Disponibilidad = reader[2].ToString();
+                    i.asignacion = reader[3].ToString();
+                    i.Rut_Empleado = reader[4].ToString();
+                    i.Empleado = reader[5].ToString();
+                   
+                    //Agrega los valores a la lista, que luego es devuelta por el método
+                    lista.Add(i);
+                    contador = 1;
+
+                }
+                conn.Close();
+                if (contador == 1)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+                Logger.Mensaje(ex.Message);
+                conn.Close();
+
+            }
+
+        }
+        //----Filtrar por Disponibilidad
+        public List<ListaMesa> FiltrarDisp(string disp)
+        {
+            try
+            {
+                int contador = 0;
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //Lista 
+                List<ListaMesa> lista = new List<ListaMesa>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_MESA_DISP";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_DISP", OracleDbType.Varchar2, 10)).Value = disp;
+                CMD.Parameters.Add(new OracleParameter("MESAS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                //Reader
+                OracleDataReader reader = CMD.ExecuteReader();
+                //Mientras lee
+                while (reader.Read())
+                {
+                    ListaMesa i = new ListaMesa();
+
+                    //lee cada valor en su posición
+                    i.Número = int.Parse(reader[0].ToString());
+                    i.Capacidad = reader[1].ToString();
+                    i.Disponibilidad = reader[2].ToString();
+                    i.asignacion = reader[3].ToString();
+                    i.Rut_Empleado = reader[4].ToString();
+                    i.Empleado = reader[5].ToString();
+
+                    //Agrega los valores a la lista, que luego es devuelta por el método
+                    lista.Add(i);
+                    contador = 1;
+
+                }
+                conn.Close();
+                if (contador == 1)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+                Logger.Mensaje(ex.Message);
+                conn.Close();
+
+            }
+
+        }
 
         //Lista Mesas para mostrar nombres en vez de id (para procedimientos con Joins)
         [Serializable]

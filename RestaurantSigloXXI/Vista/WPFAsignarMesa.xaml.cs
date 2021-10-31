@@ -131,9 +131,23 @@ namespace Vista
             _instancia = null;
         }
 
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        private async void btnSalir_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            try
+            {
+                var x = await this.ShowMessageAsync("Mensaje de Confirmación: ",
+                              "¿Está seguro que desea cancelar la operación? ",
+                             MessageDialogStyle.AffirmativeAndNegative);
+                if (x == MessageDialogResult.Affirmative)
+                {
+                    this.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Logger.Mensaje(ex.Message);
+            }
         }
 
         private void btnNuevoCliente_Click(object sender, RoutedEventArgs e)
@@ -187,6 +201,72 @@ namespace Vista
         {
             WPFListadoCliente cliente = new WPFListadoCliente(this);
             cliente.ShowDialog();
+        }
+
+        private async void btnFiltroAsig_Click(object sender, RoutedEventArgs e)
+        {            
+            try
+            {
+                string asi = null;
+                if (RbOnline.IsChecked == true)
+                {
+                    asi = "Online";
+                }
+                else
+                {
+                    asi = "Presencial";
+                }
+                if (mes.FiltrarAsign(asi) != null)
+                {
+                    dgLista.ItemsSource = mes.FiltrarAsign(asi);
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Mesas:");
+                    dt.Rows.Add("No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+                CargarGrilla();
+            }
+        }
+
+        private async void btnFiltroDisp_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string dis = "Disponible";
+                if (mes.FiltrarDisp(dis) != null)
+                {
+                    dgLista.ItemsSource = mes.FiltrarDisp(dis);
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Mesas:");
+                    dt.Rows.Add("No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+                CargarGrilla();
+            }
         }
     }
 }

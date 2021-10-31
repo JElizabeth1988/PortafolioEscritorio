@@ -50,7 +50,7 @@ namespace BibliotecaNegocio
                 }
                 else
                 {
-                    //throw new Exception("Error, el Campo Valor Unidad es Obligatorio.");
+                    //throw new Exception("Error, el Campo Unidad de medida es Obligatorio.");
                     err.AgregarError("Campo Unidad de Medida es Obligatorio");
                 }
             }

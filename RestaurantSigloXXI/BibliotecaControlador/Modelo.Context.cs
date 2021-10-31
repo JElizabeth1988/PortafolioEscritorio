@@ -26,16 +26,15 @@ namespace BibliotecaDALC
         }
     
         public DbSet<AGENDA> AGENDA { get; set; }
+        public DbSet<ATENCION> ATENCION { get; set; }
         public DbSet<BEBIDA> BEBIDA { get; set; }
         public DbSet<BOLETA> BOLETA { get; set; }
         public DbSet<CATEGORIA> CATEGORIA { get; set; }
         public DbSet<CLIENTE> CLIENTE { get; set; }
         public DbSet<EMPLEADO> EMPLEADO { get; set; }
         public DbSet<ENTIDAD_BANCARIA> ENTIDAD_BANCARIA { get; set; }
-        public DbSet<EXTRA> EXTRA { get; set; }
         public DbSet<INGRESOS> INGRESOS { get; set; }
         public DbSet<LOGIN> LOGIN { get; set; }
-        public DbSet<MENU> MENU { get; set; }
         public DbSet<MESA> MESA { get; set; }
         public DbSet<METODO_PAGO> METODO_PAGO { get; set; }
         public DbSet<ORDEN> ORDEN { get; set; }

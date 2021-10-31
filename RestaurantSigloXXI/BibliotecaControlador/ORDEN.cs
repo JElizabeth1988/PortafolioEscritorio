@@ -14,11 +14,6 @@ namespace BibliotecaDALC
     
     public partial class ORDEN
     {
-        public ORDEN()
-        {
-            this.EXTRA = new HashSet<EXTRA>();
-        }
-    
         public int ID_ORDEN { get; set; }
         public string DETALLE_ORDEN { get; set; }
         public System.DateTime FECHA_ORDEN { get; set; }
@@ -27,12 +22,15 @@ namespace BibliotecaDALC
         public string RUT_CLIENTE { get; set; }
         public string ESTADO_ORDEN { get; set; }
         public int VALOR_ORDEN { get; set; }
-        public int ID_MENU { get; set; }
         public string RUT_EMPLEADO { get; set; }
+        public Nullable<int> ID_BEBIDA { get; set; }
+        public Nullable<int> ID_PLATO { get; set; }
+        public Nullable<int> ID_PEDIDO { get; set; }
     
+        public virtual BEBIDA BEBIDA { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
-        public virtual ICollection<EXTRA> EXTRA { get; set; }
-        public virtual MENU MENU { get; set; }
+        public virtual PEDIDO PEDIDO { get; set; }
+        public virtual PLATO PLATO { get; set; }
     }
 }

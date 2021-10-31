@@ -670,7 +670,125 @@ namespace Vista
             //Parar Singleton
             _instancia = null;
         }
+        //**********************************************************************
+        //---Métodos para botones generar
+        DaoErrores err = new DaoErrores();
+        public DaoErrores retornar() { return err; }
+        //----------Método pass para llenar el password y user generado por campos
+        //--Para el usuario usará el rut sin DV 
+        public string MetodoUser()
+        {
+            string user = null;
+            try
+            {
+                if (txtRut.Text != "")
+                {
+                    user = txtRut.Text;
+                    return user;
+                }
+                else
+                {
+                    err.AgregarError("Debe ingresar un Rut para generar un id");
+                    return null;
+                }
 
-      
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+                MessageBox.Show("error metodo");
+            }
+
+        }
+
+        //------Botón generar usuario---------------------
+        private async void btnGenerarUser_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (MetodoUser() != null)
+                {
+                    txtUser.Text = MetodoUser();
+                }
+                else
+                {
+                    DaoErrores de = retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Mensaje(ex.Message);
+            }
+        }
+
+        //la contraseña se compone de nombre, primeros 2 carácteres del apellido paterno y tres últimos dígitos del rut (sin DV)
+        public string MetodoPass()
+        {
+            string contra = null;
+            string pas1 = null;
+            string pas2 = null;
+            string pas3 = null;
+            try
+            {
+                if (txtNombre.Text != "" && txtRut.Text != "" && txtApPaterno.Text != "")
+                {
+                    pas3 = txtRut.Text.Substring(5, 3);
+                    pas2 = txtApPaterno.Text.Substring(0, 2).ToUpper();
+                    pas1 = txtNombre.Text;
+                    contra = pas1 + pas2 + pas3;
+                    return contra;
+                }
+                else
+                {
+                    err.AgregarError("Debe ingresar rut, primer nombre y apellido paterno para generar una contraseña segura");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+                MessageBox.Show("error metodo");
+            }
+
+
+        }
+        private async void btnGenerarPass_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (MetodoPass() != null)
+                {
+                    txtPass.Text = MetodoPass();
+                }
+                else
+                {
+                    DaoErrores de = retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Mensaje(ex.Message);
+            }
+        }
+        
     }
 }

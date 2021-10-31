@@ -16,16 +16,22 @@ namespace BibliotecaDALC
     {
         public PEDIDO()
         {
+            this.ORDEN = new HashSet<ORDEN>();
             this.PAGO = new HashSet<PAGO>();
         }
     
         public int ID_PEDIDO { get; set; }
         public System.DateTime FECHA_PEDIDO { get; set; }
         public string HORA_PEDIDO { get; set; }
+        public int PROPINA { get; set; }
+        public Nullable<int> DESCUENTO { get; set; }
+        public int SUBTOTAL { get; set; }
         public int TOTAL_PEDIDO { get; set; }
+        public string ESTADO_SOLICITUD { get; set; }
         public string RUT_CLIENTE { get; set; }
     
         public virtual CLIENTE CLIENTE { get; set; }
+        public virtual ICollection<ORDEN> ORDEN { get; set; }
         public virtual ICollection<PAGO> PAGO { get; set; }
     }
 }

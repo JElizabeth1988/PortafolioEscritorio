@@ -30,20 +30,16 @@
                 <TextBox x:Name="txtStock" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Stock" KeyDown="txtNumeros_KeyDown" Height="8" Margin="160,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
                 <TextBox x:Name="txtValorTotal" HorizontalAlignment="Left" IsEnabled="False" KeyDown="txtNumeros_KeyDown" mah:TextBoxHelper.Watermark="Valor Total" Height="8" Margin="160,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"  />
                 <ComboBox x:Name="cboTipoProducto" HorizontalAlignment="Left" Margin="160,159,0,0" VerticalAlignment="Top" Width="196" FontWeight="Normal"/>
-                <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="119,191,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnGuardar_Click"/>
-                <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="495,191,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
-                <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="24,191,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
-                <Button x:Name="btnModificar" Content="Actualizar" HorizontalAlignment="Left" Margin="119,191,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnModificar_Click" />
+                <Button x:Name="btnGuardar" ToolTip="Guardar Registro" Content="Guardar" HorizontalAlignment="Left" Margin="119,191,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnGuardar_Click"/>
+                <Button x:Name="btnCancelar" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="495,191,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
+                <Button x:Name="btnLimpiar" ToolTip="Limpiar Casillas" Content="Limpiar" HorizontalAlignment="Left" Margin="24,191,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
+                <Button x:Name="btnModificar" ToolTip="Actualizar Registro" Content="Actualizar" HorizontalAlignment="Left" Margin="119,191,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnModificar_Click" />
 
                 <Label x:Name="label_nom_tipo" Content="Tipo de Producto:" HorizontalAlignment="Left" Margin="27,159,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.463" FontSize="12"/>
-                <Button x:Name="btnCalcular" Content="Calcular" HorizontalAlignment="Left" Margin="317,125,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCalcular_Click" Height="28"/>
+                <Button x:Name="btnCalcular" ToolTip="Calcular Total" Content="Calcular" HorizontalAlignment="Left" Margin="317,125,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCalcular_Click" Height="28"/>
                 <Label x:Name="lblId" Content="" HorizontalAlignment="Left" Margin="387,10,0,0" VerticalAlignment="Top" FontSize="12" Width="18"/>
                 <Image x:Name="image1" HorizontalAlignment="Left" Height="82" Margin="493,71,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
                 <Label x:Name="label_Copy5" Content="Cantidad por Embase:" HorizontalAlignment="Left" Margin="27,34,0,0" VerticalAlignment="Top" FontSize="12"/>
-
-
-
-
 
             </Grid>
         </GroupBox>
@@ -52,7 +48,7 @@
 
                 <Label x:Name="label2" Content="Útimo Respaldo:" HorizontalAlignment="Left" Margin="47,1,0,10.667" FontWeight="Bold"/>
                 <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="161,1,0,10.667" Width="193"/>
-                <Button x:Name="btnCache" Content="Recuperar" HorizontalAlignment="Left" Margin="496,1,0,0" VerticalAlignment="Top" Width="75" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
+                <Button x:Name="btnCache" ToolTip="Recuperar Caché" Content="Recuperar" HorizontalAlignment="Left" Margin="496,1,0,0" VerticalAlignment="Top" Width="75" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
 
             </Grid>
         </GroupBox>
@@ -72,20 +68,16 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Width="34"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" BorderBrush="Black" Click="btnRefrescar_Click" Margin="610,185,0,0" Height="34" VerticalAlignment="Top"  >
+                <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left" Width="34"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" BorderBrush="Black" Click="btnRefrescar_Click" Margin="610,185,0,0" Height="34" VerticalAlignment="Top"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="509,190,0,6" Width="75" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFDF0D0D" FontSize="12" Click="btnEliminar_Click"/>
-                <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnPasar_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="10,190,0,0" Height="29"/>
-                <Button x:Name="btnFiltrar" Content="Filtrar" HorizontalAlignment="Left" Margin="385,2,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltrar_Click"/>
+                <Button x:Name="btnEliminar" ToolTip="Eliminar Registro" Content="Eliminar" HorizontalAlignment="Left" Margin="509,190,0,6" Width="75" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFDF0D0D" FontSize="12" Click="btnEliminar_Click"/>
+                <Button x:Name="btnPasar" ToolTip="Traspasar Información" Content="Traspasar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnPasar_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="10,190,0,0" Height="29"/>
+                <Button x:Name="btnFiltrar" ToolTip="Filtrar por Tipo de Producto" Content="Filtrar" HorizontalAlignment="Left" Margin="385,2,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltrar_Click"/>
                 <ComboBox x:Name="cboTipFiltro" HorizontalAlignment="Left" Margin="160,2,0,0" VerticalAlignment="Top" Width="196" FontWeight="Normal"/>
                 <Label x:Name="label_nom_tipo_Copy" Content="Tipo de Producto:" HorizontalAlignment="Left" Margin="35,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.463" FontSize="12"/>
-
-
-
-
 
             </Grid>
         </GroupBox>

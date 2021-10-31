@@ -96,10 +96,10 @@ namespace Vista
                 {
                     dgLista.ItemsSource = null;
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("Resultado:");
-                    dt.Rows.Add("No Existe información relacionada a su búsqueda");
-                    dgLista.ItemsSource = dt.DefaultView;
-                    txtCodigo.Clear();
+                    dt.Columns.Add("");
+                    dt.Columns.Add("Mesas:");
+                    dt.Rows.Add("", "No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;                    
 
                 }
 
@@ -158,7 +158,8 @@ namespace Vista
         {
             if (this.dgLista.Columns != null)
             {
-                this.dgLista.Columns[0].Visibility = Visibility.Collapsed;
+                this.dgLista.Columns[0].Visibility = Visibility.Collapsed;//id no se ve
+                this.dgLista.Columns[6].Visibility = Visibility.Collapsed;//hora de salida no se ve
             }
         }
     }

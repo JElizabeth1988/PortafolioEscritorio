@@ -22,12 +22,12 @@ namespace BibliotecaDALC
         public int ID_RECETA { get; set; }
         public string NOM_RECETA { get; set; }
         public string INSTRUCCIONES { get; set; }
-        public Nullable<int> TIEMPO_COCION { get; set; }
-        public int ID_PRODUCTO { get; set; }
-        public string RUT_EMPLEADO { get; set; }
+        public string INGREDIENTES { get; set; }
+        public Nullable<int> TIEMPO_COCCION { get; set; }
+        public int TIEMPO_PREPARACION { get; set; }
+        public int TIEMPO_TOTAL { get; set; }
+        public int PORCION { get; set; }
     
-        public virtual EMPLEADO EMPLEADO { get; set; }
         public virtual ICollection<PLATO> PLATO { get; set; }
-        public virtual PRODUCTO PRODUCTO { get; set; }
     }
 }

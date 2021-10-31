@@ -75,7 +75,7 @@ namespace Vista
                 cb.nombre = item.nombre_cat;
                 cboCategoria.Items.Add(cb);
             }
-            
+            //filtro
             foreach (Categoria item in new Categoria().ReadAll())
             {
                 comboBoxItem1 cb = new comboBoxItem1();

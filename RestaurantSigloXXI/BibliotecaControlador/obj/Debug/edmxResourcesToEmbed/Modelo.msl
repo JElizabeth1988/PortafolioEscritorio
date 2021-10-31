@@ -12,6 +12,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ATENCION">
+      <EntityTypeMapping TypeName="Modelo.ATENCION">
+        <MappingFragment StoreEntitySet="ATENCION">
+          <ScalarProperty Name="HORA_SALIDA" ColumnName="HORA_SALIDA" />
+          <ScalarProperty Name="HORA_INGRESO" ColumnName="HORA_INGRESO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="MESA" ColumnName="MESA" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="BEBIDA">
       <EntityTypeMapping TypeName="Modelo.BEBIDA">
         <MappingFragment StoreEntitySet="BEBIDA">
@@ -66,8 +79,6 @@
     <EntitySetMapping Name="EMPLEADO">
       <EntityTypeMapping TypeName="Modelo.EMPLEADO">
         <MappingFragment StoreEntitySet="EMPLEADO">
-          <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
-          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
           <ScalarProperty Name="ID_TIPO_USER" ColumnName="ID_TIPO_USER" />
           <ScalarProperty Name="TELEFONO_EMP" ColumnName="TELEFONO_EMP" />
           <ScalarProperty Name="CELULAR_EMP" ColumnName="CELULAR_EMP" />
@@ -88,22 +99,6 @@
           <ScalarProperty Name="DESCRIPCION_BANCO" ColumnName="DESCRIPCION_BANCO" />
           <ScalarProperty Name="NOMBRE_BANCO" ColumnName="NOMBRE_BANCO" />
           <ScalarProperty Name="ID_ENTIDAD" ColumnName="ID_ENTIDAD" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EXTRA">
-      <EntityTypeMapping TypeName="Modelo.EXTRA">
-        <MappingFragment StoreEntitySet="EXTRA">
-          <ScalarProperty Name="ID_ORDEN" ColumnName="ID_ORDEN" />
-          <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-          <ScalarProperty Name="ID_BEBIDA" ColumnName="ID_BEBIDA" />
-          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-          <ScalarProperty Name="TOTAL_EXTRA" ColumnName="TOTAL_EXTRA" />
-          <ScalarProperty Name="CANTIDAD_EXTRA" ColumnName="CANTIDAD_EXTRA" />
-          <ScalarProperty Name="HORA_EXTRA" ColumnName="HORA_EXTRA" />
-          <ScalarProperty Name="FECHA_EXTRA" ColumnName="FECHA_EXTRA" />
-          <ScalarProperty Name="ID_EXTRA" ColumnName="ID_EXTRA" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -129,24 +124,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MENU">
-      <EntityTypeMapping TypeName="Modelo.MENU">
-        <MappingFragment StoreEntitySet="MENU">
-          <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
-          <ScalarProperty Name="ID_PLATO" ColumnName="ID_PLATO" />
-          <ScalarProperty Name="ID_BEBIDA" ColumnName="ID_BEBIDA" />
-          <ScalarProperty Name="FOTO" ColumnName="FOTO" />
-          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
-          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="MESA">
       <EntityTypeMapping TypeName="Modelo.MESA">
         <MappingFragment StoreEntitySet="MESA">
           <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
+          <ScalarProperty Name="ASIGNACION" ColumnName="ASIGNACION" />
           <ScalarProperty Name="DISPONIBILIDAD" ColumnName="DISPONIBILIDAD" />
           <ScalarProperty Name="CAPACIDAD_PERSONA" ColumnName="CAPACIDAD_PERSONA" />
           <ScalarProperty Name="NUM_MESA" ColumnName="NUM_MESA" />
@@ -165,8 +147,10 @@
     <EntitySetMapping Name="ORDEN">
       <EntityTypeMapping TypeName="Modelo.ORDEN">
         <MappingFragment StoreEntitySet="ORDEN">
+          <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
+          <ScalarProperty Name="ID_PLATO" ColumnName="ID_PLATO" />
+          <ScalarProperty Name="ID_BEBIDA" ColumnName="ID_BEBIDA" />
           <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
-          <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
           <ScalarProperty Name="VALOR_ORDEN" ColumnName="VALOR_ORDEN" />
           <ScalarProperty Name="ESTADO_ORDEN" ColumnName="ESTADO_ORDEN" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
@@ -203,7 +187,11 @@
       <EntityTypeMapping TypeName="Modelo.PEDIDO">
         <MappingFragment StoreEntitySet="PEDIDO">
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="ESTADO_SOLICITUD" ColumnName="ESTADO_SOLICITUD" />
           <ScalarProperty Name="TOTAL_PEDIDO" ColumnName="TOTAL_PEDIDO" />
+          <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
+          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+          <ScalarProperty Name="PROPINA" ColumnName="PROPINA" />
           <ScalarProperty Name="HORA_PEDIDO" ColumnName="HORA_PEDIDO" />
           <ScalarProperty Name="FECHA_PEDIDO" ColumnName="FECHA_PEDIDO" />
           <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
@@ -226,11 +214,10 @@
     <EntitySetMapping Name="PLATO">
       <EntityTypeMapping TypeName="Modelo.PLATO">
         <MappingFragment StoreEntitySet="PLATO">
-          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
           <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
           <ScalarProperty Name="ID_RECETA" ColumnName="ID_RECETA" />
           <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-          <ScalarProperty Name="TIEMPO_PREPARACION" ColumnName="TIEMPO_PREPARACION" />
+          <ScalarProperty Name="FOTO" ColumnName="FOTO" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
           <ScalarProperty Name="PRECIO_PLATO" ColumnName="PRECIO_PLATO" />
           <ScalarProperty Name="NOM_PLATO" ColumnName="NOM_PLATO" />
@@ -244,7 +231,9 @@
           <ScalarProperty Name="ID_TIPO_PRODUCTO" ColumnName="ID_TIPO_PRODUCTO" />
           <ScalarProperty Name="VALOR_TOTAL" ColumnName="VALOR_TOTAL" />
           <ScalarProperty Name="STOCK" ColumnName="STOCK" />
-          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="VALOR_UNITARIO" ColumnName="VALOR_UNITARIO" />
+          <ScalarProperty Name="U_MEDIDA" ColumnName="U_MEDIDA" />
+          <ScalarProperty Name="CANTIDAD_EMBASE" ColumnName="CANTIDAD_EMBASE" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
         </MappingFragment>
@@ -266,9 +255,11 @@
     <EntitySetMapping Name="RECETA">
       <EntityTypeMapping TypeName="Modelo.RECETA">
         <MappingFragment StoreEntitySet="RECETA">
-          <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
-          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
-          <ScalarProperty Name="TIEMPO_COCION" ColumnName="TIEMPO_COCION" />
+          <ScalarProperty Name="PORCION" ColumnName="PORCION" />
+          <ScalarProperty Name="TIEMPO_TOTAL" ColumnName="TIEMPO_TOTAL" />
+          <ScalarProperty Name="TIEMPO_PREPARACION" ColumnName="TIEMPO_PREPARACION" />
+          <ScalarProperty Name="TIEMPO_COCCION" ColumnName="TIEMPO_COCCION" />
+          <ScalarProperty Name="INGREDIENTES" ColumnName="INGREDIENTES" />
           <ScalarProperty Name="INSTRUCCIONES" ColumnName="INSTRUCCIONES" />
           <ScalarProperty Name="NOM_RECETA" ColumnName="NOM_RECETA" />
           <ScalarProperty Name="ID_RECETA" ColumnName="ID_RECETA" />

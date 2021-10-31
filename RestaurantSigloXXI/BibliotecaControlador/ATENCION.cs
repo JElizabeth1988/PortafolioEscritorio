@@ -12,20 +12,14 @@ namespace BibliotecaDALC
     using System;
     using System.Collections.Generic;
     
-    public partial class MESA
+    public partial class ATENCION
     {
-        public MESA()
-        {
-            this.AGENDA = new HashSet<AGENDA>();
-        }
-    
-        public int NUM_MESA { get; set; }
-        public int CAPACIDAD_PERSONA { get; set; }
-        public string DISPONIBILIDAD { get; set; }
-        public string ASIGNACION { get; set; }
-        public string RUT_EMPLEADO { get; set; }
-    
-        public virtual ICollection<AGENDA> AGENDA { get; set; }
-        public virtual EMPLEADO EMPLEADO { get; set; }
+        public int ID { get; set; }
+        public string RUT_CLIENTE { get; set; }
+        public Nullable<int> MESA { get; set; }
+        public string ESTADO { get; set; }
+        public string FECHA { get; set; }
+        public string HORA_INGRESO { get; set; }
+        public string HORA_SALIDA { get; set; }
     }
 }

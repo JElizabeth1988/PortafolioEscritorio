@@ -62,7 +62,8 @@ namespace Vista
         {
             InitializeComponent();
                        
-            txtNombre.IsEnabled = false;//No se ve xq se llena del buscar o traspasar
+            txtNombre.IsEnabled = false;//No se edita xq se llena del buscar o traspasar
+            txtCapacidad.Text = "0";
                         
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnGuardar.Visibility = Visibility.Visible;
@@ -234,7 +235,7 @@ namespace Vista
         private void Limpiar()
         {
             txtNum.Clear();
-            
+            txtCapacidad.Text = "0";
             txtNombre.IsEnabled = false;//No se ve xq se llena del buscar o traspasar
             rb_disponible.IsChecked = true;//Si queda seleccionado
             rb_NoDisponible.IsChecked = false;
@@ -246,7 +247,6 @@ namespace Vista
             //btnEliminar.Visibility = Visibility.Hidden;
             rb_NoDisponible.Focus();//Focus en el radioButton
             txtRut.Clear();
-            txtCapacidad.Clear();
             txtNombre.Clear();
 
             //Limpiar cache

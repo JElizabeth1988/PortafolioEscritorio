@@ -44,7 +44,7 @@ namespace BibliotecaNegocio
         {
             try
             {
-                BibliotecaDALC.RECETA rec =
+                RECETA rec =
                     bdd.RECETA.First(tip => tip.ID_RECETA == id_receta);
                 nom_receta = rec.NOM_RECETA;
                 return true;
@@ -209,7 +209,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista 
                 List<ListaReceta> lista = new List<ListaReceta>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;

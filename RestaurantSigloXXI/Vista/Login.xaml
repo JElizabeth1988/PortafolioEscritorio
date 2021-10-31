@@ -20,7 +20,7 @@
             <TextBox x:Name="txtUsuario" Controls:TextBoxHelper.Watermark="Ingrese Nombre de Usuario" Controls:TextBoxHelper.ClearTextButton="True" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="Black" Margin="137,194,137,0"/>
             <PasswordBox x:Name="TxtContrasenia" Controls:TextBoxHelper.Watermark="Ingrese Contraseña" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Margin="137,240,0,0" VerticalAlignment="Top" Width="194" BorderBrush="Black"/>
             <Image x:Name="image" Height="128" Margin="163,47,164,0" VerticalAlignment="Top" Source="Imagenes/Business-Man02.png" Stretch="Fill" />
-            <Button x:Name="btnLogin" Content="Ingresar" Margin="196,289,196,0" VerticalAlignment="Top" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Click="btnLogin_Click" Background="#FFCB5F21"/>
+            <Button x:Name="btnLogin" ToolTip="Iniciar Sesion" Content="Ingresar" Margin="196,289,196,0" VerticalAlignment="Top" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Click="btnLogin_Click" Background="#FFCB5F21"/>
             <Image x:Name="image2" HorizontalAlignment="Left" Height="104" Margin="308,0,0,0" VerticalAlignment="Top" Width="149" Source="Imagenes/logoFinal3.png"/>
         </Grid>
     </Grid>

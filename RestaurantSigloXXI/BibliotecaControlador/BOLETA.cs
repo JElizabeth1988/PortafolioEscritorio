@@ -16,7 +16,7 @@ namespace BibliotecaDALC
     {
         public int ID_BOLETA { get; set; }
         public System.DateTime FECHA_EMISION { get; set; }
-        public System.DateTime HORA_EMISION { get; set; }
+        public string HORA_EMISION { get; set; }
         public Nullable<int> PROPINA { get; set; }
         public int IVA { get; set; }
         public int TOTAL_BOLETA { get; set; }

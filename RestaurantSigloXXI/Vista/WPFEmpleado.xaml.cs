@@ -49,7 +49,6 @@ namespace Vista
 
         //Hilo para cache
         Thread hilo = null;
-        public Thread h2 = null;
         //Instanciar BD
         OracleConnection conn = null;
         //Traer clase empleado
@@ -58,9 +57,9 @@ namespace Vista
         public WPFEmpleado()
         {
             InitializeComponent();
-            txtPass.IsEnabled = false;
+            //txtPass.IsEnabled = false;
             txtUser.IsEnabled = false;
-            
+
             txtDV.IsEnabled = false;//DV no se puede editar
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnEliminar.Visibility = Visibility.Hidden;
@@ -87,37 +86,28 @@ namespace Vista
                     generaRespaldo();
                 }
             });
-            Task tarea2 = new Task(() =>
-            {
-                h2 = Thread.CurrentThread;
-                while (true)
-                {
-                    Thread.Sleep(5000);//cada 5 segundos guarda
-                    metodopass();
-                }
-            });
 
             tarea.Start();
-            tarea2.Start();
 
             FileCache filecache = new FileCache(new ObjectBinder());
 
             if (filecache["hora"] != null)
             {
                 lblCache.Content = filecache["hora"].ToString();
-                           }
+            }
             //---------------------------------
         }
         //Método generar respaldo------------------
         private void generaRespaldo()
         {
-            Dispatcher.Invoke(() => {
+            Dispatcher.Invoke(() =>
+            {
 
                 //Llama a la clase cliente donde se gusradarán los datos
                 Empleado.ListaEmpleado em = new Empleado.ListaEmpleado();
 
                 if (txtRut.Text != null)
-                {                    
+                {
                     //Guardo el rut 
                     String rut = txtRut.Text + "-" + txtDV.Text;
                     if (rut.Length == 9)//Si el rut tiene solo 9 caracteres se le agrega cero al comienzo para que quede de 10
@@ -145,7 +135,7 @@ namespace Vista
                 }
                 if (txtApeMaterno.Text != null)
                 {
-                    em.Apellido_Materno  = txtApeMaterno.Text;
+                    em.Apellido_Materno = txtApeMaterno.Text;
                 }
                 int Celular = 0;
                 if (int.TryParse(txtCelular.Text, out Celular))
@@ -159,7 +149,7 @@ namespace Vista
                 }
                 if (txtEmail.Text != null)
                 {
-                   em.Email = txtEmail.Text;
+                    em.Email = txtEmail.Text;
                 }
                 if (txtUser.Text != null)
                 {
@@ -171,10 +161,10 @@ namespace Vista
                 }
                 if (cboTipoUser.SelectedValue != null)
                 {
-                   em.Rol = cboTipoUser.Text;
+                    em.Rol = cboTipoUser.Text;
                 }
-               
-                
+
+
                 //Proceso de respaldo
                 //Con la ampolleta agregó el using Runtime.Caching
                 FileCache filecahe = new FileCache(new ObjectBinder());
@@ -226,7 +216,6 @@ namespace Vista
         {
             WPFListadoEmpleado emp = new WPFListadoEmpleado(this);
             emp.ShowDialog();
-            h2.Abort();
 
         }
 
@@ -247,8 +236,8 @@ namespace Vista
             cboTipoUser.SelectedIndex = 0;
             txtRut.IsEnabled = true;
             txtUser.IsEnabled = false;
-            txtPass.IsEnabled = false;
-            
+            //txtPass.IsEnabled = false;
+
             lblCache.Content = null;
 
             btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
@@ -272,18 +261,6 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
 
-            Task tarea2 = new Task(() =>
-            {
-                h2 = Thread.CurrentThread;
-                while (true)
-                {
-                    Thread.Sleep(5000);//cada 5 segundos guarda
-                    metodopass();
-                }
-            });
-                       
-            tarea2.Start();
-
         }
 
         //-----------Botón Limpiar-------------------
@@ -292,38 +269,127 @@ namespace Vista
             Limpiar();
 
         }
-
+        DaoErrores err = new DaoErrores();
+        public DaoErrores retornar() { return err; }
         //----------Método pass para llenar el password y user generado por campos
-        public void metodopass()
+        //--Para el usuario usará el rut sin DV 
+        public string MetodoUser()
+        {
+            string user = null;
+            try
+            {
+                if (txtRut.Text != "")
+                {
+                    user = txtRut.Text;
+                    return user;
+                }
+                else
+                {
+                    err.AgregarError("Debe ingresar un Rut para generar un id");
+                    return null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+                MessageBox.Show("error metodo");
+            }
+
+        }
+
+        //------Botón generar usuario---------------------
+        private async void btnGenerarUser_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (MetodoUser() != null)
+                {
+                    txtUser.Text = MetodoUser();
+                }
+                else
+                {
+                    DaoErrores de = retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Mensaje(ex.Message);
+            }
+        }
+
+        //la contraseña se compone de nombre, primeros 2 carácteres del apellido paterno y tres últimos dígitos del rut (sin DV)
+        public string MetodoPass()
         {
             string contra = null;
-            Dispatcher.Invoke(() =>
+            string pas1 = null;
+            string pas2 = null;
+            string pas3 = null;
+            try
             {
-                try
+                if (txtNombre.Text != "" && txtRut.Text != "" && txtApPaterno.Text != "")
                 {
-
-                    string pas = txtNombre.Text;
-                    string pas2 = txtApPaterno.Text.Substring(0, 2).ToUpper();
-                    string pas3 = txtRut.Text.Substring(0, 2);
-                    contra = pas + pas2 + pas3;
-
-                    txtPass.Text = contra;
-                    txtUser.Text = txtRut.Text + '-' + txtDV.Text;
+                    pas3 = txtRut.Text.Substring(5, 3);
+                    pas2 = txtApPaterno.Text.Substring(0, 2).ToUpper();
+                    pas1 = txtNombre.Text;
+                    contra = pas1 + pas2 + pas3;
                     return contra;
-
                 }
-                catch (Exception ex)
+                else
                 {
+                    err.AgregarError("Debe ingresar rut, primer nombre y apellido paterno para generar una contraseña segura");
                     return null;
-                    MessageBox.Show("error metodo");
                 }
-            });
+            }
+            catch (Exception ex)
+            {
+                return null;
+                MessageBox.Show("error metodo");
+            }
 
-        }     
+
+        }
+        private async void btnGenerarPass_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (MetodoPass() != null)
+                {
+                    txtPass.Text = MetodoPass();
+                }
+                else
+                {
+                    DaoErrores de = retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Mensaje(ex.Message);
+            }
+        }
         //------------------------CRUD----------------------------------------------------------------
         //--------------------------------------------------------------------------------------------
 
-            //----------------Botón Guardar-----------------------
+        //----------------Botón Guardar-----------------------
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -338,12 +404,12 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-                
-                int celular = int.Parse(txtCelular.Text);   
+
+                int celular = int.Parse(txtCelular.Text);
                 //int celular = 0;
-                
-                int telefono = int.Parse(txtTelefono.Text); 
-                
+
+                int telefono = int.Parse(txtTelefono.Text);
+
                 String user = txtUser.Text;
                 //txtPass.Text = metodopass();
                 string pass = txtPass.Text;
@@ -352,14 +418,14 @@ namespace Vista
 
                 Empleado em = new Empleado()
                 {
-                    rut_empleado  = rut,
+                    rut_empleado = rut,
                     primer_nom_emp = Nombre,
                     segundo_nom_emp = segNombre,
                     apellido_pat_emp = apPaterno,
                     apellido_mat_emp = apMaterno,
                     celular_emp = celular,
                     telefono_emp = telefono,
-                    correo_emp = mail,                    
+                    correo_emp = mail,
                     id_tipo_user = tipo,
 
                 };
@@ -368,7 +434,7 @@ namespace Vista
                     usuario = user,
                     contrasenia = pass,
                 };
-                
+
                 bool resp = emp.Agregar(em, lo);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
@@ -394,7 +460,7 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format((exa.Message)));
-               
+
             }
             catch (Exception ex)
             {
@@ -419,7 +485,6 @@ namespace Vista
         {
             try
             {
-                h2.Abort();
                 txtUser.IsEnabled = false;
                 txtPass.IsEnabled = true;
                 String rut = txtRut.Text + "-" + txtDV.Text;
@@ -497,8 +562,6 @@ namespace Vista
         {
             try
             {
-                
-                h2.Abort();
                 txtUser.IsEnabled = false;
                 txtPass.IsEnabled = true;
                 String rut = txtRut.Text + "-" + txtDV.Text;
@@ -533,8 +596,6 @@ namespace Vista
                     btnModificar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
                     btnEliminar.Visibility = Visibility.Visible;
-
-                    h2.Abort();
 
                 }
                 else
@@ -680,7 +741,7 @@ namespace Vista
                 {
                     Empleado.ListaEmpleado c = (Empleado.ListaEmpleado)filecahe["empleado"];
                     //txtRut.Text = c.Rut;
-                                        
+
                     txtNombre.Text = c.Nombre;
                     txtSegNombre.Text = c.Segundo_Nombre;
                     txtApPaterno.Text = c.Apellido_Paterno;
@@ -690,9 +751,9 @@ namespace Vista
                     txtTelefono.Text = c.Teléfono.ToString();
                     txtUser.Text = c.Usuario;
                     txtPass.Text = c.Contraseña;
-                    
+
                     cboTipoUser.Text = c.Rol;//Cambiar a nombre
-                   
+
                     if (c.Rut != null)
                     {
                         txtRut.Text = c.Rut.Substring(0, 8);
@@ -722,12 +783,11 @@ namespace Vista
         {
             //Terminar con la tarea caché al cerrar la ventana
             hilo.Abort();
-            h2.Abort();
 
             //Parar Singleton
             _instancia = null;
         }
 
-        
+
     }
 }

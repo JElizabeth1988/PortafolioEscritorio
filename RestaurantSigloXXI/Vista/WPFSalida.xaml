@@ -32,17 +32,17 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+                <Button x:Name="btnSalir" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
                 <Label x:Name="label" Content="Número de Mesa:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,16,0,0" Width="118" FontSize="12"/>
                 <TextBox x:Name="txtCodigo"  Controls:TextBoxHelper.Watermark="Ingrese N°" HorizontalAlignment="Left" Height="23" Margin="126,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
-                <Button x:Name="btnCodigo" Content="Verificar" HorizontalAlignment="Left" Margin="239,16,0,218" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCodigo_Click"/>
+                <Button x:Name="btnCodigo" ToolTip="Verificar Número de Mesa"  Content="Verificar" HorizontalAlignment="Left" Margin="239,16,0,218" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCodigo_Click"/>
 
-                <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="388,196,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
+                <Button x:Name="btnRefrescar" ToolTip="Refrescar"  HorizontalAlignment="Left" Margin="388,196,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnSalida" Content="Notificar Salida" HorizontalAlignment="Left" Margin="248,200,0,0" VerticalAlignment="Top" Width="112"  FontWeight="Normal" Click="btnNotificar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+                <Button x:Name="btnSalida" ToolTip="Notificar Salida de Cliente"  Content="Notificar Salida" HorizontalAlignment="Left" Margin="248,200,0,0" VerticalAlignment="Top" Width="112"  FontWeight="Normal" Click="btnNotificar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
             </Grid>
         </GroupBox>
 

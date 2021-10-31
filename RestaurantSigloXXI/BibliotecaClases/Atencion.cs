@@ -135,7 +135,9 @@ namespace BibliotecaNegocio
                     i.mesa = int.Parse(reader[2].ToString());
                     i.estado = reader[3].ToString();
                     i.fecha = reader[4].ToString();
-                    
+                    i.hora_entrada = reader[5].ToString();
+                    i.hora_salida = reader[6].ToString();
+
                     //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(i);
                     contador = 1;

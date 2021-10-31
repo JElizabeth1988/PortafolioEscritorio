@@ -16,22 +16,20 @@ namespace BibliotecaDALC
     {
         public PLATO()
         {
-            this.MENU = new HashSet<MENU>();
+            this.ORDEN = new HashSet<ORDEN>();
         }
     
         public int ID_PLATO { get; set; }
         public string NOM_PLATO { get; set; }
         public int PRECIO_PLATO { get; set; }
         public string DESCRIPCION { get; set; }
-        public Nullable<int> TIEMPO_PREPARACION { get; set; }
+        public byte[] FOTO { get; set; }
         public string ESTADO { get; set; }
         public int ID_RECETA { get; set; }
         public int ID_CATEGORIA { get; set; }
-        public int ID_PRODUCTO { get; set; }
     
         public virtual CATEGORIA CATEGORIA { get; set; }
-        public virtual ICollection<MENU> MENU { get; set; }
-        public virtual PRODUCTO PRODUCTO { get; set; }
+        public virtual ICollection<ORDEN> ORDEN { get; set; }
         public virtual RECETA RECETA { get; set; }
     }
 }

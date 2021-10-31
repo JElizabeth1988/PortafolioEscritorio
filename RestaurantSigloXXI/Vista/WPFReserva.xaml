@@ -32,20 +32,20 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+                <Button x:Name="btnSalir" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
                 <Label x:Name="label" Content="Código de Reserva:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,3,0,0" Width="123" FontSize="12"/>
                 <TextBox x:Name="txtCodigo"  Controls:TextBoxHelper.Watermark="Ingrese Código" HorizontalAlignment="Left" Height="23" Margin="169,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
-                <Button x:Name="btnCodigo" Content="Verificar" HorizontalAlignment="Left" Margin="339,3,0,232" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCodigo_Click"/>
+                <Button x:Name="btnCodigo" ToolTip="Verificar Reserva por Código" Content="Verificar" HorizontalAlignment="Left" Margin="339,3,0,232" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCodigo_Click"/>
                 <Label x:Name="label_Copy" Content="Rut Cliente:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,36,0,0" Width="93" FontSize="12"/>
                 <TextBox x:Name="txtRut"  Controls:TextBoxHelper.Watermark="Ej. 11222333-1" HorizontalAlignment="Left" Height="23" Margin="170,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
-                <Button x:Name="btnRut" Content="Verificar" HorizontalAlignment="Left" Margin="339,36,0,198" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnRut_Click"/>
+                <Button x:Name="btnRut" ToolTip="Verificar Reserva por Rut de Cliente"  Content="Verificar" HorizontalAlignment="Left" Margin="339,36,0,198" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnRut_Click"/>
 
-                <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="675,226,0,-2" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
+                <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left" Margin="675,226,0,-2" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnIngreso" Content="Notificar Ingreso" HorizontalAlignment="Left" Margin="525,228,0,0" VerticalAlignment="Top" Width="112"  FontWeight="Normal" Click="btnNotificar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+                <Button x:Name="btnIngreso" ToolTip="Notificar Ingreso de Cliente"  Content="Notificar Ingreso" HorizontalAlignment="Left" Margin="525,228,0,0" VerticalAlignment="Top" Width="112"  FontWeight="Normal" Click="btnNotificar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
             </Grid>
         </GroupBox>
 

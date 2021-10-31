@@ -17,20 +17,18 @@ namespace BibliotecaDALC
         public PRODUCTO()
         {
             this.PEDIDO_PROVEEDOR = new HashSet<PEDIDO_PROVEEDOR>();
-            this.PLATO = new HashSet<PLATO>();
-            this.RECETA = new HashSet<RECETA>();
         }
     
         public int ID_PRODUCTO { get; set; }
         public string NOMBRE { get; set; }
-        public int VALOR { get; set; }
+        public Nullable<int> CANTIDAD_EMBASE { get; set; }
+        public string U_MEDIDA { get; set; }
+        public int VALOR_UNITARIO { get; set; }
         public int STOCK { get; set; }
         public Nullable<int> VALOR_TOTAL { get; set; }
         public int ID_TIPO_PRODUCTO { get; set; }
     
         public virtual ICollection<PEDIDO_PROVEEDOR> PEDIDO_PROVEEDOR { get; set; }
-        public virtual ICollection<PLATO> PLATO { get; set; }
         public virtual TIPO_PRODUCTO TIPO_PRODUCTO { get; set; }
-        public virtual ICollection<RECETA> RECETA { get; set; }
     }
 }

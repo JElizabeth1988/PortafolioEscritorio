@@ -232,11 +232,9 @@ namespace BibliotecaNegocio
                     i.Nombre = dr.GetValue(1).ToString();
                     i.Precio = "$ "+dr.GetValue(2).ToString();
                     i.Descripcion = dr.GetValue(3).ToString();
-                    i.Tiempo_Preparación = dr.GetValue(4).ToString()+ " Minutos";
                     i.Estado = dr.GetValue(5).ToString();
                     i.Receta = dr.GetValue(6).ToString();
                     i.Categoria = dr.GetValue(7).ToString();
-                    i.Producto = dr.GetValue(8).ToString();
 
                     lista.Add(i);
                 }

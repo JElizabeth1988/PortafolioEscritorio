@@ -32,19 +32,19 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnSalir" Content="Cancelar" HorizontalAlignment="Left" Margin="29,372,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+                <Button x:Name="btnSalir" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="29,372,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
                 <Label x:Name="label" Content="Fecha:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,3,0,0" Width="123" FontSize="12"/>
-                <Button x:Name="btnFecha" Content="Filtrar" HorizontalAlignment="Left" Margin="339,3,0,386" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFecha_Click"/>
+                <Button x:Name="btnFecha" ToolTip="Filtrar por Fecha" Content="Filtrar" HorizontalAlignment="Left" Margin="339,3,0,386" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFecha_Click"/>
                 <Label x:Name="label_Copy" Content="Rut Cliente:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,36,0,0" Width="93" FontSize="12"/>
                 <TextBox x:Name="txtRut"  Controls:TextBoxHelper.Watermark="Ej. 11222333-1" HorizontalAlignment="Left" Height="23" Margin="163,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
-                <Button x:Name="btnRut" Content="Filtrar" HorizontalAlignment="Left" Margin="339,36,0,354" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnRut_Click"/>
+                <Button x:Name="btnRut" ToolTip="Filtrar por Rut" Content="Filtrar" HorizontalAlignment="Left" Margin="339,36,0,354" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnRut_Click"/>
 
-                <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="745,370,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" RenderTransformOrigin="2.157,3.796"  >
+                <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left" Margin="745,370,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" RenderTransformOrigin="2.157,3.796"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnCambiar" Content="Cambiar Estado" HorizontalAlignment="Left" Margin="595,372,0,0" VerticalAlignment="Top" Width="112"  FontWeight="Normal" Click="btnCambiar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+                <Button x:Name="btnCambiar" ToolTip="Cambiar estado de la Orden" Content="Cambiar Estado" HorizontalAlignment="Left" Margin="595,372,0,0" VerticalAlignment="Top" Width="112"  FontWeight="Normal" Click="btnCambiar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
                 <DatePicker x:Name="dpFecha" HorizontalAlignment="Left" Margin="163,3,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="151"/>
             </Grid>
         </GroupBox>

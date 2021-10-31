@@ -123,7 +123,6 @@ namespace Vista
             }
 
             cboRol.SelectedIndex = 0;
-            emp.h2.Abort();
         }
 
         //-----------------Llamado desde Adm. Mesas---------------------------------
@@ -291,8 +290,6 @@ namespace Vista
                 emp.btnEliminar.Visibility = Visibility.Visible;
                 //Cerrar listado
                 Close();
-
-                emp.h2.Abort();
                 
             }
             catch (Exception ex)

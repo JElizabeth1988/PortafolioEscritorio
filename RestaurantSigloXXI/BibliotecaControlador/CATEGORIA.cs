@@ -16,14 +16,12 @@ namespace BibliotecaDALC
     {
         public CATEGORIA()
         {
-            this.MENU = new HashSet<MENU>();
             this.PLATO = new HashSet<PLATO>();
         }
     
         public int ID_CATEGORIA { get; set; }
         public string NOMBRE_CAT { get; set; }
     
-        public virtual ICollection<MENU> MENU { get; set; }
         public virtual ICollection<PLATO> PLATO { get; set; }
     }
 }
