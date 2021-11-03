@@ -88,6 +88,7 @@ namespace Vista
             cboCategoria.SelectedIndex = 0;
             cboFiltro.SelectedIndex = 0;
             txtPrecio.Text = "0";
+            txtStock.Text = "0";
             txtNomb.Focus();
 
             CargarGrilla();
@@ -144,14 +145,10 @@ namespace Vista
                 {
                     i.Descripcion = txtDescripcion.Text;
                 }
-               
-                if (rb_disponible.IsChecked == true)
+
+                if (txtStock.Text != null)
                 {
-                    i.Estado = "Disponible";
-                }
-                if (rb_NoDisponible.IsChecked == true)
-                {
-                    i.Estado = "No Disponible";
+                    i.Stock = txtStock.Text;
                 }
                 if (cboReceta.SelectedValue != null)
                 {
@@ -237,11 +234,13 @@ namespace Vista
             txtNomb.Clear();
             txtPrecio.Text = "0";
             txtDescripcion.Clear();
-            rb_disponible.IsChecked = true;
-            rb_NoDisponible.IsChecked = false;
+            
             cboReceta.SelectedIndex = 0;
             cboCategoria.SelectedIndex = 0;
             txtNomb.Focus();
+          
+            cboFiltro.SelectedIndex = 0;
+            txtStock.Text = "0";
 
             btnGuardar.Visibility = Visibility.Visible;
             btnModificar.Visibility = Visibility.Hidden;
@@ -277,14 +276,7 @@ namespace Vista
                 int precio = int.Parse(txtPrecio.Text);
                 string desc = txtDescripcion.Text;
                 string estado = null;
-                if (rb_disponible.IsChecked == true)
-                {
-                    estado = "Disponible";
-                }
-                if (rb_NoDisponible.IsChecked == true)
-                {
-                    estado = "No Disponible";
-                }
+                int stock = int.Parse(txtStock.Text);
                 int receta = ((comboBoxItem1)cboReceta.SelectedItem).id;//Guardo el id
                 int cat = ((comboBoxItem1)cboCategoria.SelectedItem).id;//Guardo el id
 
@@ -293,7 +285,7 @@ namespace Vista
                     nom_plato = nombre,
                     precio_plato = precio,
                     descripcion = desc,
-                    estado = estado,
+                    stock = stock,
                     id_receta = receta,
                     id_categoria = cat
                 };
@@ -357,14 +349,7 @@ namespace Vista
                 int precio = int.Parse(txtPrecio.Text);
                 string desc = txtDescripcion.Text;
                 string estado = null;
-                if (rb_disponible.IsChecked == true)
-                {
-                    estado = "Disponible";
-                }
-                if (rb_NoDisponible.IsChecked == true)
-                {
-                    estado = "No Disponible";
-                }
+                int stock = int.Parse(txtStock.Text);
                 int receta = ((comboBoxItem1)cboReceta.SelectedItem).id;//Guardo el id
                 int cat = ((comboBoxItem1)cboCategoria.SelectedItem).id;//Guardo el id
 
@@ -374,7 +359,7 @@ namespace Vista
                     nom_plato = nombre,
                     precio_plato = precio,
                     descripcion = desc,
-                    estado = estado,
+                    stock = stock,
                     id_receta = receta,
                     id_categoria = cat
                 };
@@ -488,16 +473,10 @@ namespace Vista
                 var largoP = (lp.Precio.Length - 2);
                 txtPrecio.Text = lp.Precio.Substring(2, largoP);
                 txtDescripcion.Text = lp.Descripcion;
+                var largoSt = (lp.Stock.Length - 2);
+                txtStock.Text = lp.Stock.Substring(0, largoSt);
 
-
-                if (lp.Estado == "Disponible")
-                {
-                    rb_disponible.IsChecked = true;
-                }
-                else
-                {
-                    rb_disponible.IsChecked = true;
-                }
+               
                 cboReceta.Text = lp.Receta;
                 cboCategoria.Text = lp.Categoria;
 
@@ -558,19 +537,10 @@ namespace Vista
 
                     txtPrecio.Text = lp.Precio;
                     txtDescripcion.Text = lp.Descripcion;
+                    txtStock.Text = lp.Stock;
 
                     cboReceta.Text = lp.Receta;
                     cboCategoria.Text = lp.Categoria;
-
-                    if (lp.Estado == "Disponible")
-                    {
-                        rb_disponible.IsChecked = true;
-                    }
-                    else
-                    {
-                        rb_NoDisponible.IsChecked = true;
-                    }
-
 
                 }
                 else

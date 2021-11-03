@@ -1,4 +1,4 @@
-﻿<Controls:MetroWindow x:Class="Vista.WPFProducto"
+﻿<Controls:MetroWindow x:Class="Vista.WPFStock"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,7 +10,7 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Administrar Producto" Height="628.311" Width="718.985" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/logoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+        Title="Administrar Stock de Producto" Height="628.311" Width="718.985" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/logoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
     <Grid HorizontalAlignment="Left" Height="663" VerticalAlignment="Top" Width="709" Margin="0,0,0,-67">
         <Image x:Name="image" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="720" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-11,0"/>
         <GroupBox x:Name="groupBox" Header="Información de Producto" Margin="22,3,20,0" VerticalAlignment="Top" Height="256" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
@@ -52,7 +52,7 @@
 
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox_Copy" Header="Listado de Productos" Margin="22,264,20,0" VerticalAlignment="Top" Height="255" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+        <GroupBox x:Name="groupBox_Copy" Header="Listado de Productos con bajo Stock" Margin="22,264,20,0" VerticalAlignment="Top" Height="255" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="657" Margin="0,-2,0,-3" Background="{x:Null}">
 
                 <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Height="147" Width="637" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow" >

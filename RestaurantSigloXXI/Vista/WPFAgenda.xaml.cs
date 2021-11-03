@@ -166,7 +166,7 @@ namespace Vista
                 }
                 if (txtHora.Text != null)
                 {
-                    ag.hora = ho + ":" + mi;
+                    ag.Desde = ho + ":" + mi;
                 }
 
                 //Proceso de respaldo
@@ -316,6 +316,7 @@ namespace Vista
             try
             {
                 DateTime Fecha = dpFecha.SelectedDate.Value.Date;
+                //------------------------------------
                 string hour = txtHora.Text;
                 if (hour.Length < 2)
                 {
@@ -326,7 +327,17 @@ namespace Vista
                 {
                     minuto = "0" + txtMinuto.Text;
                 }
-                string Hora = hour + ":" + minuto;
+                string HoraDesde = hour + ":" + minuto;
+                //--------------------------
+                int suma = (int.Parse(txtHora.Text)+1);
+                string horaSumada = suma.ToString();
+                if (horaSumada.Length < 2)
+                {
+                    horaSumada = "0" + horaSumada;//agrego un cero antes si es de 1 dígito
+                }
+               
+                string HoraHasta = horaSumada + ":" + minuto;
+
                 string disponible = null;
                 if (rbSi.IsChecked == true)
                 {
@@ -342,7 +353,8 @@ namespace Vista
                 Agenda agi = new Agenda()
                 {
                     fecha = Fecha,
-                    hora = Hora,
+                    hora_desde = HoraDesde,
+                    hora_hasta = HoraHasta,
                     disponibilidad = disponible,
                     num_mesa = mesa
 
@@ -404,6 +416,7 @@ namespace Vista
             {
                 int id = int.Parse(lblId.Content.ToString());
                 DateTime Fecha = dpFecha.SelectedDate.Value.Date;
+                //------------------------------------
                 string hour = txtHora.Text;
                 if (hour.Length < 2)
                 {
@@ -414,7 +427,16 @@ namespace Vista
                 {
                     minuto = "0" + txtMinuto.Text;
                 }
-                string Hora = hour + ":" + minuto;
+                string HoraDesde = hour + ":" + minuto;
+                //--------------------------
+                int suma = (int.Parse(txtHora.Text) + 1);
+                string horaSumada = suma.ToString();
+                if (horaSumada.Length < 2)
+                {
+                    horaSumada = "0" + horaSumada;//agrego un cero antes si es de 1 dígito
+                }
+
+                string HoraHasta = horaSumada + ":" + minuto;
                 string disponible = null;
                 if (rbSi.IsChecked == true)
                 {
@@ -431,7 +453,8 @@ namespace Vista
                 {
                     id_agenda = id,
                     fecha = Fecha,
-                    hora = Hora,
+                    hora_desde = HoraDesde,
+                    hora_hasta = HoraHasta,
                     disponibilidad = disponible,
                     num_mesa = mesa
 
@@ -557,8 +580,8 @@ namespace Vista
                 {
                     RbNo.IsChecked = true;
                 }
-                txtHora.Text = la.hora.Substring(0, 2);
-                txtMinuto.Text = la.hora.Substring(3, 2);
+                txtHora.Text = la.Desde.Substring(0, 2);
+                txtMinuto.Text = la.Desde.Substring(3, 2);
                 cboMesa.Text = la.Mesa.ToString();
 
                 btnGuardar.Visibility = Visibility.Hidden;
@@ -596,10 +619,10 @@ namespace Vista
                     {
                         RbNo.IsChecked = true;
                     }
-                    if (i.hora != null)
+                    if (i.Desde != null)
                     {
-                        txtHora.Text = i.hora.Substring(0, 2);
-                        txtMinuto.Text = i.hora.Substring(3, 2);
+                        txtHora.Text = i.Desde.Substring(0, 2);
+                        txtMinuto.Text = i.Desde.Substring(3, 2);
                     }
 
                 }

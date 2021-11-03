@@ -16,7 +16,8 @@ namespace BibliotecaNegocio
     {
         public int id_agenda { get; set; }
         public DateTime fecha { get; set; }
-        public string hora { get; set; }
+        public string hora_desde { get; set; }
+        public string hora_hasta { get; set; }
         public string disponibilidad { get; set; }
         public int num_mesa { get; set; }
                 
@@ -53,7 +54,8 @@ namespace BibliotecaNegocio
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
                 //CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = agendita.id_agenda;
                 CMD.Parameters.Add(new OracleParameter("P_FECHA", OracleDbType.Date)).Value = agendita.fecha;
-                CMD.Parameters.Add(new OracleParameter("P_HORA", OracleDbType.Varchar2, 5)).Value = agendita.hora;
+                CMD.Parameters.Add(new OracleParameter("P_HORAD", OracleDbType.Varchar2, 5)).Value = agendita.hora_desde;
+                CMD.Parameters.Add(new OracleParameter("P_HORAH", OracleDbType.Varchar2, 5)).Value = agendita.hora_hasta;
                 CMD.Parameters.Add(new OracleParameter("P_DISPONIBILIDAD", OracleDbType.Varchar2, 15)).Value = agendita.disponibilidad;
                 CMD.Parameters.Add(new OracleParameter("P_MESA", OracleDbType.Int32)).Value = agendita.num_mesa;
 
@@ -92,7 +94,8 @@ namespace BibliotecaNegocio
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = agendita.id_agenda;
                 CMD.Parameters.Add(new OracleParameter("P_FECHA", OracleDbType.Date)).Value = agendita.fecha;
-                CMD.Parameters.Add(new OracleParameter("P_HORA", OracleDbType.Varchar2, 5)).Value = agendita.hora;
+                CMD.Parameters.Add(new OracleParameter("P_HORAD", OracleDbType.Varchar2, 5)).Value = agendita.hora_desde;
+                CMD.Parameters.Add(new OracleParameter("P_HORAH", OracleDbType.Varchar2, 5)).Value = agendita.hora_hasta;
                 CMD.Parameters.Add(new OracleParameter("P_DISPONIBILIDAD", OracleDbType.Varchar2, 15)).Value = agendita.disponibilidad;
                 CMD.Parameters.Add(new OracleParameter("P_MESA", OracleDbType.Int32)).Value = agendita.num_mesa;
 
@@ -114,7 +117,7 @@ namespace BibliotecaNegocio
         }
 
         //------------------Método Buscar--------------
-        public void Buscar(int id)
+       /* public void Buscar(int id)
         {
             try
             {
@@ -141,7 +144,8 @@ namespace BibliotecaNegocio
 
                     id_agenda = int.Parse(reader[0].ToString());
                     fecha = DateTime.Parse(reader[1].ToString());
-                    hora = reader[2].ToString();
+                    hora_desde = reader[2].ToString();
+                    hora_hasta = reader[2].ToString();
                     disponibilidad = reader[3].ToString();
                     num_mesa = int.Parse(reader[4].ToString());
                     
@@ -157,7 +161,7 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);                
             }
-        }
+        }*/
 
 
 
@@ -227,9 +231,10 @@ namespace BibliotecaNegocio
                     //se obtiene el valor con getvalue es lo mismo pero con get
                     i.Id = int.Parse(dr.GetValue(0).ToString());
                     i.fecha = dr.GetValue(1).ToString();
-                    i.hora = dr.GetValue(2).ToString();
-                    i.disponibilidad = dr.GetValue(3).ToString();
-                    i.Mesa = int.Parse(dr.GetValue(4).ToString());
+                    i.Desde = dr.GetValue(2).ToString();
+                    i.Hasta = dr.GetValue(3).ToString();
+                    i.disponibilidad = dr.GetValue(4).ToString();
+                    i.Mesa = int.Parse(dr.GetValue(5).ToString());
                     
                     lista.Add(i);
                 }
@@ -280,9 +285,10 @@ namespace BibliotecaNegocio
                     //lee cada valor en su posición
                     e.Id = int.Parse(reader[0].ToString());
                     e.fecha = reader[1].ToString();
-                    e.hora = reader[2].ToString();
-                    e.disponibilidad = reader[3].ToString();
-                    e.Mesa = int.Parse(reader[4].ToString());
+                    e.Desde = reader[2].ToString();
+                    e.Hasta = reader[3].ToString();
+                    e.disponibilidad = reader[4].ToString();
+                    e.Mesa = int.Parse(reader[5].ToString());
                     
                     //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(e);
@@ -315,7 +321,8 @@ namespace BibliotecaNegocio
         {
             public int Id { get; set; }
             public string fecha { get; set; }
-            public string hora { get; set; }
+            public string Desde { get; set; }
+            public string Hasta { get; set; }
             public string disponibilidad { get; set; }
             public int Mesa { get; set; }
 
