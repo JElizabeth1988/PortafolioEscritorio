@@ -120,7 +120,7 @@ namespace Vista
                     if (cliente.Login(usuario, paswd) == 0)
                     {
                         await this.ShowMessageAsync("Mensaje:",
-                                            string.Format("¡Error de Credenciales!"));
+                                            string.Format("¡Error de Credenciales!"));  
 
                         txtUsuario.Clear();
                         TxtContrasenia.Clear();
