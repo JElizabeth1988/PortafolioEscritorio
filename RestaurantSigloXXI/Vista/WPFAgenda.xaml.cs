@@ -61,13 +61,31 @@ namespace Vista
 
         //Inicializar txthora y minuto
         int horita = int.Parse(DateTime.Now.Hour.ToString()),
-            minutin = int.Parse(DateTime.Now.Minute.ToString());
+           minutin = int.Parse(DateTime.Now.Minute.ToString());
+        
 
         public WPFAgenda()
         {
             InitializeComponent();
-            txtHora.Text = DateTime.Now.Hour.ToString();//Hora
-            txtMinuto.Text = DateTime.Now.Minute.ToString();//Minuto
+            string hori = DateTime.Now.Hour.ToString();
+            if (hori.Length < 2)
+            {
+                txtHora.Text = "0" + hori;
+            }
+            else
+            {
+                txtHora.Text = hori;
+            }
+            string minu = DateTime.Now.Minute.ToString();//Minuto
+            if (minu.Length < 2)
+            {
+                txtMinuto.Text = "0" + minu;
+            }
+            else
+            {
+                txtMinuto.Text = minu;
+            }
+            
             dpFiltro.SelectedDate = DateTime.Now;
 
             dpFecha.DisplayDate = DateTime.Now;
@@ -231,7 +249,15 @@ namespace Vista
             {
                 horita = 0;
             }
-            txtHora.Text = horita.ToString();
+            if (horita.ToString().Length < 2)
+            {
+                txtHora.Text = "0"+horita.ToString();
+            }
+            else
+            {
+                txtHora.Text = horita.ToString();
+            }
+            
         }
 
         private void btnMenosHora_Click(object sender, RoutedEventArgs e)
@@ -241,7 +267,14 @@ namespace Vista
             {
                 horita = 23;
             }
-            txtHora.Text = horita.ToString();
+            if (horita.ToString().Length < 2)
+            {
+                txtHora.Text = "0" + horita.ToString();
+            }
+            else
+            {
+                txtHora.Text = horita.ToString();
+            }
         }
 
         private void btnMasMin_Click(object sender, RoutedEventArgs e)
@@ -251,8 +284,15 @@ namespace Vista
             {
                 minutin = 0;
             }
-
-            txtMinuto.Text = minutin.ToString();
+            if (minutin.ToString().Length < 2)
+            {
+                txtMinuto.Text = "0" + minutin.ToString();
+            }
+            else
+            {
+                txtMinuto.Text = minutin.ToString();
+            }
+           
         }
 
         private void btnMenosMin_Click(object sender, RoutedEventArgs e)
@@ -262,7 +302,15 @@ namespace Vista
             {
                 minutin = 59;
             }
-            txtMinuto.Text = minutin.ToString();
+            if (minutin.ToString().Length < 2)
+            {
+                txtMinuto.Text = "0" + minutin.ToString();
+            }
+            else
+            {
+                txtMinuto.Text = minutin.ToString();
+            }
+
         }
         //----------------------------------------------------
         //-------Metodo limpiar-------------------
@@ -272,8 +320,24 @@ namespace Vista
             dpFecha.DisplayDate = DateTime.Now;
             dpFecha.SelectedDate = DateTime.Now;
             dpFiltro.SelectedDate = DateTime.Now;
-            txtHora.Text = DateTime.Now.Hour.ToString();//Hora
-            txtMinuto.Text = DateTime.Now.Minute.ToString();//Minuto
+            string hori = DateTime.Now.Hour.ToString();
+            if (hori.Length < 2)
+            {
+                txtHora.Text = "0" + hori;
+            }
+            else
+            {
+                txtHora.Text = hori;
+            }
+            string minu = DateTime.Now.Minute.ToString();//Minuto
+            if (minu.Length < 2)
+            {
+                txtMinuto.Text = "0" + minu;
+            }
+            else
+            {
+                txtMinuto.Text = minu;
+            }
             rbSi.IsChecked = true;
             RbNo.IsChecked = false;
             cboMesa.SelectedIndex = 0;
