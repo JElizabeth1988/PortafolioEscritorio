@@ -46,6 +46,9 @@
                 </Button>
                 <Button x:Name="btnCambiar" ToolTip="Cambiar Estado de la Orden"  Content="Cambiar Estado" HorizontalAlignment="Left" Margin="595,372,0,0" VerticalAlignment="Top" Width="112"  FontWeight="Normal" Click="btnCambiar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
                 <DatePicker x:Name="dpFecha" HorizontalAlignment="Left" Margin="163,3,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="151"/>
+                <Label x:Name="label1" Content="Seleccione Estado: " HorizontalAlignment="Left" Margin="242,376,0,0" VerticalAlignment="Top" Width="124"/>
+                <RadioButton x:Name="rbListo" Content="Listo" HorizontalAlignment="Left" Height="24" Margin="514,376,0,0" VerticalAlignment="Top" GroupName="estado"/>
+                <RadioButton x:Name="rbPreparación" Content="En Preparación" HorizontalAlignment="Left" Height="24" Margin="386,376,0,0" VerticalAlignment="Top" GroupName="estado" IsChecked="True"/>
             </Grid>
         </GroupBox>
 

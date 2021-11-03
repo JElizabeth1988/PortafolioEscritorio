@@ -199,7 +199,7 @@
     <Compile Include="comboBoxItem1.cs" />
     <Compile Include="ComboBoxItemTipoProducto.cs" />
     <Compile Include="ComboBoxItemTipoUser.cs" />
-    <Compile Include="NotificatioCenter.cs" />
+    <Compile Include="NotificationCenter.cs" />
     <Compile Include="Service References\WEBServiceLogin\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

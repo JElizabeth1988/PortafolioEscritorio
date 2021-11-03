@@ -183,9 +183,17 @@ namespace Vista
                 //Rescatar datos
                 Orden.ListaOrden2 i = (Orden.ListaOrden2)dgLista.SelectedItem;
                 int id = i.Id;
+                string estado = null;
+                if (rbListo.IsChecked == true)
+                {
+                    estado = "Listo";
+                }
+                else
+                {
+                    estado = "En Preparación";
+                }
 
-
-                bool resp = ord.CambiarEstado(id);
+               bool resp = ord.CambiarEstado(id, estado );
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Realizado" : "No Realizado"));
                 if (resp == true)

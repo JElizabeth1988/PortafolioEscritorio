@@ -379,75 +379,86 @@ namespace Vista
         {
             try
             {
-                DateTime Fecha = dpFecha.SelectedDate.Value.Date;
-                //------------------------------------
-                string hour = txtHora.Text;
-                if (hour.Length < 2)
+                if (dpFecha.SelectedDate.Value.Date >= DateTime.Now)
                 {
-                    hour = "0" + txtHora.Text;//agrego un cero antes si es de 1 dígito
-                }
-                string minuto = txtMinuto.Text;
-                if (minuto.Length < 2)
-                {
-                    minuto = "0" + txtMinuto.Text;
-                }
-                string HoraDesde = hour + ":" + minuto;
-                //--------------------------
-                int suma = (int.Parse(txtHora.Text)+1);
-                string horaSumada = suma.ToString();
-                if (horaSumada.Length < 2)
-                {
-                    horaSumada = "0" + horaSumada;//agrego un cero antes si es de 1 dígito
-                }
-               
-                string HoraHasta = horaSumada + ":" + minuto;
 
-                string disponible = null;
-                if (rbSi.IsChecked == true)
-                {
-                    disponible = "Disponible";
-                }
-                if (RbNo.IsChecked == true)
-                {
-                    disponible = "No Disponible";
-                }
-
-                int mesa = int.Parse(cboMesa.SelectedItem.ToString());
-
-                Agenda agi = new Agenda()
-                {
-                    fecha = Fecha,
-                    hora_desde = HoraDesde,
-                    hora_hasta = HoraHasta,
-                    disponibilidad = disponible,
-                    num_mesa = mesa
-
-                };
-
-                bool resp = horario.Agregar(agi);
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format(resp ? "Guardado" : "No Guardado"));
-
-                //-----------------------------------------------------------------------------------------------
-                //MOSTRAR LISTA DE ERRORES (validación de la clase)
-                if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
-                {
-                    DaoErrores de = agi.retornar();
-                    string li = "";
-                    foreach (string item in de.ListarErrores())
+                    DateTime Fecha = dpFecha.SelectedDate.Value.Date;
+                    //------------------------------------
+                    string hour = txtHora.Text;
+                    if (hour.Length < 2)
                     {
-                        li += item + " \n";
+                        hour = "0" + txtHora.Text;//agrego un cero antes si es de 1 dígito
                     }
+                    string minuto = txtMinuto.Text;
+                    if (minuto.Length < 2)
+                    {
+                        minuto = "0" + txtMinuto.Text;
+                    }
+                    string HoraDesde = hour + ":" + minuto;
+                    //--------------------------
+                    int suma = (int.Parse(txtHora.Text) + 1);
+                    string horaSumada = suma.ToString();
+                    if (horaSumada.Length < 2)
+                    {
+                        horaSumada = "0" + horaSumada;//agrego un cero antes si es de 1 dígito
+                    }
+
+                    string HoraHasta = horaSumada + ":" + minuto;
+
+                    string disponible = null;
+                    if (rbSi.IsChecked == true)
+                    {
+                        disponible = "Disponible";
+                    }
+                    if (RbNo.IsChecked == true)
+                    {
+                        disponible = "No Disponible";
+                    }
+
+                    int mesa = int.Parse(cboMesa.SelectedItem.ToString());
+
+                    Agenda agi = new Agenda()
+                    {
+                        fecha = Fecha,
+                        hora_desde = HoraDesde,
+                        hora_hasta = HoraHasta,
+                        disponibilidad = disponible,
+                        num_mesa = mesa
+
+                    };
+
+                    bool resp = horario.Agregar(agi);
                     await this.ShowMessageAsync("Mensaje:",
-                        string.Format(li));
+                          string.Format(resp ? "Guardado" : "No Guardado"));
+
+                    //-----------------------------------------------------------------------------------------------
+                    //MOSTRAR LISTA DE ERRORES (validación de la clase)
+                    if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
+                    {
+                        DaoErrores de = agi.retornar();
+                        string li = "";
+                        foreach (string item in de.ListarErrores())
+                        {
+                            li += item + " \n";
+                        }
+                        await this.ShowMessageAsync("Mensaje:",
+                            string.Format(li));
+                    }
+                    else
+                    {
+                        //Notificación (Actualiza la grilla en tiempo real)
+                        NotificationCenter.Notify("agenda_guardada");
+                        dpFecha.Focus();
+                        Limpiar();
+                    }
+
                 }
                 else
                 {
-                    //Notificación (Actualiza la grilla en tiempo real)
-                    NotificationCenter.Notify("agenda_guardada");
-                    dpFecha.Focus();
-                    Limpiar();
+                    await this.ShowMessageAsync("Error:",
+                      string.Format("La fecha no debe ser anterior a la fecha actual"));
                 }
+                
             }
             catch (ArgumentException exa)//mensajes de reglas de negocios
             {

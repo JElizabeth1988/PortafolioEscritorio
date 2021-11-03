@@ -161,6 +161,7 @@ namespace Vista
                 Reserva.ListaReserva i = (Reserva.ListaReserva)dgLista.SelectedItem;
                 string rut = i.rut_cliente;
                 int mesa = i.Mesa;
+                int reserva = i.Id;
 
                 Atencion a = new Atencion()
                 {
@@ -168,7 +169,12 @@ namespace Vista
                     mesa = mesa
 
                 };
-                bool resp = at.Entrada(a);
+
+                Reserva r = new Reserva()
+                {
+                    id_reserva = reserva
+                };
+                bool resp = at.Entrada(a, r);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Realizado" : "No Realizado"));
                 if (resp == true)

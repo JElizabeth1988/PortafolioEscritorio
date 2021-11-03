@@ -67,10 +67,11 @@ namespace BibliotecaNegocio
                     c.Cliente = reader[2].ToString();
                     c.Mesa = int.Parse(reader[3].ToString());
                     c.Fecha = reader[4].ToString();
-                    c.Hora = reader[5].ToString();
-                    c.cantidad_personas = int.Parse(reader[6].ToString());
-                    c.Estado = reader[7].ToString();
-                    c.Observaciones = reader[8].ToString();
+                    c.Desde = reader[5].ToString();
+                    c.Hasta = reader[6].ToString();
+                    c.cantidad_personas = int.Parse(reader[7].ToString());
+                    c.Estado = reader[8].ToString();
+                    c.Observaciones = reader[9].ToString();
 
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
@@ -132,10 +133,11 @@ namespace BibliotecaNegocio
                     c.Cliente = reader[2].ToString();
                     c.Mesa = int.Parse(reader[3].ToString());
                     c.Fecha = reader[4].ToString();
-                    c.Hora = reader[5].ToString();
-                    c.cantidad_personas = int.Parse(reader[6].ToString());
-                    c.Estado = reader[7].ToString();
-                    c.Observaciones = reader[8].ToString();
+                    c.Desde = reader[5].ToString();
+                    c.Hasta = reader[6].ToString();
+                    c.cantidad_personas = int.Parse(reader[7].ToString());
+                    c.Estado = reader[8].ToString();
+                    c.Observaciones = reader[9].ToString();
 
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
@@ -170,7 +172,8 @@ namespace BibliotecaNegocio
             public string Cliente { get; set; }
             public int Mesa { get; set; }
             public string Fecha { get; set; }
-            public string Hora { get; set; }
+            public string Desde { get; set; }
+            public string Hasta { get; set; }
             public int cantidad_personas { get; set; }
             public string Estado { get; set; }
             public string Observaciones { get; set; }

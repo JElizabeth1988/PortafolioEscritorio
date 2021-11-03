@@ -46,16 +46,7 @@ namespace Vista
 
                 //Si la respuesta no es cero quiere decir que es un usuario registrado que ingresó bien sus credenciales, 
                 //si es cero las credenciales no son válidas
-                if (cliente.Login(usuario, paswd) == 0)
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                                        string.Format("¡Error de Credenciales!"));
-
-                    txtUsuario.Clear();
-                    TxtContrasenia.Clear();
-                    txtUsuario.Focus();
-                }
-
+                
                 //Validar Credenciales en el WS
                 //Si el tipo de usuario es = 1 es un administrador
                 if (cliente.Login(usuario, paswd) == 1)
@@ -126,11 +117,24 @@ namespace Vista
                 //---Si es otro tipo de usuario no eestá autorizado para utilizar el sistema               
                 else
                 {
-                    await this.ShowMessageAsync("Error:",
+                    if (cliente.Login(usuario, paswd) == 0)
+                    {
+                        await this.ShowMessageAsync("Mensaje:",
+                                            string.Format("¡Error de Credenciales!"));
+
+                        txtUsuario.Clear();
+                        TxtContrasenia.Clear();
+                        txtUsuario.Focus();
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error:",
                       string.Format("Los sentimos, no tiene los suficientes permisos para utilizar este sistema"));
-                    txtUsuario.Clear();
-                    TxtContrasenia.Clear();
-                    txtUsuario.Focus();
+                        txtUsuario.Clear();
+                        TxtContrasenia.Clear();
+                        txtUsuario.Focus();
+                    }
+                    
                 }
 
 

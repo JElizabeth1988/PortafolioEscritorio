@@ -159,7 +159,38 @@ namespace Vista
             if (this.dgLista.Columns != null)
             {
                 this.dgLista.Columns[0].Visibility = Visibility.Collapsed;//id no se ve
-                this.dgLista.Columns[6].Visibility = Visibility.Collapsed;//hora de salida no se ve
+                //this.dgLista.Columns[5].Visibility = Visibility.Collapsed;//hora de salida no se ve
+            }
+        }
+
+        private async void btnVer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (at.ListarMesa() != null)
+                {
+                    dgLista.ItemsSource = at.ListarMesa();
+                    //Botón se ve
+                    btnSalida.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("");
+                    dt.Columns.Add("Mesas:");
+                    dt.Rows.Add("", "No existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+
             }
         }
     }

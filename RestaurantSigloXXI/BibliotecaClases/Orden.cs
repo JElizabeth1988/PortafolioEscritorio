@@ -437,7 +437,7 @@ namespace BibliotecaNegocio
         }
 
         //----------Método Cambiar estado de orden
-        public bool CambiarEstado(int id)
+        public bool CambiarEstado(int id, string estado)
         {
             try
             {
@@ -451,7 +451,8 @@ namespace BibliotecaNegocio
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_ESTADO_PEDIDO";
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
-                CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Varchar2, 12)).Value = id;
+                CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = id;
+                CMD.Parameters.Add(new OracleParameter("P_ESTADO", OracleDbType.Varchar2, 50)).Value = estado;
 
                 //Se abre la conexión
                 conn.Open();
