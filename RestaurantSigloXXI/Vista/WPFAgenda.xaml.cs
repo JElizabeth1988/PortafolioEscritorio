@@ -61,7 +61,7 @@ namespace Vista
 
         //Inicializar txthora y minuto
         int horita = int.Parse(DateTime.Now.Hour.ToString()),
-           minutin = int.Parse(DateTime.Now.Minute.ToString());
+           minutin = 00;
         
 
         public WPFAgenda()
@@ -76,7 +76,8 @@ namespace Vista
             {
                 txtHora.Text = hori;
             }
-            string minu = DateTime.Now.Minute.ToString();//Minuto
+            txtMinuto.Text = "00";
+            /*string minu = DateTime.Now.Minute.ToString();//Minuto
             if (minu.Length < 2)
             {
                 txtMinuto.Text = "0" + minu;
@@ -84,7 +85,7 @@ namespace Vista
             else
             {
                 txtMinuto.Text = minu;
-            }
+            }*/
             
             dpFiltro.SelectedDate = DateTime.Now;
 
@@ -329,7 +330,8 @@ namespace Vista
             {
                 txtHora.Text = hori;
             }
-            string minu = DateTime.Now.Minute.ToString();//Minuto
+            txtMinuto.Text = "00";
+           /* string minu = DateTime.Now.Minute.ToString();//Minuto
             if (minu.Length < 2)
             {
                 txtMinuto.Text = "0" + minu;
@@ -337,7 +339,7 @@ namespace Vista
             else
             {
                 txtMinuto.Text = minu;
-            }
+            }*/
             rbSi.IsChecked = true;
             RbNo.IsChecked = false;
             cboMesa.SelectedIndex = 0;
@@ -379,9 +381,8 @@ namespace Vista
         {
             try
             {
-                if (dpFecha.SelectedDate.Value.Date >= DateTime.Now)
+                if (dpFecha.SelectedDate.Value.Date >= DateTime.Today )
                 {
-
                     DateTime Fecha = dpFecha.SelectedDate.Value.Date;
                     //------------------------------------
                     string hour = txtHora.Text;
@@ -451,12 +452,12 @@ namespace Vista
                         dpFecha.Focus();
                         Limpiar();
                     }
-
+                   
                 }
                 else
                 {
                     await this.ShowMessageAsync("Error:",
-                      string.Format("La fecha no debe ser anterior a la fecha actual"));
+                     string.Format("La fecha no debe ser anterior a la fecha actual"));
                 }
                 
             }
