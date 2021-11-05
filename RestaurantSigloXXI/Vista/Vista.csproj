@@ -263,11 +263,20 @@
     <Compile Include="WPFSalida.xaml.cs">
       <DependentUpon>WPFSalida.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFStock.xaml.cs">
+      <DependentUpon>WPFStock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFStockPlato.xaml.cs">
+      <DependentUpon>WPFStockPlato.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFTableroEjecucion.xaml.cs">
       <DependentUpon>WPFTableroEjecucion.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFVerPedidosListos.xaml.cs">
       <DependentUpon>WPFVerPedidosListos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPSStockProducto.xaml.cs">
+      <DependentUpon>WPSStockProducto.xaml</DependentUpon>
     </Compile>
     <Page Include="WindowBodega.xaml">
       <SubType>Designer</SubType>
@@ -379,11 +388,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPFStock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WPFStockPlato.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPFTableroEjecucion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFVerPedidosListos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPSStockProducto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -528,6 +549,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\boleta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Beverage-Alcohol.png" />
+    <Resource Include="Imagenes\Beverage-Juice-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Soup-01.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

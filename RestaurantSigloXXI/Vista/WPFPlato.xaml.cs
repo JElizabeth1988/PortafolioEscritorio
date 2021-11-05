@@ -58,7 +58,7 @@ namespace Vista
         public WPFPlato()
         {
             InitializeComponent();
-
+            btnModificar.Visibility = Visibility.Hidden;
             //-------Cargar combobox----------------
             foreach (Receta item in new Receta().ReadAll())
             {

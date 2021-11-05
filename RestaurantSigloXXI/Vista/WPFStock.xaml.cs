@@ -13,16 +13,36 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
+
 namespace Vista
 {
     /// <summary>
     /// Lógica de interacción para WPFStock.xaml
     /// </summary>
-    public partial class WPFStock : Page
+    public partial class WPFStock : MetroWindow
     {
         public WPFStock()
         {
             InitializeComponent();
+            this.DataContext = this;
+        }
+        //------Productos
+        private void Productos_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //----Bebidas
+        private void Bebidas_Click(object sender, RoutedEventArgs e)
+        {
+           // WPFStockBebida.ObtenerinstanciaSBE().ShowDialog();
+        }
+        //--------Platos
+        private void Platos_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -14,11 +14,11 @@
     <Grid HorizontalAlignment="Left" Height="538" VerticalAlignment="Top" Width="1149" Margin="0,0,-27.667,-6.667">
         <Image x:Name="image" Height="493" VerticalAlignment="Top" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,50,0"/>
         <GroupBox x:Name="groupBox" Header="Información de Platos" Margin="34,22,706,0" VerticalAlignment="Top" Height="432" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-            <Grid HorizontalAlignment="Left" Height="485" VerticalAlignment="Top" Width="443" Margin="0,-29,-43.667,-2.667" Background="{x:Null}">
+            <Grid HorizontalAlignment="Left" Height="485" VerticalAlignment="Top" Width="409" Margin="0,-29,-9.667,-58.667" Background="{x:Null}">
                 <Label x:Name="label_Copy" Content="Descripción:" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <TextBox x:Name="txtNomb" HorizontalAlignment="Left" Height="23" Margin="152,40,0,0" mah:TextBoxHelper.Watermark="Ingrese Nombre"  TextWrapping="Wrap" VerticalAlignment="Top" Width="144" mah:TextBoxHelper.ClearTextButton="True"  FontWeight="Normal"/>
                 <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Precio" Height="8" Margin="152,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
-                <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese una Descripción" Height="130" Margin="152,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
+                <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese una Descripción" Height="130" Margin="152,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" SelectionBrush="#FFCB5F21" />
                 <ComboBox x:Name="cboReceta" HorizontalAlignment="Left" Margin="152,277,0,0" VerticalAlignment="Top" Width="144" FontWeight="Normal"/>
                 <ComboBox x:Name="cboCategoria" HorizontalAlignment="Left" Margin="152,310,0,0" VerticalAlignment="Top" Width="144" FontWeight="Normal"/>
 

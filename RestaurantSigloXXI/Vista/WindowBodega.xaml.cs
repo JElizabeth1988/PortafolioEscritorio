@@ -74,7 +74,8 @@ namespace Vista
         //-----------Stock--------------------
         private void Stock_Click(object sender, RoutedEventArgs e)
         {
-
+            WPFStock st = new WPFStock();
+            st.ShowDialog();
         }
         //------------Recetas-------------------
         private void Recetas_CLick(object sender, RoutedEventArgs e)

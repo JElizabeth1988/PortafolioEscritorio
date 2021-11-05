@@ -224,7 +224,7 @@
                 <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
             </Controls:Tile.Effect>
             <Grid Height="102" Width="147" >
-                <Image x:Name="image9" Height="66" VerticalAlignment="Top" Source="Imagenes/bebidas.png" Margin="36,5,36,0">
+                <Image x:Name="image9" Height="66" VerticalAlignment="Top" Source="Imagenes/Beverage-Alcohol.png" Margin="38,5,34,0">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
