@@ -58,10 +58,8 @@ namespace Vista
         public WPFStockBebida()
         {
             InitializeComponent();
-            txtMl.Text = "0";
             txtStock.Text = "0";
-            txtValor.Text = "0";
-
+            
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
 
             txtNombre.Focus();//Focus en el nombre
@@ -122,17 +120,7 @@ namespace Vista
                 {
                     be.Nombre = txtNombre.Text;
                 }
-
-                if (txtMl.Text != null)
-                {
-                    be.Ml = txtMl.Text;
-                }
-
-                if (txtValor.Text != null)
-                {
-                    be.Valor = txtValor.Text;
-                }
-
+                              
                 if (txtStock.Text != null)
                 {
                     be.Stock = txtStock.Text;
@@ -228,22 +216,17 @@ namespace Vista
         private void Limpiar()
         {
             lblId.Content = "";
-            txtNombre.Clear();
-            txtMl.Clear();
-            txtValor.Clear();
-            txtStock.Clear();
-            cboTipo.SelectedIndex = 0;
-            txtMl.Text = "0";
-            txtValor.Text = "0";
+            txtNombre.Clear();          
+            
             txtStock.Text = "0";
 
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
-            btnGuardar.Visibility = Visibility.Visible;
+            
             txtNombre.Focus();
 
             //Limpiar cache
             FileCache filecahe = new FileCache(new ObjectBinder());
-            filecahe.Remove("bebida", null);
+            filecahe.Remove("bebidaStock", null);
             try
             {
 
@@ -272,25 +255,13 @@ namespace Vista
         {
             try
             {
-                int id = int.Parse(lblId.Content.ToString());
-                string nombre = txtNombre.Text;
-                int ml = int.Parse(txtMl.Text);
-                int valor = int.Parse(txtValor.Text);
+                int id = int.Parse(lblId.Content.ToString());                
                 int stock = int.Parse(txtStock.Text);
-                int tipo = ((ComboBoxItemTipoProducto)cboTipo.SelectedItem).id_tipo_producto;//Guardo el id
-
-                Bebida b = new Bebida()
-                {
-                    id_bebida = id,
-                    nom_bebida = nombre,
-                    ml_bebida = ml,
-                    valor_bebida = valor,
-                    stock = stock,
-                    id_tipo_producto = tipo
-                };
-                bool resp = bebi.Actualizar(b);
+                
+                
+                bool resp = bebi.ActualizarStock(id,stock);
                 await this.ShowMessageAsync("Mensaje:",
-                     string.Format(resp ? "Actualizado" : "No Actualizado"));
+                     string.Format(resp ? "Stock Actualizado" : "No Actualizado"));
                 //Notificación (Actualiza la grilla en tiempo real)
                 NotificationCenter.Notify("bebida_actualizada");
                 txtNombre.Focus();
@@ -317,96 +288,7 @@ namespace Vista
             }
         }
 
-        //---Guardar------------------------------------------------------
-        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                //int id = int.Parse(txtNum.Text);
-                string nombre = txtNombre.Text;
-                int ml = int.Parse(txtMl.Text);
-                int valor = int.Parse(txtValor.Text);
-                int stock = int.Parse(txtStock.Text);
-                int tipo = ((ComboBoxItemTipoProducto)cboTipo.SelectedItem).id_tipo_producto;//Guardo el id
-
-
-                Bebida b = new Bebida()
-                {
-                    //id_bebida = id,
-                    nom_bebida = nombre,
-                    ml_bebida = ml,
-                    valor_bebida = valor,
-                    stock = stock,
-                    id_tipo_producto = tipo
-                };
-
-                bool resp = bebi.Agregar(b);
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format(resp ? "Guardado" : "No Guardado"));
-
-                if (resp == true)
-                {
-                    txtNombre.Focus();
-
-                    //Notificación (Actualiza la grilla en tiempo real)
-                    NotificationCenter.Notify("bebida_guardada");
-                    Limpiar();
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Error de ingreso de datos"));
-                Logger.Mensaje(ex.Message);
-            }
-        }
-        //---------Eliminar---------------------------------------------
-        private async void btnEliminar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                //Rescatar id
-                Bebida.ListaBebida b = (Bebida.ListaBebida)dgLista.SelectedItem;
-                int id = b.Id;
-
-                var x = await this.ShowMessageAsync("Eliminar Datos: ",
-                         "¿Está Seguro de eliminar? ",
-                        MessageDialogStyle.AffirmativeAndNegative);
-                if (x == MessageDialogResult.Affirmative)
-                {
-                    bool resp = bebi.Eliminar(id);//Entrega id por parametro
-                    if (resp == true)//Si el método fue éxitoso muestra el mensaje
-                    {
-                        await this.ShowMessageAsync("Éxito:",
-                          string.Format("Registro Eliminado"));
-                        //Notificación (Actualiza la grilla en tiempo real)
-                        NotificationCenter.Notify("bebida_borrada");
-                        Limpiar();
-                    }
-                    else
-                    {
-                        await this.ShowMessageAsync("Error:",
-                          string.Format("No Eliminado"));
-                    }
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                          string.Format("Operación Cancelada"));
-                }
-            }
-            catch (Exception ex)
-            {
-
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Error al Eliminar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
-                Logger.Mensaje(ex.Message);
-            }
-        }
-
+        
         //------Botón Filtrar x tipo
         private async void btnFiltrar_Click(object sender, RoutedEventArgs e)
         {
@@ -446,16 +328,14 @@ namespace Vista
             {
                 FileCache filecahe = new FileCache(new ObjectBinder());
 
-                if (filecahe["bebida"] != null)
+                if (filecahe["bebidaStock"] != null)
                 {
-                    Bebida.ListaBebida b = (Bebida.ListaBebida)filecahe["bebida"];
+                    Bebida.ListaBebida b = (Bebida.ListaBebida)filecahe["bebidaStock"];
 
                     lblId.Content = b.Id.ToString();
-                    txtNombre.Text = b.Nombre;
-                    txtMl.Text = b.Ml.ToString();
-                    txtValor.Text = b.Valor.ToString();
-                    txtStock.Text = b.Stock.ToString();
-                    cboTipo.Text = b.Tipo;
+                    txtNombre.Text = b.Nombre;                    
+                   
+                    txtStock.Text = b.Stock.ToString();                    
 
                 }
                 else
@@ -479,17 +359,10 @@ namespace Vista
                 Bebida.ListaBebida b = (Bebida.ListaBebida)dgLista.SelectedItem;
                 lblId.Content = b.Id.ToString();
                 txtNombre.Text = b.Nombre;
-
-                var mlLargo = (b.Ml.Length - 3);
-                var valLargo = (b.Valor.Length - 2);
-                var stoLargo = (b.Stock.Length - 9);
-
-                txtMl.Text = b.Ml.Substring(0, mlLargo);
-                txtValor.Text = b.Valor.Substring(2, valLargo);
+               
+                var stoLargo = (b.Stock.Length - 9);                
                 txtStock.Text = b.Stock.Substring(0, stoLargo);
-                cboTipo.Text = b.Tipo;
-
-                btnGuardar.Visibility = Visibility.Hidden;
+                
                 btnModificar.Visibility = Visibility.Visible;
             }
             catch (Exception ex)

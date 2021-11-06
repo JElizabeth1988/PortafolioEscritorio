@@ -266,6 +266,9 @@
     <Compile Include="WPFStock.xaml.cs">
       <DependentUpon>WPFStock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFStockBebida.xaml.cs">
+      <DependentUpon>WPFStockBebida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFStockPlato.xaml.cs">
       <DependentUpon>WPFStockPlato.xaml</DependentUpon>
     </Compile>
@@ -275,8 +278,8 @@
     <Compile Include="WPFVerPedidosListos.xaml.cs">
       <DependentUpon>WPFVerPedidosListos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPSStockProducto.xaml.cs">
-      <DependentUpon>WPSStockProducto.xaml</DependentUpon>
+    <Compile Include="WPFStockProducto.xaml.cs">
+      <DependentUpon>WPFStockProducto.xaml</DependentUpon>
     </Compile>
     <Page Include="WindowBodega.xaml">
       <SubType>Designer</SubType>
@@ -392,6 +395,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="WPFStockBebida.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="WPFStockPlato.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -404,7 +411,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPSStockProducto.xaml">
+    <Page Include="WPFStockProducto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

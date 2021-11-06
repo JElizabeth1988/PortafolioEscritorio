@@ -32,17 +32,17 @@ namespace Vista
         //------Productos
         private void Productos_Click(object sender, RoutedEventArgs e)
         {
-
+            WPFStockProducto.ObtenerinstanciaSPR().ShowDialog();
         }
         //----Bebidas
         private void Bebidas_Click(object sender, RoutedEventArgs e)
         {
-           // WPFStockBebida.ObtenerinstanciaSBE().ShowDialog();
+           WPFStockBebida.ObtenerinstanciaSBE().ShowDialog();
         }
         //--------Platos
         private void Platos_Click(object sender, RoutedEventArgs e)
         {
-
+            WPFStockPlato.ObtenerinstanciaSPL().ShowDialog();
         }
     }
 }

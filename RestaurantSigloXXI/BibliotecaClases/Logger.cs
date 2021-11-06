@@ -11,8 +11,17 @@ namespace BibliotecaNegocio
     {
         public static void Mensaje(String msg)
         {
+            string ruta = @"c:\log";
+
+            if (!Directory.Exists(ruta))
+            {                
+                DirectoryInfo di = Directory.CreateDirectory(ruta);
+            }
+
             msg = DateTime.Now + " | " + msg + Environment.NewLine;
-            File.AppendAllText(@"c:\log\logger.txt", msg);
+            
+            File.AppendAllText(@"c:\log\logger.txt", msg);           
+
 
             //Environment.NewLine: cambio de linea
             //DateTime.Now: fecha actual

@@ -63,7 +63,7 @@ namespace Vista
             InitializeComponent();
             txtTi_Coc.Text = "0";
             txtTPrep.Text = "0";
-            //txtTotal.Text = "0";
+            txtTotal.Text = "0";
             txtPorcion.Text = "0";
             CargarGrilla();
             btnModificar.Visibility = Visibility.Hidden;
@@ -227,7 +227,7 @@ namespace Vista
             txtNom_receta.Clear();
             txtTi_Coc.Text = "0";
             txtTPrep.Text = "0";
-            //txtTotal.Text = "0";
+            txtTotal.Text = "0";
             txtPorcion.Text = "0";
             txtInstrucciones.Clear();
             txtIngrediente.Clear();

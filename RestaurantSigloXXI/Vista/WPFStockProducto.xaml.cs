@@ -31,16 +31,16 @@ using System.Runtime.Caching;
 namespace Vista
 {
 
-    public partial class WPFStockPlato : MetroWindow
+    public partial class WPFStockProducto : MetroWindow
     {
         //PatronSingleton--------------------------
-        public static WPFStockPlato _instancia;
+        public static WPFStockProducto _instancia;
 
-        public static WPFStockPlato ObtenerinstanciaSPL()
+        public static WPFStockProducto ObtenerinstanciaSPR()
         {
             if (_instancia == null)
             {
-                _instancia = new WPFStockPlato();
+                _instancia = new WPFStockProducto();
             }
 
             return _instancia;
@@ -53,9 +53,9 @@ namespace Vista
         //Instanciar BD
         OracleConnection conn = null;
         //Traer clase Bebida
-        Plato pla = new Plato();
+        Producto pro = new Producto();
 
-        public WPFStockPlato()
+        public WPFStockProducto()
         {
             InitializeComponent();
             txtStock.Text = "0";
@@ -64,12 +64,12 @@ namespace Vista
 
             txtNombre.Focus();//Focus en el nombre
 
-            //filtro
-            foreach (Categoria item in new Categoria().ReadAll())
+            //Llenar el combobox
+            foreach (TipoProducto item in new TipoProducto().ReadAll())
             {
-                comboBoxItem1 cb = new comboBoxItem1();
-                cb.id = item.id_categoria;
-                cb.nombre = item.nombre_cat;
+                ComboBoxItemTipoProducto cb = new ComboBoxItemTipoProducto();
+                cb.id_tipo_producto = item.id_tipo_producto;
+                cb.nombre_tipo = item.nombre_tipo;
                 cbofiltro.Items.Add(cb);
             }
 
@@ -78,7 +78,7 @@ namespace Vista
             CargarGrilla();
             //Cuando se guarda una bebida nueva se refresca la grilla
 
-            NotificationCenter.Subscribe("plato_actualizado", CargarGrilla);
+            NotificationCenter.Subscribe("producto_actualizado", CargarGrilla);
 
 
             //---Tarea automática CACHÉ-------
@@ -109,30 +109,30 @@ namespace Vista
             {
 
                 //Llama a la clase cliente donde se gusradarán los datos
-                Plato.ListaPlato i = new Plato.ListaPlato();
+                Bebida.ListaBebida be = new Bebida.ListaBebida();
+
                 int id = 0;
                 if (int.TryParse(lblId.Content.ToString(), out id))
                 {
-                    i.Id = int.Parse(lblId.Content.ToString());
+                    be.Id = int.Parse(lblId.Content.ToString());
                 }
                 if (txtNombre.Text != null)
                 {
-                    i.Nombre = txtNombre.Text;
+                    be.Nombre = txtNombre.Text;
                 }
-                
+
                 if (txtStock.Text != null)
                 {
-                    i.Stock = txtStock.Text;
+                    be.Stock = txtStock.Text;
                 }
-                
+
                 //Proceso de respaldo
                 //Con la ampolleta agregó el using Runtime.Caching
                 FileCache filecahe = new FileCache(new ObjectBinder());
 
                 String hora = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
 
-
-                filecahe["platoStock"] = i;
+                filecahe["productoStock"] = be;
                 filecahe["hora"] = hora;
 
                 lblCache.Content = hora;
@@ -174,7 +174,7 @@ namespace Vista
                 //(() => { }); función anónima
                 Dispatcher.Invoke(() =>
                 {
-                    dgLista.ItemsSource = pla.Listar();
+                    dgLista.ItemsSource = pro.Listar();
                     dgLista.Items.Refresh();
                 });
             }
@@ -226,7 +226,7 @@ namespace Vista
 
             //Limpiar cache
             FileCache filecahe = new FileCache(new ObjectBinder());
-            filecahe.Remove("platoStock", null);
+            filecahe.Remove("productoStock", null);
             try
             {
 
@@ -259,11 +259,11 @@ namespace Vista
                 int stock = int.Parse(txtStock.Text);
 
 
-                bool resp = pla.ActualizarStock(id, stock);
+                bool resp = pro.ActualizarStock(id, stock);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Stock Actualizado" : "No Actualizado"));
                 //Notificación (Actualiza la grilla en tiempo real)
-                NotificationCenter.Notify("plato_actualizado");
+                NotificationCenter.Notify("producto_actualizado");
                 txtNombre.Focus();
 
                 //-----------------------------------------------------------------------------------------------
@@ -295,16 +295,16 @@ namespace Vista
             try
             {
                 string tipo = cbofiltro.Text;
-                if (pla.Filtrar(tipo) != null)
+                if (pro.Filtrar(tipo) != null)
                 {
-                    dgLista.ItemsSource = pla.Filtrar(tipo);
+                    dgLista.ItemsSource = pro.Filtrar(tipo);
                 }
                 else
                 {
                     dgLista.ItemsSource = null;
                     DataTable dt = new DataTable();
                     dt.Columns.Add("");
-                    dt.Columns.Add("Platos:");
+                    dt.Columns.Add("Productos:");
                     dt.Rows.Add("", "No existe información relacionada a su búsqueda");
                     dgLista.ItemsSource = dt.DefaultView;
                     cbofiltro.SelectedIndex = 0;
@@ -328,9 +328,9 @@ namespace Vista
             {
                 FileCache filecahe = new FileCache(new ObjectBinder());
 
-                if (filecahe["platoStock"] != null)
+                if (filecahe["productoStock"] != null)
                 {
-                    Bebida.ListaBebida b = (Bebida.ListaBebida)filecahe["platoStock"];
+                    Bebida.ListaBebida b = (Bebida.ListaBebida)filecahe["productoStock"];
 
                     lblId.Content = b.Id.ToString();
                     txtNombre.Text = b.Nombre;
@@ -356,11 +356,11 @@ namespace Vista
         {
             try
             {
-                Plato.ListaPlato b = (Plato.ListaPlato)dgLista.SelectedItem;
+                Producto.ListaProducto b = (Producto.ListaProducto)dgLista.SelectedItem;
                 lblId.Content = b.Id.ToString();
                 txtNombre.Text = b.Nombre;
 
-                var stoLargo = (b.Stock.Length - 3);
+                var stoLargo = (b.Stock.Length - 2);
                 txtStock.Text = b.Stock.Substring(0, stoLargo);
 
                 btnModificar.Visibility = Visibility.Visible;

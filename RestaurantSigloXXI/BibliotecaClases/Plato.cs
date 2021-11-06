@@ -233,7 +233,7 @@ namespace BibliotecaNegocio
                     i.Nombre = dr.GetValue(1).ToString();
                     i.Precio = "$ "+dr.GetValue(2).ToString();
                     i.Descripcion = dr.GetValue(3).ToString();
-                    i.Stock = dr.GetValue(4).ToString() + "U.";
+                    i.Stock = dr.GetValue(4).ToString() + " U.";
                     i.Receta = dr.GetValue(5).ToString();
                     i.Categoria = dr.GetValue(6).ToString();
 
@@ -287,7 +287,7 @@ namespace BibliotecaNegocio
                     i.Nombre = dr.GetValue(1).ToString();
                     i.Precio = "$ "+dr.GetValue(2).ToString();
                     i.Descripcion = dr.GetValue(3).ToString();
-                    i.Stock = dr.GetValue(4).ToString() + "U.";
+                    i.Stock = dr.GetValue(4).ToString() + " U.";
                     i.Receta = dr.GetValue(5).ToString();
                     i.Categoria = dr.GetValue(6).ToString();
 
@@ -312,6 +312,42 @@ namespace BibliotecaNegocio
                 conn.Close();
                 return null;
                 Logger.Mensaje(ex.Message);
+            }
+        }
+
+        //------------Método Actualizar Stock------------------------------------------
+        public bool ActualizarStock(int id, int stock)
+        {
+            try
+            {
+                //Instanciar la conexión
+                conn = new Conexion().Getcone();
+
+                OracleCommand CMD = new OracleCommand();
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_STOCK_PLATO";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = id;
+                CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = stock;
+
+                //Se abre la conexión
+                conn.Open();
+                //se ejecuta la query
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                //Retorno
+                return true;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                return false;
+                Logger.Mensaje(ex.Message);
+
             }
         }
 

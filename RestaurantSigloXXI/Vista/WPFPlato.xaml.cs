@@ -473,7 +473,7 @@ namespace Vista
                 var largoP = (lp.Precio.Length - 2);
                 txtPrecio.Text = lp.Precio.Substring(2, largoP);
                 txtDescripcion.Text = lp.Descripcion;
-                var largoSt = (lp.Stock.Length - 2);
+                var largoSt = (lp.Stock.Length - 3);
                 txtStock.Text = lp.Stock.Substring(0, largoSt);
 
                

@@ -327,30 +327,12 @@ namespace Vista
             catch (ArgumentException exa)//mensajes de reglas de negocios
             {
                 await this.ShowMessageAsync("Mensaje:",
-                      string.Format((exa.Message)));
-                DaoErrores de = cli.retornar();
-                string li = "";
-                foreach (string item in de.ListarErrores())
-                {
-                    li += item + " \n";
-                }
-                await this.ShowMessageAsync("Mensaje:",
-                    string.Format(li));
+                     string.Format((exa.Message)));
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Error de ingreso de datos"));
-                /*MessageBox.Show("Error de ingreso de datos");*/
-                Logger.Mensaje(ex.Message);
-                DaoErrores de = cli.retornar();
-                string li = "";
-                foreach (string item in de.ListarErrores())
-                {
-                    li += item + " \n";
-                }
-                await this.ShowMessageAsync("Mensaje:",
-                    string.Format(li));
+                      string.Format("Error de ingreso de datos"));                
 
             }
         }

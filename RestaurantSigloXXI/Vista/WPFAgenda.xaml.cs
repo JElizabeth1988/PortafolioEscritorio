@@ -87,7 +87,7 @@ namespace Vista
                 txtMinuto.Text = minu;
             }*/
             
-            dpFiltro.SelectedDate = DateTime.Now;
+            dpFiltro.SelectedDate = DateTime.Today;
 
             dpFecha.DisplayDate = DateTime.Now;
             dpFecha.SelectedDate = DateTime.Now;//Día actual
@@ -320,7 +320,7 @@ namespace Vista
             lblId.Content = "";
             dpFecha.DisplayDate = DateTime.Now;
             dpFecha.SelectedDate = DateTime.Now;
-            dpFiltro.SelectedDate = DateTime.Now;
+            dpFiltro.SelectedDate = DateTime.Today;
             string hori = DateTime.Now.Hour.ToString();
             if (hori.Length < 2)
             {
@@ -373,7 +373,7 @@ namespace Vista
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
             CargarGrilla();
-            dpFiltro.SelectedDate = DateTime.Now;
+            dpFiltro.SelectedDate = DateTime.Today;
         }
 
         //----------Botón Guardar-----------------------------------
@@ -399,6 +399,13 @@ namespace Vista
                     //--------------------------
                     int suma = (int.Parse(txtHora.Text) + 1);
                     string horaSumada = suma.ToString();
+                    if (horaSumada == "24")
+                    {
+                        horaSumada = "00"; if (horaSumada == "24")
+                        {
+                            horaSumada = "00";
+                        }
+                    }
                     if (horaSumada.Length < 2)
                     {
                         horaSumada = "0" + horaSumada;//agrego un cero antes si es de 1 dígito
@@ -507,6 +514,10 @@ namespace Vista
                 //--------------------------
                 int suma = (int.Parse(txtHora.Text) + 1);
                 string horaSumada = suma.ToString();
+                if (horaSumada == "24")
+                {
+                    horaSumada = "00";
+                }
                 if (horaSumada.Length < 2)
                 {
                     horaSumada = "0" + horaSumada;//agrego un cero antes si es de 1 dígito
@@ -646,8 +657,6 @@ namespace Vista
                 dpFecha.SelectedDate = fechita;
                 dpFecha.DisplayDate = fechita;
 
-
-
                 if (la.disponibilidad == "Disponible")
                 {
                     rbSi.IsChecked = true;
@@ -729,10 +738,11 @@ namespace Vista
                 {
                     dgLista.ItemsSource = null;
                     DataTable dt = new DataTable();
+                    dt.Columns.Add("");
                     dt.Columns.Add("Agenda:");
-                    dt.Rows.Add("No existe información relacionada a su búsqueda");
+                    dt.Rows.Add(" ","No existe información relacionada a su búsqueda");
                     dgLista.ItemsSource = dt.DefaultView;
-                    dpFiltro.SelectedDate = DateTime.Now;
+                    dpFiltro.SelectedDate = DateTime.Today;
 
                 }
 

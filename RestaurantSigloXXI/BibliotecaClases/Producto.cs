@@ -441,7 +441,41 @@ namespace BibliotecaNegocio
             }
 
         }
+        //------------Método Actualizar Stock------------------------------------------
+        public bool ActualizarStock(int id, int stock)
+        {
+            try
+            {
+                //Instanciar la conexión
+                conn = new Conexion().Getcone();
 
+                OracleCommand CMD = new OracleCommand();
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_STOCK_PRODUCTO";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = id;
+                CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = stock;
+
+                //Se abre la conexión
+                conn.Open();
+                //se ejecuta la query
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                //Retorno
+                return true;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                return false;
+                Logger.Mensaje(ex.Message);
+
+            }
+        }
 
         //Lista Clientes para mostrar nombres en vez de id (para procedimientos con Joins)
         [Serializable]

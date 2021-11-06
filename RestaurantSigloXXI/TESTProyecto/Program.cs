@@ -12,28 +12,24 @@ namespace TESTProyecto
     {
         static void Main(string[] args)
         {
-            /*TipoUsuario c = new TipoUsuario();
 
-            List<TipoUsuario> lista = c.ReadAll();
+            Cliente client = new Cliente();
 
-            foreach (TipoUsuario item in lista)
-            {
-                Console.WriteLine(item.descripcion_user);
-            }
-            Console.ReadKey();*/
 
-            /*var culture = new CultureInfo("es-ES");
-            DateTime fechin = DateTime.Parse("2021/10/05", culture);*/
+            //ARRANGE O PREPARACION
 
-            var texto = "hola mundo";
-            var largo = texto.Length - 5;
-            
-            Console.WriteLine(largo);
+            string rut = "16917764-9";
+          
+
+            //EJECUCION
+
+            bool result = client.Eliminar(rut);
+
+            Console.WriteLine(result);
             Console.ReadKey();
 
-
         }
-
+       
 
     }
 }

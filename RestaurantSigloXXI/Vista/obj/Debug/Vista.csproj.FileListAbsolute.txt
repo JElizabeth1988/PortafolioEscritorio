@@ -1049,7 +1049,9 @@ C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\ob
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFReceta.baml
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFStock.g.cs
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFStockPlato.g.cs
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPSStockProducto.g.cs
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFStock.baml
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFStockPlato.baml
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPSStockProducto.baml
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFStockBebida.g.cs
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFStockBebida.baml
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFStockProducto.g.cs
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFStockProducto.baml
