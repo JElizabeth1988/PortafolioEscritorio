@@ -38,7 +38,7 @@ namespace Vista
             try
             {
                 //Crear Cliente del WS
-                WEBServiceLogin.WSLOGINClient cliente = new WEBServiceLogin.WSLOGINClient();
+                WSLogin.WSLOGINClient cliente = new WSLogin.WSLOGINClient();
                 //Rescatar parámetros de los textBox
                 string usuario = txtUsuario.Text;
                 string paswd = TxtContrasenia.Password.ToString();

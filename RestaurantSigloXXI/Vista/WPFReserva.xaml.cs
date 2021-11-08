@@ -198,6 +198,37 @@ namespace Vista
 
             }
         }
+
+        private async void btnReservas_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {                
+                if (rs.Listar() != null)
+                {
+                    dgLista.ItemsSource = rs.Listar();
+                    //Botón se ve
+                    btnIngreso.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Reservas:");
+                    dt.Rows.Add("No Existe información relacionada a su búsqueda");
+                    dgLista.ItemsSource = dt.DefaultView;
+                    txtCodigo.Clear();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                Logger.Mensaje(ex.Message);
+
+            }
+        }
     }
 }
 

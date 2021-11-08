@@ -89,9 +89,6 @@ namespace Vista
             WPFTableroEjecucion.ObtenerinstanciaTE().ShowDialog();
         }
 
-        private void AdmPedidos_Click(object sender, RoutedEventArgs e)
-        {
-            WPFPedidos.ObtenerinstanciaPED().ShowDialog();
-        }
+       
     }
 }

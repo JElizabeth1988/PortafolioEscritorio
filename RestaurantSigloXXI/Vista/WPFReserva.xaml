@@ -46,6 +46,7 @@
                     </Button.Background>
                 </Button>
                 <Button x:Name="btnIngreso" ToolTip="Notificar Ingreso de Cliente"  Content="Notificar Ingreso" HorizontalAlignment="Left" Margin="525,228,0,0" VerticalAlignment="Top" Width="112"  FontWeight="Normal" Click="btnNotificar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+                <Button x:Name="btnReservas" ToolTip="Verificar Reservas" Content="?" HorizontalAlignment="Left" Margin="426,3,0,232" Width="25" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnReservas_Click"/>
             </Grid>
         </GroupBox>
 

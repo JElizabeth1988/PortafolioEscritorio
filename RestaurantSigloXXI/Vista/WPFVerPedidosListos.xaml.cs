@@ -52,8 +52,7 @@ namespace Vista
         {
             InitializeComponent();
             //Inicializar datePicker en la fecha actual
-            dpFecha.SelectedDate = DateTime.Now;//Día actual
-           
+                     
             //Cargar Grilla
             CargarGrilla();
 
@@ -81,40 +80,10 @@ namespace Vista
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
             txtFiltroRut.Clear();
-            dpFecha.SelectedDate = DateTime.Now;
+           
             CargarGrilla();
         }
-        //---------FiltroFecha------------------------------------------
-        private async void btnFiltroFecha_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                String fecha = dpFecha.Text;
-                if (ord.FiltrarFecha(fecha) != null)
-                {
-                    dgLista.ItemsSource = ord.FiltrarFecha(fecha);
-                }
-                else
-                {
-                    dgLista.ItemsSource = null;
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("");
-                    dt.Columns.Add("Pedidos:");                    
-                    dt.Rows.Add("","No hay información relacionada a su búsqueda");
-                    dgLista.ItemsSource = dt.DefaultView;
-                    txtFiltroRut.Clear();
-                    dpFecha.SelectedDate = DateTime.Now;
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Error al filtrar la Información"));
-                Logger.Mensaje(ex.Message);
-                CargarGrilla();
-            }
-        }
+       
         //---------Filtro Rut cliente----------------------------
         private async void btnFiltro_Click(object sender, RoutedEventArgs e)
         {
@@ -134,7 +103,7 @@ namespace Vista
                     dt.Rows.Add("", "No hay información relacionada a su búsqueda");
                     dgLista.ItemsSource = dt.DefaultView;
                     txtFiltroRut.Clear();
-                    dpFecha.SelectedDate = DateTime.Now;
+                    
                 }
                 
             }

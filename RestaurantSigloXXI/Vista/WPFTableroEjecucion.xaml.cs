@@ -51,7 +51,7 @@ namespace Vista
         {
             InitializeComponent();
             CargarGrilla();
-            dpFecha.SelectedDate = DateTime.Now;
+            
             //Cuando se guarda una mesa nueva se refresca la grilla
             NotificationCenter.Subscribe("orden_cambiada", CargarGrilla);
         }
@@ -114,36 +114,7 @@ namespace Vista
             }
         }
 
-        private async void btnFecha_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                String fecha = dpFecha.Text;
-                if (ord.FiltrarFechaTablero(fecha) != null)
-                {
-                    dgLista.ItemsSource = ord.FiltrarFechaTablero(fecha);
-                }
-                else
-                {
-                    dgLista.ItemsSource = null;
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("");
-                    dt.Columns.Add("Órdenes:");
-                    dt.Rows.Add("", "No hay información relacionada a su búsqueda");
-                    dgLista.ItemsSource = dt.DefaultView;
-                    txtRut.Clear();
-                    dpFecha.SelectedDate = DateTime.Now;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Error al filtrar la Información"));
-                Logger.Mensaje(ex.Message);
-                CargarGrilla();
-            }
-        }
+        
 
         private async void btnRut_Click(object sender, RoutedEventArgs e)
         {
@@ -163,7 +134,7 @@ namespace Vista
                     dt.Rows.Add("", "No hay información relacionada a su búsqueda");
                     dgLista.ItemsSource = dt.DefaultView;
                     txtRut.Clear();
-                    dpFecha.SelectedDate = DateTime.Now;
+                    
                 }
 
             }

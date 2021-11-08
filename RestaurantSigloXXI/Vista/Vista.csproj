@@ -200,7 +200,7 @@
     <Compile Include="ComboBoxItemTipoProducto.cs" />
     <Compile Include="ComboBoxItemTipoUser.cs" />
     <Compile Include="NotificationCenter.cs" />
-    <Compile Include="Service References\WEBServiceLogin\Reference.cs">
+    <Compile Include="Service References\WSLogin\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -244,9 +244,6 @@
     <Compile Include="ObjectBinder.cs" />
     <Compile Include="WPFMesa.xaml.cs">
       <DependentUpon>WPFMesa.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WPFPedidos.xaml.cs">
-      <DependentUpon>WPFPedidos.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFPlato.xaml.cs">
       <DependentUpon>WPFPlato.xaml</DependentUpon>
@@ -367,10 +364,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPFPedidos.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="WPFPlato.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -440,17 +433,26 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\WEBServiceLogin\Vista.WEBServiceLogin.Cliente_activoResponse.datasource">
+    <None Include="Service References\WSLogin\Vista.WSLogin.Cliente_activoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\WEBServiceLogin\Vista.WEBServiceLogin.LoginResponse.datasource">
+    <None Include="Service References\WSLogin\Vista.WSLogin.correoCliResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\WEBServiceLogin\Vista.WEBServiceLogin.Sacar_rutClienteResponse.datasource">
+    <None Include="Service References\WSLogin\Vista.WSLogin.LoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\WEBServiceLogin\WSLOGIN.wsdl" />
-    <None Include="Service References\WEBServiceLogin\WSLOGIN.xsd">
+    <None Include="Service References\WSLogin\Vista.WSLogin.nombreClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSLogin\Vista.WSLogin.sacarIdPedidoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSLogin\Vista.WSLogin.Sacar_rutClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSLogin\WSLOGIN.wsdl" />
+    <None Include="Service References\WSLogin\WSLOGIN.xsd">
       <SubType>Designer</SubType>
     </None>
     <Resource Include="Imagenes\Business-Man02.png" />
@@ -534,21 +536,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WEBServiceLogin\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WEBServiceLogin\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WEBServiceLogin\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WEBServiceLogin\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Imagenes\table.png" />
   </ItemGroup>
   <ItemGroup>
@@ -563,6 +550,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Soup-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WSLogin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSLogin\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSLogin\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSLogin\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

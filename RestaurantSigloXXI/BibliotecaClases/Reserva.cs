@@ -164,6 +164,71 @@ namespace BibliotecaNegocio
             }
         }
 
+        //------Listar
+        public List<ListaReserva> Listar()
+        {
+            try
+            {
+                int contador = 0;
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //Lista
+                List<ListaReserva> lista = new List<ListaReserva>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_VER_RESERVA";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("RESERVAS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                //Reader
+                OracleDataReader reader = CMD.ExecuteReader();
+                //Mientras lee
+                while (reader.Read())
+                {
+                    ListaReserva c = new ListaReserva();
+
+                    //lee cada valor en su posición
+                    c.Id = int.Parse(reader[0].ToString());
+                    c.rut_cliente = reader[1].ToString();
+                    c.Cliente = reader[2].ToString();
+                    c.Mesa = int.Parse(reader[3].ToString());
+                    c.Fecha = reader[4].ToString();
+                    c.Desde = reader[5].ToString();
+                    c.Hasta = reader[6].ToString();
+                    c.cantidad_personas = int.Parse(reader[7].ToString());
+                    c.Estado = reader[8].ToString();
+                    c.Observaciones = reader[9].ToString();
+
+
+                    //Agrega los valores a la lista, que luego es devuelta por el método
+                    lista.Add(c);
+                    contador = 1;
+                }
+                conn.Close();
+                if (contador == 1)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                return null;
+                Logger.Mensaje(ex.Message);
+
+            }
+        }
         //--Lista-------------------------
         public class ListaReserva
         {

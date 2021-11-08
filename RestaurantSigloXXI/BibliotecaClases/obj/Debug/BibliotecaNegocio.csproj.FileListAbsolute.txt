@@ -82,3 +82,14 @@ C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\Bibliot
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.csprojResolveAssemblyReference.cache
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.dll
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio1\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.pdb
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\BibliotecaNegocio.dll.config
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\BibliotecaNegocio.dll
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\BibliotecaDALC.dll
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\EntityFramework.dll
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\BibliotecaDALC.pdb
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Debug\EntityFramework.xml
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.dll
+C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Debug\BibliotecaNegocio.pdb
