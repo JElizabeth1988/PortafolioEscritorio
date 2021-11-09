@@ -256,6 +256,7 @@ namespace Vista
 
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnGuardar.Visibility = Visibility.Visible;
+            btnCache.Visibility = Visibility.Visible;
             txtNombre.Focus();
 
             //Limpiar cache
@@ -508,6 +509,7 @@ namespace Vista
 
                 btnGuardar.Visibility = Visibility.Hidden;
                 btnModificar.Visibility = Visibility.Visible;
+                btnCache.Visibility = Visibility.Hidden;
             }
             catch (Exception ex)
             {

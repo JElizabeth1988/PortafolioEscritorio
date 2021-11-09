@@ -578,7 +578,7 @@ namespace Vista
 
                     lblId.Content = p.Id.ToString();
                     txtNomProd.Text = p.Nombre;
-                    txtCantidad.Text = p.Categoria.ToString();
+                    txtCantidad.Text = p.Contenido.ToString();
                                         
                     txtValorUnidad.Text = p.Valor;
                     txtValorTotal.Text = p.Total;

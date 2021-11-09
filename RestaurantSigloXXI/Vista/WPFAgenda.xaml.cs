@@ -347,6 +347,7 @@ namespace Vista
 
             btnGuardar.Visibility = Visibility.Visible;
             btnModificar.Visibility = Visibility.Hidden;
+            btnCache.Visibility = Visibility.Visible;
 
             //Limpiar cache
             FileCache filecahe = new FileCache(new ObjectBinder());
@@ -671,6 +672,7 @@ namespace Vista
 
                 btnGuardar.Visibility = Visibility.Hidden;
                 btnModificar.Visibility = Visibility.Visible;
+                btnCache.Visibility = Visibility.Hidden;
             }
             catch (Exception ex)
             {

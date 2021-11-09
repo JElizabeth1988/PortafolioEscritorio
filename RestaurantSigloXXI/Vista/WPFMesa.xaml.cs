@@ -244,6 +244,7 @@ namespace Vista
 
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnGuardar.Visibility = Visibility.Visible;
+            btnCache.Visibility = Visibility.Visible;
             //btnEliminar.Visibility = Visibility.Hidden;
             rb_NoDisponible.Focus();//Focus en el radioButton
             txtRut.Clear();
@@ -590,6 +591,7 @@ namespace Vista
 
                 btnGuardar.Visibility = Visibility.Hidden;
                 btnModificar.Visibility = Visibility.Visible;
+                btnCache.Visibility = Visibility.Hidden;
             }
             catch (Exception ex)
             {

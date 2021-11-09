@@ -31,7 +31,7 @@
         <Image x:Name="images" HorizontalAlignment="Left" Margin="603,0,0,448" Width="156" Source="Imagenes/logoFinal3.png" Height="99" VerticalAlignment="Bottom"/>
         <GroupBox x:Name="GroupBox_mesas" Header="Mesas" Margin="41,127,53.333,26"  Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21" >
             <Grid>
-                <DataGrid x:Name="dgLista" Margin="24,40,23,49" FontWeight="Normal"></DataGrid>
+                <DataGrid x:Name="dgLista" IsReadOnly="True" Margin="24,40,23,49" FontWeight="Normal"></DataGrid>
                 <Button x:Name="btnSalir" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="24,335,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
                 <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" Margin="672,327,0,0"  >
                     <Button.Background>

@@ -19,7 +19,7 @@
         <GroupBox x:Name="gbFiltrar" Header="Tablero de Ejecución" Margin="41,21,42.333,31"  Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="416" Margin="10,4,-0.333,0" VerticalAlignment="Top" Width="823">
                 <Image x:Name="images" HorizontalAlignment="Left" Margin="625,0,0,356" Width="156" Source="Imagenes/logoFinal3.png"/>
-                <DataGrid x:Name="dgLista" Margin="29,65,42,0" VerticalAlignment="Top" Height="281" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow" >
+                <DataGrid x:Name="dgLista" IsReadOnly="True" Margin="29,65,42,0" VerticalAlignment="Top" Height="281" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow" >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">

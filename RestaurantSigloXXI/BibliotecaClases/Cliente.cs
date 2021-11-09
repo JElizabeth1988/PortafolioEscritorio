@@ -114,23 +114,7 @@ namespace BibliotecaNegocio
         }*/
 
         public int telefono_cli { get; set; }
-        /*private int _telefono;
-
-        public int telefono_cli
-         {
-             get { return _telefono; }
-             set {
-                     if (value != 0 )
-                     {
-                         _telefono = value;
-                     }
-                     else
-                     {
-                         err.AgregarError("Campo Teléfono no puede estar Vacío");
-                         //throw new ArgumentException("- Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
-                     }
-             }
-         }*/
+       
 
         private string _correo_cli;
         public string correo_cli

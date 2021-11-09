@@ -510,7 +510,7 @@ namespace BibliotecaNegocio
                     i.Estado = dr.GetValue(7).ToString();
                     i.Plato = dr.GetValue(8).ToString();
                     i.Receta = dr.GetValue(9).ToString();
-                    i.tiempo_cocción = dr.GetValue(10).ToString() + " Minutos";
+                    i.tiempoPreparación = dr.GetValue(10).ToString() + " Minutos";
                     i.Bebida = dr.GetValue(11).ToString();
                     i.Garzón = dr.GetValue(12).ToString();
 
@@ -571,7 +571,7 @@ namespace BibliotecaNegocio
                     i.Estado = reader[7].ToString();
                     i.Plato = reader[8].ToString();
                     i.Receta = reader[9].ToString();
-                    i.tiempo_cocción = reader[10].ToString() + " Minutos";
+                    i.tiempoPreparación = reader[10].ToString() + " Minutos";
                     i.Bebida = reader[11].ToString();
                     i.Garzón = reader[12].ToString();
                                         
@@ -639,7 +639,7 @@ namespace BibliotecaNegocio
                     i.Estado = reader[7].ToString();
                     i.Plato = reader[8].ToString();
                     i.Receta = reader[9].ToString();
-                    i.tiempo_cocción = reader[10].ToString() + " Minutos";
+                    i.tiempoPreparación = reader[10].ToString() + " Minutos";
                     i.Bebida = reader[11].ToString();
                     i.Garzón = reader[12].ToString();
 
@@ -700,13 +700,12 @@ namespace BibliotecaNegocio
             public string Hora { get; set; }
             public string Estado { get; set; }
             public string Detalle { get; set; }
-            
+            public string Cantidad { get; set; }
             public string Plato { get; set; }
             public string Receta { get; set; }
-            public string tiempo_cocción { get; set; }
+            public string tiempoPreparación { get; set; }
             public string Bebida { get; set; }
-            public string Cantidad { get; set; }
-
+            
             public string Garzón { get; set; }
             public string Rut_Cliente { get; set; }
             public string Cliente { get; set; }

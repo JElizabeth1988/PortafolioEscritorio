@@ -58,7 +58,7 @@
         <GroupBox x:Name="groupBox_Copy" Header="Listado de Recetas" Margin="22,222,37,0" VerticalAlignment="Top" Height="302" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="273" VerticalAlignment="Top" Width="1105" Margin="0,-2,-0.333,-4.333" Background="{x:Null}">
 
-                <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="18,6,0,0" VerticalAlignment="Top" Height="221" Width="1074" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black"  >
+                <DataGrid x:Name="dgLista" IsReadOnly="True" HorizontalAlignment="Left" Margin="18,6,0,0" VerticalAlignment="Top" Height="221" Width="1074" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black"  >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">

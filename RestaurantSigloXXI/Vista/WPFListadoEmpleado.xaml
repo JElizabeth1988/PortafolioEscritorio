@@ -17,7 +17,7 @@
 
         <Image x:Name="image" HorizontalAlignment="Left" Height="437" VerticalAlignment="Top" Width="879" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-14.333,-0.333"/>
         <Button x:Name="btnPasar" ToolTip="Traspasar Información" Content="Traspasar" HorizontalAlignment="Left" Margin="529,377,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnPasar_Click"/>
-        <DataGrid x:Name="dgLista" Margin="41,145,52.667,0" VerticalAlignment="Top" Height="212" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" >
+        <DataGrid x:Name="dgLista" IsReadOnly="True" Margin="41,145,52.667,0" VerticalAlignment="Top" Height="212" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">

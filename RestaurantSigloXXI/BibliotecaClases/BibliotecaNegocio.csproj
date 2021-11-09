@@ -56,11 +56,9 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="CommonBC.cs" />
     <Compile Include="DaoErrores.cs" />
-    <Compile Include="DetallePedido.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Login.cs" />
-    <Compile Include="Menu.cs" />
     <Compile Include="Mesa.cs" />
     <Compile Include="Orden.cs" />
     <Compile Include="Plato.cs" />

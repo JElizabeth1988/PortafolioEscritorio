@@ -50,7 +50,7 @@
         <GroupBox x:Name="groupBox_Copy" Header="Listado de Platos" Margin="448,89,91,0" VerticalAlignment="Top" Height="291" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="260" VerticalAlignment="Top" Width="606" Margin="0,-2,-6,-2" Background="{x:Null}">
 
-                <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="18,38,0,0" VerticalAlignment="Top" Height="173" Width="565" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
+                <DataGrid x:Name="dgLista" IsReadOnly="True" HorizontalAlignment="Left" Margin="18,38,0,0" VerticalAlignment="Top" Height="173" Width="565" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">

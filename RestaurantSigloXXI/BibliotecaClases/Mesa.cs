@@ -307,9 +307,10 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return null;
                 Logger.Mensaje(ex.Message);
-                conn.Close();
+                
 
             }
 
@@ -370,9 +371,10 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return null;
                 Logger.Mensaje(ex.Message);
-                conn.Close();
+                
 
             }
 

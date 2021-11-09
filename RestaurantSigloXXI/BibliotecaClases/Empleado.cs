@@ -114,23 +114,7 @@ namespace BibliotecaNegocio
         }*/
 
         public int telefono_emp { get; set; }
-        /*private int _telefono;
-
-        public int telefono_cli
-         {
-             get { return _telefono; }
-             set {
-                     if (value != 0 )
-                     {
-                         _telefono = value;
-                     }
-                     else
-                     {
-                         err.AgregarError("Campo Teléfono no puede estar Vacío");
-                         //throw new ArgumentException("- Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
-                     }
-             }
-         }*/
+       
 
         private string _correo;
         public string correo_emp
@@ -257,9 +241,9 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
+                conn.Close();
                 Logger.Mensaje(ex.Message);
-                return false;
-                conn.Close();             
+                return false;                            
 
             }
         }
@@ -302,10 +286,10 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
+                conn.Close();
                 return false;
                 Logger.Mensaje(ex.Message);
-                conn.Close();
+                
             }
         }
 
@@ -357,8 +341,9 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-                Logger.Mensaje(ex.Message);
                 conn.Close();
+                Logger.Mensaje(ex.Message);
+                
             }
         }
 
@@ -391,10 +376,10 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
+                conn.Close();
                 return false;
                 Logger.Mensaje(ex.Message);
-                conn.Close();
+               
 
             }
         }
@@ -450,9 +435,10 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return null;
                 Logger.Mensaje(ex.Message);
-                conn.Close();
+                
             }
         }
 
@@ -517,9 +503,10 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return null;
                 Logger.Mensaje(ex.Message);
-                conn.Close();
+                
 
             }
 
@@ -585,9 +572,10 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return null;
                 Logger.Mensaje(ex.Message);
-                conn.Close();
+                
 
             }
 
@@ -639,9 +627,10 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return null;
                 Logger.Mensaje(ex.Message);
-                conn.Close();
+                
             }
         }
 
@@ -700,9 +689,10 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return null;
                 Logger.Mensaje(ex.Message);
-                conn.Close();
+                
 
             }
 
@@ -787,8 +777,9 @@ namespace BibliotecaNegocio
                 }
                 catch (Exception ex)
                 {
-                    Logger.Mensaje(ex.Message);
                     conn.Close();
+                    Logger.Mensaje(ex.Message);
+                    
                 }
             }
 

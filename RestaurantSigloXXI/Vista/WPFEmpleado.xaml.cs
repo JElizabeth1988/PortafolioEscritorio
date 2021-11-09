@@ -63,6 +63,8 @@ namespace Vista
             txtDV.IsEnabled = false;//DV no se puede editar
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnEliminar.Visibility = Visibility.Hidden;
+            txtTelefono.Text = "0";
+            txtCelular.Text = "0";
             txtRut.Focus();//Focus en el rut
             //txtPass.IsEnabled = false;//Password se crea con trigger
             //Llenar el combobox
@@ -228,12 +230,13 @@ namespace Vista
             txtSegNombre.Clear();
             txtApPaterno.Clear();
             txtApeMaterno.Clear();
-            txtCelular.Clear();
-            txtTelefono.Clear();
+            
             txtEmail.Clear();
             txtUser.Clear();
             txtPass.Clear();
             cboTipoUser.SelectedIndex = 0;
+            txtTelefono.Text = "0";
+            txtCelular.Text = "0";
             txtRut.IsEnabled = true;
             txtUser.IsEnabled = false;
             //txtPass.IsEnabled = false;
@@ -243,6 +246,7 @@ namespace Vista
             btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
             btnEliminar.Visibility = Visibility.Hidden;
+            btnCache.Visibility = Visibility.Visible;
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
 
@@ -596,6 +600,7 @@ namespace Vista
                     btnModificar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
                     btnEliminar.Visibility = Visibility.Visible;
+                    btnCache.Visibility = Visibility.Hidden;
 
                 }
                 else

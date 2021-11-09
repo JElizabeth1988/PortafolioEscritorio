@@ -61,7 +61,7 @@ namespace BibliotecaNegocio
             //Digito Verificador Asignado.
             if (dv == 10)
             {
-                conf = "K";
+                conf = "k";
             }
             else
             {

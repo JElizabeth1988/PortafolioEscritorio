@@ -288,6 +288,7 @@ namespace Vista
                 emp.btnModificar.Visibility = Visibility.Visible;
                 emp.btnGuardar.Visibility = Visibility.Hidden;
                 emp.btnEliminar.Visibility = Visibility.Visible;
+                emp.btnCache.Visibility = Visibility.Hidden;
                 //Cerrar listado
                 Close();
                 
