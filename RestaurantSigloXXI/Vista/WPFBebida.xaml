@@ -31,7 +31,7 @@
 
                 <Label x:Name="lblId" Visibility="Hidden" Content="" HorizontalAlignment="Left" Margin="23,1,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy1" Content="Nombre:" HorizontalAlignment="Left" Margin="23,5,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="label_Copy3" Content="Tipo de Producto:" HorizontalAlignment="Left" Margin="23,129,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy3" Content="Tipo de Bebida:" HorizontalAlignment="Left" Margin="23,129,0,0" VerticalAlignment="Top" FontSize="12"/>
 
 
             </Grid>
@@ -69,7 +69,7 @@
                 <Button x:Name="btnPasar" ToolTip="Traspasar Información"  Content="Traspasar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnPasar_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="13,221,0,-28"/>
                 <ComboBox x:Name="cbofiltro" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="156" FontWeight="Normal"/>
                 <Button x:Name="btnFiltrar" ToolTip="Filtrar Información"  Content="Filtrar" HorizontalAlignment="Left" Margin="315,10,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnFiltrar_Click"/>
-                <Label x:Name="label_Copy2" Content="Tipo de Producto:" HorizontalAlignment="Left" Margin="13,10,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy2" Content="Tipo de Bebida:" HorizontalAlignment="Left" Margin="13,10,0,0" VerticalAlignment="Top" FontSize="12"/>
 
             </Grid>
         </GroupBox>

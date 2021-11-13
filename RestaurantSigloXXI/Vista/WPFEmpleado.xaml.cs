@@ -471,15 +471,7 @@ namespace Vista
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error de ingreso de datos"));
                 /*MessageBox.Show("Error de ingreso de datos");*/
-                Logger.Mensaje(ex.Message);
-                DaoErrores de = emp.retornar();
-                string li = "";
-                foreach (string item in de.ListarErrores())
-                {
-                    li += item + " \n";
-                }
-                await this.ShowMessageAsync("Mensaje:",
-                    string.Format(li));
+                Logger.Mensaje(ex.Message);               
 
             }
         }

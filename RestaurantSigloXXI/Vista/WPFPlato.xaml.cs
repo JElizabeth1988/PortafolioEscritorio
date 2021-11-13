@@ -27,6 +27,8 @@ using BibliotecaNegocio;
 using System.Threading; //Hilos
 //FileCache
 using System.Runtime.Caching;
+using Microsoft.Win32;
+using System.Windows;
 
 namespace Vista
 {
@@ -566,6 +568,18 @@ namespace Vista
             _instancia = null;
         }
 
-
+        private void Seleccionar_click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog OFD = new OpenFileDialog();
+            OFD.Filter = "Imagenes| *.jpg; * .png";
+            OFD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            OFD.Title = "Seleccionar Imagen";
+       
+            if (OFD.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(OFD.FileName);
+                imgPlato.Source = new BitmapImage(fileUri);
+            }
+        }
     }
 }

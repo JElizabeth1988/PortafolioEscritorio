@@ -35,6 +35,7 @@ namespace BibliotecaDALC
         public DbSet<ENTIDAD_BANCARIA> ENTIDAD_BANCARIA { get; set; }
         public DbSet<INGRESOS> INGRESOS { get; set; }
         public DbSet<LOGIN> LOGIN { get; set; }
+        public DbSet<MENU> MENU { get; set; }
         public DbSet<MESA> MESA { get; set; }
         public DbSet<METODO_PAGO> METODO_PAGO { get; set; }
         public DbSet<ORDEN> ORDEN { get; set; }
@@ -47,6 +48,7 @@ namespace BibliotecaDALC
         public DbSet<PROVEEDOR> PROVEEDOR { get; set; }
         public DbSet<RECETA> RECETA { get; set; }
         public DbSet<RESERVA> RESERVA { get; set; }
+        public DbSet<TIPO_BEBIDA> TIPO_BEBIDA { get; set; }
         public DbSet<TIPO_PRODUCTO> TIPO_PRODUCTO { get; set; }
         public DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
     }

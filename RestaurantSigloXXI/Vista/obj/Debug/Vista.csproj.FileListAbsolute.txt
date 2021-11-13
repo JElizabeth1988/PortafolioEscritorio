@@ -1041,8 +1041,6 @@ C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\ob
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFReserva.baml
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFSalida.g.cs
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFSalida.baml
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFPedidos.g.cs
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFPedidos.baml
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFTableroEjecucion.g.cs
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFTableroEjecucion.baml
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFReceta.g.cs
@@ -1215,3 +1213,5 @@ C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSig
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\Vista.g.resources
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\Vista.Properties.Resources.resources
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFProveedor.g.cs
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFProveedor.baml

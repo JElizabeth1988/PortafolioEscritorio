@@ -24,9 +24,9 @@ namespace BibliotecaDALC
         public int ML_BEBIDA { get; set; }
         public int VALOR_BEBIDA { get; set; }
         public int STOCK { get; set; }
-        public int ID_TIPO_PRODUCTO { get; set; }
+        public int ID_TIPO { get; set; }
     
-        public virtual TIPO_PRODUCTO TIPO_PRODUCTO { get; set; }
+        public virtual TIPO_BEBIDA TIPO_BEBIDA { get; set; }
         public virtual ICollection<ORDEN> ORDEN { get; set; }
     }
 }

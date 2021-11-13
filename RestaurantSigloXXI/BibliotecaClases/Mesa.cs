@@ -15,10 +15,61 @@ namespace BibliotecaNegocio
     public class Mesa
     {
         public int num_mesa { get; set; }
-        public int capacidad_persona { get; set; }
-        public string disponibilidad { get; set; }
+        private int _capacidad;
+        public int capacidad_persona
+        {
+            get { return _capacidad; }
+            set
+            {
+                if (value != 0)
+                {
+                    _capacidad = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Capacidad es Obligatorio y Debe Ser Mayor a Cero");
+                }
+            }
+        }
+
+        private string _disponibilidad;
+        public string disponibilidad
+        {
+            get { return _disponibilidad; }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _disponibilidad = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Disponibilidad es Obligatorio");
+                }
+            }
+        }
+
         public string asignacion { get; set; }
-        public string rut_empleado { get; set; }
+
+        private string _empleado;
+        public string rut_empleado
+        {
+            get { return _empleado; }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _empleado = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Rut de Empleado es Obligatorio");
+                }
+            }
+        }
 
         [NonSerialized]
         //Crear objeto de la Bdd

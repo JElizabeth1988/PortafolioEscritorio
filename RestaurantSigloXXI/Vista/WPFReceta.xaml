@@ -41,8 +41,8 @@
                 <Label x:Name="label_Copy7" Content="Porciones:" HorizontalAlignment="Left" Margin="6,117,0,0" VerticalAlignment="Top" FontSize="12"/>
 
                 <Label x:Name="label_Copy8" Content="Ingredientes:" HorizontalAlignment="Left" Margin="750,2,-38,0" VerticalAlignment="Top" FontSize="12"/>
-                <TextBox x:Name="txtInstrucciones" HorizontalAlignment="Left"  Height="141" Margin="392,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" FontWeight="Normal"  SelectionBrush="#FFCB5F21" />
-                <TextBox x:Name="txtIngrediente" HorizontalAlignment="Left"  Height="141" Margin="750,33,-296,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" FontWeight="Normal"  SelectionBrush="#FFCB5F21" />
+                <TextBox x:Name="txtInstrucciones" ScrollViewer.VerticalScrollBarVisibility="Visible"  HorizontalAlignment="Left"  Height="141" Margin="392,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" FontWeight="Normal"  SelectionBrush="#FFCB5F21" />
+                <TextBox x:Name="txtIngrediente"  ScrollViewer.VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left"  Height="141" Margin="750,33,-296,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" FontWeight="Normal"  SelectionBrush="#FFCB5F21" />
                 <Button x:Name="btnCalcular" ToolTip="Calcular Total" Content="Calcular" HorizontalAlignment="Left" Margin="303,88,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCalcular_Click"/>
 
             </Grid>

@@ -16,7 +16,7 @@ namespace BibliotecaDALC
     {
         public int ID { get; set; }
         public string RUT_CLIENTE { get; set; }
-        public Nullable<int> MESA { get; set; }
+        public int MESA { get; set; }
         public string ESTADO { get; set; }
         public string FECHA { get; set; }
         public string HORA_INGRESO { get; set; }

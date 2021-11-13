@@ -18,6 +18,7 @@ namespace BibliotecaDALC
         public System.DateTime FECHA_PEDIDO { get; set; }
         public string OBSERVACIONES { get; set; }
         public int CANTIDAD_PRODUCTO { get; set; }
+        public string ESTADO { get; set; }
         public int ID_PROVEEDOR { get; set; }
         public int ID_PRODUCTO { get; set; }
         public string RUT_EMPLEADO { get; set; }

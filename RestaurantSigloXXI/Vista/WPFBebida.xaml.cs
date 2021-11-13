@@ -68,21 +68,21 @@ namespace Vista
             txtNombre.Focus();//Focus en el nombre
 
             //Llenar el combobox
-            foreach (TipoProducto item in new TipoProducto().ReadAll())
+            foreach (TipoBebida item in new TipoBebida().ReadAll())
             {
-                ComboBoxItemTipoProducto cb = new ComboBoxItemTipoProducto();
-                cb.id_tipo_producto = item.id_tipo_producto;
-                cb.nombre_tipo = item.nombre_tipo;
+                comboBoxItem1 cb = new comboBoxItem1();
+                cb.id = item.id_tipo;
+                cb.nombre = item.nombre;
                 cboTipo.Items.Add(cb);
             }
 
             cboTipo.SelectedIndex = 0;
             //Llenar el combobox
-            foreach (TipoProducto item in new TipoProducto().ReadAll())
+            foreach (TipoBebida item in new TipoBebida().ReadAll())
             {
-                ComboBoxItemTipoProducto cb = new ComboBoxItemTipoProducto();
-                cb.id_tipo_producto = item.id_tipo_producto;
-                cb.nombre_tipo = item.nombre_tipo;
+                comboBoxItem1 cb = new comboBoxItem1();
+                cb.id = item.id_tipo;
+                cb.nombre = item.nombre;
                 cbofiltro.Items.Add(cb);
             }
 
@@ -295,7 +295,7 @@ namespace Vista
                 int ml = int.Parse(txtMl.Text);
                 int valor = int.Parse(txtValor.Text);
                 int stock = int.Parse(txtStock.Text);
-                int tipo = ((ComboBoxItemTipoProducto)cboTipo.SelectedItem).id_tipo_producto;//Guardo el id
+                int tipo = ((comboBoxItem1)cboTipo.SelectedItem).id;//Guardo el id
 
                 Bebida b = new Bebida()
                 {
@@ -304,7 +304,7 @@ namespace Vista
                     ml_bebida = ml,
                     valor_bebida = valor,
                     stock = stock,
-                    id_tipo_producto = tipo
+                    id_tipo = tipo
                 };
                 bool resp = bebi.Actualizar(b);
                 await this.ShowMessageAsync("Mensaje:",
@@ -345,7 +345,7 @@ namespace Vista
                 int ml = int.Parse(txtMl.Text);
                 int valor = int.Parse(txtValor.Text);
                 int stock = int.Parse(txtStock.Text);
-                int tipo = ((ComboBoxItemTipoProducto)cboTipo.SelectedItem).id_tipo_producto;//Guardo el id
+                int tipo = ((comboBoxItem1)cboTipo.SelectedItem).id;//Guardo el id
 
 
                 Bebida b = new Bebida()
@@ -355,7 +355,7 @@ namespace Vista
                     ml_bebida = ml,
                     valor_bebida = valor,
                     stock = stock,
-                    id_tipo_producto = tipo
+                    id_tipo = tipo
                 };
 
                 bool resp = bebi.Agregar(b);

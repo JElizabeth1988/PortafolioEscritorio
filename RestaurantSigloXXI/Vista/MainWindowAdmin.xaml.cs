@@ -145,5 +145,10 @@ namespace Vista
         {
             WPFAgenda.ObtenerinstanciaAGE().ShowDialog();
         }
+
+        private void Proveedor_Click(object sender, RoutedEventArgs e)
+        {
+            WPFProveedor.ObtenerinstanciaPRO().ShowDialog();
+        }
     }
 }

@@ -30,11 +30,12 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new Exception("Error, el Campo Nombre Producto es Obligatorio.");
-                    err.AgregarError("Campo Nombre Producto es Obligatorio");
+                    err.AgregarError("- Campo Nombre Producto es Obligatorio");
                 }
 
             }
         }
+
 
         public int cantidad_embase { get; set; }
 
@@ -51,7 +52,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new Exception("Error, el Campo Unidad de medida es Obligatorio.");
-                    err.AgregarError("Campo Unidad de Medida es Obligatorio");
+                    err.AgregarError("- Campo Unidad de Medida es Obligatorio");
                 }
             }
         }
@@ -70,7 +71,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new Exception("Error, el Campo Valor Unidad es Obligatorio.");
-                    err.AgregarError("Campo Valor Unitario es Obligatorio");
+                    err.AgregarError("- Campo Valor Unitario es Obligatorio");
                 }
             }
         }
@@ -89,7 +90,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new Exception("Error, el Campo Stock es Obligatorio.");
-                    err.AgregarError("Campo Stock es Obligatorio");
+                    err.AgregarError("- Campo Stock es Obligatorio");
                 }
             }
         }

@@ -14,10 +14,47 @@ namespace BibliotecaNegocio
     [Serializable]
     public class Agenda
     {
+       
         public int id_agenda { get; set; }
-        public DateTime fecha { get; set; }
-        public string hora_desde { get; set; }
+        private DateTime _fecha;
+        public DateTime fecha
+        {
+            get { return _fecha; }
+            set
+            {
+                if (value != null)
+                {
+                    _fecha = value;
+                }
+                else
+                {                    
+                    err.AgregarError("- Campo Fecha es Obligatorio");
+                }
+
+            }
+        }
+
+        private string _hora_desde;
+        public string hora_desde
+        {
+            get { return _hora_desde; }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _hora_desde = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Hora es Obligatorio");
+                }
+
+            }
+        }
+
         public string hora_hasta { get; set; }
+
+
         public string disponibilidad { get; set; }
         public int num_mesa { get; set; }
                 

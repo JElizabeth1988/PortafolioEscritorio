@@ -21,7 +21,8 @@ namespace BibliotecaDALC
     
         public int ID_AGENDA { get; set; }
         public System.DateTime FECHA { get; set; }
-        public string HORA { get; set; }
+        public string HORA_DESDE { get; set; }
+        public string HORA_HASTA { get; set; }
         public string DISPONIBILIDAD { get; set; }
         public int NUM_MESA { get; set; }
     

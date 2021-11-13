@@ -25,7 +25,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("Campo Usuario no puede estar Vacío");
+                    err.AgregarError("- Campo Usuario es Obligatorio");
                 }
 
             }
@@ -43,7 +43,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("Campo Contraseña no puede estar Vacío");
+                    err.AgregarError("- Campo Contraseña es Obligatorio");
                 }
 
             }
@@ -61,7 +61,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("Campo Cliente Activo no puede estar Vacío");
+                    err.AgregarError("- Campo Cliente Activo no puede estar Vacío");
                 }
 
             }

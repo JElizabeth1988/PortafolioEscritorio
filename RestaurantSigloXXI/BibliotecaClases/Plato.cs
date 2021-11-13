@@ -15,11 +15,63 @@ namespace BibliotecaNegocio
     public class Plato
     {
         public int id_plato { get; set; }
-        public string nom_plato { get; set; }
-        public int precio_plato { get; set; }
+
+        private string _nombre;
+        public string nom_plato
+        {
+            get { return _nombre; }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _nombre = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Nombre es Obligatorio");
+                }
+            }
+        }
+
+        private int _precio;
+        public int precio_plato
+        {
+            get { return _precio; }
+            set
+            {
+                if (value != 0)
+                {
+                    _precio = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Precio es Obligatorio y Debe Ser Mayor a Cero");
+                }
+            }
+        }
+
         public string descripcion { get; set; }
-        //public  byte foto { get; set; }
-        public int  stock { get; set; }
+        public  string foto { get; set; }
+
+        private int _stock;
+        public int stock
+        {
+            get { return _stock; }
+            set
+            {
+                if (value != 0)
+                {
+                    _stock = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Stock es Obligatorio y Debe Ser Mayor a Cero");
+                }
+            }
+        }
         public int id_receta { get; set; }
         public int id_categoria { get; set; }
 

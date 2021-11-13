@@ -17,6 +17,7 @@ namespace BibliotecaDALC
         public MESA()
         {
             this.AGENDA = new HashSet<AGENDA>();
+            this.ORDEN = new HashSet<ORDEN>();
         }
     
         public int NUM_MESA { get; set; }
@@ -27,5 +28,6 @@ namespace BibliotecaDALC
     
         public virtual ICollection<AGENDA> AGENDA { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
+        public virtual ICollection<ORDEN> ORDEN { get; set; }
     }
 }

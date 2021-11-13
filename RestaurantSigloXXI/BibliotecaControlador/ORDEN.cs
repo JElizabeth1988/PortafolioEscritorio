@@ -26,10 +26,12 @@ namespace BibliotecaDALC
         public Nullable<int> ID_BEBIDA { get; set; }
         public Nullable<int> ID_PLATO { get; set; }
         public Nullable<int> ID_PEDIDO { get; set; }
+        public int NUM_MESA { get; set; }
     
         public virtual BEBIDA BEBIDA { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
+        public virtual MESA MESA { get; set; }
         public virtual PEDIDO PEDIDO { get; set; }
         public virtual PLATO PLATO { get; set; }
     }

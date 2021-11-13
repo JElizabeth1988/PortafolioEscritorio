@@ -20,12 +20,11 @@ namespace BibliotecaDALC
         }
     
         public int ID_PROVEEDOR { get; set; }
-        public string NOM_PROVEEDOR { get; set; }
-        public string APE_PAT_PROVEEDOR { get; set; }
-        public string APE_MAT_PROVEEDOR { get; set; }
-        public string CORREO_PROVEEDOR { get; set; }
-        public int TELEFONO_PROVEEDOR { get; set; }
-        public string DIRECCION_PROVEEDOR { get; set; }
+        public string NOMBRE { get; set; }
+        public string CORREO { get; set; }
+        public int TELEFONO { get; set; }
+        public string DIRECCION { get; set; }
+        public string SITIO_WEB { get; set; }
     
         public virtual ICollection<PEDIDO_PROVEEDOR> PEDIDO_PROVEEDOR { get; set; }
     }

@@ -6,7 +6,8 @@
     </Key>
     <Property Name="ID_AGENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="FECHA" Type="date" Nullable="false" />
-    <Property Name="HORA" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="HORA_DESDE" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="HORA_HASTA" Type="varchar2" MaxLength="5" Nullable="false" />
     <Property Name="DISPONIBILIDAD" Type="varchar2" MaxLength="15" Nullable="false" />
     <Property Name="NUM_MESA" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
@@ -15,9 +16,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" />
-    <Property Name="MESA" Type="number" Precision="38" Scale="0" />
-    <Property Name="ESTADO" Type="varchar2" MaxLength="20" />
+    <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
+    <Property Name="MESA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar2" MaxLength="20" Nullable="false" />
     <Property Name="FECHA" Type="varchar2" MaxLength="10" />
     <Property Name="HORA_INGRESO" Type="varchar2" MaxLength="5" />
     <Property Name="HORA_SALIDA" Type="varchar2" MaxLength="5" />
@@ -31,7 +32,7 @@
     <Property Name="ML_BEBIDA" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="VALOR_BEBIDA" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="STOCK" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_TIPO_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="None" />
+    <Property Name="ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="BOLETA">
     <Key>
@@ -114,6 +115,19 @@
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" />
     <Property Name="RUT_EMPLEADO" Type="varchar2" MaxLength="12" />
   </EntityType>
+  <EntityType Name="MENU">
+    <Key>
+      <PropertyRef Name="ID_MENU" />
+    </Key>
+    <Property Name="ID_MENU" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FOTO" Type="blob" />
+    <Property Name="ID_BEBIDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_PLATO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_CATEGORIA" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
   <EntityType Name="MESA">
     <Key>
       <PropertyRef Name="NUM_MESA" />
@@ -148,6 +162,7 @@
     <Property Name="ID_BEBIDA" Type="number" Precision="38" Scale="0" />
     <Property Name="ID_PLATO" Type="number" Precision="38" Scale="0" />
     <Property Name="ID_PEDIDO" Type="number" Precision="38" Scale="0" />
+    <Property Name="NUM_MESA" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="PAGO">
     <Key>
@@ -167,6 +182,7 @@
     </Key>
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
     <Property Name="CLAVE" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SALDO" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="PEDIDO">
     <Key>
@@ -190,6 +206,7 @@
     <Property Name="FECHA_PEDIDO" Type="date" Nullable="false" />
     <Property Name="OBSERVACIONES" Type="clob" />
     <Property Name="CANTIDAD_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar2" MaxLength="50" />
     <Property Name="ID_PROVEEDOR" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="RUT_EMPLEADO" Type="varchar2" MaxLength="12" Nullable="false" />
@@ -203,7 +220,7 @@
     <Property Name="PRECIO_PLATO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="DESCRIPCION" Type="varchar2" MaxLength="200" Nullable="false" />
     <Property Name="FOTO" Type="blob" />
-    <Property Name="ESTADO" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="STOCK" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_RECETA" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_CATEGORIA" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
@@ -225,12 +242,11 @@
       <PropertyRef Name="ID_PROVEEDOR" />
     </Key>
     <Property Name="ID_PROVEEDOR" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="NOM_PROVEEDOR" Type="varchar2" MaxLength="45" Nullable="false" />
-    <Property Name="APE_PAT_PROVEEDOR" Type="varchar2" MaxLength="45" Nullable="false" />
-    <Property Name="APE_MAT_PROVEEDOR" Type="varchar2" MaxLength="45" />
-    <Property Name="CORREO_PROVEEDOR" Type="varchar2" MaxLength="100" Nullable="false" />
-    <Property Name="TELEFONO_PROVEEDOR" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="DIRECCION_PROVEEDOR" Type="varchar2" MaxLength="100" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="CORREO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="TELEFONO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar2" MaxLength="100" />
+    <Property Name="SITIO_WEB" Type="varchar2" MaxLength="100" />
   </EntityType>
   <EntityType Name="RECETA">
     <Key>
@@ -258,6 +274,13 @@
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
     <Property Name="ID_AGENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
+  <EntityType Name="TIPO_BEBIDA">
+    <Key>
+      <PropertyRef Name="ID_TIPO" />
+    </Key>
+    <Property Name="ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="TIPO_PRODUCTO">
     <Key>
       <PropertyRef Name="ID_TIPO_PRODUCTO" />
@@ -284,17 +307,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="BEBIDA_TIPO_PRODUCTO_FK">
-    <End Role="TIPO_PRODUCTO" Type="Self.TIPO_PRODUCTO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+  <Association Name="BEBIDA_TIPO_BEBIDA_FK">
+    <End Role="TIPO_BEBIDA" Type="Self.TIPO_BEBIDA" Multiplicity="1" />
     <End Role="BEBIDA" Type="Self.BEBIDA" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="TIPO_PRODUCTO">
-        <PropertyRef Name="ID_TIPO_PRODUCTO" />
+      <Principal Role="TIPO_BEBIDA">
+        <PropertyRef Name="ID_TIPO" />
       </Principal>
       <Dependent Role="BEBIDA">
-        <PropertyRef Name="ID_TIPO_PRODUCTO" />
+        <PropertyRef Name="ID_TIPO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -435,6 +456,18 @@
       </Principal>
       <Dependent Role="ORDEN">
         <PropertyRef Name="RUT_EMPLEADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDEN_MESA_FK">
+    <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
+    <End Role="ORDEN" Type="Self.ORDEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MESA">
+        <PropertyRef Name="NUM_MESA" />
+      </Principal>
+      <Dependent Role="ORDEN">
+        <PropertyRef Name="NUM_MESA" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -639,6 +672,7 @@
     <EntitySet Name="ENTIDAD_BANCARIA" EntityType="Self.ENTIDAD_BANCARIA" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="INGRESOS" EntityType="Self.INGRESOS" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="LOGIN" EntityType="Self.LOGIN" Schema="RSXXI" store:Type="Tables" />
+    <EntitySet Name="MENU" EntityType="Self.MENU" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="MESA" EntityType="Self.MESA" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="ORDEN" EntityType="Self.ORDEN" Schema="RSXXI" store:Type="Tables" />
@@ -651,14 +685,15 @@
     <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="RECETA" EntityType="Self.RECETA" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="RESERVA" EntityType="Self.RESERVA" Schema="RSXXI" store:Type="Tables" />
+    <EntitySet Name="TIPO_BEBIDA" EntityType="Self.TIPO_BEBIDA" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="TIPO_PRODUCTO" EntityType="Self.TIPO_PRODUCTO" Schema="RSXXI" store:Type="Tables" />
     <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="RSXXI" store:Type="Tables" />
     <AssociationSet Name="AGENDA_MESA_FK" Association="Self.AGENDA_MESA_FK">
       <End Role="MESA" EntitySet="MESA" />
       <End Role="AGENDA" EntitySet="AGENDA" />
     </AssociationSet>
-    <AssociationSet Name="BEBIDA_TIPO_PRODUCTO_FK" Association="Self.BEBIDA_TIPO_PRODUCTO_FK">
-      <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
+    <AssociationSet Name="BEBIDA_TIPO_BEBIDA_FK" Association="Self.BEBIDA_TIPO_BEBIDA_FK">
+      <End Role="TIPO_BEBIDA" EntitySet="TIPO_BEBIDA" />
       <End Role="BEBIDA" EntitySet="BEBIDA" />
     </AssociationSet>
     <AssociationSet Name="BOLETA_PAGO_FK" Association="Self.BOLETA_PAGO_FK">
@@ -699,6 +734,10 @@
     </AssociationSet>
     <AssociationSet Name="ORDEN_EMPLEADO_FK" Association="Self.ORDEN_EMPLEADO_FK">
       <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="ORDEN" EntitySet="ORDEN" />
+    </AssociationSet>
+    <AssociationSet Name="ORDEN_MESA_FK" Association="Self.ORDEN_MESA_FK">
+      <End Role="MESA" EntitySet="MESA" />
       <End Role="ORDEN" EntitySet="ORDEN" />
     </AssociationSet>
     <AssociationSet Name="ORDEN_PEDIDO_FK" Association="Self.ORDEN_PEDIDO_FK">

@@ -24,7 +24,7 @@ namespace BibliotecaDALC
         public int PRECIO_PLATO { get; set; }
         public string DESCRIPCION { get; set; }
         public byte[] FOTO { get; set; }
-        public string ESTADO { get; set; }
+        public int STOCK { get; set; }
         public int ID_RECETA { get; set; }
         public int ID_CATEGORIA { get; set; }
     

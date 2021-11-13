@@ -15,13 +15,115 @@ namespace BibliotecaNegocio
     public class Receta
     {
         public int id_receta { get; set; }
-        public string nom_receta { get; set; }
-        public string instrucciones { get; set; }
-        public string Ingredientes { get; set; }
+
+        private string _nombre;
+        public string nom_receta
+        {
+            get { return _nombre; }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _nombre = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Nombre es Obligatorio");
+                }
+            }
+        }
+
+        private string _instrucciones;
+        public string instrucciones
+        {
+            get { return _instrucciones; }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _instrucciones = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Instrucciones es Obligatorio");
+                }
+            }
+        }
+
+        private string _ingredientes;
+        public string Ingredientes
+        {
+            get { return _ingredientes; }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _ingredientes = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Ingredientes es Obligatorio");
+                }
+            }
+        }
         public int tiempo_coccion { get; set; }
-        public int tiempo_preparacion { get; set; }
-        public int tiempo_total { get; set; }
-        public int porcion { get; set; }
+
+        private int _tiempo;
+        public int tiempo_preparacion
+        {
+            get { return _tiempo; }
+            set
+            {
+                if (value != 0)
+                {
+                    _tiempo = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Tiempo de Preparación es Obligatorio y Debe Ser Mayor a Cero");
+                }
+            }
+        }
+
+        private int _total;
+        public int tiempo_total
+        {
+            get { return _total; }
+            set
+            {
+                if (value != 0)
+                {
+                    _total = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Tiempo Total es Obligatorio y Debe Ser Mayor a Cero");
+                }
+            }
+        }
+
+        private int _porcion;
+        public int porcion
+        {
+            get { return _porcion; }
+            set
+            {
+                if (value != 0)
+                {
+                    _porcion = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Porción es Obligatorio y Debe Ser Mayor a Cero");
+                }
+            }
+        }
 
         public Receta()
         {

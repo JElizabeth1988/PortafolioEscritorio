@@ -16,14 +16,12 @@ namespace BibliotecaDALC
     {
         public TIPO_PRODUCTO()
         {
-            this.BEBIDA = new HashSet<BEBIDA>();
             this.PRODUCTO = new HashSet<PRODUCTO>();
         }
     
         public int ID_TIPO_PRODUCTO { get; set; }
         public string NOMBRE_TIPO { get; set; }
     
-        public virtual ICollection<BEBIDA> BEBIDA { get; set; }
         public virtual ICollection<PRODUCTO> PRODUCTO { get; set; }
     }
 }

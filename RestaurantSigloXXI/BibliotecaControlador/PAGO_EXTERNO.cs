@@ -16,5 +16,6 @@ namespace BibliotecaDALC
     {
         public string RUT_CLIENTE { get; set; }
         public int CLAVE { get; set; }
+        public int SALDO { get; set; }
     }
 }

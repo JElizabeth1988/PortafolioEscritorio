@@ -264,32 +264,11 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-                //int celular = int.Parse(txtCelular.Text);   
-                int celular = 0;
-                if (int.TryParse(txtCelular.Text, out celular))
-                {
+                int celular = int.Parse(txtCelular.Text);
+                
 
-                }
-                else
-                {
-                   /* await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Ingrese un número de 9 dígitos"));
-                    txtTelefono.Focus();*/
-                    return;
-                }
-                //int telefono = int.Parse(txtTelefono.Text); 
-                int telefono = 0;
-                if (int.TryParse(txtTelefono.Text, out telefono))
-                {
-
-                }
-                else
-                {
-                    /*await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Ingrese un número de 9 dígitos"));
-                    txtTelefono.Focus();*/
-                    return;
-                }
+                int telefono = int.Parse(txtTelefono.Text); 
+                
 
                 Cliente c = new Cliente()
                 {
@@ -332,8 +311,10 @@ namespace Vista
             }
             catch (Exception ex)
             {
+                conn.Close();
                 await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Error de ingreso de datos"));                
+                      string.Format("Error de ingreso de datos", ex));
+                            
 
             }
         }

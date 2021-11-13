@@ -29,7 +29,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("Campo Rut  no puede estar Vacío");
+                    err.AgregarError("- Campo Rut  no puede estar Vacío");
                 }
 
             }
@@ -48,7 +48,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("Campo Nombre no puede estar Vacío");
+                    err.AgregarError("- Campo Nombre no puede estar Vacío");
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("Campo Apellido Paterno no puede estar Vacío");
+                    err.AgregarError("- Campo Apellido Paterno no puede estar Vacío");
                 }
             }
         }
@@ -88,30 +88,30 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("Campo Apellido Materno no puede estar Vacío");
+                    err.AgregarError("- Campo Apellido Materno no puede estar Vacío");
                 }
             }
         }
 
-        public int celular_cli { get; set; }
-        /*private int _celular;
+        //public int celular_cli { get; set; }
+        private int _celular;
 
         public int celular_cli
         {
             get { return _celular; }
             set
             {
-                if (value != 0 )
+                if (value > 900000000 && value < 1000000000)
                 {
                     _celular = value;
                 }
                 else
                 {
-                    err.AgregarError("Campo Celular no puede estar Vacío");
+                    err.AgregarError("- Campo Celular es Obligatorio y debe tener un largo de 9 dígitos");
                     //throw new ArgumentException("- Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
                 }
             }
-        }*/
+        }
 
         public int telefono_cli { get; set; }
        
@@ -129,7 +129,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("Campo correo electrónico no puede estar Vacío");
+                    err.AgregarError("- Campo correo electrónico no puede estar Vacío");
                 }
             }
         }

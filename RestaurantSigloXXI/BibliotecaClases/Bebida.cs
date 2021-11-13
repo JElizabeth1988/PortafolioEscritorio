@@ -14,11 +14,83 @@ namespace BibliotecaNegocio
     public class Bebida
     {
         public int id_bebida { get; set; }
-        public string nom_bebida { get; set; }
-        public int ml_bebida { get; set; }
-        public int valor_bebida { get; set; }
-        public int stock { get; set; }
-        public int id_tipo_producto { get; set; }
+
+        private string _nombre;
+        public string nom_bebida
+        {
+            get { return _nombre; }
+            set
+            {
+                if (value != string.Empty )
+                {
+                    _nombre = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Nombre es Obligatorio");
+                }
+
+            }
+        }
+
+        private int _ml;
+        public int ml_bebida
+        {
+            get { return _ml; }
+            set
+            {
+                if (value != 0)
+                {
+                    _ml = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Ml es Obligatorio y Debe Ser Mayor a Cero");
+                }
+
+            }
+        }
+
+        private int _valor;
+        public int valor_bebida
+        {
+            get { return _valor; }
+            set
+            {
+                if (value != 0)
+                {
+                    _valor = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Valor de Bebida es Obligatorio y Debe Ser Mayor a Cero");
+                }
+
+            }
+        }
+
+        private int _stock;
+        public int stock
+        {
+            get { return _stock; }
+            set
+            {
+                if (value != 0)
+                {
+                    _stock = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Stock es Obligatorio y Debe Ser Mayor a Cero");
+                }
+
+            }
+        }
+        public int id_tipo { get; set; }
 
         //No es serializable
         [NonSerialized]
@@ -57,7 +129,7 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_ML", OracleDbType.Int32)).Value = fantita.ml_bebida;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = fantita.valor_bebida;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = fantita.stock;
-                CMD.Parameters.Add(new OracleParameter("P_ID_TIPO", OracleDbType.Int32)).Value = fantita.id_tipo_producto;
+                CMD.Parameters.Add(new OracleParameter("P_ID_TIPO", OracleDbType.Int32)).Value = fantita.id_tipo;
 
                 //Se abre la conexión
                 conn.Open();
@@ -98,7 +170,7 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_ML", OracleDbType.Int32)).Value = fantita.ml_bebida;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = fantita.valor_bebida;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = fantita.stock;
-                CMD.Parameters.Add(new OracleParameter("P_ID_TIPO", OracleDbType.Int32)).Value = fantita.id_tipo_producto;
+                CMD.Parameters.Add(new OracleParameter("P_ID_TIPO", OracleDbType.Int32)).Value = fantita.id_tipo;
 
                 //Se abre la conexión
                 conn.Open();

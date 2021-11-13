@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\
 Vista
 none
 false
 DEBUG;TRACE
-C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\App.xaml
-291801421259
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\App.xaml
+30-535275072
 
-37-1933057926
-60544522863
-WindowBodega.xaml;WindowCocina.xaml;WindowFinanza.xaml;WindowGarzon.xaml;WindowRecepcion.xaml;WPFAgenda.xaml;WPFAsignarMesa.xaml;WPFBebida.xaml;WPFCliente2.xaml;WPFEmpleado.xaml;WPFListadoEmpleado.xaml;WPFCliente.xaml;WPFListadoCliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;WPFMesa.xaml;WPFPlato.xaml;WPFProducto.xaml;WPFReceta.xaml;WPFReserva.xaml;WPFSalida.xaml;WPFStock.xaml;WPFStockBebida.xaml;WPFStockPlato.xaml;WPFTableroEjecucion.xaml;WPFVerPedidosListos.xaml;WPFStockProducto.xaml;
+38-494337650
+60-1888313730
+WindowBodega.xaml;WindowCocina.xaml;WindowFinanza.xaml;WindowGarzon.xaml;WindowRecepcion.xaml;WPFAgenda.xaml;WPFAsignarMesa.xaml;WPFBebida.xaml;WPFCliente2.xaml;WPFEmpleado.xaml;WPFListadoEmpleado.xaml;WPFCliente.xaml;WPFListadoCliente.xaml;Login.xaml;MainWindowAdmin.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;WPFMesa.xaml;WPFPlato.xaml;WPFProducto.xaml;WPFProveedor.xaml;WPFReceta.xaml;WPFReserva.xaml;WPFSalida.xaml;WPFStock.xaml;WPFStockBebida.xaml;WPFStockPlato.xaml;WPFTableroEjecucion.xaml;WPFVerPedidosListos.xaml;WPFStockProducto.xaml;
 
 False
 

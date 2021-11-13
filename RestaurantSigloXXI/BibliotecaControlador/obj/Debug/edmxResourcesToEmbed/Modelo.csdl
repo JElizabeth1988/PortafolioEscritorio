@@ -11,6 +11,7 @@
     <EntitySet Name="ENTIDAD_BANCARIA" EntityType="Modelo.ENTIDAD_BANCARIA" />
     <EntitySet Name="INGRESOS" EntityType="Modelo.INGRESOS" />
     <EntitySet Name="LOGIN" EntityType="Modelo.LOGIN" />
+    <EntitySet Name="MENU" EntityType="Modelo.MENU" />
     <EntitySet Name="MESA" EntityType="Modelo.MESA" />
     <EntitySet Name="METODO_PAGO" EntityType="Modelo.METODO_PAGO" />
     <EntitySet Name="ORDEN" EntityType="Modelo.ORDEN" />
@@ -23,6 +24,7 @@
     <EntitySet Name="PROVEEDOR" EntityType="Modelo.PROVEEDOR" />
     <EntitySet Name="RECETA" EntityType="Modelo.RECETA" />
     <EntitySet Name="RESERVA" EntityType="Modelo.RESERVA" />
+    <EntitySet Name="TIPO_BEBIDA" EntityType="Modelo.TIPO_BEBIDA" />
     <EntitySet Name="TIPO_PRODUCTO" EntityType="Modelo.TIPO_PRODUCTO" />
     <EntitySet Name="TIPO_USUARIO" EntityType="Modelo.TIPO_USUARIO" />
     <AssociationSet Name="AGENDA_MESA_FK" Association="Modelo.AGENDA_MESA_FK">
@@ -33,8 +35,8 @@
       <End Role="AGENDA" EntitySet="AGENDA" />
       <End Role="RESERVA" EntitySet="RESERVA" />
     </AssociationSet>
-    <AssociationSet Name="BEBIDA_TIPO_PRODUCTO_FK" Association="Modelo.BEBIDA_TIPO_PRODUCTO_FK">
-      <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
+    <AssociationSet Name="BEBIDA_TIPO_BEBIDA_FK" Association="Modelo.BEBIDA_TIPO_BEBIDA_FK">
+      <End Role="TIPO_BEBIDA" EntitySet="TIPO_BEBIDA" />
       <End Role="BEBIDA" EntitySet="BEBIDA" />
     </AssociationSet>
     <AssociationSet Name="ORDEN_BEBIDA_FK" Association="Modelo.ORDEN_BEBIDA_FK">
@@ -97,6 +99,10 @@
       <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
       <End Role="LOGIN" EntitySet="LOGIN" />
     </AssociationSet>
+    <AssociationSet Name="ORDEN_MESA_FK" Association="Modelo.ORDEN_MESA_FK">
+      <End Role="MESA" EntitySet="MESA" />
+      <End Role="ORDEN" EntitySet="ORDEN" />
+    </AssociationSet>
     <AssociationSet Name="PAGO_METODO_PAGO_FK" Association="Modelo.PAGO_METODO_PAGO_FK">
       <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
       <End Role="PAGO" EntitySet="PAGO" />
@@ -136,7 +142,8 @@
     </Key>
     <Property Name="ID_AGENDA" Type="Int32" Nullable="false" />
     <Property Name="FECHA" Type="DateTime" Nullable="false" />
-    <Property Name="HORA" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="HORA_DESDE" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="HORA_HASTA" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="DISPONIBILIDAD" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="NUM_MESA" Type="Int32" Nullable="false" />
     <NavigationProperty Name="MESA" Relationship="Modelo.AGENDA_MESA_FK" FromRole="AGENDA" ToRole="MESA" />
@@ -147,9 +154,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="RUT_CLIENTE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-    <Property Name="MESA" Type="Int32" />
-    <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="MESA" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="FECHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="HORA_INGRESO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="HORA_SALIDA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
@@ -163,8 +170,8 @@
     <Property Name="ML_BEBIDA" Type="Int32" Nullable="false" />
     <Property Name="VALOR_BEBIDA" Type="Int32" Nullable="false" />
     <Property Name="STOCK" Type="Int32" Nullable="false" />
-    <Property Name="ID_TIPO_PRODUCTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
-    <NavigationProperty Name="TIPO_PRODUCTO" Relationship="Modelo.BEBIDA_TIPO_PRODUCTO_FK" FromRole="BEBIDA" ToRole="TIPO_PRODUCTO" />
+    <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TIPO_BEBIDA" Relationship="Modelo.BEBIDA_TIPO_BEBIDA_FK" FromRole="BEBIDA" ToRole="TIPO_BEBIDA" />
     <NavigationProperty Name="ORDEN" Relationship="Modelo.ORDEN_BEBIDA_FK" FromRole="BEBIDA" ToRole="ORDEN" />
   </EntityType>
   <EntityType Name="BOLETA">
@@ -264,6 +271,19 @@
     <NavigationProperty Name="EMPLEADO" Relationship="Modelo.LOGIN_EMPLEADO_FK" FromRole="LOGIN" ToRole="EMPLEADO" />
     <NavigationProperty Name="TIPO_USUARIO" Relationship="Modelo.LOGIN_TIPO_USUARIO_FK" FromRole="LOGIN" ToRole="TIPO_USUARIO" />
   </EntityType>
+  <EntityType Name="MENU">
+    <Key>
+      <PropertyRef Name="ID_MENU" />
+    </Key>
+    <Property Name="ID_MENU" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PRECIO" Type="Int32" Nullable="false" />
+    <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ID_BEBIDA" Type="Int32" Nullable="false" />
+    <Property Name="ID_PLATO" Type="Int32" Nullable="false" />
+    <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" />
+  </EntityType>
   <EntityType Name="MESA">
     <Key>
       <PropertyRef Name="NUM_MESA" />
@@ -275,6 +295,7 @@
     <Property Name="RUT_EMPLEADO" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="AGENDA" Relationship="Modelo.AGENDA_MESA_FK" FromRole="MESA" ToRole="AGENDA" />
     <NavigationProperty Name="EMPLEADO" Relationship="Modelo.MESA_EMPLEADO_FK" FromRole="MESA" ToRole="EMPLEADO" />
+    <NavigationProperty Name="ORDEN" Relationship="Modelo.ORDEN_MESA_FK" FromRole="MESA" ToRole="ORDEN" />
   </EntityType>
   <EntityType Name="METODO_PAGO">
     <Key>
@@ -302,9 +323,11 @@
     <Property Name="ID_BEBIDA" Type="Int32" />
     <Property Name="ID_PLATO" Type="Int32" />
     <Property Name="ID_PEDIDO" Type="Int32" />
+    <Property Name="NUM_MESA" Type="Int32" Nullable="false" />
     <NavigationProperty Name="BEBIDA" Relationship="Modelo.ORDEN_BEBIDA_FK" FromRole="ORDEN" ToRole="BEBIDA" />
     <NavigationProperty Name="CLIENTE" Relationship="Modelo.ORDEN_CLIENTE_FK" FromRole="ORDEN" ToRole="CLIENTE" />
     <NavigationProperty Name="EMPLEADO" Relationship="Modelo.ORDEN_EMPLEADO_FK" FromRole="ORDEN" ToRole="EMPLEADO" />
+    <NavigationProperty Name="MESA" Relationship="Modelo.ORDEN_MESA_FK" FromRole="ORDEN" ToRole="MESA" />
     <NavigationProperty Name="PEDIDO" Relationship="Modelo.ORDEN_PEDIDO_FK" FromRole="ORDEN" ToRole="PEDIDO" />
     <NavigationProperty Name="PLATO" Relationship="Modelo.ORDEN_PLATO_FK" FromRole="ORDEN" ToRole="PLATO" />
   </EntityType>
@@ -330,6 +353,7 @@
     </Key>
     <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
     <Property Name="CLAVE" Type="Int32" Nullable="false" />
+    <Property Name="SALDO" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="PEDIDO">
     <Key>
@@ -356,6 +380,7 @@
     <Property Name="FECHA_PEDIDO" Type="DateTime" Nullable="false" />
     <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="CANTIDAD_PRODUCTO" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ID_PROVEEDOR" Type="Int32" Nullable="false" />
     <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" />
     <Property Name="RUT_EMPLEADO" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
@@ -372,7 +397,7 @@
     <Property Name="PRECIO_PLATO" Type="Int32" Nullable="false" />
     <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STOCK" Type="Int32" Nullable="false" />
     <Property Name="ID_RECETA" Type="Int32" Nullable="false" />
     <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" />
     <NavigationProperty Name="CATEGORIA" Relationship="Modelo.PLATO_CATEGORIA_FK" FromRole="PLATO" ToRole="CATEGORIA" />
@@ -399,12 +424,11 @@
       <PropertyRef Name="ID_PROVEEDOR" />
     </Key>
     <Property Name="ID_PROVEEDOR" Type="Int32" Nullable="false" />
-    <Property Name="NOM_PROVEEDOR" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="APE_PAT_PROVEEDOR" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="APE_MAT_PROVEEDOR" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="CORREO_PROVEEDOR" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="TELEFONO_PROVEEDOR" Type="Int32" Nullable="false" />
-    <Property Name="DIRECCION_PROVEEDOR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CORREO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO" Type="Int32" Nullable="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SITIO_WEB" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PEDIDO_PROVEEDOR" Relationship="Modelo.PEDIDO_PROVEEDOR_PROVEEDOR_FK" FromRole="PROVEEDOR" ToRole="PEDIDO_PROVEEDOR" />
   </EntityType>
   <EntityType Name="RECETA">
@@ -436,13 +460,20 @@
     <NavigationProperty Name="AGENDA" Relationship="Modelo.RESERVA_AGENDA_FK" FromRole="RESERVA" ToRole="AGENDA" />
     <NavigationProperty Name="CLIENTE" Relationship="Modelo.RESERVA_CLIENTE_FK" FromRole="RESERVA" ToRole="CLIENTE" />
   </EntityType>
+  <EntityType Name="TIPO_BEBIDA">
+    <Key>
+      <PropertyRef Name="ID_TIPO" />
+    </Key>
+    <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BEBIDA" Relationship="Modelo.BEBIDA_TIPO_BEBIDA_FK" FromRole="TIPO_BEBIDA" ToRole="BEBIDA" />
+  </EntityType>
   <EntityType Name="TIPO_PRODUCTO">
     <Key>
       <PropertyRef Name="ID_TIPO_PRODUCTO" />
     </Key>
     <Property Name="ID_TIPO_PRODUCTO" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE_TIPO" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="BEBIDA" Relationship="Modelo.BEBIDA_TIPO_PRODUCTO_FK" FromRole="TIPO_PRODUCTO" ToRole="BEBIDA" />
     <NavigationProperty Name="PRODUCTO" Relationship="Modelo.PRODUCTO_TIPO_PRODUCTO_FK" FromRole="TIPO_PRODUCTO" ToRole="PRODUCTO" />
   </EntityType>
   <EntityType Name="TIPO_USUARIO">
@@ -478,17 +509,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="BEBIDA_TIPO_PRODUCTO_FK">
-    <End Type="Modelo.TIPO_PRODUCTO" Role="TIPO_PRODUCTO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+  <Association Name="BEBIDA_TIPO_BEBIDA_FK">
+    <End Type="Modelo.TIPO_BEBIDA" Role="TIPO_BEBIDA" Multiplicity="1" />
     <End Type="Modelo.BEBIDA" Role="BEBIDA" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="TIPO_PRODUCTO">
-        <PropertyRef Name="ID_TIPO_PRODUCTO" />
+      <Principal Role="TIPO_BEBIDA">
+        <PropertyRef Name="ID_TIPO" />
       </Principal>
       <Dependent Role="BEBIDA">
-        <PropertyRef Name="ID_TIPO_PRODUCTO" />
+        <PropertyRef Name="ID_TIPO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -699,6 +728,18 @@
       </Principal>
       <Dependent Role="LOGIN">
         <PropertyRef Name="ID_TIPO_USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDEN_MESA_FK">
+    <End Type="Modelo.MESA" Role="MESA" Multiplicity="1" />
+    <End Type="Modelo.ORDEN" Role="ORDEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MESA">
+        <PropertyRef Name="NUM_MESA" />
+      </Principal>
+      <Dependent Role="ORDEN">
+        <PropertyRef Name="NUM_MESA" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
