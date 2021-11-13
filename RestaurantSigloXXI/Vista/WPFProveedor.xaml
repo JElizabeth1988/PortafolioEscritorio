@@ -45,7 +45,7 @@
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox_Copy" Header="Listado de Proveedores" Margin="49,254,51,0" VerticalAlignment="Top" Height="277" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-            <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="621" Margin="0,-2,-0.333,-8.667" Background="{x:Null}">
+            <Grid HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="621" Margin="0,-2,-0.333,-6.667" Background="{x:Null}">
 
                 <DataGrid x:Name="dgLista" IsReadOnly="True" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="191" Width="583" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
 
@@ -60,7 +60,7 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" Margin="563,201,0,0"  >
+                <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="35" BorderBrush="Black" Click="btnRefrescar_Click" Margin="563,201,0,0"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
                     </Button.Background>
