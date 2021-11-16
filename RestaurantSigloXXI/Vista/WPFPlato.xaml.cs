@@ -27,8 +27,9 @@ using BibliotecaNegocio;
 using System.Threading; //Hilos
 //FileCache
 using System.Runtime.Caching;
+//imagen
 using Microsoft.Win32;
-using System.Windows;
+using System.IO;
 
 namespace Vista
 {
@@ -160,14 +161,14 @@ namespace Vista
                 {
                     i.Categoria = cboCategoria.Text;
                 }
-               
+
 
                 //Proceso de respaldo
                 //Con la ampolleta agregó el using Runtime.Caching
                 FileCache filecahe = new FileCache(new ObjectBinder());
 
                 String hora = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
-                               
+
 
                 filecahe["plato"] = i;
                 filecahe["hora"] = hora;
@@ -236,13 +237,17 @@ namespace Vista
             txtNomb.Clear();
             txtPrecio.Text = "0";
             txtDescripcion.Clear();
-            
+
             cboReceta.SelectedIndex = 0;
             cboCategoria.SelectedIndex = 0;
             txtNomb.Focus();
-          
+
             cboFiltro.SelectedIndex = 0;
             txtStock.Text = "0";
+
+            //limpiar imagen 
+            imgPlato.Source = null;
+            FileNameLabel.Content = "";
 
             btnGuardar.Visibility = Visibility.Visible;
             btnModificar.Visibility = Visibility.Hidden;
@@ -277,10 +282,26 @@ namespace Vista
                 string nombre = txtNomb.Text;
                 int precio = int.Parse(txtPrecio.Text);
                 string desc = txtDescripcion.Text;
-                string estado = null;
                 int stock = int.Parse(txtStock.Text);
                 int receta = ((comboBoxItem1)cboReceta.SelectedItem).id;//Guardo el id
                 int cat = ((comboBoxItem1)cboCategoria.SelectedItem).id;//Guardo el id
+                byte[] fotin = null;
+                if (FileNameLabel.Content != null)
+                {
+                    //Procedimiento para convertir imagen a byte
+
+                    FileStream stream = new FileStream(FileNameLabel.Content.ToString(), FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(stream);
+                    FileInfo fi = new FileInfo(FileNameLabel.Content.ToString());
+                    byte[] binData = new byte[stream.Length];
+                    stream.Read(binData, 0, Convert.ToInt32(stream.Length));
+
+                    fotin = binData;
+                }
+                else
+                {
+                    fotin = null;
+                }
 
                 Plato i = new Plato()
                 {
@@ -289,7 +310,8 @@ namespace Vista
                     descripcion = desc,
                     stock = stock,
                     id_receta = receta,
-                    id_categoria = cat
+                    id_categoria = cat,
+                    foto = fotin
                 };
 
                 bool resp = pla.Agregar(i);
@@ -300,6 +322,7 @@ namespace Vista
                 //MOSTRAR LISTA DE ERRORES (validación de la clase)
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
+
                     DaoErrores de = pla.retornar();
                     string li = "";
                     foreach (string item in de.ListarErrores())
@@ -350,10 +373,27 @@ namespace Vista
                 string nombre = txtNomb.Text;
                 int precio = int.Parse(txtPrecio.Text);
                 string desc = txtDescripcion.Text;
-                string estado = null;
                 int stock = int.Parse(txtStock.Text);
                 int receta = ((comboBoxItem1)cboReceta.SelectedItem).id;//Guardo el id
                 int cat = ((comboBoxItem1)cboCategoria.SelectedItem).id;//Guardo el id
+
+                byte[] fotin = null;
+                if (FileNameLabel.Content != null)
+                {
+                    //Procedimiento para convertir imagen a byte
+                    
+                    FileStream stream = new FileStream(FileNameLabel.Content.ToString(), FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(stream);
+                    FileInfo fi = new FileInfo(FileNameLabel.Content.ToString());
+                    byte[] binData = new byte[stream.Length];
+                    stream.Read(binData, 0, Convert.ToInt32(stream.Length));
+
+                    fotin = binData;
+                }
+                else
+                {
+                    fotin = null;
+                }               
 
                 Plato i = new Plato()
                 {
@@ -363,7 +403,8 @@ namespace Vista
                     descripcion = desc,
                     stock = stock,
                     id_receta = receta,
-                    id_categoria = cat
+                    id_categoria = cat,
+                    foto = fotin
                 };
                 bool resp = pla.Actualizar(i);
                 await this.ShowMessageAsync("Mensaje:",
@@ -478,7 +519,7 @@ namespace Vista
                 var largoSt = (lp.Stock.Length - 3);
                 txtStock.Text = lp.Stock.Substring(0, largoSt);
 
-               
+
                 cboReceta.Text = lp.Receta;
                 cboCategoria.Text = lp.Categoria;
 
@@ -568,17 +609,32 @@ namespace Vista
             _instancia = null;
         }
 
+        //-------Botón para cargar imagen
         private void Seleccionar_click(object sender, RoutedEventArgs e)
         {
+            //Objeto de open file dialog (se creo un using Microsoft.Win32)
             OpenFileDialog OFD = new OpenFileDialog();
+            //filtro de extensión
             OFD.Filter = "Imagenes| *.jpg; * .png";
+            //Directorio inicial carpeta Mis imágenes 
             OFD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            //texto
             OFD.Title = "Seleccionar Imagen";
-       
+
             if (OFD.ShowDialog() == true)
             {
-                Uri fileUri = new Uri(OFD.FileName);
-                imgPlato.Source = new BitmapImage(fileUri);
+                //Uri fileUri = new Uri(OFD.FileName);
+                //cargar imagen en la casilla de imagen
+                //imgPlato.Source = new BitmapImage(fileUri);
+
+                string selectedFileName = OFD.FileName;
+                FileNameLabel.Content = selectedFileName;
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(selectedFileName);
+                bitmap.EndInit();
+                imgPlato.Source = bitmap;
+
             }
         }
     }

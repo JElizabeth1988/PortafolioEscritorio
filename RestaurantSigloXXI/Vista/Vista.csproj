@@ -559,6 +559,9 @@
     <Resource Include="Imagenes\Soup-01.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Imagenes\Basket.png" />
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadataStorage Include="Service References\WSLogin\" />
   </ItemGroup>
   <ItemGroup>
@@ -572,9 +575,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Basket.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

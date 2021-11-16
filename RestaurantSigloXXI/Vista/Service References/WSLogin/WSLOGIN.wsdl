@@ -2,26 +2,20 @@
 <definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="WSLOGIN" targetNamespace="http://ws/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://localhost:26749/WSSIGLOXXI/WSLOGIN?xsd=1" namespace="http://ws/" />
+      <xsd:import schemaLocation="http://localhost:25404/WSSIGLOXXI/WSLOGIN?xsd=1" namespace="http://ws/" />
     </xsd:schema>
   </types>
-  <message name="Sacar_rutCliente">
-    <part name="parameters" element="tns:Sacar_rutCliente" />
-  </message>
-  <message name="Sacar_rutClienteResponse">
-    <part name="parameters" element="tns:Sacar_rutClienteResponse" />
-  </message>
   <message name="sacarIdPedido">
     <part name="parameters" element="tns:sacarIdPedido" />
   </message>
   <message name="sacarIdPedidoResponse">
     <part name="parameters" element="tns:sacarIdPedidoResponse" />
   </message>
-  <message name="nombreCliente">
-    <part name="parameters" element="tns:nombreCliente" />
+  <message name="correoCli">
+    <part name="parameters" element="tns:correoCli" />
   </message>
-  <message name="nombreClienteResponse">
-    <part name="parameters" element="tns:nombreClienteResponse" />
+  <message name="correoCliResponse">
+    <part name="parameters" element="tns:correoCliResponse" />
   </message>
   <message name="Login">
     <part name="parameters" element="tns:Login" />
@@ -35,24 +29,26 @@
   <message name="Cliente_activoResponse">
     <part name="parameters" element="tns:Cliente_activoResponse" />
   </message>
-  <message name="correoCli">
-    <part name="parameters" element="tns:correoCli" />
+  <message name="Sacar_rutCliente">
+    <part name="parameters" element="tns:Sacar_rutCliente" />
   </message>
-  <message name="correoCliResponse">
-    <part name="parameters" element="tns:correoCliResponse" />
+  <message name="Sacar_rutClienteResponse">
+    <part name="parameters" element="tns:Sacar_rutClienteResponse" />
+  </message>
+  <message name="nombreCliente">
+    <part name="parameters" element="tns:nombreCliente" />
+  </message>
+  <message name="nombreClienteResponse">
+    <part name="parameters" element="tns:nombreClienteResponse" />
   </message>
   <portType name="WSLOGIN">
-    <operation name="Sacar_rutCliente">
-      <input wsam:Action="http://ws/WSLOGIN/Sacar_rutClienteRequest" message="tns:Sacar_rutCliente" />
-      <output wsam:Action="http://ws/WSLOGIN/Sacar_rutClienteResponse" message="tns:Sacar_rutClienteResponse" />
-    </operation>
     <operation name="sacarIdPedido">
       <input wsam:Action="http://ws/WSLOGIN/sacarIdPedidoRequest" message="tns:sacarIdPedido" />
       <output wsam:Action="http://ws/WSLOGIN/sacarIdPedidoResponse" message="tns:sacarIdPedidoResponse" />
     </operation>
-    <operation name="nombreCliente">
-      <input wsam:Action="http://ws/WSLOGIN/nombreClienteRequest" message="tns:nombreCliente" />
-      <output wsam:Action="http://ws/WSLOGIN/nombreClienteResponse" message="tns:nombreClienteResponse" />
+    <operation name="correoCli">
+      <input wsam:Action="http://ws/WSLOGIN/correoCliRequest" message="tns:correoCli" />
+      <output wsam:Action="http://ws/WSLOGIN/correoCliResponse" message="tns:correoCliResponse" />
     </operation>
     <operation name="Login">
       <input wsam:Action="http://ws/WSLOGIN/LoginRequest" message="tns:Login" />
@@ -62,22 +58,17 @@
       <input wsam:Action="http://ws/WSLOGIN/Cliente_activoRequest" message="tns:Cliente_activo" />
       <output wsam:Action="http://ws/WSLOGIN/Cliente_activoResponse" message="tns:Cliente_activoResponse" />
     </operation>
-    <operation name="correoCli">
-      <input wsam:Action="http://ws/WSLOGIN/correoCliRequest" message="tns:correoCli" />
-      <output wsam:Action="http://ws/WSLOGIN/correoCliResponse" message="tns:correoCliResponse" />
+    <operation name="Sacar_rutCliente">
+      <input wsam:Action="http://ws/WSLOGIN/Sacar_rutClienteRequest" message="tns:Sacar_rutCliente" />
+      <output wsam:Action="http://ws/WSLOGIN/Sacar_rutClienteResponse" message="tns:Sacar_rutClienteResponse" />
+    </operation>
+    <operation name="nombreCliente">
+      <input wsam:Action="http://ws/WSLOGIN/nombreClienteRequest" message="tns:nombreCliente" />
+      <output wsam:Action="http://ws/WSLOGIN/nombreClienteResponse" message="tns:nombreClienteResponse" />
     </operation>
   </portType>
   <binding name="WSLOGINPortBinding" type="tns:WSLOGIN">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="Sacar_rutCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="sacarIdPedido">
       <soap:operation soapAction="" />
       <input>
@@ -87,7 +78,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="nombreCliente">
+    <operation name="correoCli">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -114,7 +105,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="correoCli">
+    <operation name="Sacar_rutCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="nombreCliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -126,7 +126,7 @@
   </binding>
   <service name="WSLOGIN">
     <port name="WSLOGINPort" binding="tns:WSLOGINPortBinding">
-      <soap:address location="http://localhost:26749/WSSIGLOXXI/WSLOGIN" />
+      <soap:address location="http://localhost:25404/WSSIGLOXXI/WSLOGIN" />
     </port>
   </service>
 </definitions>

@@ -53,7 +53,8 @@ namespace BibliotecaNegocio
         }
 
         public string descripcion { get; set; }
-        public  string foto { get; set; }
+        //foto
+        public  byte[] foto { get; set; }
 
         private int _stock;
         public int stock
@@ -110,9 +111,11 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = platito.nom_plato;
                 CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
                 CMD.Parameters.Add(new OracleParameter("P_DESCRIPCION", OracleDbType.Varchar2, 200)).Value = platito.descripcion;
+                CMD.Parameters.Add(new OracleParameter("P_FOTO", OracleDbType.Blob)).Value = platito.foto;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = platito.stock;
                 CMD.Parameters.Add(new OracleParameter("P_RECETA", OracleDbType.Int32)).Value = platito.id_receta;
                 CMD.Parameters.Add(new OracleParameter("P_CATEGORIA", OracleDbType.Int32)).Value = platito.id_categoria;
+                
 
                 //Se abre la conexión
                 conn.Open();
@@ -126,8 +129,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return false;
                 Logger.Mensaje(ex.Message);
+                err.AgregarError(ex.Message);
+                return false;               
 
             }
         }
@@ -151,6 +155,7 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = platito.nom_plato;
                 CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
                 CMD.Parameters.Add(new OracleParameter("P_DESCRIPCION", OracleDbType.Varchar2, 200)).Value = platito.descripcion;
+                CMD.Parameters.Add(new OracleParameter("P_FOTO", OracleDbType.Blob)).Value = platito.foto;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = platito.stock;
                 CMD.Parameters.Add(new OracleParameter("P_RECETA", OracleDbType.Int32)).Value = platito.id_receta;
                 CMD.Parameters.Add(new OracleParameter("P_CATEGORIA", OracleDbType.Int32)).Value = platito.id_categoria;
@@ -288,6 +293,7 @@ namespace BibliotecaNegocio
                     i.Stock = dr.GetValue(4).ToString() + " U.";
                     i.Receta = dr.GetValue(5).ToString();
                     i.Categoria = dr.GetValue(6).ToString();
+                    i.Imaagen = byte.Parse(dr.GetValue(7).ToString());
 
                     lista.Add(i);
                 }
@@ -414,6 +420,8 @@ namespace BibliotecaNegocio
             public string Stock { get; set; }
             public string Receta { get; set; }
             public string Categoria { get; set; }
+
+            public byte Imaagen { get; set; }
 
             public ListaPlato()
             {

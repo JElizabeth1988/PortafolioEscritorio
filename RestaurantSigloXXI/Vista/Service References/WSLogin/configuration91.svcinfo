@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="jupQyLjbJ+n9bRZiAspQaPfJLKQ=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="GBKgwnRGYjKfGS8Mrgc/xLXuUX0=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="WSLOGINPortBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSLOGINPort" contract="WSLogin.WSLOGIN" bindingType="basicHttpBinding" address="http://localhost:26749/WSSIGLOXXI/WSLOGIN" bindingConfiguration="WSLOGINPortBinding">
+    <endpoint name="WSLOGINPort" contract="WSLogin.WSLOGIN" bindingType="basicHttpBinding" address="http://localhost:25404/WSSIGLOXXI/WSLOGIN" bindingConfiguration="WSLOGINPortBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:26749/WSSIGLOXXI/WSLOGIN</serializedValue>
+          <serializedValue>http://localhost:25404/WSSIGLOXXI/WSLOGIN</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

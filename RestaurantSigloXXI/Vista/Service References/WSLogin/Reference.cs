@@ -16,13 +16,6 @@ namespace Vista.WSLogin {
     public interface WSLOGIN {
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento user del espacio de nombres  no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/Sacar_rutClienteRequest", ReplyAction="http://ws/WSLOGIN/Sacar_rutClienteResponse")]
-        Vista.WSLogin.Sacar_rutClienteResponse Sacar_rutCliente(Vista.WSLogin.Sacar_rutClienteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/Sacar_rutClienteRequest", ReplyAction="http://ws/WSLOGIN/Sacar_rutClienteResponse")]
-        System.Threading.Tasks.Task<Vista.WSLogin.Sacar_rutClienteResponse> Sacar_rutClienteAsync(Vista.WSLogin.Sacar_rutClienteRequest request);
-        
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento user del espacio de nombres  no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/sacarIdPedidoRequest", ReplyAction="http://ws/WSLOGIN/sacarIdPedidoResponse")]
         Vista.WSLogin.sacarIdPedidoResponse sacarIdPedido(Vista.WSLogin.sacarIdPedidoRequest request);
         
@@ -30,11 +23,11 @@ namespace Vista.WSLogin {
         System.Threading.Tasks.Task<Vista.WSLogin.sacarIdPedidoResponse> sacarIdPedidoAsync(Vista.WSLogin.sacarIdPedidoRequest request);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento user del espacio de nombres  no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/nombreClienteRequest", ReplyAction="http://ws/WSLOGIN/nombreClienteResponse")]
-        Vista.WSLogin.nombreClienteResponse nombreCliente(Vista.WSLogin.nombreClienteRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/correoCliRequest", ReplyAction="http://ws/WSLOGIN/correoCliResponse")]
+        Vista.WSLogin.correoCliResponse correoCli(Vista.WSLogin.correoCliRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/nombreClienteRequest", ReplyAction="http://ws/WSLOGIN/nombreClienteResponse")]
-        System.Threading.Tasks.Task<Vista.WSLogin.nombreClienteResponse> nombreClienteAsync(Vista.WSLogin.nombreClienteRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/correoCliRequest", ReplyAction="http://ws/WSLOGIN/correoCliResponse")]
+        System.Threading.Tasks.Task<Vista.WSLogin.correoCliResponse> correoCliAsync(Vista.WSLogin.correoCliRequest request);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento user del espacio de nombres  no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/LoginRequest", ReplyAction="http://ws/WSLOGIN/LoginResponse")]
@@ -51,83 +44,18 @@ namespace Vista.WSLogin {
         System.Threading.Tasks.Task<Vista.WSLogin.Cliente_activoResponse> Cliente_activoAsync(Vista.WSLogin.Cliente_activoRequest request);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento user del espacio de nombres  no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/correoCliRequest", ReplyAction="http://ws/WSLOGIN/correoCliResponse")]
-        Vista.WSLogin.correoCliResponse correoCli(Vista.WSLogin.correoCliRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/Sacar_rutClienteRequest", ReplyAction="http://ws/WSLOGIN/Sacar_rutClienteResponse")]
+        Vista.WSLogin.Sacar_rutClienteResponse Sacar_rutCliente(Vista.WSLogin.Sacar_rutClienteRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/correoCliRequest", ReplyAction="http://ws/WSLOGIN/correoCliResponse")]
-        System.Threading.Tasks.Task<Vista.WSLogin.correoCliResponse> correoCliAsync(Vista.WSLogin.correoCliRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class Sacar_rutClienteRequest {
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/Sacar_rutClienteRequest", ReplyAction="http://ws/WSLOGIN/Sacar_rutClienteResponse")]
+        System.Threading.Tasks.Task<Vista.WSLogin.Sacar_rutClienteResponse> Sacar_rutClienteAsync(Vista.WSLogin.Sacar_rutClienteRequest request);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Sacar_rutCliente", Namespace="http://ws/", Order=0)]
-        public Vista.WSLogin.Sacar_rutClienteRequestBody Body;
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento user del espacio de nombres  no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/nombreClienteRequest", ReplyAction="http://ws/WSLOGIN/nombreClienteResponse")]
+        Vista.WSLogin.nombreClienteResponse nombreCliente(Vista.WSLogin.nombreClienteRequest request);
         
-        public Sacar_rutClienteRequest() {
-        }
-        
-        public Sacar_rutClienteRequest(Vista.WSLogin.Sacar_rutClienteRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class Sacar_rutClienteRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string user;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string pass;
-        
-        public Sacar_rutClienteRequestBody() {
-        }
-        
-        public Sacar_rutClienteRequestBody(string user, string pass) {
-            this.user = user;
-            this.pass = pass;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class Sacar_rutClienteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Sacar_rutClienteResponse", Namespace="http://ws/", Order=0)]
-        public Vista.WSLogin.Sacar_rutClienteResponseBody Body;
-        
-        public Sacar_rutClienteResponse() {
-        }
-        
-        public Sacar_rutClienteResponse(Vista.WSLogin.Sacar_rutClienteResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class Sacar_rutClienteResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public Sacar_rutClienteResponseBody() {
-        }
-        
-        public Sacar_rutClienteResponseBody(string @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/nombreClienteRequest", ReplyAction="http://ws/WSLOGIN/nombreClienteResponse")]
+        System.Threading.Tasks.Task<Vista.WSLogin.nombreClienteResponse> nombreClienteAsync(Vista.WSLogin.nombreClienteRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -206,15 +134,15 @@ namespace Vista.WSLogin {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class nombreClienteRequest {
+    public partial class correoCliRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="nombreCliente", Namespace="http://ws/", Order=0)]
-        public Vista.WSLogin.nombreClienteRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="correoCli", Namespace="http://ws/", Order=0)]
+        public Vista.WSLogin.correoCliRequestBody Body;
         
-        public nombreClienteRequest() {
+        public correoCliRequest() {
         }
         
-        public nombreClienteRequest(Vista.WSLogin.nombreClienteRequestBody Body) {
+        public correoCliRequest(Vista.WSLogin.correoCliRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -223,7 +151,7 @@ namespace Vista.WSLogin {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class nombreClienteRequestBody {
+    public partial class correoCliRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string user;
@@ -231,10 +159,10 @@ namespace Vista.WSLogin {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string pass;
         
-        public nombreClienteRequestBody() {
+        public correoCliRequestBody() {
         }
         
-        public nombreClienteRequestBody(string user, string pass) {
+        public correoCliRequestBody(string user, string pass) {
             this.user = user;
             this.pass = pass;
         }
@@ -244,15 +172,15 @@ namespace Vista.WSLogin {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class nombreClienteResponse {
+    public partial class correoCliResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="nombreClienteResponse", Namespace="http://ws/", Order=0)]
-        public Vista.WSLogin.nombreClienteResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="correoCliResponse", Namespace="http://ws/", Order=0)]
+        public Vista.WSLogin.correoCliResponseBody Body;
         
-        public nombreClienteResponse() {
+        public correoCliResponse() {
         }
         
-        public nombreClienteResponse(Vista.WSLogin.nombreClienteResponseBody Body) {
+        public correoCliResponse(Vista.WSLogin.correoCliResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -261,15 +189,15 @@ namespace Vista.WSLogin {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class nombreClienteResponseBody {
+    public partial class correoCliResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string @return;
         
-        public nombreClienteResponseBody() {
+        public correoCliResponseBody() {
         }
         
-        public nombreClienteResponseBody(string @return) {
+        public correoCliResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -422,15 +350,15 @@ namespace Vista.WSLogin {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class correoCliRequest {
+    public partial class Sacar_rutClienteRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="correoCli", Namespace="http://ws/", Order=0)]
-        public Vista.WSLogin.correoCliRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Sacar_rutCliente", Namespace="http://ws/", Order=0)]
+        public Vista.WSLogin.Sacar_rutClienteRequestBody Body;
         
-        public correoCliRequest() {
+        public Sacar_rutClienteRequest() {
         }
         
-        public correoCliRequest(Vista.WSLogin.correoCliRequestBody Body) {
+        public Sacar_rutClienteRequest(Vista.WSLogin.Sacar_rutClienteRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -439,7 +367,7 @@ namespace Vista.WSLogin {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class correoCliRequestBody {
+    public partial class Sacar_rutClienteRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string user;
@@ -447,10 +375,10 @@ namespace Vista.WSLogin {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string pass;
         
-        public correoCliRequestBody() {
+        public Sacar_rutClienteRequestBody() {
         }
         
-        public correoCliRequestBody(string user, string pass) {
+        public Sacar_rutClienteRequestBody(string user, string pass) {
             this.user = user;
             this.pass = pass;
         }
@@ -460,15 +388,15 @@ namespace Vista.WSLogin {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class correoCliResponse {
+    public partial class Sacar_rutClienteResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="correoCliResponse", Namespace="http://ws/", Order=0)]
-        public Vista.WSLogin.correoCliResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Sacar_rutClienteResponse", Namespace="http://ws/", Order=0)]
+        public Vista.WSLogin.Sacar_rutClienteResponseBody Body;
         
-        public correoCliResponse() {
+        public Sacar_rutClienteResponse() {
         }
         
-        public correoCliResponse(Vista.WSLogin.correoCliResponseBody Body) {
+        public Sacar_rutClienteResponse(Vista.WSLogin.Sacar_rutClienteResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -477,15 +405,87 @@ namespace Vista.WSLogin {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class correoCliResponseBody {
+    public partial class Sacar_rutClienteResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string @return;
         
-        public correoCliResponseBody() {
+        public Sacar_rutClienteResponseBody() {
         }
         
-        public correoCliResponseBody(string @return) {
+        public Sacar_rutClienteResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class nombreClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="nombreCliente", Namespace="http://ws/", Order=0)]
+        public Vista.WSLogin.nombreClienteRequestBody Body;
+        
+        public nombreClienteRequest() {
+        }
+        
+        public nombreClienteRequest(Vista.WSLogin.nombreClienteRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class nombreClienteRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string user;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string pass;
+        
+        public nombreClienteRequestBody() {
+        }
+        
+        public nombreClienteRequestBody(string user, string pass) {
+            this.user = user;
+            this.pass = pass;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class nombreClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="nombreClienteResponse", Namespace="http://ws/", Order=0)]
+        public Vista.WSLogin.nombreClienteResponseBody Body;
+        
+        public nombreClienteResponse() {
+        }
+        
+        public nombreClienteResponse(Vista.WSLogin.nombreClienteResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class nombreClienteResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public nombreClienteResponseBody() {
+        }
+        
+        public nombreClienteResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -518,33 +518,6 @@ namespace Vista.WSLogin {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Vista.WSLogin.Sacar_rutClienteResponse Vista.WSLogin.WSLOGIN.Sacar_rutCliente(Vista.WSLogin.Sacar_rutClienteRequest request) {
-            return base.Channel.Sacar_rutCliente(request);
-        }
-        
-        public string Sacar_rutCliente(string user, string pass) {
-            Vista.WSLogin.Sacar_rutClienteRequest inValue = new Vista.WSLogin.Sacar_rutClienteRequest();
-            inValue.Body = new Vista.WSLogin.Sacar_rutClienteRequestBody();
-            inValue.Body.user = user;
-            inValue.Body.pass = pass;
-            Vista.WSLogin.Sacar_rutClienteResponse retVal = ((Vista.WSLogin.WSLOGIN)(this)).Sacar_rutCliente(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Vista.WSLogin.Sacar_rutClienteResponse> Vista.WSLogin.WSLOGIN.Sacar_rutClienteAsync(Vista.WSLogin.Sacar_rutClienteRequest request) {
-            return base.Channel.Sacar_rutClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Vista.WSLogin.Sacar_rutClienteResponse> Sacar_rutClienteAsync(string user, string pass) {
-            Vista.WSLogin.Sacar_rutClienteRequest inValue = new Vista.WSLogin.Sacar_rutClienteRequest();
-            inValue.Body = new Vista.WSLogin.Sacar_rutClienteRequestBody();
-            inValue.Body.user = user;
-            inValue.Body.pass = pass;
-            return ((Vista.WSLogin.WSLOGIN)(this)).Sacar_rutClienteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Vista.WSLogin.sacarIdPedidoResponse Vista.WSLogin.WSLOGIN.sacarIdPedido(Vista.WSLogin.sacarIdPedidoRequest request) {
             return base.Channel.sacarIdPedido(request);
         }
@@ -572,30 +545,30 @@ namespace Vista.WSLogin {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Vista.WSLogin.nombreClienteResponse Vista.WSLogin.WSLOGIN.nombreCliente(Vista.WSLogin.nombreClienteRequest request) {
-            return base.Channel.nombreCliente(request);
+        Vista.WSLogin.correoCliResponse Vista.WSLogin.WSLOGIN.correoCli(Vista.WSLogin.correoCliRequest request) {
+            return base.Channel.correoCli(request);
         }
         
-        public string nombreCliente(string user, string pass) {
-            Vista.WSLogin.nombreClienteRequest inValue = new Vista.WSLogin.nombreClienteRequest();
-            inValue.Body = new Vista.WSLogin.nombreClienteRequestBody();
+        public string correoCli(string user, string pass) {
+            Vista.WSLogin.correoCliRequest inValue = new Vista.WSLogin.correoCliRequest();
+            inValue.Body = new Vista.WSLogin.correoCliRequestBody();
             inValue.Body.user = user;
             inValue.Body.pass = pass;
-            Vista.WSLogin.nombreClienteResponse retVal = ((Vista.WSLogin.WSLOGIN)(this)).nombreCliente(inValue);
+            Vista.WSLogin.correoCliResponse retVal = ((Vista.WSLogin.WSLOGIN)(this)).correoCli(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Vista.WSLogin.nombreClienteResponse> Vista.WSLogin.WSLOGIN.nombreClienteAsync(Vista.WSLogin.nombreClienteRequest request) {
-            return base.Channel.nombreClienteAsync(request);
+        System.Threading.Tasks.Task<Vista.WSLogin.correoCliResponse> Vista.WSLogin.WSLOGIN.correoCliAsync(Vista.WSLogin.correoCliRequest request) {
+            return base.Channel.correoCliAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Vista.WSLogin.nombreClienteResponse> nombreClienteAsync(string user, string pass) {
-            Vista.WSLogin.nombreClienteRequest inValue = new Vista.WSLogin.nombreClienteRequest();
-            inValue.Body = new Vista.WSLogin.nombreClienteRequestBody();
+        public System.Threading.Tasks.Task<Vista.WSLogin.correoCliResponse> correoCliAsync(string user, string pass) {
+            Vista.WSLogin.correoCliRequest inValue = new Vista.WSLogin.correoCliRequest();
+            inValue.Body = new Vista.WSLogin.correoCliRequestBody();
             inValue.Body.user = user;
             inValue.Body.pass = pass;
-            return ((Vista.WSLogin.WSLOGIN)(this)).nombreClienteAsync(inValue);
+            return ((Vista.WSLogin.WSLOGIN)(this)).correoCliAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -653,30 +626,57 @@ namespace Vista.WSLogin {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Vista.WSLogin.correoCliResponse Vista.WSLogin.WSLOGIN.correoCli(Vista.WSLogin.correoCliRequest request) {
-            return base.Channel.correoCli(request);
+        Vista.WSLogin.Sacar_rutClienteResponse Vista.WSLogin.WSLOGIN.Sacar_rutCliente(Vista.WSLogin.Sacar_rutClienteRequest request) {
+            return base.Channel.Sacar_rutCliente(request);
         }
         
-        public string correoCli(string user, string pass) {
-            Vista.WSLogin.correoCliRequest inValue = new Vista.WSLogin.correoCliRequest();
-            inValue.Body = new Vista.WSLogin.correoCliRequestBody();
+        public string Sacar_rutCliente(string user, string pass) {
+            Vista.WSLogin.Sacar_rutClienteRequest inValue = new Vista.WSLogin.Sacar_rutClienteRequest();
+            inValue.Body = new Vista.WSLogin.Sacar_rutClienteRequestBody();
             inValue.Body.user = user;
             inValue.Body.pass = pass;
-            Vista.WSLogin.correoCliResponse retVal = ((Vista.WSLogin.WSLOGIN)(this)).correoCli(inValue);
+            Vista.WSLogin.Sacar_rutClienteResponse retVal = ((Vista.WSLogin.WSLOGIN)(this)).Sacar_rutCliente(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Vista.WSLogin.correoCliResponse> Vista.WSLogin.WSLOGIN.correoCliAsync(Vista.WSLogin.correoCliRequest request) {
-            return base.Channel.correoCliAsync(request);
+        System.Threading.Tasks.Task<Vista.WSLogin.Sacar_rutClienteResponse> Vista.WSLogin.WSLOGIN.Sacar_rutClienteAsync(Vista.WSLogin.Sacar_rutClienteRequest request) {
+            return base.Channel.Sacar_rutClienteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Vista.WSLogin.correoCliResponse> correoCliAsync(string user, string pass) {
-            Vista.WSLogin.correoCliRequest inValue = new Vista.WSLogin.correoCliRequest();
-            inValue.Body = new Vista.WSLogin.correoCliRequestBody();
+        public System.Threading.Tasks.Task<Vista.WSLogin.Sacar_rutClienteResponse> Sacar_rutClienteAsync(string user, string pass) {
+            Vista.WSLogin.Sacar_rutClienteRequest inValue = new Vista.WSLogin.Sacar_rutClienteRequest();
+            inValue.Body = new Vista.WSLogin.Sacar_rutClienteRequestBody();
             inValue.Body.user = user;
             inValue.Body.pass = pass;
-            return ((Vista.WSLogin.WSLOGIN)(this)).correoCliAsync(inValue);
+            return ((Vista.WSLogin.WSLOGIN)(this)).Sacar_rutClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Vista.WSLogin.nombreClienteResponse Vista.WSLogin.WSLOGIN.nombreCliente(Vista.WSLogin.nombreClienteRequest request) {
+            return base.Channel.nombreCliente(request);
+        }
+        
+        public string nombreCliente(string user, string pass) {
+            Vista.WSLogin.nombreClienteRequest inValue = new Vista.WSLogin.nombreClienteRequest();
+            inValue.Body = new Vista.WSLogin.nombreClienteRequestBody();
+            inValue.Body.user = user;
+            inValue.Body.pass = pass;
+            Vista.WSLogin.nombreClienteResponse retVal = ((Vista.WSLogin.WSLOGIN)(this)).nombreCliente(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Vista.WSLogin.nombreClienteResponse> Vista.WSLogin.WSLOGIN.nombreClienteAsync(Vista.WSLogin.nombreClienteRequest request) {
+            return base.Channel.nombreClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Vista.WSLogin.nombreClienteResponse> nombreClienteAsync(string user, string pass) {
+            Vista.WSLogin.nombreClienteRequest inValue = new Vista.WSLogin.nombreClienteRequest();
+            inValue.Body = new Vista.WSLogin.nombreClienteRequestBody();
+            inValue.Body.user = user;
+            inValue.Body.pass = pass;
+            return ((Vista.WSLogin.WSLOGIN)(this)).nombreClienteAsync(inValue);
         }
     }
 }
