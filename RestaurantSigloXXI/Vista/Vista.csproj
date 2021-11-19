@@ -229,6 +229,9 @@
     <Compile Include="WPFBebida.xaml.cs">
       <DependentUpon>WPFBebida.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFCalcularPedido.xaml.cs">
+      <DependentUpon>WPFCalcularPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFCliente2.xaml.cs">
       <DependentUpon>WPFCliente2.xaml</DependentUpon>
     </Compile>
@@ -310,6 +313,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFBebida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFCalcularPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -483,6 +490,10 @@
     <ProjectReference Include="..\BibliotecaClases\BibliotecaNegocio.csproj">
       <Project>{bf432429-8ad0-4cbb-94e4-8cf940ee6644}</Project>
       <Name>BibliotecaNegocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BibliotecaControlador\BibliotecaDALC.csproj">
+      <Project>{d97da004-87c2-415b-b9f0-d776cf72634c}</Project>
+      <Name>BibliotecaDALC</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

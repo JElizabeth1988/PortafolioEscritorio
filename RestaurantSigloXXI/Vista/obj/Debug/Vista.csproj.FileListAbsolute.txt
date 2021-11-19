@@ -1215,3 +1215,5 @@ C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSig
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFProveedor.g.cs
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFProveedor.baml
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFCalcularPedido.g.cs
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\Vista\obj\Debug\WPFCalcularPedido.baml

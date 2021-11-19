@@ -481,7 +481,7 @@ namespace BibliotecaNegocio
             }
         }
 
-        //Lista Clientes para mostrar nombres en vez de id (para procedimientos con Joins)
+        //Lista para mostrar nombres en vez de id (para procedimientos con Joins)
         [Serializable]
         public class ListaProducto
         {
@@ -502,6 +502,68 @@ namespace BibliotecaNegocio
 
         }
 
+        //Lista  para mostrar nombres en vez de id (para procedimientos con Joins)
+        [Serializable]
+        public class ListaProductoPedido
+        {            
+            public string Nombre { get; set; }
+            public string Valor { get; set; }
+            public string Stock { get; set; }
+
+            public ListaProductoPedido()
+            {
+
+            }
+
+        }
+        //------------Listar Productos para pedidos-------------
+        public List<ListaProductoPedido> ListarPedido()
+        {
+            try
+            {
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                //Lista de clientes
+                List<ListaProductoPedido> lista = new List<ListaProductoPedido>();
+                //se ejecutan los comandos de procedimientos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_STOCK_BAJO_PROD";
+                //Se agrega el parámetro de salida
+                cmd.Parameters.Add(new OracleParameter("BAJITOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    ListaProductoPedido P = new ListaProductoPedido();
+
+                    //se obtiene el valor con getvalue es lo mismo pero con get                    
+                    P.Nombre = dr.GetValue(0).ToString();                   
+                    P.Stock = "$ " + dr.GetValue(1).ToString();
+                    P.Valor = dr.GetValue(2).ToString() + " U";                   
+
+                    lista.Add(P);
+                }
+                //Cerrar la conexión
+                conn.Close();
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Logger.Mensaje(ex.Message);
+                return null;                
+
+            }
+        }
 
 
     }

@@ -47,9 +47,7 @@
                 <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="281,153,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                 <Label x:Name="lbl1_Copy2" Content="*"  HorizontalAlignment="Left" Margin="301,182,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                 <Label x:Name="lbl1_Copy3" Content="*"  HorizontalAlignment="Left" Margin="301,211,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
-
-
-
+                <!--      <Button x:Name="btnVer" ToolTip="Cargar Imagen" Content="Ver Imagen" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnVer_Click"/>-->
 
             </Grid>
         </GroupBox>

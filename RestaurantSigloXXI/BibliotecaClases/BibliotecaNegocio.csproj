@@ -67,6 +67,7 @@
     <Compile Include="Proveedor.cs" />
     <Compile Include="Receta.cs" />
     <Compile Include="Reserva.cs" />
+    <Compile Include="Temporal.cs" />
     <Compile Include="TipoProducto.cs" />
     <Compile Include="TipoUsuario.cs" />
     <Compile Include="TipoBebida.cs" />

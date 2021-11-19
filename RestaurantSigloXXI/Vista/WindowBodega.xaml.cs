@@ -85,8 +85,7 @@ namespace Vista
 
         private async void Pedido_Click(object sender, RoutedEventArgs e)
         {
-            await this.ShowMessageAsync("EN CONSTRUCCIÓN:",
-                       string.Format("Disculpe las Molestias"));
+            WPFCalcularPedido.ObtenerinstanciaPED().ShowDialog();
         }
     }
 }

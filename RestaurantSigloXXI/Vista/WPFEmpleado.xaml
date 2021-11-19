@@ -53,6 +53,15 @@
                 <Label x:Name="label_Copy9" Content="Cargo:&#xA;" HorizontalAlignment="Left" Margin="23,375,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.73,-0.613" Height="32"/>
                 <Button x:Name="btnGenerarUser" ToolTip="Generar Id de Usuario"  Content="Generar" HorizontalAlignment="Left" Margin="321,305,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnGenerarUser_Click"/>
                 <Button x:Name="btnGenerarPass" ToolTip="Generar Contraseña"  Content="Generar" HorizontalAlignment="Left" Margin="321,338,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnGenerarPass_Click"/>
+                <Label x:Name="lbl1_Copy5" Content="*"  HorizontalAlignment="Left" Margin="351,27,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy" Content="*"  HorizontalAlignment="Left" Margin="351,59,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="351,130,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy2" Content="*"  HorizontalAlignment="Left" Margin="351,165,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy3" Content="*"  HorizontalAlignment="Left" Margin="351,203,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy4" Content="*"  HorizontalAlignment="Left" Margin="296,235,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy6" Content="*"  HorizontalAlignment="Left" Margin="296,305,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy7" Content="*"  HorizontalAlignment="Left" Margin="296,340,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy8" Content="*"  HorizontalAlignment="Left" Margin="352,375,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
 
             </Grid>
         </GroupBox>

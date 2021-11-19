@@ -74,24 +74,9 @@ namespace BibliotecaNegocio
             }
         }
 
-        private string _ap_materno;
+        
+        public string ap_materno_cli { get; set; }
 
-        public string ap_materno_cli
-        {
-            get { return _ap_materno; }
-            set
-            {
-                if (value != string.Empty)
-                {
-                    _ap_materno = value;
-                }
-                else
-                {
-                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("- Campo Apellido Materno no puede estar Vacío");
-                }
-            }
-        }
 
         //public int celular_cli { get; set; }
         private int _celular;

@@ -63,7 +63,7 @@ namespace Vista
             InitializeComponent();
             txtTi_Coc.Text = "0";
             txtTPrep.Text = "0";
-            txtTotal.Text = "0";
+            //txtTotal.Text = "0";
             txtPorcion.Text = "0";
             CargarGrilla();
             btnModificar.Visibility = Visibility.Hidden;
@@ -125,11 +125,7 @@ namespace Vista
                 {
                     re.tiempo_preparacion = txtTPrep.Text;
                 }
-                int total = 0;
-                if (int.TryParse(txtTotal.Text, out total))
-                {
-                    re.tiempo_total = txtTotal.Text;
-                }
+                
                 int porc = 0;
                 if (int.TryParse(txtPorcion.Text, out porc))
                 {
@@ -227,7 +223,7 @@ namespace Vista
             txtNom_receta.Clear();
             txtTi_Coc.Text = "0";
             txtTPrep.Text = "0";
-            txtTotal.Text = "0";
+            //txtTotal.Text = "0";
             txtPorcion.Text = "0";
             txtInstrucciones.Clear();
             txtIngrediente.Clear();
@@ -270,7 +266,7 @@ namespace Vista
                 string nombre = txtNom_receta.Text;
                 int coccion = int.Parse(txtTi_Coc.Text);
                 int prepa = int.Parse(txtTPrep.Text);
-                int total = int.Parse(txtTotal.Text);
+                int total = (int.Parse(txtTi_Coc.Text) + int.Parse(txtTPrep.Text));
                 int porcion = int.Parse(txtPorcion.Text);
                 string ingredientes = txtIngrediente.Text;
                 string instruccion = txtInstrucciones.Text;
@@ -318,7 +314,7 @@ namespace Vista
                 string nombre = txtNom_receta.Text;
                 int coccion = int.Parse(txtTi_Coc.Text);
                 int prepa = int.Parse(txtTPrep.Text);
-                int total = int.Parse(txtTotal.Text);
+                int total = (int.Parse(txtTi_Coc.Text) + int.Parse(txtTPrep.Text));
                 int porcion = int.Parse(txtPorcion.Text);
                 string ingredientes = txtIngrediente.Text;
                 string instruccion = txtInstrucciones.Text;
@@ -425,7 +421,7 @@ namespace Vista
                     txtNom_receta.Text = c.Nombre;
                     txtTi_Coc.Text = c.Tiempo_coccion;
                     txtTPrep.Text = c.tiempo_preparacion;
-                    txtTotal.Text = c.tiempo_total;
+                    //txtTotal.Text = c.tiempo_total;
                     txtPorcion.Text = c.porciones;
                     txtIngrediente.Text = c.Instrucciones;
                     txtIngrediente.Text = c.Ingredientes;
@@ -457,8 +453,8 @@ namespace Vista
 
                 var LargoPrep = (r.tiempo_preparacion.Length - 8);
                 txtTPrep.Text = r.tiempo_preparacion.Substring(0, LargoPrep);
-                var LargoTot = (r.tiempo_total.Length - 8);
-                txtTotal.Text = r.tiempo_total.Substring(0, LargoTot);
+                /*var LargoTot = (r.tiempo_total.Length - 8);
+                txtTotal.Text = r.tiempo_total.Substring(0, LargoTot);*/
                 var LargoPorc = (r.porciones.Length - 10);
                 txtPorcion.Text = r.porciones.Substring(0, LargoPorc);
 
@@ -486,7 +482,7 @@ namespace Vista
             _instancia = null;
         }
         //---Total
-        public string TiempoTotal()
+      /*  public string TiempoTotal()
         {
             try
             {
@@ -534,6 +530,6 @@ namespace Vista
 
                 Logger.Mensaje(ex.Message);
             }
-        }
+        }*/
     }
 }

@@ -79,7 +79,7 @@ namespace Vista
             cboTipFiltro.SelectedIndex = 0;
 
             txtValorUnidad.Text = "0";
-            txtValorTotal.Text = "0";
+            //txtValorTotal.Text = "0";
             txtStock.Text = "0";
             txtCantidad.Text = "0";
             lblId.Visibility = Visibility.Hidden;//id no se ve
@@ -173,11 +173,7 @@ namespace Vista
                     pr.Stock = txtStock.Text;
                 }
                 
-                int valorTotal = 0;
-                if (int.TryParse(txtValorUnidad.Text, out valorTotal))
-                {
-                    pr.Total = txtValorTotal.Text;
-                }
+                
                 if (cboTipoProducto.SelectedValue != null)
                 {
                     pr.Categoria = cboTipoProducto.Text;
@@ -271,7 +267,7 @@ namespace Vista
             lblId.Visibility = Visibility.Hidden;
             txtNomProd.Clear();
             txtStock.Text = "0";
-            txtValorTotal.Text = "0";
+            //txtValorTotal.Text = "0";
             txtValorUnidad.Text = "0";
             lblCache.Content = null;
             cboTipoProducto.SelectedIndex = 0;
@@ -354,7 +350,7 @@ namespace Vista
                     return;
                 }*/
                 
-                int valorTotal = int.Parse(txtValorTotal.Text);
+                int valorTotal = (int.Parse(txtValorUnidad.Text) * int.Parse(txtStock.Text));
                 /*int ValorTotal = 0;
                 if (int.TryParse(txtValorTotal.Text, out ValorTotal))
                 {
@@ -463,7 +459,7 @@ namespace Vista
                 }
                 int Valor = int.Parse(txtValorUnidad.Text);
                 int Stock = int.Parse(txtStock.Text);
-                int ValorTotal = int.Parse(txtValorTotal.Text);
+                int valorTotal = (int.Parse(txtValorUnidad.Text) * int.Parse(txtStock.Text));
                 int tipo = ((ComboBoxItemTipoProducto)cboTipoProducto.SelectedItem).id_tipo_producto;//Guardar el ID de tipo producto
 
                 Producto pro = new Producto()
@@ -474,7 +470,7 @@ namespace Vista
                     nombre = nombreProducto,
                     valor_unitario = Valor,                   
                     stock = Stock,
-                    valor_total = ValorTotal,
+                    valor_total = valorTotal,
                     id_tipo_producto = tipo,
                 };
                 bool resp = prod.Actualizar(pro);
@@ -581,7 +577,7 @@ namespace Vista
                     txtCantidad.Text = p.Contenido.ToString();
                                         
                     txtValorUnidad.Text = p.Valor;
-                    txtValorTotal.Text = p.Total;
+                    //txtValorTotal.Text = p.Total;
                     txtStock.Text = p.Stock;
 
                     cboTipoProducto.Text = p.Categoria;
@@ -672,12 +668,12 @@ namespace Vista
 
                 //---Medir el largo para quitar signos $ y U
                 var lUnidad = (m.Valor.Length - 2);
-                var lTotal = (m.Total.Length - 2);
+               // var lTotal = (m.Total.Length - 2);
                 var lStock = (m.Stock.Length - 2);
 
                 
                 txtValorUnidad.Text = m.Valor.Substring(2, lUnidad);
-                txtValorTotal.Text = m.Total.Substring(2, lTotal);
+                //txtValorTotal.Text = m.Total.Substring(2, lTotal);
                 txtStock.Text = m.Stock.Substring(0, lStock);
                 txtCantidad.Text = m.Contenido.ToString();
                 if (m.UnidadMedida == "Kg")
@@ -714,7 +710,7 @@ namespace Vista
         }
 
         //------Método calcular total
-        public int calcular()
+      /*  public int calcular()
         {
             try
             {
@@ -753,7 +749,7 @@ namespace Vista
 
                 Logger.Mensaje(ex.Message);
             }
-        }
+        }*/
 
         
     }

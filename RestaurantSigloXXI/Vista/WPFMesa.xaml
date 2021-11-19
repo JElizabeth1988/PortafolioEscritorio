@@ -36,9 +36,14 @@
 
                 <Button x:Name="btnModificar" ToolTip="Actualizar Registro" Content="Actualizar" HorizontalAlignment="Left" Margin="132,185,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnModificar_Click" />
                 <Label x:Name="label_Copy2" Content="Número de Mesa:" HorizontalAlignment="Left" Margin="23,2,0,0" VerticalAlignment="Top" FontSize="12"/>
-               
+
                 <Label x:Name="label_Copy1" Content="Disponible:" HorizontalAlignment="Left" Margin="23,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                
+                <Label x:Name="lbl1_Copy7" Content="*"  HorizontalAlignment="Left" Margin="257,2,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy" Content="*"  HorizontalAlignment="Left" Margin="262,31,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="332,61,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy2" Content="*"  HorizontalAlignment="Left" Margin="329,88,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy3" Content="*"  HorizontalAlignment="Left" Margin="329,121,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="49,536,0,0" VerticalAlignment="Top" Width="631" Background="#FFCB5F21" BorderBrush="#FFCB5F21">

@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 using BibliotecaDALC;
 //Using BD
 using Oracle.ManagedDataAccess.Client;
+using System.Data;
+
+using Microsoft.Win32;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace BibliotecaNegocio
 {
@@ -130,7 +135,7 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                err.AgregarError(ex.Message);
+                //err.AgregarError(ex.Message);
                 return false;               
 
             }
@@ -172,8 +177,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return false;
                 Logger.Mensaje(ex.Message);
+                return false;
+                
             }
         }
 
@@ -250,8 +256,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return false;
                 Logger.Mensaje(ex.Message);
+                return false;
+                
 
             }
         }
@@ -280,20 +287,22 @@ namespace BibliotecaNegocio
                 conn.Open();
                 //se crea un reader
                 OracleDataReader dr = cmd.ExecuteReader();
+
+                
                 //mientras lea
                 while (dr.Read())
                 {
                     ListaPlato i = new ListaPlato();
 
                     //se obtiene el valor con getvalue es lo mismo pero con get
-                    i.Id = int.Parse(dr.GetValue(0).ToString());
+                    i.Id = dr.GetInt32(0);
                     i.Nombre = dr.GetValue(1).ToString();
                     i.Precio = "$ "+dr.GetValue(2).ToString();
                     i.Descripcion = dr.GetValue(3).ToString();
                     i.Stock = dr.GetValue(4).ToString() + " U.";
                     i.Receta = dr.GetValue(5).ToString();
                     i.Categoria = dr.GetValue(6).ToString();
-                    i.Imaagen = byte.Parse(dr.GetValue(7).ToString());
+                    //i.Imagen = dr.GetByte(7);
 
                     lista.Add(i);
                 }
@@ -305,12 +314,13 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;
+                
             }
         }
 
-        //------------Listar---------------------------------------
+        //------------Filtrar---------------------------------------
         public List<ListaPlato> Filtrar(String cat)
         {
             try
@@ -335,13 +345,14 @@ namespace BibliotecaNegocio
                 conn.Open();
                 //se crea un reader
                 OracleDataReader dr = cmd.ExecuteReader();
+                
                 //mientras lea
                 while (dr.Read())
                 {
                     ListaPlato i = new ListaPlato();
 
                     //se obtiene el valor con getvalue es lo mismo pero con get
-                    i.Id = int.Parse(dr.GetValue(0).ToString());
+                    i.Id = dr.GetInt32(0);
                     i.Nombre = dr.GetValue(1).ToString();
                     i.Precio = "$ "+dr.GetValue(2).ToString();
                     i.Descripcion = dr.GetValue(3).ToString();
@@ -368,12 +379,66 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;
+                
             }
         }
 
-        //------------Método Actualizar Stock------------------------------------------
+        public byte[] verImagen(int id)
+        {
+            try
+            {
+                //int contador = 0;
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                
+                //se ejecutan los comandos de procedimientos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_FOTO_PLATO";
+                cmd.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = id;
+                //Se agrega el parámetro de salida
+                cmd.Parameters.Add(new OracleParameter("FOTOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                //mientras lea
+                while (dr.Read())
+                {
+                    Plato i = new Plato();
+
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    i.foto = dr.GetValue(0) as byte[];
+                    //contador = 1;                  
+                }
+                conn.Close();
+                /* if (contador==1)
+                 {
+                     return 1;
+                 }
+                 else
+                 {
+                     return 0;
+                 }*/
+                return foto;  
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Logger.Mensaje(ex.Message);
+                return null;
+
+            }
+        }
+
+        //------------Método Actualizar Stock ------------------------------------------
         public bool ActualizarStock(int id, int stock)
         {
             try
@@ -421,7 +486,7 @@ namespace BibliotecaNegocio
             public string Receta { get; set; }
             public string Categoria { get; set; }
 
-            public byte Imaagen { get; set; }
+            //public byte[] Imagen { get; set; }
 
             public ListaPlato()
             {

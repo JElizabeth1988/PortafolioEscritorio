@@ -32,6 +32,11 @@
                 <Label x:Name="lblId" Visibility="Hidden" Content="" HorizontalAlignment="Left" Margin="23,1,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy1" Content="Nombre:" HorizontalAlignment="Left" Margin="23,5,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy3" Content="Tipo de Bebida:" HorizontalAlignment="Left" Margin="23,129,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="lbl1_Copy2" Content="*"  HorizontalAlignment="Left" Margin="329,6,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy" Content="*"  HorizontalAlignment="Left" Margin="329,36,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="329,67,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy3" Content="*"  HorizontalAlignment="Left" Margin="329,98,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy4" Content="*"  HorizontalAlignment="Left" Margin="329,128,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
 
 
             </Grid>

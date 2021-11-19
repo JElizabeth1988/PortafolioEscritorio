@@ -92,5 +92,9 @@
             </Grid>
         </GroupBox>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="84" Margin="438,10,0,0" VerticalAlignment="Top" Width="160" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
+        <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="323,51,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+        <Label x:Name="lbl1_Copy" Content="*"  HorizontalAlignment="Left" Margin="386,288,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+        <Label x:Name="lbl1_Copy2" Content="*"  HorizontalAlignment="Left" Margin="245,323,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+        <Label x:Name="lbl1_Copy3" Content="*"  HorizontalAlignment="Left" Margin="245,349,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
     </Grid>
 </Controls:MetroWindow>

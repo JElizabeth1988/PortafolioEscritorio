@@ -30,6 +30,7 @@ using System.Runtime.Caching;
 //imagen
 using Microsoft.Win32;
 using System.IO;
+using BibliotecaDALC;
 
 namespace Vista
 {
@@ -291,9 +292,13 @@ namespace Vista
                     //Procedimiento para convertir imagen a byte
 
                     FileStream stream = new FileStream(FileNameLabel.Content.ToString(), FileMode.Open, FileAccess.Read);
+                    //Se inicailiza un flujo de archivo con la imagen seleccionada desde el disco.
                     BinaryReader br = new BinaryReader(stream);
                     FileInfo fi = new FileInfo(FileNameLabel.Content.ToString());
+                    //Se inicializa un arreglo de Bytes del tamaño de la imagen
                     byte[] binData = new byte[stream.Length];
+                    //Se almacena en el arreglo de bytes la informacion que se obtiene del flujo de archivos(foto)
+                    //Lee el bloque de bytes del flujo y escribe los datos en un búfer dado.
                     stream.Read(binData, 0, Convert.ToInt32(stream.Length));
 
                     fotin = binData;
@@ -352,14 +357,14 @@ namespace Vista
                       string.Format("Error de ingreso de datos"));
                 /*MessageBox.Show("Error de ingreso de datos");*/
                 Logger.Mensaje(ex.Message);
-                DaoErrores de = pla.retornar();
+               /* DaoErrores de = pla.retornar();
                 string li = "";
                 foreach (string item in de.ListarErrores())
                 {
                     li += item + " \n";
                 }
                 await this.ShowMessageAsync("Mensaje:",
-                    string.Format(li));
+                    string.Format(li));*/
 
             }
         }
@@ -381,7 +386,7 @@ namespace Vista
                 if (FileNameLabel.Content != null)
                 {
                     //Procedimiento para convertir imagen a byte
-                    
+
                     FileStream stream = new FileStream(FileNameLabel.Content.ToString(), FileMode.Open, FileAccess.Read);
                     BinaryReader br = new BinaryReader(stream);
                     FileInfo fi = new FileInfo(FileNameLabel.Content.ToString());
@@ -393,7 +398,7 @@ namespace Vista
                 else
                 {
                     fotin = null;
-                }               
+                }
 
                 Plato i = new Plato()
                 {
@@ -615,7 +620,7 @@ namespace Vista
             //Objeto de open file dialog (se creo un using Microsoft.Win32)
             OpenFileDialog OFD = new OpenFileDialog();
             //filtro de extensión
-            OFD.Filter = "Imagenes| *.jpg; * .png";
+            OFD.Filter = "image files|*.jpg;*.png;*.gif;*.ico;.*;";
             //Directorio inicial carpeta Mis imágenes 
             OFD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             //texto
@@ -627,7 +632,9 @@ namespace Vista
                 //cargar imagen en la casilla de imagen
                 //imgPlato.Source = new BitmapImage(fileUri);
 
+                //se guarda el nombre y ruta del archivo en variable
                 string selectedFileName = OFD.FileName;
+                //ruta de la imagen en label
                 FileNameLabel.Content = selectedFileName;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
@@ -637,5 +644,56 @@ namespace Vista
 
             }
         }
+
+        private async void btnVer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                
+                int id;
+
+                if (int.TryParse(lblId.Content.ToString(), out id) == true)
+                {
+                    return;
+
+                }                
+                
+                conn.Close();
+
+                if (pla.verImagen(id) != null)
+
+                {
+                    Logger.Mensaje(pla.foto.ToString());//para ver que trae
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream(pla.foto);
+
+                    ms.Seek(0, System.IO.SeekOrigin.Begin);
+
+                    BitmapImage bi = new BitmapImage();
+
+                    bi.BeginInit();
+
+                    bi.StreamSource = ms;
+
+                    bi.EndInit();
+
+                    // asociar el bitmap a la imagen
+                    imgPlato.Source = bi;
+
+                    
+                }
+
+                
+            }
+
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al mostrar foto"));
+                Logger.Mensaje(ex.Message);
+            }
+        }
+
+
     }
 }
