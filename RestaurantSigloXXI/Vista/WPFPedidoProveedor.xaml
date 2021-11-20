@@ -3,45 +3,55 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-                      
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-                      
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Calcular Pedido a Proveedor" Height="546.336" Width="935.48" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Cursor="Arrow" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Closing="MetroWindow_Closing"  >
-    <Grid Background="#FFDBDFE3">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="533" VerticalAlignment="Top" Width="943" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-17,-17.667"/>
+        Title="Administrar Stock de Producto" Height="408.311" Width="718.985" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/logoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3"  >
+    <Grid HorizontalAlignment="Left" Height="377" VerticalAlignment="Top" Width="709" Margin="0,0,0,-1">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="393" VerticalAlignment="Top" Width="720" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.5" Margin="0,0,-11,-16"/>
+        <mah:Tile ToolTip="Nuevo Pedido" Margin="153,124,406,143" Click="Nuevo_Click" Height="Auto" mah:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
-        <GroupBox x:Name="gbFiltrar" Header="Ver Productos con bajo stock" Margin="41,21,42.333,31"  Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-            <Grid HorizontalAlignment="Left" Height="416" Margin="10,4,-0.333,0" VerticalAlignment="Top" Width="823">
-                <Image x:Name="images" HorizontalAlignment="Left" Margin="636,0,0,336" Width="181" Source="Imagenes/logoFinal3.png"/>
-                <DataGrid x:Name="dgLista" Margin="29,85,42,0" VerticalAlignment="Top" Height="264" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow" >
+            <mah:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </mah:Tile.Effect>
+            <Grid Height="110" Width="140" >
+                <Image x:Name="image1" Height="66" VerticalAlignment="Top" Source="Imagenes/Shopping-Basket-01.png" Margin="37,12,38,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label1" Content="Nuevo Pedido"  VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Margin="23,76,10,0" Height="34" Width="107">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
 
-                    <DataGrid.Resources>
-                        <Style TargetType="{x:Type DataGridCell}">
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected" Value="True">
-                                    <Setter Property="Background" Value="#FFFAA575" />
-                                    <Setter Property="Foreground" Value="Black" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.Resources>
-                </DataGrid>
-                <Button x:Name="btnSalir" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="29,372,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
-
-                <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left" Margin="745,370,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" RenderTransformOrigin="2.157,3.796"  >
-                    <Button.Background>
-                        <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="btnPedido" ToolTip="Guardar" Content="Guardar Solicitud" HorizontalAlignment="Left" Margin="595,372,0,0" VerticalAlignment="Top" Width="112"  FontWeight="Normal" Click="btnSolicitar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
             </Grid>
-        </GroupBox>
+        </mah:Tile>
+        <mah:Tile ToolTip="Ver Pedidos" Margin="405,123,153,143" Click="Pedido_Click" Height="Auto" mah:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+
+            <mah:Tile.Effect>
+                <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
+            </mah:Tile.Effect>
+            <Grid Height="110" Width="140" >
+                <Image x:Name="image2" Height="76" VerticalAlignment="Top" Source="Imagenes/Transport-Van.png" Margin="31,4,30,0">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label2" Content="Ver Pedidos"  HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Margin="22,76,21,0" Height="34" VerticalAlignment="Top" Width="97">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </mah:Tile>
+        <Image x:Name="image4" HorizontalAlignment="Left" Height="100" Margin="513,10,0,0" VerticalAlignment="Top" Width="170" Source="Imagenes/logoFinal3.png"/>
 
     </Grid>
 </Controls:MetroWindow>

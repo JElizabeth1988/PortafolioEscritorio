@@ -14,17 +14,18 @@ namespace BibliotecaDALC
     
     public partial class PEDIDO_PROVEEDOR
     {
+        public PEDIDO_PROVEEDOR()
+        {
+            this.ARTICULO = new HashSet<ARTICULO>();
+        }
+    
         public int ID_PEDIDO { get; set; }
         public System.DateTime FECHA_PEDIDO { get; set; }
-        public string OBSERVACIONES { get; set; }
-        public int CANTIDAD_PRODUCTO { get; set; }
         public string ESTADO { get; set; }
-        public int ID_PROVEEDOR { get; set; }
-        public int ID_PRODUCTO { get; set; }
-        public string RUT_EMPLEADO { get; set; }
+        public Nullable<int> TOTAL { get; set; }
+        public Nullable<int> ID_PROVEEDOR { get; set; }
     
-        public virtual EMPLEADO EMPLEADO { get; set; }
-        public virtual PRODUCTO PRODUCTO { get; set; }
+        public virtual ICollection<ARTICULO> ARTICULO { get; set; }
         public virtual PROVEEDOR PROVEEDOR { get; set; }
     }
 }

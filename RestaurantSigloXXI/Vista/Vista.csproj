@@ -248,6 +248,9 @@
     <Compile Include="WPFMesa.xaml.cs">
       <DependentUpon>WPFMesa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFPedidoProveedor.xaml.cs">
+      <DependentUpon>WPFPedidoProveedor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFPlato.xaml.cs">
       <DependentUpon>WPFPlato.xaml</DependentUpon>
     </Compile>
@@ -371,6 +374,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="WPFMesa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFPedidoProveedor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -586,6 +593,10 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Shopping-Basket-01.png" />
+    <Resource Include="Imagenes\Transport-Van.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

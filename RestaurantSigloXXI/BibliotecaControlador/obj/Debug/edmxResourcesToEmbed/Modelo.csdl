@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Modelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="RSXXI_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ABONO_RESERVA" EntityType="Modelo.ABONO_RESERVA" />
     <EntitySet Name="AGENDA" EntityType="Modelo.AGENDA" />
+    <EntitySet Name="ARTICULO" EntityType="Modelo.ARTICULO" />
     <EntitySet Name="ATENCION" EntityType="Modelo.ATENCION" />
     <EntitySet Name="BEBIDA" EntityType="Modelo.BEBIDA" />
     <EntitySet Name="BOLETA" EntityType="Modelo.BOLETA" />
     <EntitySet Name="CATEGORIA" EntityType="Modelo.CATEGORIA" />
     <EntitySet Name="CLIENTE" EntityType="Modelo.CLIENTE" />
+    <EntitySet Name="DETALLE_PEDIDO" EntityType="Modelo.DETALLE_PEDIDO" />
     <EntitySet Name="EMPLEADO" EntityType="Modelo.EMPLEADO" />
     <EntitySet Name="ENTIDAD_BANCARIA" EntityType="Modelo.ENTIDAD_BANCARIA" />
     <EntitySet Name="INGRESOS" EntityType="Modelo.INGRESOS" />
     <EntitySet Name="LOGIN" EntityType="Modelo.LOGIN" />
-    <EntitySet Name="MENU" EntityType="Modelo.MENU" />
     <EntitySet Name="MESA" EntityType="Modelo.MESA" />
     <EntitySet Name="METODO_PAGO" EntityType="Modelo.METODO_PAGO" />
     <EntitySet Name="ORDEN" EntityType="Modelo.ORDEN" />
@@ -27,6 +29,14 @@
     <EntitySet Name="TIPO_BEBIDA" EntityType="Modelo.TIPO_BEBIDA" />
     <EntitySet Name="TIPO_PRODUCTO" EntityType="Modelo.TIPO_PRODUCTO" />
     <EntitySet Name="TIPO_USUARIO" EntityType="Modelo.TIPO_USUARIO" />
+    <AssociationSet Name="ABONO_RESERVA_METODO_PAGO_FK" Association="Modelo.ABONO_RESERVA_METODO_PAGO_FK">
+      <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
+      <End Role="ABONO_RESERVA" EntitySet="ABONO_RESERVA" />
+    </AssociationSet>
+    <AssociationSet Name="RESERVA_ABONO_RESERVA_FK" Association="Modelo.RESERVA_ABONO_RESERVA_FK">
+      <End Role="ABONO_RESERVA" EntitySet="ABONO_RESERVA" />
+      <End Role="RESERVA" EntitySet="RESERVA" />
+    </AssociationSet>
     <AssociationSet Name="AGENDA_MESA_FK" Association="Modelo.AGENDA_MESA_FK">
       <End Role="MESA" EntitySet="MESA" />
       <End Role="AGENDA" EntitySet="AGENDA" />
@@ -34,6 +44,10 @@
     <AssociationSet Name="RESERVA_AGENDA_FK" Association="Modelo.RESERVA_AGENDA_FK">
       <End Role="AGENDA" EntitySet="AGENDA" />
       <End Role="RESERVA" EntitySet="RESERVA" />
+    </AssociationSet>
+    <AssociationSet Name="ARTICULO_PEDIDO_PROVEEDOR_FK" Association="Modelo.ARTICULO_PEDIDO_PROVEEDOR_FK">
+      <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
     </AssociationSet>
     <AssociationSet Name="BEBIDA_TIPO_BEBIDA_FK" Association="Modelo.BEBIDA_TIPO_BEBIDA_FK">
       <End Role="TIPO_BEBIDA" EntitySet="TIPO_BEBIDA" />
@@ -87,10 +101,6 @@
       <End Role="EMPLEADO" EntitySet="EMPLEADO" />
       <End Role="ORDEN" EntitySet="ORDEN" />
     </AssociationSet>
-    <AssociationSet Name="PEDIDO_PROVEEDOR_EMPLEADO_FK" Association="Modelo.PEDIDO_PROVEEDOR_EMPLEADO_FK">
-      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-      <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
-    </AssociationSet>
     <AssociationSet Name="METODO_PAGO_ENT_BANC_FK" Association="Modelo.METODO_PAGO_ENT_BANC_FK">
       <End Role="ENTIDAD_BANCARIA" EntitySet="ENTIDAD_BANCARIA" />
       <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
@@ -119,10 +129,6 @@
       <End Role="PEDIDO" EntitySet="PEDIDO" />
       <End Role="PAGO" EntitySet="PAGO" />
     </AssociationSet>
-    <AssociationSet Name="PEDIDO_PROVEEDOR_PRODUCTO_FK" Association="Modelo.PEDIDO_PROVEEDOR_PRODUCTO_FK">
-      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
-      <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
-    </AssociationSet>
     <AssociationSet Name="PEDIDO_PROVEEDOR_PROVEEDOR_FK" Association="Modelo.PEDIDO_PROVEEDOR_PROVEEDOR_FK">
       <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
       <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
@@ -136,6 +142,20 @@
       <End Role="PRODUCTO" EntitySet="PRODUCTO" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="ABONO_RESERVA">
+    <Key>
+      <PropertyRef Name="ID_ABONO_RESERVA" />
+    </Key>
+    <Property Name="ID_ABONO_RESERVA" Type="Int32" Nullable="false" />
+    <Property Name="VALOR_RESERVA" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_ESTADO" Type="DateTime" Nullable="false" />
+    <Property Name="HORA_ESTADO" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="ID_METODO_PAGO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="METODO_PAGO" Relationship="Modelo.ABONO_RESERVA_METODO_PAGO_FK" FromRole="ABONO_RESERVA" ToRole="METODO_PAGO" />
+    <NavigationProperty Name="RESERVA" Relationship="Modelo.RESERVA_ABONO_RESERVA_FK" FromRole="ABONO_RESERVA" ToRole="RESERVA" />
+  </EntityType>
   <EntityType Name="AGENDA">
     <Key>
       <PropertyRef Name="ID_AGENDA" />
@@ -148,6 +168,18 @@
     <Property Name="NUM_MESA" Type="Int32" Nullable="false" />
     <NavigationProperty Name="MESA" Relationship="Modelo.AGENDA_MESA_FK" FromRole="AGENDA" ToRole="MESA" />
     <NavigationProperty Name="RESERVA" Relationship="Modelo.RESERVA_AGENDA_FK" FromRole="AGENDA" ToRole="RESERVA" />
+  </EntityType>
+  <EntityType Name="ARTICULO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR" Type="Int32" Nullable="false" />
+    <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
+    <Property Name="TOTAL" Type="Int32" Nullable="false" />
+    <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PEDIDO_PROVEEDOR" Relationship="Modelo.ARTICULO_PEDIDO_PROVEEDOR_FK" FromRole="ARTICULO" ToRole="PEDIDO_PROVEEDOR" />
   </EntityType>
   <EntityType Name="ATENCION">
     <Key>
@@ -168,7 +200,7 @@
     <Property Name="ID_BEBIDA" Type="Int32" Nullable="false" />
     <Property Name="NOM_BEBIDA" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
     <Property Name="ML_BEBIDA" Type="Int32" Nullable="false" />
-    <Property Name="VALOR_BEBIDA" Type="Int32" Nullable="false" />
+    <Property Name="VALOR_BEBIDA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="STOCK" Type="Int32" Nullable="false" />
     <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
     <NavigationProperty Name="TIPO_BEBIDA" Relationship="Modelo.BEBIDA_TIPO_BEBIDA_FK" FromRole="BEBIDA" ToRole="TIPO_BEBIDA" />
@@ -217,6 +249,15 @@
     <NavigationProperty Name="PEDIDO" Relationship="Modelo.PEDIDO_CLIENTE_FK" FromRole="CLIENTE" ToRole="PEDIDO" />
     <NavigationProperty Name="RESERVA" Relationship="Modelo.RESERVA_CLIENTE_FK" FromRole="CLIENTE" ToRole="RESERVA" />
   </EntityType>
+  <EntityType Name="DETALLE_PEDIDO">
+    <Key>
+      <PropertyRef Name="ID_PRODUCTO" />
+      <PropertyRef Name="ID_PEDIDO" />
+    </Key>
+    <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" />
+    <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
+    <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
+  </EntityType>
   <EntityType Name="EMPLEADO">
     <Key>
       <PropertyRef Name="RUT_EMPLEADO" />
@@ -234,7 +275,6 @@
     <NavigationProperty Name="LOGIN" Relationship="Modelo.LOGIN_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="LOGIN" />
     <NavigationProperty Name="MESA" Relationship="Modelo.MESA_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="MESA" />
     <NavigationProperty Name="ORDEN" Relationship="Modelo.ORDEN_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="ORDEN" />
-    <NavigationProperty Name="PEDIDO_PROVEEDOR" Relationship="Modelo.PEDIDO_PROVEEDOR_EMPLEADO_FK" FromRole="EMPLEADO" ToRole="PEDIDO_PROVEEDOR" />
   </EntityType>
   <EntityType Name="ENTIDAD_BANCARIA">
     <Key>
@@ -271,19 +311,6 @@
     <NavigationProperty Name="EMPLEADO" Relationship="Modelo.LOGIN_EMPLEADO_FK" FromRole="LOGIN" ToRole="EMPLEADO" />
     <NavigationProperty Name="TIPO_USUARIO" Relationship="Modelo.LOGIN_TIPO_USUARIO_FK" FromRole="LOGIN" ToRole="TIPO_USUARIO" />
   </EntityType>
-  <EntityType Name="MENU">
-    <Key>
-      <PropertyRef Name="ID_MENU" />
-    </Key>
-    <Property Name="ID_MENU" Type="Int32" Nullable="false" />
-    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PRECIO" Type="Int32" Nullable="false" />
-    <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <Property Name="ID_BEBIDA" Type="Int32" Nullable="false" />
-    <Property Name="ID_PLATO" Type="Int32" Nullable="false" />
-    <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityType Name="MESA">
     <Key>
       <PropertyRef Name="NUM_MESA" />
@@ -304,6 +331,7 @@
     <Property Name="ID_METODO_PAGO" Type="Int32" Nullable="false" />
     <Property Name="TIPO" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="ID_ENTIDAD" Type="Int32" />
+    <NavigationProperty Name="ABONO_RESERVA" Relationship="Modelo.ABONO_RESERVA_METODO_PAGO_FK" FromRole="METODO_PAGO" ToRole="ABONO_RESERVA" />
     <NavigationProperty Name="ENTIDAD_BANCARIA" Relationship="Modelo.METODO_PAGO_ENT_BANC_FK" FromRole="METODO_PAGO" ToRole="ENTIDAD_BANCARIA" />
     <NavigationProperty Name="PAGO" Relationship="Modelo.PAGO_METODO_PAGO_FK" FromRole="METODO_PAGO" ToRole="PAGO" />
   </EntityType>
@@ -322,7 +350,7 @@
     <Property Name="RUT_EMPLEADO" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
     <Property Name="ID_BEBIDA" Type="Int32" />
     <Property Name="ID_PLATO" Type="Int32" />
-    <Property Name="ID_PEDIDO" Type="Int32" />
+    <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
     <Property Name="NUM_MESA" Type="Int32" Nullable="false" />
     <NavigationProperty Name="BEBIDA" Relationship="Modelo.ORDEN_BEBIDA_FK" FromRole="ORDEN" ToRole="BEBIDA" />
     <NavigationProperty Name="CLIENTE" Relationship="Modelo.ORDEN_CLIENTE_FK" FromRole="ORDEN" ToRole="CLIENTE" />
@@ -378,14 +406,10 @@
     </Key>
     <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
     <Property Name="FECHA_PEDIDO" Type="DateTime" Nullable="false" />
-    <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="CANTIDAD_PRODUCTO" Type="Int32" Nullable="false" />
     <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ID_PROVEEDOR" Type="Int32" Nullable="false" />
-    <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" />
-    <Property Name="RUT_EMPLEADO" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="EMPLEADO" Relationship="Modelo.PEDIDO_PROVEEDOR_EMPLEADO_FK" FromRole="PEDIDO_PROVEEDOR" ToRole="EMPLEADO" />
-    <NavigationProperty Name="PRODUCTO" Relationship="Modelo.PEDIDO_PROVEEDOR_PRODUCTO_FK" FromRole="PEDIDO_PROVEEDOR" ToRole="PRODUCTO" />
+    <Property Name="TOTAL" Type="Int32" />
+    <Property Name="ID_PROVEEDOR" Type="Int32" />
+    <NavigationProperty Name="ARTICULO" Relationship="Modelo.ARTICULO_PEDIDO_PROVEEDOR_FK" FromRole="PEDIDO_PROVEEDOR" ToRole="ARTICULO" />
     <NavigationProperty Name="PROVEEDOR" Relationship="Modelo.PEDIDO_PROVEEDOR_PROVEEDOR_FK" FromRole="PEDIDO_PROVEEDOR" ToRole="PROVEEDOR" />
   </EntityType>
   <EntityType Name="PLATO">
@@ -395,7 +419,7 @@
     <Property Name="ID_PLATO" Type="Int32" Nullable="false" />
     <Property Name="NOM_PLATO" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
     <Property Name="PRECIO_PLATO" Type="Int32" Nullable="false" />
-    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="STOCK" Type="Int32" Nullable="false" />
     <Property Name="ID_RECETA" Type="Int32" Nullable="false" />
@@ -416,7 +440,6 @@
     <Property Name="STOCK" Type="Int32" Nullable="false" />
     <Property Name="VALOR_TOTAL" Type="Int32" />
     <Property Name="ID_TIPO_PRODUCTO" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="PEDIDO_PROVEEDOR" Relationship="Modelo.PEDIDO_PROVEEDOR_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="PEDIDO_PROVEEDOR" />
     <NavigationProperty Name="TIPO_PRODUCTO" Relationship="Modelo.PRODUCTO_TIPO_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="TIPO_PRODUCTO" />
   </EntityType>
   <EntityType Name="PROVEEDOR">
@@ -457,6 +480,8 @@
     <Property Name="ESTADO_RESERVA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
     <Property Name="ID_AGENDA" Type="Int32" Nullable="false" />
+    <Property Name="ID_ABONO_RESERVA" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ABONO_RESERVA" Relationship="Modelo.RESERVA_ABONO_RESERVA_FK" FromRole="RESERVA" ToRole="ABONO_RESERVA" />
     <NavigationProperty Name="AGENDA" Relationship="Modelo.RESERVA_AGENDA_FK" FromRole="RESERVA" ToRole="AGENDA" />
     <NavigationProperty Name="CLIENTE" Relationship="Modelo.RESERVA_CLIENTE_FK" FromRole="RESERVA" ToRole="CLIENTE" />
   </EntityType>
@@ -485,6 +510,30 @@
     <NavigationProperty Name="EMPLEADO" Relationship="Modelo.EMPLEADO_TIPO_USUARIO_FK" FromRole="TIPO_USUARIO" ToRole="EMPLEADO" />
     <NavigationProperty Name="LOGIN" Relationship="Modelo.LOGIN_TIPO_USUARIO_FK" FromRole="TIPO_USUARIO" ToRole="LOGIN" />
   </EntityType>
+  <Association Name="ABONO_RESERVA_METODO_PAGO_FK">
+    <End Type="Modelo.METODO_PAGO" Role="METODO_PAGO" Multiplicity="1" />
+    <End Type="Modelo.ABONO_RESERVA" Role="ABONO_RESERVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="METODO_PAGO">
+        <PropertyRef Name="ID_METODO_PAGO" />
+      </Principal>
+      <Dependent Role="ABONO_RESERVA">
+        <PropertyRef Name="ID_METODO_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RESERVA_ABONO_RESERVA_FK">
+    <End Type="Modelo.ABONO_RESERVA" Role="ABONO_RESERVA" Multiplicity="1" />
+    <End Type="Modelo.RESERVA" Role="RESERVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ABONO_RESERVA">
+        <PropertyRef Name="ID_ABONO_RESERVA" />
+      </Principal>
+      <Dependent Role="RESERVA">
+        <PropertyRef Name="ID_ABONO_RESERVA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="AGENDA_MESA_FK">
     <End Type="Modelo.MESA" Role="MESA" Multiplicity="1" />
     <End Type="Modelo.AGENDA" Role="AGENDA" Multiplicity="*" />
@@ -509,6 +558,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="ARTICULO_PEDIDO_PROVEEDOR_FK">
+    <End Type="Modelo.PEDIDO_PROVEEDOR" Role="PEDIDO_PROVEEDOR" Multiplicity="1" />
+    <End Type="Modelo.ARTICULO" Role="ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEDIDO_PROVEEDOR">
+        <PropertyRef Name="ID_PEDIDO" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="ID_PEDIDO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="BEBIDA_TIPO_BEBIDA_FK">
     <End Type="Modelo.TIPO_BEBIDA" Role="TIPO_BEBIDA" Multiplicity="1" />
     <End Type="Modelo.BEBIDA" Role="BEBIDA" Multiplicity="*" />
@@ -522,9 +583,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ORDEN_BEBIDA_FK">
-    <End Type="Modelo.BEBIDA" Role="BEBIDA" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.BEBIDA" Role="BEBIDA" Multiplicity="0..1" />
     <End Type="Modelo.ORDEN" Role="ORDEN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BEBIDA">
@@ -564,9 +623,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="LOGIN_CLIENTE_FK">
-    <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="0..1" />
     <End Type="Modelo.LOGIN" Role="LOGIN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CLIENTE">
@@ -578,9 +635,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ORDEN_CLIENTE_FK">
-    <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1" />
     <End Type="Modelo.ORDEN" Role="ORDEN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CLIENTE">
@@ -592,9 +647,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PAGO_CLIENTE_FK">
-    <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1" />
     <End Type="Modelo.PAGO" Role="PAGO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CLIENTE">
@@ -606,9 +659,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PEDIDO_CLIENTE_FK">
-    <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1" />
     <End Type="Modelo.PEDIDO" Role="PEDIDO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CLIENTE">
@@ -620,9 +671,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="RESERVA_CLIENTE_FK">
-    <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.CLIENTE" Role="CLIENTE" Multiplicity="1" />
     <End Type="Modelo.RESERVA" Role="RESERVA" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CLIENTE">
@@ -634,9 +683,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="EMPLEADO_TIPO_USUARIO_FK">
-    <End Type="Modelo.TIPO_USUARIO" Role="TIPO_USUARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.TIPO_USUARIO" Role="TIPO_USUARIO" Multiplicity="1" />
     <End Type="Modelo.EMPLEADO" Role="EMPLEADO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TIPO_USUARIO">
@@ -648,9 +695,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="LOGIN_EMPLEADO_FK">
-    <End Type="Modelo.EMPLEADO" Role="EMPLEADO" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.EMPLEADO" Role="EMPLEADO" Multiplicity="0..1" />
     <End Type="Modelo.LOGIN" Role="LOGIN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EMPLEADO">
@@ -676,29 +721,13 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ORDEN_EMPLEADO_FK">
-    <End Type="Modelo.EMPLEADO" Role="EMPLEADO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.EMPLEADO" Role="EMPLEADO" Multiplicity="1" />
     <End Type="Modelo.ORDEN" Role="ORDEN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EMPLEADO">
         <PropertyRef Name="RUT_EMPLEADO" />
       </Principal>
       <Dependent Role="ORDEN">
-        <PropertyRef Name="RUT_EMPLEADO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PEDIDO_PROVEEDOR_EMPLEADO_FK">
-    <End Type="Modelo.EMPLEADO" Role="EMPLEADO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="Modelo.PEDIDO_PROVEEDOR" Role="PEDIDO_PROVEEDOR" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EMPLEADO">
-        <PropertyRef Name="RUT_EMPLEADO" />
-      </Principal>
-      <Dependent Role="PEDIDO_PROVEEDOR">
         <PropertyRef Name="RUT_EMPLEADO" />
       </Dependent>
     </ReferentialConstraint>
@@ -718,9 +747,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="LOGIN_TIPO_USUARIO_FK">
-    <End Type="Modelo.TIPO_USUARIO" Role="TIPO_USUARIO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.TIPO_USUARIO" Role="TIPO_USUARIO" Multiplicity="1" />
     <End Type="Modelo.LOGIN" Role="LOGIN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TIPO_USUARIO">
@@ -758,7 +785,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ORDEN_PEDIDO_FK">
-    <End Type="Modelo.PEDIDO" Role="PEDIDO" Multiplicity="0..1" />
+    <End Type="Modelo.PEDIDO" Role="PEDIDO" Multiplicity="1" />
     <End Type="Modelo.ORDEN" Role="ORDEN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PEDIDO">
@@ -770,9 +797,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ORDEN_PLATO_FK">
-    <End Type="Modelo.PLATO" Role="PLATO" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Type="Modelo.PLATO" Role="PLATO" Multiplicity="0..1" />
     <End Type="Modelo.ORDEN" Role="ORDEN" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PLATO">
@@ -795,22 +820,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="PEDIDO_PROVEEDOR_PRODUCTO_FK">
-    <End Type="Modelo.PRODUCTO" Role="PRODUCTO" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="Modelo.PEDIDO_PROVEEDOR" Role="PEDIDO_PROVEEDOR" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PRODUCTO">
-        <PropertyRef Name="ID_PRODUCTO" />
-      </Principal>
-      <Dependent Role="PEDIDO_PROVEEDOR">
-        <PropertyRef Name="ID_PRODUCTO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="PEDIDO_PROVEEDOR_PROVEEDOR_FK">
-    <End Type="Modelo.PROVEEDOR" Role="PROVEEDOR" Multiplicity="1">
+    <End Type="Modelo.PROVEEDOR" Role="PROVEEDOR" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
     <End Type="Modelo.PEDIDO_PROVEEDOR" Role="PEDIDO_PROVEEDOR" Multiplicity="*" />

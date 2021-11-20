@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="RSXXI_Entities">
+    <EntitySetMapping Name="ABONO_RESERVA">
+      <EntityTypeMapping TypeName="Modelo.ABONO_RESERVA">
+        <MappingFragment StoreEntitySet="ABONO_RESERVA">
+          <ScalarProperty Name="ID_METODO_PAGO" ColumnName="ID_METODO_PAGO" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="HORA_ESTADO" ColumnName="HORA_ESTADO" />
+          <ScalarProperty Name="FECHA_ESTADO" ColumnName="FECHA_ESTADO" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="VALOR_RESERVA" ColumnName="VALOR_RESERVA" />
+          <ScalarProperty Name="ID_ABONO_RESERVA" ColumnName="ID_ABONO_RESERVA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="AGENDA">
       <EntityTypeMapping TypeName="Modelo.AGENDA">
         <MappingFragment StoreEntitySet="AGENDA">
@@ -10,6 +23,18 @@
           <ScalarProperty Name="HORA_DESDE" ColumnName="HORA_DESDE" />
           <ScalarProperty Name="FECHA" ColumnName="FECHA" />
           <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ARTICULO">
+      <EntityTypeMapping TypeName="Modelo.ARTICULO">
+        <MappingFragment StoreEntitySet="ARTICULO">
+          <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -77,6 +102,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_PEDIDO">
+      <EntityTypeMapping TypeName="Modelo.DETALLE_PEDIDO">
+        <MappingFragment StoreEntitySet="DETALLE_PEDIDO">
+          <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="EMPLEADO">
       <EntityTypeMapping TypeName="Modelo.EMPLEADO">
         <MappingFragment StoreEntitySet="EMPLEADO">
@@ -122,20 +156,6 @@
           <ScalarProperty Name="ID_TIPO_USER" ColumnName="ID_TIPO_USER" />
           <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
           <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MENU">
-      <EntityTypeMapping TypeName="Modelo.MENU">
-        <MappingFragment StoreEntitySet="MENU">
-          <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
-          <ScalarProperty Name="ID_PLATO" ColumnName="ID_PLATO" />
-          <ScalarProperty Name="ID_BEBIDA" ColumnName="ID_BEBIDA" />
-          <ScalarProperty Name="FOTO" ColumnName="FOTO" />
-          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
-          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -218,12 +238,9 @@
     <EntitySetMapping Name="PEDIDO_PROVEEDOR">
       <EntityTypeMapping TypeName="Modelo.PEDIDO_PROVEEDOR">
         <MappingFragment StoreEntitySet="PEDIDO_PROVEEDOR">
-          <ScalarProperty Name="RUT_EMPLEADO" ColumnName="RUT_EMPLEADO" />
-          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
           <ScalarProperty Name="ID_PROVEEDOR" ColumnName="ID_PROVEEDOR" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
           <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-          <ScalarProperty Name="CANTIDAD_PRODUCTO" ColumnName="CANTIDAD_PRODUCTO" />
-          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
           <ScalarProperty Name="FECHA_PEDIDO" ColumnName="FECHA_PEDIDO" />
           <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
         </MappingFragment>
@@ -286,6 +303,7 @@
     <EntitySetMapping Name="RESERVA">
       <EntityTypeMapping TypeName="Modelo.RESERVA">
         <MappingFragment StoreEntitySet="RESERVA">
+          <ScalarProperty Name="ID_ABONO_RESERVA" ColumnName="ID_ABONO_RESERVA" />
           <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
           <ScalarProperty Name="ESTADO_RESERVA" ColumnName="ESTADO_RESERVA" />

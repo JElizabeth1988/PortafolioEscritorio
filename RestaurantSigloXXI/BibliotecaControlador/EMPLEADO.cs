@@ -19,7 +19,6 @@ namespace BibliotecaDALC
             this.LOGIN = new HashSet<LOGIN>();
             this.MESA = new HashSet<MESA>();
             this.ORDEN = new HashSet<ORDEN>();
-            this.PEDIDO_PROVEEDOR = new HashSet<PEDIDO_PROVEEDOR>();
         }
     
         public string RUT_EMPLEADO { get; set; }
@@ -36,6 +35,5 @@ namespace BibliotecaDALC
         public virtual ICollection<LOGIN> LOGIN { get; set; }
         public virtual ICollection<MESA> MESA { get; set; }
         public virtual ICollection<ORDEN> ORDEN { get; set; }
-        public virtual ICollection<PEDIDO_PROVEEDOR> PEDIDO_PROVEEDOR { get; set; }
     }
 }

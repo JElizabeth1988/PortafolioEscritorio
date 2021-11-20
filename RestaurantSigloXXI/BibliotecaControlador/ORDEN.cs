@@ -25,7 +25,7 @@ namespace BibliotecaDALC
         public string RUT_EMPLEADO { get; set; }
         public Nullable<int> ID_BEBIDA { get; set; }
         public Nullable<int> ID_PLATO { get; set; }
-        public Nullable<int> ID_PEDIDO { get; set; }
+        public int ID_PEDIDO { get; set; }
         public int NUM_MESA { get; set; }
     
         public virtual BEBIDA BEBIDA { get; set; }

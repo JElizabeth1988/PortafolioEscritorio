@@ -438,8 +438,8 @@ namespace BibliotecaNegocio
 
                     //se obtiene el valor con getvalue es lo mismo pero con get                    
                     P.Nombre = dr.GetValue(0).ToString();
-                    P.Stock = "$ " + dr.GetValue(1).ToString();
-                    P.Valor = dr.GetValue(2).ToString() + " U";
+                    P.Stock =  dr.GetValue(1).ToString() + " U";
+                    P.Valor = "$ "+dr.GetValue(2).ToString() ;
 
                     lista.Add(P);
                 }

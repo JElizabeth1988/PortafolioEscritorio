@@ -12,15 +12,22 @@ namespace BibliotecaDALC
     using System;
     using System.Collections.Generic;
     
-    public partial class MENU
+    public partial class ABONO_RESERVA
     {
-        public int ID_MENU { get; set; }
-        public string NOMBRE { get; set; }
+        public ABONO_RESERVA()
+        {
+            this.RESERVA = new HashSet<RESERVA>();
+        }
+    
+        public int ID_ABONO_RESERVA { get; set; }
+        public int VALOR_RESERVA { get; set; }
         public string ESTADO { get; set; }
-        public int PRECIO { get; set; }
-        public byte[] FOTO { get; set; }
-        public int ID_BEBIDA { get; set; }
-        public int ID_PLATO { get; set; }
-        public int ID_CATEGORIA { get; set; }
+        public System.DateTime FECHA_ESTADO { get; set; }
+        public string HORA_ESTADO { get; set; }
+        public string RUT_CLIENTE { get; set; }
+        public int ID_METODO_PAGO { get; set; }
+    
+        public virtual METODO_PAGO METODO_PAGO { get; set; }
+        public virtual ICollection<RESERVA> RESERVA { get; set; }
     }
 }

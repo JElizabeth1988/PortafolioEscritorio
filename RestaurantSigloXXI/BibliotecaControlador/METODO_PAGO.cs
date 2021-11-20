@@ -16,6 +16,7 @@ namespace BibliotecaDALC
     {
         public METODO_PAGO()
         {
+            this.ABONO_RESERVA = new HashSet<ABONO_RESERVA>();
             this.PAGO = new HashSet<PAGO>();
         }
     
@@ -23,6 +24,7 @@ namespace BibliotecaDALC
         public string TIPO { get; set; }
         public Nullable<int> ID_ENTIDAD { get; set; }
     
+        public virtual ICollection<ABONO_RESERVA> ABONO_RESERVA { get; set; }
         public virtual ENTIDAD_BANCARIA ENTIDAD_BANCARIA { get; set; }
         public virtual ICollection<PAGO> PAGO { get; set; }
     }

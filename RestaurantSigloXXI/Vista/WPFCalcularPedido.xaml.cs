@@ -50,7 +50,9 @@ namespace Vista
         //Traer clase producto
         Producto prod = new Producto();
         Bebida Beb = new Bebida();
-        Temporal te = new Temporal();
+        Articulo te = new Articulo();
+
+        PedidoProveedor ped = new PedidoProveedor();
 
         public WPFCalcularPedido()
         {
@@ -60,14 +62,30 @@ namespace Vista
 
             btnPasar.Visibility = Visibility.Hidden;
 
+            //-------Cargar combobox----------------
+            foreach (Proveedor item in new Proveedor().ReadAll())
+            {
+                comboBoxItem1 cb = new comboBoxItem1();
+                cb.id = item.id_proveedor;
+                cb.nombre = item.nombre;
+                cbProveedor.Items.Add(cb);
+            }
+            cbProveedor.SelectedIndex = 0;
+            cbProveedor.Focus();
+
             CargarGrillaProd();
             CargarGrillaBeb();
+           // Total();
             // CargarGrilla();
             //Cuando se guarda una mesa nueva se refresca la grilla
             NotificationCenter.Subscribe("producto_guardado", CargarGrillaProd);
             NotificationCenter.Subscribe("bebida_guardado", CargarGrillaBeb);
             NotificationCenter.Subscribe("pedido_guardado", CargarGrilla);
-
+            NotificationCenter.Subscribe("registro_borrado", CargarGrilla);
+            NotificationCenter.Subscribe("pedido_total", Total);
+            
+            lblNumero.Content = DateTime.Now.ToString("yyyyMMddHHmm");
+                                   
 
         }
 
@@ -94,23 +112,25 @@ namespace Vista
 
         //---------------Cargar Grilla de Pedido
         private void CargarGrilla()
-         {
-             try
-             {
-                 // Dispatcher invoke: Permite ejecutar una acción de forma asincrónica
-                 //desde un subproceso o desde otra ventana (es un método q llama a una acción)
-                 //(() => { }); función anónima
-                 Dispatcher.Invoke(() => {
-                     dgListaPedido.ItemsSource = te.Listar();
-                     dgListaPedido.Items.Refresh();
-                 });
-             }
-             catch (Exception ex)
-             {
-                 Logger.Mensaje(ex.Message); throw;
-             }
+        {
+            try
+            {
+                // Dispatcher invoke: Permite ejecutar una acción de forma asincrónica
+                //desde un subproceso o desde otra ventana (es un método q llama a una acción)
+                //(() => { }); función anónima
+                Dispatcher.Invoke(() =>
+                {
+                    string id = lblNumero.Content.ToString();
+                    dgListaPedido.ItemsSource = te.Listar(id);
+                    dgListaPedido.Items.Refresh();
+                });
+            }
+            catch (Exception ex)
+            {
+                Logger.Mensaje(ex.Message); throw;
+            }
 
-         }
+        }
 
         //---------------Cargar Grilla de Producto
         private void CargarGrillaProd()
@@ -168,7 +188,7 @@ namespace Vista
 
         private void btnRefrescar2_Click(object sender, RoutedEventArgs e)
         {
-            // CargarGrilla();
+             CargarGrilla();
         }
 
 
@@ -191,23 +211,7 @@ namespace Vista
             }
         }
 
-        private void Limpiar()
-        {
-
-            txtNomProd.Clear();
-            //txtStock.Text = "0";
-            txtValorUnidad.Text = "0";
-            txtCantidad.Text = "0";
-
-            btnPasar.Visibility = Visibility.Hidden;
-
-
-        }
-
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
-        {
-            Limpiar();
-        }
+        
 
         private void btnSelccionarProd_Click(object sender, RoutedEventArgs e)
         {
@@ -220,10 +224,7 @@ namespace Vista
                 //---Medir el largo para quitar signos $ y U
                 var lUnidad = (i.Valor.Length - 2);
 
-                txtValorUnidad.Text = i.Valor.Substring(0, lUnidad);
-
-
-                btnPasar.Visibility = Visibility.Visible;
+                txtValorUnidad.Text = i.Valor.Substring(2, lUnidad);
 
             }
             catch (Exception ex)
@@ -242,11 +243,7 @@ namespace Vista
 
                 //---Medir el largo para quitar signos $ y U
                 var lUnidad = (i.Valor.Length - 2);
-                txtValorUnidad.Text = i.Valor.Substring(0, lUnidad);
-
-
-
-                btnPasar.Visibility = Visibility.Visible;
+                txtValorUnidad.Text = i.Valor.Substring(2, lUnidad);
 
             }
             catch (Exception ex)
@@ -255,47 +252,25 @@ namespace Vista
             }
         }
 
-        
+
         //----------Agregar items a la lista de pedido donde se visualizarán para posteriormente realizar el pedido
         private async void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                /*
-                dgListaPedido.ItemsSource = null;
-                DataTable dt = new DataTable();
-                DataRow Renglon;
-                dt.Columns.Add(new DataColumn ("NOMBRE"));
-                dt.Columns.Add(new DataColumn("VALOR"));
-                dt.Columns.Add(new DataColumn("CANTIDAD"));
-                dt.Columns.Add(new DataColumn("TOTAL"));
-
-                Renglon = dt.NewRow();
-
-                int total = (int.Parse(txtValorUnidad.Text) * int.Parse(txtCantidad.Text));
-
-                Renglon[0] = txtNomProd.Text;
-                Renglon[1] = txtValorUnidad.Text;
-                Renglon[2] = txtCantidad.Text;
-                Renglon[3] = total;
-                //Aqui simplemente le agregamos el renglon nuevo a la tabla
-                dt.Rows.Add(Renglon);
-
-                //Aqui le decimos al dataGridView que tome la tabla y la muestre              
-                dgListaPedido.ItemsSource = dt.DefaultView;
-                */
-
                 string v_nombre = txtNomProd.Text;
                 int v_valor = int.Parse(txtValorUnidad.Text);
                 int v_cantidad = int.Parse(txtCantidad.Text);
                 int v_total = (int.Parse(txtValorUnidad.Text) * int.Parse(txtCantidad.Text));
+                string pedido = lblNumero.Content.ToString();
 
-                Temporal t = new Temporal()
+                Articulo t = new Articulo()
                 {
                     nombre = v_nombre,
                     valor = v_valor,
                     cantidad = v_cantidad,
-                    total = v_total
+                    total = v_total,
+                    id_pedido = pedido
                 };
                 bool resp = te.Agregar(t);
                 /*await this.ShowMessageAsync("Mensaje:",
@@ -307,24 +282,10 @@ namespace Vista
                     txtCantidad.Text = "0";
                     txtValorUnidad.Clear();
                     NotificationCenter.Notify("pedido_guardado");
+                    NotificationCenter.Notify("pedido_total");
 
                 }
 
-                /*DataGridRow file = new DataGridRow();
-                //dgListaPedido.ItemsSource = null;
-                DataTable dt = new DataTable();
-
-                DataRow fila = dt.NewRow();
-                fila[0] = txtNomProd.Text;
-                fila[1] = txtValorUnidad.Text;
-                fila[2] = txtCantidad.Text;
-                fila[3] = total;
-
-                dt.Rows.Add(fila);
-                dt.AcceptChanges();
-               
-                dgListaPedido.ItemsSource = dt.DefaultView;*/
-                                
             }
             catch (Exception ex)
             {
@@ -340,20 +301,139 @@ namespace Vista
         }
 
         //--------calcular el total
-        public void Calcular()
+        public void Total()
         {
-            /*  int total = 0;
-              int contador = 0;
+            try
+            {
+                // Dispatcher invoke: Permite ejecutar una acción de forma asincrónica
+                //desde un subproceso o desde otra ventana (es un método q llama a una acción)
+                //(() => { }); función anónima
+                Dispatcher.Invoke(() =>
+                {
+                    string id = lblNumero.Content.ToString();
+                    
+                    lblTotal.Content = te.Total(id);
 
-              contador = dgListaPedido.Items.Count;
+                    
+                });
+            }
+            catch (Exception ex)
+            {
 
-              for (int i = 0; i < contador; i++)
-              {
-                  total += int.Parse(dgListaPedido.);
-              }
-              */
+                Logger.Mensaje(ex.Message);
+            }
         }
 
+        private async void btnQuitar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //Rescatar id
+                Articulo.ListaArticulos tp = (Articulo.ListaArticulos)dgListaPedido.SelectedItem;
+                int id = tp.id;
 
+
+                /* var x = await this.ShowMessageAsync("Eliminar Datos: ",
+                          "¿Está seguro de eliminar el registro? ",
+                         MessageDialogStyle.AffirmativeAndNegative);*/
+                /*if (x == MessageDialogResult.Affirmative)
+                {*/
+                bool resp = te.Quitar(id);//Entrega id por parametro
+                if (resp == true)//Si el método fue éxitoso muestra el mensaje
+                {
+                    /* await this.ShowMessageAsync("Éxito:",
+                       string.Format("Resgistro Eliminado"));
+                     //Notificación (Actualiza la grilla en tiempo real)*/
+                    NotificationCenter.Notify("registro_borrado");
+                    NotificationCenter.Subscribe("pedido_total", Total);
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Error:",
+                      string.Format("No Eliminado"));
+                }
+                /* }
+                 else
+                 {
+                     await this.ShowMessageAsync("Mensaje:",
+                           string.Format("Operación Cancelada"));
+                 }*/
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al Eliminar la Información"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
+            }
+        }
+        //------------Evento que oculta la primera columna (id) para que no sea modificada
+        private void dgListaPedido_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            if (this.dgListaPedido.Columns != null)
+            {
+                this.dgListaPedido.Columns[0].Visibility = Visibility.Collapsed;
+            }
+
+        }
+
+        private async void btnAgregar2_Click(object sender, RoutedEventArgs e)
+        {
+            //---------------------------------------
+            //se crea un nuevo pedido a proveedor
+            try
+            {
+                string pedido = lblNumero.Content.ToString();
+                DateTime fecha = DateTime.Now;
+                int proveedor = ((comboBoxItem1)cbProveedor.SelectedItem).id;
+
+                string v_nombre = txtNomProd.Text;
+                int v_valor = int.Parse(txtValorUnidad.Text);
+                int v_cantidad = int.Parse(txtCantidad.Text);
+                int v_total = (int.Parse(txtValorUnidad.Text) * int.Parse(txtCantidad.Text));
+
+                PedidoProveedor pp = new PedidoProveedor()
+                {
+                    id_pedido = pedido,
+                    fecha_pedido = fecha,
+                    id_proveedor = proveedor
+                };
+                              
+
+                Articulo t = new Articulo()
+                {
+                    nombre = v_nombre,
+                    valor = v_valor,
+                    cantidad = v_cantidad,
+                    total = v_total,
+                    id_pedido = pedido
+                };
+                bool resp = ped.Agregar(pp, t);
+                /*await this.ShowMessageAsync("Mensaje:",
+                     string.Format(resp ? "Guardado" : "No Guardado"));*/
+
+                if (resp == true)
+                {
+                    txtNomProd.Clear();
+                    txtCantidad.Text = "0";
+                    txtValorUnidad.Clear();
+                    NotificationCenter.Notify("pedido_guardado");
+                    NotificationCenter.Notify("pedido_total");
+
+                    btnPasar.Visibility = Visibility.Visible;
+                    btnAgregar.Visibility = Visibility.Hidden;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Debe Seleccionar un Producto o Bebida a Agregar"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
+            }
+        }
     }
 }

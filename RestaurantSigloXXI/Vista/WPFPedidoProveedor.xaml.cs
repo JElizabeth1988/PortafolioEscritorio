@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Oracle.ManagedDataAccess.Client;
+//using System.Data.OracleClient;
+
+using System.Data;
+//Metro
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
-
+//Bibliotecas
 using BibliotecaNegocio;
-
-
-using Oracle.ManagedDataAccess.Client;
-
-using System.Data;
 
 namespace Vista
 {
@@ -31,40 +31,21 @@ namespace Vista
     /// </summary>
     public partial class WPFPedidoProveedor : MetroWindow
     {
-        //PatronSingleton--------------------------
-        private static WPFPedidoProveedor _instancia;
-
-
-        public static WPFPedidoProveedor ObtenerinstanciaPED()
-        {
-            if (_instancia == null)
-            {
-                _instancia = new WPFPedidoProveedor();
-            }
-
-            return _instancia;
-        }
         public WPFPedidoProveedor()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
 
-        public void CargarGrilla()
+        PedidoProveedor ped = new PedidoProveedor();
+
+        private void Nuevo_Click(object sender, RoutedEventArgs e)
         {
-
+            
+                
         }
 
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnSolicitar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnRefrescar_Click(object sender, RoutedEventArgs e)
+        private void Pedido_Click(object sender, RoutedEventArgs e)
         {
 
         }

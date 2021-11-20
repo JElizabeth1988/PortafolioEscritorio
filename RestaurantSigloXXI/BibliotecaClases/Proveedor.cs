@@ -87,6 +87,50 @@ namespace BibliotecaNegocio
 
         }
 
+
+        //Crear objeto de la Bdd modelo
+        private RSXXI_Entities bdd = new RSXXI_Entities();
+              
+
+        public bool Read()
+        {
+            try
+            {
+                PROVEEDOR tipo =
+                    bdd.PROVEEDOR.First(tip => tip.ID_PROVEEDOR == id_proveedor);
+                nombre = tipo.NOMBRE;
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
+        public List<Proveedor> ReadAll()
+        {
+            try
+            {
+                List<Proveedor> lista = new List<Proveedor>();
+                var lista_beb_bdd = bdd.PROVEEDOR.ToList();
+                foreach (PROVEEDOR item in lista_beb_bdd)
+                {
+                    Proveedor tipo = new Proveedor();
+                    tipo.id_proveedor = item.ID_PROVEEDOR;
+                    tipo.nombre = item.NOMBRE;
+                    lista.Add(tipo);
+
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
+
         //CRUD
         //----------------Método agregar----------------------
         public bool Agregar(Proveedor proveer)

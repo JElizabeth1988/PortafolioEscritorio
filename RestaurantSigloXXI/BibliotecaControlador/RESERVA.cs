@@ -22,7 +22,9 @@ namespace BibliotecaDALC
         public string ESTADO_RESERVA { get; set; }
         public string RUT_CLIENTE { get; set; }
         public int ID_AGENDA { get; set; }
+        public int ID_ABONO_RESERVA { get; set; }
     
+        public virtual ABONO_RESERVA ABONO_RESERVA { get; set; }
         public virtual AGENDA AGENDA { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
     }
