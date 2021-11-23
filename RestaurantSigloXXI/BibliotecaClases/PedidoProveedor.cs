@@ -41,17 +41,16 @@ namespace BibliotecaNegocio
                 //nombre de la ejecución
                 CMD.Connection = conn;
                 //nombre del Procedimiento Almacenado
-                CMD.CommandText = "SP_AGREGAR_PED_PROV";
+                CMD.CommandText = "SP_AGREGAR_PED";
                 //Se crea un nuevo tipo de parametro, nombre parametro, el tipo, el largo, y el valor es igual al de la clase.
                 CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Varchar2, 30)).Value = ped.id_pedido;
                 CMD.Parameters.Add(new OracleParameter("P_FECHA", OracleDbType.Date)).Value = ped.fecha_pedido;
-                CMD.Parameters.Add(new OracleParameter("P_PROVEEDOR", OracleDbType.Varchar2, 50)).Value = ped.id_proveedor;
+                CMD.Parameters.Add(new OracleParameter("P_PROVEEDOR", OracleDbType.Int32)).Value = ped.id_proveedor;
 
-                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = art.nombre;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Varchar2, 50)).Value = art.valor;
-                CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Varchar2, 50)).Value = art.cantidad;
-                CMD.Parameters.Add(new OracleParameter("P_TOTAL", OracleDbType.Varchar2, 50)).Value = art.total;
-
+                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 30)).Value = art.nombre;
+                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = art.valor;
+                CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = art.cantidad;
+                CMD.Parameters.Add(new OracleParameter("P_TOTAL", OracleDbType.Int32)).Value = art.total;
 
                 // Se abre la conexión
                 conn.Open();
@@ -70,6 +69,76 @@ namespace BibliotecaNegocio
 
             }
 
+        }
+
+        //---------------ELIMINAR---------------
+        public bool Eliminar(string id) //Recibe id por parametro
+        {
+            try
+            {
+                //Instanciar la conexión
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_CANCELAR_OP";
+                //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Varchar2, 30)).Value = id;
+
+                //se abre la conexion
+                conn.Open();
+                //se ejecuta la query
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Logger.Mensaje(ex.Message);
+                return false;
+
+            }
+        }
+        //-------Guardar todo el pedido
+        public bool GuardarOperacion(PedidoProveedor ped)
+        {
+            try
+            {
+                //Instanciar la conexión
+                conn = new Conexion().Getcone();
+
+                OracleCommand CMD = new OracleCommand();
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_PEDIDO_PROV";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Varchar2,30)).Value = ped.id_pedido;
+                CMD.Parameters.Add(new OracleParameter("P_TOTAL", OracleDbType.Int32)).Value = ped.total;
+                CMD.Parameters.Add(new OracleParameter("P_PROVEEDOR", OracleDbType.Int32)).Value = ped.id_proveedor;
+
+                //Se abre la conexión
+                conn.Open();
+                //se ejecuta la query
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                //Retorno
+                return true;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                return false;
+                Logger.Mensaje(ex.Message);
+
+            }
         }
     }
 }

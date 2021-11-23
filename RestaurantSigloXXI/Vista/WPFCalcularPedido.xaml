@@ -10,34 +10,33 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Calcular Pedido a Proveedor" Height="578.978" Width="1143.508" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/logoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
-    <Grid HorizontalAlignment="Left" Height="547" VerticalAlignment="Top" Width="1134" Margin="0,0,0,-0.333">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="561" VerticalAlignment="Top" Width="1144" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-10,-14"/>
-        <GroupBox x:Name="groupBox1" Header="Detalle Pedido" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,10,0,0" Width="643" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21" >
+        Title="Calcular Pedido a Proveedor" Height="626.645" Width="1109.508" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/logoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+    <Grid HorizontalAlignment="Left" Height="596" VerticalAlignment="Top" Width="1100" Margin="0,0,0,-1.333">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="610" VerticalAlignment="Top" Width="1124" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-24,-14"/>
+        <GroupBox x:Name="groupBox1" Header="Detalle Pedido" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,10,0,0" Width="606" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21" Height="534" >
             <Grid>
-                <GroupBox x:Name="groupBox" Header="Información de Producto" Margin="8,318,7.667,0" VerticalAlignment="Top" Height="166" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-                    <Grid HorizontalAlignment="Left" Height="137" VerticalAlignment="Top" Width="610" Margin="0,-2,0,-4.333" Background="{x:Null}">
+                <GroupBox x:Name="groupBox" Header="Información de Producto" Margin="8,314,9.667,0" VerticalAlignment="Top" Height="166" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+                    <Grid HorizontalAlignment="Left" Height="137" VerticalAlignment="Top" Width="561" Margin="0,-2,-0.333,-4.333" Background="{x:Null}">
                         <Label x:Name="label_Copy" Content="Valor ($):" HorizontalAlignment="Left" Margin="27,34,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label x:Name="label_Copy1" Content="Nombre Producto:" HorizontalAlignment="Left" Margin="27,4,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <TextBox x:Name="txtNomProd" HorizontalAlignment="Left"  Height="8" Margin="160,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" IsEnabled="False" RenderTransformOrigin="0.5,0.5" SelectionBrush="#FFCB5F21"/>
                         <TextBox x:Name="txtValorUnidad" HorizontalAlignment="Left" KeyDown="txtNumeros_KeyDown" Height="8" Margin="160,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Width="134" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" SelectionBrush="#FFCB5F21"/>
-                        <Button x:Name="btnPasar" ToolTip="Agregar Producto" Content="Agregar" HorizontalAlignment="Left" Margin="245,96,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnAgregar_Click"/>
-                        <Button x:Name="btnCancelar" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="345,96,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
+                        <Button x:Name="btnPasar" ToolTip="Agregar Producto" Content="Agregar" HorizontalAlignment="Left" Margin="322,96,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnAgregar_Click"/>
                         <!--<Button x:Name="btnCalcular" ToolTip="Calcular Total" Content="Calcular" HorizontalAlignment="Left" Margin="317,125,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCalcular_Click" Height="28"/>-->
-                        <Image x:Name="image1" HorizontalAlignment="Left" Height="111" Margin="438,4,0,0" VerticalAlignment="Top" Width="140" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
+                        <Image x:Name="image1" HorizontalAlignment="Left" Height="90" Margin="425,4,0,0" VerticalAlignment="Top" Width="123" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
                         <Label x:Name="lbl1_Copy2" Content="*"  HorizontalAlignment="Left" Margin="355,4,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                         <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="294,34,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                         <Label x:Name="lbl1_Copy3" Content="*"  HorizontalAlignment="Left" Margin="294,65,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                         <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Cantidad" KeyDown="txtNumeros_KeyDown" Height="8" Margin="160,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
                         <Label x:Name="label_Copy3" Content="Cantidad:" HorizontalAlignment="Left" Margin="27,64,0,0" VerticalAlignment="Top" FontSize="12"/>
-                        <Button x:Name="btnAgregar" ToolTip="Agregar Producto" Content="Agregar" HorizontalAlignment="Left" Margin="245,96,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnAgregar2_Click"/>
+                        <Button x:Name="btnAgregar" ToolTip="Agregar Artículos" Content="Agregar" HorizontalAlignment="Left" Margin="322,96,0,0" VerticalAlignment="Top" Width="77" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnAgregar2_Click"/>
 
                     </Grid>
                 </GroupBox>
-                <GroupBox x:Name="groupBox_Copy" Header="Productos con Bajo Stock " Margin="8,58,316.667,0" VerticalAlignment="Top" Height="255" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-                    <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="301" Margin="0,-2,-0.333,-3" Background="{x:Null}">
+                <GroupBox x:Name="groupBox_Copy" Header="Productos con Bajo Stock " Margin="8,54,305.667,0" VerticalAlignment="Top" Height="255" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+                    <Grid HorizontalAlignment="Left" Height="222" VerticalAlignment="Top" Width="273" Margin="0,-2,-0.333,0" Background="{x:Null}">
 
-                        <DataGrid x:Name="dgListaProducto" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="170" Width="278" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" >
+                        <DataGrid x:Name="dgListaProducto" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="170" Width="253" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" >
 
                             <DataGrid.Resources>
                                 <Style TargetType="{x:Type DataGridCell}">
@@ -50,7 +49,7 @@
                                 </Style>
                             </DataGrid.Resources>
                         </DataGrid>
-                        <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left" Width="34"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" BorderBrush="Black" Click="btnRefrescar_Click" Margin="254,180,0,0" Height="34" VerticalAlignment="Top"  >
+                        <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left" Width="34"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" BorderBrush="Black" Click="btnRefrescar_Click" Margin="229,180,0,0" Height="34" VerticalAlignment="Top"  >
                             <Button.Background>
                                 <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
                             </Button.Background>
@@ -59,10 +58,10 @@
 
                     </Grid>
                 </GroupBox>
-                <GroupBox x:Name="groupBox_Copy1" Header="Bebidas con Bajo Stock " Margin="320,58,7.667,0" VerticalAlignment="Top" Height="255" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-                    <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="307" Margin="0,-2,-10.333,-3" Background="{x:Null}">
+                <GroupBox x:Name="groupBox_Copy1" Header="Bebidas con Bajo Stock " Margin="296,58,9.667,0" VerticalAlignment="Top" Height="251" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+                    <Grid HorizontalAlignment="Left" Height="221" VerticalAlignment="Top" Width="273" Margin="0,-2,-0.333,-3" Background="{x:Null}">
 
-                        <DataGrid x:Name="dgListaBebida" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="170" Width="276" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" >
+                        <DataGrid x:Name="dgListaBebida" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="170" Width="253" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" >
 
                             <DataGrid.Resources>
                                 <Style TargetType="{x:Type DataGridCell}">
@@ -75,7 +74,7 @@
                                 </Style>
                             </DataGrid.Resources>
                         </DataGrid>
-                        <Button x:Name="btnRefrescar1" ToolTip="Refrescar" HorizontalAlignment="Left" Width="34"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" BorderBrush="Black" Click="btnRefrescar1_Click" Margin="252,180,0,0" Height="34" VerticalAlignment="Top"  >
+                        <Button x:Name="btnRefrescar1" ToolTip="Refrescar" HorizontalAlignment="Left" Width="34"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" BorderBrush="Black" Click="btnRefrescar1_Click" Margin="229,180,0,0" Height="34" VerticalAlignment="Top"  >
                             <Button.Background>
                                 <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
                             </Button.Background>
@@ -84,16 +83,16 @@
 
                     </Grid>
                 </GroupBox>
-                <Label x:Name="label_Copy5" Content="Proveedor:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="12" Width="81"/>
-                <ComboBox x:Name="cbProveedor" HorizontalAlignment="Left" Margin="91,10,0,0" VerticalAlignment="Top" Width="171" FontWeight="Normal"/>
+                <Label x:Name="label_Copy5" Content="Seleccione Proveedor:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <ComboBox x:Name="cbProveedor" HorizontalAlignment="Left" Margin="162,10,0,0" VerticalAlignment="Top" Width="171" FontWeight="Normal"/>
 
             </Grid>
         </GroupBox>
 
-        <GroupBox x:Name="groupBox_Copy2" Header="Verificar Pedido" Margin="671,10,25,0" VerticalAlignment="Top" Height="519" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-            <Grid HorizontalAlignment="Left" Height="488" VerticalAlignment="Top" Width="424" Margin="0,-2" Background="{x:Null}">
+        <GroupBox x:Name="groupBox_Copy2" Header="Verificar Pedido" Margin="634,10,29,0" VerticalAlignment="Top" Height="534" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+            <Grid HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="424" Margin="0,-2,0,-2.333" Background="{x:Null}">
 
-                <DataGrid x:Name="dgListaPedido" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="327" Width="404" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgListaPedido_LoadingRow" >
+                <DataGrid x:Name="dgListaPedido" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="353" Width="404" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgListaPedido_LoadingRow" >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">
@@ -106,17 +105,13 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnRefrescar2" ToolTip="Refrescar" HorizontalAlignment="Left" Width="34"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" BorderBrush="Black" Click="btnRefrescar2_Click" Margin="380,431,0,-25" Height="34" VerticalAlignment="Top" RenderTransformOrigin="0.49,0.02"  >
-                    <Button.Background>
-                        <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="btnGuardar" ToolTip="Guardar Pedido" Content="Guardar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnGuardar_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="19,436,0,-25" Height="29"/>
-                <Label x:Name="label_Copy2" Content="Total del Pedido:" HorizontalAlignment="Left" Margin="19,388,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="lblTotal" Content="-" HorizontalAlignment="Left" Margin="128,388,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Button x:Name="btnEliminar" ToolTip="Quitar registro de la lista de Pedido" Content="Quitar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnQuitar_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="258,436,0,-25" Height="29"/>
+                <Button x:Name="btnGuardar" ToolTip="Guardar Pedido" Content="Guardar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnGuardar_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="239,446,0,0" Height="29"/>
+                <Label x:Name="label_Copy2" Content="Total del Pedido:" HorizontalAlignment="Left" Margin="19,403,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="lblTotal" Content="-" HorizontalAlignment="Left" Margin="128,403,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Button x:Name="btnEliminar" ToolTip="Quitar registro de la lista de Pedido" Content="Quitar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnQuitar_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="19,445,0,0" Height="29"/>
                 <Label x:Name="label_Copy4" Content="Número de Pedido:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="lblNumero" Content="-" HorizontalAlignment="Left" Margin="134,10,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Button x:Name="btnCancelar" ToolTip="Cancelar Operación" Content="Cancelar" HorizontalAlignment="Left" Margin="339,446,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFA11400" FontSize="12" Click="btnCancelar_Click"/>
 
             </Grid>
         </GroupBox>

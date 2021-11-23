@@ -34,7 +34,7 @@ namespace Vista
     {
         //PatronSingleton--------------------------
         public static WPFCalcularPedido _instancia;
-        public static WPFCalcularPedido ObtenerinstanciaPED()
+        public static WPFCalcularPedido ObtenerinstanciaCP()
         {
             if (_instancia == null)
             {
@@ -44,15 +44,14 @@ namespace Vista
             return _instancia;
         }
         //----------------------------------------
-
         //Instanciar BD
         OracleConnection conn = null;
         //Traer clase producto
         Producto prod = new Producto();
         Bebida Beb = new Bebida();
         Articulo te = new Articulo();
-
         PedidoProveedor ped = new PedidoProveedor();
+
 
         public WPFCalcularPedido()
         {
@@ -61,6 +60,8 @@ namespace Vista
             txtCantidad.Text = "0";
 
             btnPasar.Visibility = Visibility.Hidden;
+
+            lblNumero.Content = DateTime.Now.ToString("yyyyMMddHHmmss");
 
             //-------Cargar combobox----------------
             foreach (Proveedor item in new Proveedor().ReadAll())
@@ -83,18 +84,11 @@ namespace Vista
             NotificationCenter.Subscribe("pedido_guardado", CargarGrilla);
             NotificationCenter.Subscribe("registro_borrado", CargarGrilla);
             NotificationCenter.Subscribe("pedido_total", Total);
-            
-            lblNumero.Content = DateTime.Now.ToString("yyyyMMddHHmm");
-                                   
+                                              
 
         }
+        
 
-        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-            //Parar Singleton
-            _instancia = null;
-        }
         //----solo números
         private void txtNumeros_KeyDown(object sender, KeyEventArgs e)
         {
@@ -152,7 +146,7 @@ namespace Vista
             }
 
         }
-
+        
 
         //---------------Cargar Grilla de Bebida
         private void CargarGrillaBeb()
@@ -196,17 +190,31 @@ namespace Vista
         {
             try
             {
-                var x = await this.ShowMessageAsync("Mensaje de Confirmación: ",
-                              "¿Está seguro que desea cancelar la operación? ",
-                             MessageDialogStyle.AffirmativeAndNegative);
+                //Rescatar id
+                string id = lblNumero.Content.ToString();
+               
+                var x = await this.ShowMessageAsync("Cancelar Operación: ",
+                         "¿Está Seguro de Cancelar la Operación? ",
+                        MessageDialogStyle.AffirmativeAndNegative);
                 if (x == MessageDialogResult.Affirmative)
                 {
-                    this.Close();
+                    bool resp = ped.Eliminar(id);//Entrega id por parametro
+                    if (resp == true)//Si el método fue éxitoso muestra el mensaje
+                    {
+                        Close();
+                    }
+                   /* else
+                    {
+                        await this.ShowMessageAsync("Error:",
+                          string.Format("No Cancelado"));
+                    }*/
                 }
-
+                
             }
             catch (Exception ex)
             {
+                await this.ShowMessageAsync("Error:",
+                       string.Format("No es posible cancelar la operación"));
                 Logger.Mensaje(ex.Message);
             }
         }
@@ -295,9 +303,103 @@ namespace Vista
             }
         }
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        private async void btnAgregar2_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                string pedido = lblNumero.Content.ToString();
+                DateTime fecha = DateTime.Now;
+                int proveedor = ((comboBoxItem1)cbProveedor.SelectedItem).id;
 
+                string v_nombre = txtNomProd.Text;
+                int v_valor = int.Parse(txtValorUnidad.Text);
+                int v_cantidad = int.Parse(txtCantidad.Text);
+                int v_total = (int.Parse(txtValorUnidad.Text) * int.Parse(txtCantidad.Text));
+
+                PedidoProveedor pp = new PedidoProveedor()
+                {
+                    id_pedido = pedido,
+                    fecha_pedido = fecha,
+                    id_proveedor = proveedor
+                };                
+
+                Articulo ar = new Articulo()
+                {
+                    nombre = v_nombre,
+                    valor = v_valor,
+                    cantidad = v_cantidad,
+                    total = v_total
+                };
+
+                bool resp = ped.Agregar(pp,ar);
+                /*await this.ShowMessageAsync("Mensaje:",
+                     string.Format(resp ? "Guardado" : "No Guardado"));*/
+
+                if (resp == true)
+                {
+
+                    txtNomProd.Clear();
+                    txtCantidad.Text = "0";
+                    txtValorUnidad.Clear();
+                    NotificationCenter.Notify("pedido_guardado");
+                    NotificationCenter.Notify("pedido_total");
+
+                    btnAgregar.Visibility = Visibility.Hidden;
+                    btnPasar.Visibility = Visibility.Visible;
+
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error de ingreso de datos"));
+                Logger.Mensaje(ex.Message);
+            }
+        }
+
+        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string pedido = lblNumero.Content.ToString();
+                int totalsin = int.Parse(lblTotal.Content.ToString());
+                int proveedor = ((comboBoxItem1)cbProveedor.SelectedItem).id;
+
+                PedidoProveedor pp = new PedidoProveedor()
+                {
+                    id_pedido = pedido,
+                    total = totalsin,
+                    id_proveedor = proveedor
+                };
+
+               
+                bool resp = ped.GuardarOperacion(pp);
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format(resp ? "Guardado" : "No Guardado"));
+
+                if (resp == true)
+                {
+
+                    txtNomProd.Clear();
+                    txtCantidad.Text = "0";
+                    txtValorUnidad.Clear();
+                    cbProveedor.SelectedIndex = 0;
+                    lblNumero.Content = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    CargarGrillaBeb();
+                    CargarGrillaProd();
+                    CargarGrilla();
+                    lblTotal.Content = "";
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error de ingreso de datos"));
+                Logger.Mensaje(ex.Message);
+            }
         }
 
         //--------calcular el total
@@ -363,7 +465,7 @@ namespace Vista
             {
 
                 await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Error al Eliminar la Información"));
+                     string.Format("Seleccione un registro"));
                 /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
             }
@@ -378,62 +480,10 @@ namespace Vista
 
         }
 
-        private async void btnAgregar2_Click(object sender, RoutedEventArgs e)
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //---------------------------------------
-            //se crea un nuevo pedido a proveedor
-            try
-            {
-                string pedido = lblNumero.Content.ToString();
-                DateTime fecha = DateTime.Now;
-                int proveedor = ((comboBoxItem1)cbProveedor.SelectedItem).id;
-
-                string v_nombre = txtNomProd.Text;
-                int v_valor = int.Parse(txtValorUnidad.Text);
-                int v_cantidad = int.Parse(txtCantidad.Text);
-                int v_total = (int.Parse(txtValorUnidad.Text) * int.Parse(txtCantidad.Text));
-
-                PedidoProveedor pp = new PedidoProveedor()
-                {
-                    id_pedido = pedido,
-                    fecha_pedido = fecha,
-                    id_proveedor = proveedor
-                };
-                              
-
-                Articulo t = new Articulo()
-                {
-                    nombre = v_nombre,
-                    valor = v_valor,
-                    cantidad = v_cantidad,
-                    total = v_total,
-                    id_pedido = pedido
-                };
-                bool resp = ped.Agregar(pp, t);
-                /*await this.ShowMessageAsync("Mensaje:",
-                     string.Format(resp ? "Guardado" : "No Guardado"));*/
-
-                if (resp == true)
-                {
-                    txtNomProd.Clear();
-                    txtCantidad.Text = "0";
-                    txtValorUnidad.Clear();
-                    NotificationCenter.Notify("pedido_guardado");
-                    NotificationCenter.Notify("pedido_total");
-
-                    btnPasar.Visibility = Visibility.Visible;
-                    btnAgregar.Visibility = Visibility.Hidden;
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Debe Seleccionar un Producto o Bebida a Agregar"));
-                /*MessageBox.Show("error al Filtrar Información");*/
-                Logger.Mensaje(ex.Message);
-            }
+            //Parar Singleton
+            _instancia = null;
         }
     }
 }

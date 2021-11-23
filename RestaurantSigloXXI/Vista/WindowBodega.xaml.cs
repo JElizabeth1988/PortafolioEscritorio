@@ -85,7 +85,7 @@ namespace Vista
 
         private async void Pedido_Click(object sender, RoutedEventArgs e)
         {
-            WPFCalcularPedido.ObtenerinstanciaPED().ShowDialog();
+            WPFCalcularPedido.ObtenerinstanciaCP().ShowDialog();
         }
     }
 }
