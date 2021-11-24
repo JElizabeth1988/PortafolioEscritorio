@@ -399,6 +399,7 @@ namespace BibliotecaNegocio
         {
             public string Nombre { get; set; }
             public string Valor { get; set; }
+            public string ML { get; set; }
             public string Stock { get; set; }
 
             public ListaBebidaPedido()
@@ -439,7 +440,8 @@ namespace BibliotecaNegocio
                     //se obtiene el valor con getvalue es lo mismo pero con get                    
                     P.Nombre = dr.GetValue(0).ToString();
                     P.Stock =  dr.GetValue(1).ToString() + " U";
-                    P.Valor = "$ "+dr.GetValue(2).ToString() ;
+                    P.ML = dr.GetValue(2).ToString();
+                    P.Valor = "$ "+dr.GetValue(3).ToString() ;
 
                     lista.Add(P);
                 }

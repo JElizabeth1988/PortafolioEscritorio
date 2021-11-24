@@ -320,9 +320,8 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return false;
                 Logger.Mensaje(ex.Message);
-                
+                return false;               
 
             }
         }
@@ -376,8 +375,8 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;                
                 
             }
         }
@@ -439,8 +438,8 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
-                Logger.Mensaje(ex.Message);                
+                Logger.Mensaje(ex.Message);
+                return null;                              
 
             }
 
@@ -475,8 +474,8 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return false;
                 Logger.Mensaje(ex.Message);
+                return false;                
 
             }
         }
@@ -508,6 +507,7 @@ namespace BibliotecaNegocio
         {            
             public string Nombre { get; set; }
             public string Valor { get; set; }
+            public string Cantidad { get; set; }
             public string Stock { get; set; }
 
             public ListaProductoPedido()
@@ -547,7 +547,8 @@ namespace BibliotecaNegocio
                     //se obtiene el valor con getvalue es lo mismo pero con get                    
                     P.Nombre = dr.GetValue(0).ToString();
                     P.Stock = dr.GetValue(1).ToString() + " U";
-                    P.Valor = "$ " + dr.GetValue(2).ToString();
+                    P.Cantidad = dr.GetValue(2).ToString();
+                    P.Valor = "$ " + dr.GetValue(3).ToString();
 
                     lista.Add(P);
                 }
@@ -562,6 +563,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return null;                
 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

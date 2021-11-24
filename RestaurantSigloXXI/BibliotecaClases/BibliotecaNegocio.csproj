@@ -58,6 +58,7 @@
     <Compile Include="DaoErrores.cs" />
     <Compile Include="Egreso.cs" />
     <Compile Include="Empleado.cs" />
+    <Compile Include="Factura.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Mesa.cs" />

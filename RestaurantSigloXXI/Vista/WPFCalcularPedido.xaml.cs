@@ -25,6 +25,8 @@ using MahApps.Metro.Behaviours;
 using BibliotecaNegocio;
 
 
+
+
 namespace Vista
 {
     /// <summary>
@@ -76,7 +78,7 @@ namespace Vista
 
             CargarGrillaProd();
             CargarGrillaBeb();
-           // Total();
+            // Total();
             // CargarGrilla();
             //Cuando se guarda una mesa nueva se refresca la grilla
             NotificationCenter.Subscribe("producto_guardado", CargarGrillaProd);
@@ -84,13 +86,13 @@ namespace Vista
             NotificationCenter.Subscribe("pedido_guardado", CargarGrilla);
             NotificationCenter.Subscribe("registro_borrado", CargarGrilla);
             NotificationCenter.Subscribe("pedido_total", Total);
-                                              
+                      
 
         }
-        
+       
 
         //----solo números
-        private void txtNumeros_KeyDown(object sender, KeyEventArgs e)
+        private void txtNumeros_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
             {
@@ -146,7 +148,7 @@ namespace Vista
             }
 
         }
-        
+
 
         //---------------Cargar Grilla de Bebida
         private void CargarGrillaBeb()
@@ -182,7 +184,7 @@ namespace Vista
 
         private void btnRefrescar2_Click(object sender, RoutedEventArgs e)
         {
-             CargarGrilla();
+            CargarGrilla();
         }
 
 
@@ -192,7 +194,7 @@ namespace Vista
             {
                 //Rescatar id
                 string id = lblNumero.Content.ToString();
-               
+
                 var x = await this.ShowMessageAsync("Cancelar Operación: ",
                          "¿Está Seguro de Cancelar la Operación? ",
                         MessageDialogStyle.AffirmativeAndNegative);
@@ -203,13 +205,13 @@ namespace Vista
                     {
                         Close();
                     }
-                   /* else
-                    {
-                        await this.ShowMessageAsync("Error:",
-                          string.Format("No Cancelado"));
-                    }*/
+                    /* else
+                     {
+                         await this.ShowMessageAsync("Error:",
+                           string.Format("No Cancelado"));
+                     }*/
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -219,8 +221,8 @@ namespace Vista
             }
         }
 
-        
 
+        //----------Selecciona un producto para ser agregado al pedido
         private void btnSelccionarProd_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -241,6 +243,7 @@ namespace Vista
             }
         }
 
+        //----------Selecciona bebida para ser agregado al pedido
         private void btnBebida_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -321,7 +324,7 @@ namespace Vista
                     id_pedido = pedido,
                     fecha_pedido = fecha,
                     id_proveedor = proveedor
-                };                
+                };
 
                 Articulo ar = new Articulo()
                 {
@@ -331,7 +334,7 @@ namespace Vista
                     total = v_total
                 };
 
-                bool resp = ped.Agregar(pp,ar);
+                bool resp = ped.Agregar(pp, ar);
                 /*await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Guardado" : "No Guardado"));*/
 
@@ -348,7 +351,7 @@ namespace Vista
                     btnPasar.Visibility = Visibility.Visible;
 
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -358,6 +361,7 @@ namespace Vista
             }
         }
 
+        //------Guardar el pedido
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -373,7 +377,7 @@ namespace Vista
                     id_proveedor = proveedor
                 };
 
-               
+
                 bool resp = ped.GuardarOperacion(pp);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Guardado" : "No Guardado"));
@@ -413,10 +417,10 @@ namespace Vista
                 Dispatcher.Invoke(() =>
                 {
                     string id = lblNumero.Content.ToString();
-                    
+
                     lblTotal.Content = te.Total(id);
 
-                    
+
                 });
             }
             catch (Exception ex)
@@ -425,29 +429,21 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
-
+        //-----quita elementos de la grilla del pedido
         private async void btnQuitar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 //Rescatar id
-                Articulo.ListaArticulos tp = (Articulo.ListaArticulos)dgListaPedido.SelectedItem;
-                int id = tp.id;
+                Articulo.ListaArticulos la = (Articulo.ListaArticulos)dgListaPedido.SelectedItem;
+                int id = la.id;
 
-
-                /* var x = await this.ShowMessageAsync("Eliminar Datos: ",
-                          "¿Está seguro de eliminar el registro? ",
-                         MessageDialogStyle.AffirmativeAndNegative);*/
-                /*if (x == MessageDialogResult.Affirmative)
-                {*/
                 bool resp = te.Quitar(id);//Entrega id por parametro
                 if (resp == true)//Si el método fue éxitoso muestra el mensaje
                 {
-                    /* await this.ShowMessageAsync("Éxito:",
-                       string.Format("Resgistro Eliminado"));
-                     //Notificación (Actualiza la grilla en tiempo real)*/
+
                     NotificationCenter.Notify("registro_borrado");
-                    NotificationCenter.Subscribe("pedido_total", Total);
+                    NotificationCenter.Notify("pedido_total");
                 }
                 else
                 {
@@ -485,5 +481,74 @@ namespace Vista
             //Parar Singleton
             _instancia = null;
         }
+
+        
+        /*
+
+        private async void btnPDF_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                
+                Factura.CreaTicket Ticket1 = new Factura.CreaTicket();
+
+                Ticket1.TextoCentro("Restaurant Siglo XXI"); //imprime una linea de descripcion
+                Ticket1.TextoCentro("**********************************");
+
+                Ticket1.TextoIzquierda("");
+                Ticket1.TextoCentro("Pedido a Proveedor"); //imprime una linea de descripcion
+                Ticket1.TextoIzquierda("N° de Pedido " + lblNumero.Content.ToString());
+                Ticket1.TextoIzquierda("Fecha: " + DateTime.Now.ToShortDateString() + " Hora: " + DateTime.Now.ToShortTimeString());
+                // Ticket1.TextoIzquierda("Le Atendio: xxxx");
+                Ticket1.TextoIzquierda("");
+                Factura.CreaTicket.LineasGuion();
+
+                Factura.CreaTicket.EncabezadoVenta();
+                Factura.CreaTicket.LineasGuion();
+                                
+
+                foreach (DataRow item in dgListaPedido.Items)
+                {
+
+                    // PROD                     //PrECIO                                    CANT                         TOTAL
+                    Ticket1.AgregaArticulo(item.ToString(), int.Parse(item.ToString()), int.Parse(item.ToString()), int.Parse(item.ToString())); //imprime una linea de descripcion
+                }
+
+
+                Factura.CreaTicket.LineasGuion();
+                Ticket1.TextoIzquierda(" ");
+                Ticket1.AgregaTotales("Total $", int.Parse(lblTotal.Content.ToString())); // imprime linea con total
+                Ticket1.TextoIzquierda(" ");
+                //Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(txtEfectivo.Text));
+                //Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(lblDevolucion.Text));
+
+
+                // Ticket1.LineasTotales(); // imprime linea 
+
+                Ticket1.TextoIzquierda(" ");
+                Ticket1.TextoCentro("**********************************");
+                Ticket1.TextoCentro("*     Gracias por preferirnos    *");
+
+                Ticket1.TextoCentro("**********************************");
+                Ticket1.TextoIzquierda(" ");
+                string impresora = "Microsoft XPS Document Writer";
+                Ticket1.ImprimirTiket(impresora);
+
+                //System.Windows.MessageBox.Show("Gracias por preferirnos");
+
+                //this.Close();
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("No Generado"));
+                
+        Logger.Mensaje(ex.Message);
+            }
+        }*/
+          
+     
+       
     }
 }
