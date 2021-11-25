@@ -10,7 +10,7 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Administrar Agenda" Height="550.312" Width="884.231" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+        Title="Administrar Agenda" Height="557.312" Width="884.231" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
     <Grid HorizontalAlignment="Left" Height="528" VerticalAlignment="Top" Width="891" Margin="0,0,0,-10">
         <Image x:Name="image" Height="553" VerticalAlignment="Top" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,-7,0,-18" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="881">
             <Image.RenderTransform>
@@ -52,7 +52,7 @@
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="37,430,0,0" VerticalAlignment="Top" Width="385" Background="#FFCB5F21" BorderBrush="#FFCB5F21">
             <Grid>
-                <Label x:Name="label2" Content="Útimo Respaldo:" HorizontalAlignment="Left" Margin="10,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label2" Content="Último Respaldo:" HorizontalAlignment="Left" Margin="10,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="118,1,0,0" VerticalAlignment="Top" Width="152"/>
                 <Button x:Name="btnCache" ToolTip="Recuperar Caché" Content="Recuperar" HorizontalAlignment="Left" Margin="288,0,0,0" VerticalAlignment="Top" Width="78" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal" Height="29"/>
 

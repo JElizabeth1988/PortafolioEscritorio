@@ -10,9 +10,9 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Administrar Proveedor" Height="648.312" Width="740.651" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
-    <Grid HorizontalAlignment="Left" Height="605" VerticalAlignment="Top" Width="731">
-        <Image x:Name="image" Height="620" VerticalAlignment="Top" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-13,-15" HorizontalAlignment="Left" Width="744"/>
+        Title="Administrar Proveedor" Height="662.312" Width="740.651" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+    <Grid HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="731">
+        <Image x:Name="image" Height="639" VerticalAlignment="Top" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-13,-9" HorizontalAlignment="Left" Width="744"/>
         <GroupBox x:Name="groupBox" Header="Información de Proveedor" Margin="49,12,51,0" VerticalAlignment="Top" Height="237" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="208" VerticalAlignment="Top" Width="621" Margin="0,-2,-0.333,-3.333" Background="{x:Null}">
                 <Label x:Name="label_Copy" Content="Sitio Web:" HorizontalAlignment="Left" Margin="23,127,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -41,9 +41,9 @@
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="49,536,0,0" VerticalAlignment="Top" Width="631" Background="#FFCB5F21" BorderBrush="#FFCB5F21">
             <Grid>
-                <Label x:Name="label2" Content="Útimo Respaldo:" HorizontalAlignment="Left" Margin="27,-4,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label2" Content="Último Respaldo:" HorizontalAlignment="Left" Margin="23,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="215"/>
-                <Button x:Name="btnCache" ToolTip="Recuperar Caché" Content="Recuperar" HorizontalAlignment="Left" Margin="454,0,0,0" VerticalAlignment="Top" Width="78" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
+                <Button x:Name="btnCache" ToolTip="Recuperar Caché" Content="Recuperar" HorizontalAlignment="Left" Margin="454,1,0,0" VerticalAlignment="Top" Width="78" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
 
             </Grid>
         </GroupBox>

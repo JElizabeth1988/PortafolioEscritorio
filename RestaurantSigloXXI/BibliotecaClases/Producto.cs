@@ -95,7 +95,7 @@ namespace BibliotecaNegocio
             }
         }
 
-        
+
         public int valor_total { get; set; }
 
         //Foranea
@@ -198,7 +198,7 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-                
+
             }
         }
 
@@ -239,7 +239,7 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-                
+
             }
         }
 
@@ -288,7 +288,7 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                
+
             }
         }
 
@@ -321,7 +321,7 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return false;               
+                return false;
 
             }
         }
@@ -359,12 +359,12 @@ namespace BibliotecaNegocio
                     P.Id = int.Parse(dr.GetValue(0).ToString());
                     P.Nombre = dr.GetValue(1).ToString();
                     P.Contenido = int.Parse(dr.GetValue(2).ToString());
-                    P.UnidadMedida =  dr.GetValue(3).ToString();
-                    P.Valor ="$ "+dr.GetValue(4).ToString();
-                    P.Stock = dr.GetValue(5).ToString() +" U";
+                    P.Medición = dr.GetValue(3).ToString();
+                    P.Valor = "$ " + dr.GetValue(4).ToString();
+                    P.Stock = dr.GetValue(5).ToString() + " U";
                     P.Total = "$ " + dr.GetValue(6).ToString();
                     P.Categoria = dr.GetValue(7).ToString();
-                   
+
                     lista.Add(P);
                 }
                 //Cerrar la conexión
@@ -376,8 +376,8 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;                
-                
+                return null;
+
             }
         }
 
@@ -413,11 +413,11 @@ namespace BibliotecaNegocio
                     p.Id = int.Parse(reader[0].ToString());
                     p.Nombre = reader[1].ToString();
                     p.Contenido = int.Parse(reader[2].ToString());
-                    p.UnidadMedida = reader[3].ToString();
+                    p.Medición = reader[3].ToString();
                     p.Valor = "$ " + reader[4].ToString();
-                    p.Stock = reader[5].ToString()+" U";
+                    p.Stock = reader[5].ToString() + " U";
                     p.Total = "$ " + reader[6].ToString();
-                    p.Categoria = reader[7].ToString();                   
+                    p.Categoria = reader[7].ToString();
 
                     //Agrega los valores a la lista, que luego es devuelta por el método
                     lista.Add(p);
@@ -433,13 +433,13 @@ namespace BibliotecaNegocio
                 {
                     return null;
                 }
-                
+
             }
             catch (Exception ex)
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;                              
+                return null;
 
             }
 
@@ -475,7 +475,7 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return false;                
+                return false;
 
             }
         }
@@ -487,7 +487,7 @@ namespace BibliotecaNegocio
             public int Id { get; set; }
             public string Nombre { get; set; }
             public int Contenido { get; set; }
-            public string UnidadMedida { get; set; }
+            public string Medición { get; set; }
             public string Valor { get; set; }
             public string Stock { get; set; }
             public string Total { get; set; }
@@ -496,6 +496,139 @@ namespace BibliotecaNegocio
 
             public ListaProducto()
             {
+
+            }
+
+        }
+
+        [Serializable]
+        public class ListaProducto2
+        {
+            public int Id { get; set; }
+            public string Nombre { get; set; }
+            public string Contenido { get; set; }
+            public string Valor { get; set; }
+            public string Stock { get; set; }
+            public string Total { get; set; }
+            public string Categoria { get; set; }
+
+
+            public ListaProducto2()
+            {
+
+            }
+
+        }
+        public List<ListaProducto2> Listar2()
+        {
+            try
+            {
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                //Lista de clientes
+                List<ListaProducto2> lista = new List<ListaProducto2>();
+                //se ejecutan los comandos de procedimientos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_LISTAR_PRODUCTO2";
+                //Se agrega el parámetro de salida
+                cmd.Parameters.Add(new OracleParameter("PRODUCTOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    ListaProducto2 P = new ListaProducto2();
+
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    P.Id = int.Parse(dr.GetValue(0).ToString());
+                    P.Nombre = dr.GetValue(1).ToString();
+                    P.Contenido = dr.GetValue(2).ToString();
+                    P.Valor = "$ " + dr.GetValue(3).ToString();
+                    P.Stock = dr.GetValue(4).ToString() + " U";
+                    P.Total = "$ " + dr.GetValue(5).ToString();
+                    P.Categoria = dr.GetValue(6).ToString();
+
+                    lista.Add(P);
+                }
+                //Cerrar la conexión
+                conn.Close();
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Logger.Mensaje(ex.Message);
+                return null;
+
+            }
+        }
+
+        //------------Filtrar por ID--------------------
+        public List<ListaProducto2> Filtrar2(string tipo)
+        {
+            try
+            {
+                int contador = 0;
+                //Se instancia la conexión a la BD
+                conn = new Conexion().Getcone();
+                OracleCommand CMD = new OracleCommand();
+                //que tipo comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //Lista de Productos
+                List<ListaProducto2> lista = new List<ListaProducto2>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_TIPO_P2";
+                CMD.Parameters.Add(new OracleParameter("P_TIPO", OracleDbType.Varchar2)).Value = tipo;
+                CMD.Parameters.Add(new OracleParameter("PRODUCTOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                //Reader
+                OracleDataReader reader = CMD.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ListaProducto2 p = new ListaProducto2();
+
+                    p.Id = int.Parse(reader[0].ToString());
+                    p.Nombre = reader[1].ToString();
+                    p.Contenido = reader[2].ToString();
+                    p.Valor = "$ " + reader[3].ToString();
+                    p.Stock = reader[4].ToString() + " U";
+                    p.Total = "$ " + reader[5].ToString();
+                    p.Categoria = reader[6].ToString();
+
+                    //Agrega los valores a la lista, que luego es devuelta por el método
+                    lista.Add(p);
+                    contador = 1;
+
+                }
+                conn.Close();
+                if (contador == 1)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Logger.Mensaje(ex.Message);
+                return null;
 
             }
 

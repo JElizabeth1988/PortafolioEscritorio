@@ -101,30 +101,30 @@ namespace Vista
             {
 
                 //Llama a la clase cliente donde se gusradarán los datos
-                Proveedor i = new Proveedor();
+                Proveedor.ListaProveedor i = new Proveedor.ListaProveedor();
 
                 if (txtNombre.Text != null)
                 {
-                    i.nombre = txtNombre.Text;
+                    i.Nombre = txtNombre.Text;
                 }
                 if (txtCorreo.Text != null)
                 {
-                    i.correo = txtCorreo.Text;
+                    i.Email = txtCorreo.Text;
                 }
                 int telefono = 0;
                 if (int.TryParse(txtTelefono.Text, out telefono))
                 {
-                    i.telefono = int.Parse(txtTelefono.Text);
+                    i.Teléfono = int.Parse(txtTelefono.Text);
                 }                
 
                 if (txtDireccion.Text != null)
                 {
-                    i.direccion = txtDireccion.Text;
+                    i.Dirección = txtDireccion.Text;
                 }
 
                 if (txtWeb.Text != null)
                 {
-                    i.sitio_web = txtWeb.Text;
+                    i.WebSite = txtWeb.Text;
                 }
 
                 //Proceso de respaldo
@@ -436,14 +436,14 @@ namespace Vista
 
                 if (filecahe["proveedor"] != null)
                 {
-                    Proveedor c = (Proveedor)filecahe["proveedor"];
+                    Proveedor.ListaProveedor c = (Proveedor.ListaProveedor)filecahe["proveedor"];
 
-                    LblId.Content = c.id_proveedor.ToString();
-                    txtNombre.Text = c.nombre;
-                    txtCorreo.Text = c.correo;
-                    txtTelefono.Text = c.telefono.ToString();
-                    txtDireccion.Text = c.direccion;
-                    txtWeb.Text = c.sitio_web;                   
+                    LblId.Content = c.Id.ToString();
+                    txtNombre.Text = c.Nombre;
+                    txtCorreo.Text = c.Email;
+                    txtTelefono.Text = c.Teléfono.ToString();
+                    txtDireccion.Text = c.Dirección;
+                    txtWeb.Text = c.WebSite;                   
 
                 }
                 else
@@ -464,13 +464,13 @@ namespace Vista
         {
             try
             {
-               Proveedor i = (Proveedor)dgLista.SelectedItem;
-                LblId.Content = i.id_proveedor.ToString();
-                txtNombre.Text = i.nombre;
-                txtCorreo.Text = i.correo;
-                txtTelefono.Text = i.telefono.ToString();
-                txtDireccion.Text = i.direccion;
-                txtWeb.Text = i.sitio_web;
+               Proveedor.ListaProveedor i = (Proveedor.ListaProveedor)dgLista.SelectedItem;
+                LblId.Content = i.Id.ToString();
+                txtNombre.Text = i.Nombre;
+                txtCorreo.Text = i.Email;
+                txtTelefono.Text = i.Teléfono.ToString();
+                txtDireccion.Text = i.Dirección;
+                txtWeb.Text = i.WebSite;
 
                 btnGuardar.Visibility = Visibility.Hidden;
                 btnModificar.Visibility = Visibility.Visible;

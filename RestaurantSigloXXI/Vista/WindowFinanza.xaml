@@ -83,7 +83,7 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="620" VerticalAlignment="Top" Width="1151" Source="Imagenes/about-img.jpg" Margin="-17,0,-6,0" Stretch="Fill" Opacity="0.4" Cursor="Arrow"/>
 
 
-        <Controls:Tile ToolTip="Administrar Reservas" Margin="225,266,749,241" Click="Reservas_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
+        <Controls:Tile ToolTip="Aprobar Solicitud de Pago" Margin="225,266,749,241" Click="Solicitud_Click" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FFCB5F21" Width="Auto" Foreground="#FFCB5F21"  BorderBrush="#FFCB5F21" Background="#FF040100" Opacity="0.85" >
 
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FFCB5F21" BlurRadius="10" ShadowDepth="8"/>
@@ -95,7 +95,7 @@
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label3" Content="Reservas" Margin="40,77,40,3" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" Height="29" RenderTransformOrigin="0.5,0.5">
+                <Label x:Name="label3" Content="Solicitud de Pago" Margin="10,73,10,0" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Width="129">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>
@@ -116,7 +116,7 @@
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label1" Content="Pagos" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Margin="51,77,51,3">
+                <Label x:Name="label1" Content="Pagos" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Margin="51,74,51,0">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>
@@ -137,7 +137,7 @@
                         <DropShadowEffect Opacity="0.795" Color="#FF838383"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label2" Content="Boleta" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Margin="51,77,47,3">
+                <Label x:Name="label2" Content="Boleta" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Margin="51,77,47,0">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" Opacity="0.8" ShadowDepth="2" Color="#FF838383"/>
                     </Label.Effect>

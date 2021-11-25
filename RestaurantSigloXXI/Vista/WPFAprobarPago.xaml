@@ -1,0 +1,50 @@
+﻿<Controls:MetroWindow x:Class="Vista.WPFAprobarPago"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                      
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      
+        xmlns:local="clr-namespace:Vista"
+        mc:Ignorable="d"
+        BorderThickness="2" BorderBrush="Black"
+        Title="Visualizar Solicitud de Pago" Height="366.716" Width="853.262" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Cursor="Arrow" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Closing="MetroWindow_Closing"  >
+    <Grid Background="#FFDBDFE3">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="346" VerticalAlignment="Top" Width="856" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-12,-10.667"/>
+
+        <GroupBox x:Name="gbFiltrar" Header="Pagos Solicitados" Margin="41,10,43,18.333"  Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+            <Grid HorizontalAlignment="Left" Height="275" Margin="0,0,-10,-3" VerticalAlignment="Top" Width="760">
+                <Image x:Name="images" HorizontalAlignment="Left" Margin="639,0,0,220" Width="98" Source="Imagenes/logoFinal3.png"/>
+                <DataGrid x:Name="dgLista" IsReadOnly="True" Margin="10,55,23,0" VerticalAlignment="Top" Height="174" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow" >
+
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FFFAA575" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Button x:Name="btnSalir" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+                <Label x:Name="label" Content="Número de Mesa:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" Width="118" FontSize="12"/>
+                <Button x:Name="btnCodigo" ToolTip="Verificar Número de Mesa"  Content="Verificar" HorizontalAlignment="Left" Margin="275,5,0,239" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCodigo_Click"/>
+
+                <Button x:Name="btnRefrescar" ToolTip="Refrescar"  HorizontalAlignment="Left" Margin="697,233,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnAprobar" ToolTip="Aprobar Pago"  Content="Aprobar" HorizontalAlignment="Left" Margin="595,237,0,0" VerticalAlignment="Top" Width="79"  FontWeight="Normal" Click="btnNotificar_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
+            </Grid>
+        </GroupBox>
+        <ComboBox x:Name="cbMesa" HorizontalAlignment="Left" Margin="181,50,0,0" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Controls:MetroWindow>

@@ -10,9 +10,9 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Calcular Pedido a Proveedor" Height="626.645" Width="1199.508" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/logoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
-    <Grid HorizontalAlignment="Left" Height="596" VerticalAlignment="Top" Width="1190" Margin="0,0,0,-1.333">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="610" VerticalAlignment="Top" Width="1202" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-39,-14"/>
+        Title="Calcular Pedido a Proveedor" Height="610.645" Width="1199.508" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/logoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+    <Grid HorizontalAlignment="Left" Height="577" VerticalAlignment="Top" Width="1190">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="597" VerticalAlignment="Top" Width="1202" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-12,-20"/>
         <GroupBox x:Name="groupBox1" Header="Detalle Pedido" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,10,0,0" Width="706" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21" Height="534" >
             <Grid>
                 <GroupBox x:Name="groupBox" Header="Información de Producto" Margin="8,314,9.667,0" VerticalAlignment="Top" Height="166" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
@@ -89,7 +89,7 @@
             </Grid>
         </GroupBox>
 
-        <GroupBox x:Name="groupBox_Copy2" Header="Verificar Pedido" Margin="734,10,25,0" VerticalAlignment="Top" Height="534" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+        <GroupBox x:Name="groupBox_Copy2" Header="Verificar Pedido" Margin="734,10,23,0" VerticalAlignment="Top" Height="534" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="424" Margin="0,-2,0,-2.333" Background="{x:Null}">
 
                 <DataGrid x:Name="dgListaPedido" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="353" Width="404" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgListaPedido_LoadingRow" >
@@ -112,7 +112,7 @@
                 <Label x:Name="label_Copy4" Content="Número de Pedido:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="lblNumero" Content="-" HorizontalAlignment="Left" Margin="134,10,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Button x:Name="btnCancelar" ToolTip="Cancelar Operación" Content="Cancelar" HorizontalAlignment="Left" Margin="339,446,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFA11400" FontSize="12" Click="btnCancelar_Click"/>
-              <!--  <Button x:Name="btnPDF" ToolTip="Generar PDF" Content="PFD" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnPDF_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="128,445,0,0" Height="29"/>
+                <!--  <Button x:Name="btnPDF" ToolTip="Generar PDF" Content="PFD" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnPDF_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="128,445,0,0" Height="29"/>
 -->
             </Grid>
         </GroupBox>

@@ -10,9 +10,9 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Administrar Mesas" Height="648.312" Width="740.651" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
-    <Grid HorizontalAlignment="Left" Height="605" VerticalAlignment="Top" Width="731">
-        <Image x:Name="image" Height="620" VerticalAlignment="Top" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-13,-15" HorizontalAlignment="Left" Width="744"/>
+        Title="Administrar Mesas" Height="648.312" Width="785.651" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+    <Grid HorizontalAlignment="Left" Height="605" VerticalAlignment="Top" Width="776">
+        <Image x:Name="image" Height="620" VerticalAlignment="Top" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-18,-15" HorizontalAlignment="Left" Width="794"/>
         <GroupBox x:Name="groupBox" Header="Información de Mesa" Margin="49,12,51,0" VerticalAlignment="Top" Height="252" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="223" VerticalAlignment="Top" Width="621" Margin="0,-2,-0.333,-3.667" Background="{x:Null}">
                 <Label x:Name="label_Copy" Content="Rut Empleado a Cargo:" HorizontalAlignment="Left" Margin="23,121,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -46,18 +46,18 @@
 
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="49,536,0,0" VerticalAlignment="Top" Width="631" Background="#FFCB5F21" BorderBrush="#FFCB5F21">
+        <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="49,536,0,0" VerticalAlignment="Top" Width="676" Background="#FFCB5F21" BorderBrush="#FFCB5F21">
             <Grid>
-                <Label x:Name="label2" Content="Útimo Respaldo:" HorizontalAlignment="Left" Margin="27,-4,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="156,-1,0,0" VerticalAlignment="Top" Width="215"/>
+                <Label x:Name="label2" Content="Último Respaldo:" HorizontalAlignment="Left" Margin="26,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="156,1,0,0" VerticalAlignment="Top" Width="215"/>
                 <Button x:Name="btnCache" ToolTip="Recuperar Caché" Content="Recuperar" HorizontalAlignment="Left" Margin="454,0,0,0" VerticalAlignment="Top" Width="78" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
 
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox_Copy" Header="Listado de mesas" Margin="49,267,51,0" VerticalAlignment="Top" Height="264" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-            <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="621" Margin="0,-2,-0.333,-8.667" Background="{x:Null}">
+            <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="666" Margin="0,-2,0,-8.667" Background="{x:Null}">
 
-                <DataGrid x:Name="dgLista" IsReadOnly="True" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="163" Width="583" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black"  >
+                <DataGrid x:Name="dgLista" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="163" Width="646" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black"  >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">
@@ -70,13 +70,13 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" Margin="563,182,0,0"  >
+                <Button x:Name="btnRefrescar" ToolTip="Refrescar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" Margin="620,182,0,0"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnEliminar" ToolTip="Eliminar Registro" Content="Eliminar" HorizontalAlignment="Left" Margin="454,189,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFDF0D0D" FontSize="12" Click="btnEliminar_Click"/>
-                <Button x:Name="btnPasar" ToolTip="Traspasar Información" Content="Traspasar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnPasar_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="18,189,0,0"/>
+                <Button x:Name="btnEliminar" ToolTip="Eliminar Registro" Content="Eliminar" HorizontalAlignment="Left" Margin="511,189,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFDF0D0D" FontSize="12" Click="btnEliminar_Click"/>
+                <Button x:Name="btnPasar" ToolTip="Traspasar Información" Content="Traspasar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnPasar_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="10,189,0,0"/>
 
             </Grid>
         </GroupBox>

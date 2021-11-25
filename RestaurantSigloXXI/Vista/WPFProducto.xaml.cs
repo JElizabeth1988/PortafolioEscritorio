@@ -144,23 +144,23 @@ namespace Vista
                 }                
                 if (RbKg.IsChecked == true)
                 {
-                    pr.UnidadMedida = "Kg";
+                    pr.Medición = "Kg";
                 }
                 if (RbGr.IsChecked == true)
                 {
-                    pr.UnidadMedida = "Gr";
+                    pr.Medición = "Gr";
                 }
                 if (RbL.IsChecked == true)
                 {
-                    pr.UnidadMedida = "L";
+                    pr.Medición = "L";
                 }
                 if (RbMl.IsChecked == true)
                 {
-                    pr.UnidadMedida = "Ml";
+                    pr.Medición = "Ml";
                 }
                 if (RbU.IsChecked == true)
                 {
-                    pr.UnidadMedida = "U";
+                    pr.Medición = "U";
                 }
                 int Valor = 0;
                 if (int.TryParse(txtValorUnidad.Text, out Valor))
@@ -582,23 +582,23 @@ namespace Vista
 
                     cboTipoProducto.Text = p.Categoria;
 
-                    if (p.UnidadMedida == "Kg")
+                    if (p.Medición == "Kg")
                     {
                         RbKg.IsChecked = true;
                     }
-                    if (p.UnidadMedida == "Gr")
+                    if (p.Medición == "Gr")
                     {
                         RbGr.IsChecked = true;
                     }
-                    if (p.UnidadMedida == "Ml")
+                    if (p.Medición == "Ml")
                     {
                         RbMl.IsChecked = true;
                     }
-                    if (p.UnidadMedida == "L")
+                    if (p.Medición == "L")
                     {
                         RbL.IsChecked = true;
                     }
-                    if (p.UnidadMedida == "U")
+                    if (p.Medición == "U")
                     {
                         RbU.IsChecked = true;
                     }
@@ -676,23 +676,23 @@ namespace Vista
                 //txtValorTotal.Text = m.Total.Substring(2, lTotal);
                 txtStock.Text = m.Stock.Substring(0, lStock);
                 txtCantidad.Text = m.Contenido.ToString();
-                if (m.UnidadMedida == "Kg")
+                if (m.Medición == "Kg")
                 {
                     RbKg.IsChecked = true;
                 }
-                if (m.UnidadMedida == "Gr")
+                if (m.Medición == "Gr")
                 {
                     RbGr.IsChecked = true;
                 }
-                if (m.UnidadMedida == "Ml")
+                if (m.Medición == "Ml")
                 {
                     RbMl.IsChecked = true;
                 }
-                if (m.UnidadMedida == "L")
+                if (m.Medición == "L")
                 {
                     RbL.IsChecked = true;
                 }
-                if (m.UnidadMedida == "U")
+                if (m.Medición == "U")
                 {
                     RbU.IsChecked = true;
                 }

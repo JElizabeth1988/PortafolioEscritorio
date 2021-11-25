@@ -63,6 +63,7 @@
     <Compile Include="Login.cs" />
     <Compile Include="Mesa.cs" />
     <Compile Include="Orden.cs" />
+    <Compile Include="Pedido.cs" />
     <Compile Include="PedidoProveedor.cs" />
     <Compile Include="Plato.cs" />
     <Compile Include="Producto.cs" />

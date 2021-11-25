@@ -223,6 +223,9 @@
     <Compile Include="WPFAgenda.xaml.cs">
       <DependentUpon>WPFAgenda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFAprobarPago.xaml.cs">
+      <DependentUpon>WPFAprobarPago.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFAsignarMesa.xaml.cs">
       <DependentUpon>WPFAsignarMesa.xaml</DependentUpon>
     </Compile>
@@ -235,8 +238,14 @@
     <Compile Include="WPFCliente2.xaml.cs">
       <DependentUpon>WPFCliente2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFEgreso.xaml.cs">
+      <DependentUpon>WPFEgreso.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFEmpleado.xaml.cs">
       <DependentUpon>WPFEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFIngreso.xaml.cs">
+      <DependentUpon>WPFIngreso.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFListadoEmpleado.xaml.cs">
       <DependentUpon>WPFListadoEmpleado.xaml</DependentUpon>
@@ -247,6 +256,9 @@
     <Compile Include="ObjectBinder.cs" />
     <Compile Include="WPFMesa.xaml.cs">
       <DependentUpon>WPFMesa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFPago.xaml.cs">
+      <DependentUpon>WPFPago.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFPedidoProveedor.xaml.cs">
       <DependentUpon>WPFPedidoProveedor.xaml</DependentUpon>
@@ -311,6 +323,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPFAprobarPago.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPFAsignarMesa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -327,7 +343,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPFEgreso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPFEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFIngreso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -374,6 +398,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="WPFMesa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFPago.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

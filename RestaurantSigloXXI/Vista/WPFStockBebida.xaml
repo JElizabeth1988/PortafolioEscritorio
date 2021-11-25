@@ -10,9 +10,9 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Administrar Stock de Bebida" Height="568.739" Width="578.232" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
-    <Grid HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="568" Margin="0,0,0,-12.333">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="553" VerticalAlignment="Top" Width="582" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-14,-4"/>
+        Title="Administrar Stock de Bebida" Height="568.739" Width="599.565" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+    <Grid HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="590" Margin="0,0,0,-12.333">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="553" VerticalAlignment="Top" Width="603" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-35,-4"/>
         <GroupBox x:Name="groupBox" Header="Actualizar Stock de Bebida" Margin="39,304,41,0" VerticalAlignment="Top" Height="139" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="456" Margin="0,-2,0,0" Background="{x:Null}">
                 <TextBox x:Name="txtNombre" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="" Height="8" Margin="95,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" RenderTransformOrigin="0.5,0.5" SelectionBrush="#FFCB5F21" IsEnabled="False"/>
@@ -29,18 +29,18 @@
 
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="39,446,0,0" VerticalAlignment="Top" Width="488" Background="#FFCB5F21" BorderBrush="#FFCB5F21">
+        <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="39,446,0,0" VerticalAlignment="Top" Width="510" Background="#FFCB5F21" BorderBrush="#FFCB5F21">
             <Grid>
-                <Label x:Name="label2" Content="Útimo Respaldo:" HorizontalAlignment="Left" Margin="27,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label2" Content="Último Respaldo:" HorizontalAlignment="Left" Margin="27,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="136,1,0,0" VerticalAlignment="Top" Width="215"/>
                 <Button x:Name="btnCache" ToolTip="Recuperar Caché"  Content="Recuperar" HorizontalAlignment="Left" Margin="371,1,0,0" VerticalAlignment="Top" Width="78" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
 
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox_Copy" Header="Seleccionar Bebida" Margin="39,10,41,0" VerticalAlignment="Top" Height="289" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-            <Grid HorizontalAlignment="Left" Height="263" VerticalAlignment="Top" Width="478" Margin="0,-2,0,-7.667" Background="{x:Null}">
+            <Grid HorizontalAlignment="Left" Height="263" VerticalAlignment="Top" Width="500" Margin="0,-2,0,-7.667" Background="{x:Null}">
 
-                <DataGrid x:Name="dgLista" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,48,-11,0" VerticalAlignment="Top" Height="163" Width="457" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
+                <DataGrid x:Name="dgLista" ColumnWidth="*" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Height="163" Width="480" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">
@@ -53,7 +53,7 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnRefrescar" ToolTip="Refrecar"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" Margin="431,214,0,0"  >
+                <Button x:Name="btnRefrescar" ToolTip="Refrecar"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" Margin="454,214,0,0"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
                     </Button.Background>

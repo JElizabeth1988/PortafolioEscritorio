@@ -108,8 +108,8 @@ namespace Vista
             Dispatcher.Invoke(() =>
             {
 
-                //Llama a la clase cliente donde se gusradarán los datos
-                Bebida.ListaBebida be = new Bebida.ListaBebida();
+                //Llama a la clase cliente donde se guardarán los datos
+                Producto.ListaProducto2 be = new Producto.ListaProducto2();
 
                 int id = 0;
                 if (int.TryParse(lblId.Content.ToString(), out id))
@@ -174,7 +174,7 @@ namespace Vista
                 //(() => { }); función anónima
                 Dispatcher.Invoke(() =>
                 {
-                    dgLista.ItemsSource = pro.Listar();
+                    dgLista.ItemsSource = pro.Listar2();
                     dgLista.Items.Refresh();
                 });
             }
@@ -297,7 +297,7 @@ namespace Vista
                 string tipo = cbofiltro.Text;
                 if (pro.Filtrar(tipo) != null)
                 {
-                    dgLista.ItemsSource = pro.Filtrar(tipo);
+                    dgLista.ItemsSource = pro.Filtrar2(tipo);
                 }
                 else
                 {
@@ -330,7 +330,7 @@ namespace Vista
 
                 if (filecahe["productoStock"] != null)
                 {
-                    Bebida.ListaBebida b = (Bebida.ListaBebida)filecahe["productoStock"];
+                    Producto.ListaProducto2 b = (Producto.ListaProducto2)filecahe["productoStock"];
 
                     lblId.Content = b.Id.ToString();
                     txtNombre.Text = b.Nombre;
@@ -356,7 +356,7 @@ namespace Vista
         {
             try
             {
-                Producto.ListaProducto b = (Producto.ListaProducto)dgLista.SelectedItem;
+                Producto.ListaProducto2 b = (Producto.ListaProducto2)dgLista.SelectedItem;
                 lblId.Content = b.Id.ToString();
                 txtNombre.Text = b.Nombre;
 

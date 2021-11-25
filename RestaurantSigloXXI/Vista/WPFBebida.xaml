@@ -10,9 +10,9 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Administrar Bebidas" Height="648.312" Width="649.565" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
-    <Grid HorizontalAlignment="Left" Height="605" VerticalAlignment="Top" Width="640">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="620" VerticalAlignment="Top" Width="652" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-12,-15"/>
+        Title="Administrar Bebidas" Height="657.645" Width="644.232" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+    <Grid HorizontalAlignment="Left" Height="628" VerticalAlignment="Top" Width="640" Margin="0,0,-5.333,-2.667">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="639" VerticalAlignment="Top" Width="652" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-12,-11"/>
         <GroupBox x:Name="groupBox" Header="Información de Bebida" Margin="49,10,56,0" VerticalAlignment="Top" Height="227" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="221" VerticalAlignment="Top" Width="535" Margin="0,-2,-10.333,-1.667" Background="{x:Null}">
                 <Label x:Name="label_Copy" Content="Valor ($):" HorizontalAlignment="Left" Margin="23,67,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -43,7 +43,7 @@
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="49,536,0,0" VerticalAlignment="Top" Width="535" Background="#FFCB5F21" BorderBrush="#FFCB5F21">
             <Grid>
-                <Label x:Name="label2" Content="Útimo Respaldo:" HorizontalAlignment="Left" Margin="27,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label2" Content="Último Respaldo:" HorizontalAlignment="Left" Margin="27,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="155,1,0,0" VerticalAlignment="Top" Width="215"/>
                 <Button x:Name="btnCache" ToolTip="Recuperar Caché"  Content="Recuperar" HorizontalAlignment="Left" Margin="398,1,0,0" VerticalAlignment="Top" Width="78" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
 
@@ -52,7 +52,7 @@
         <GroupBox x:Name="groupBox_Copy" Header="Listado de Bebidas" Margin="49,242,56,0" VerticalAlignment="Top" Height="289" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="263" VerticalAlignment="Top" Width="525" Margin="0,-2,-0.333,-7.667" Background="{x:Null}">
 
-                <DataGrid x:Name="dgLista" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Height="163" Width="505" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
+                <DataGrid x:Name="dgLista" ColumnWidth="*" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Height="163" Width="505" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">

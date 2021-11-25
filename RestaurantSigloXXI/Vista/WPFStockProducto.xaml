@@ -10,17 +10,17 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Administrar Stock de Producto" Height="568.739" Width="664.232" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
-    <Grid HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="654" Margin="0,0,0,-12.333">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="553" VerticalAlignment="Top" Width="665" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-11,-4"/>
+        Title="Administrar Stock de Producto" Height="568.739" Width="702.898" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+    <Grid HorizontalAlignment="Left" Height="535" VerticalAlignment="Top" Width="693">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="553" VerticalAlignment="Top" Width="711" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-18,-4"/>
         <GroupBox x:Name="groupBox" Header="Actualizar Stock de Producto" Margin="39,304,41,0" VerticalAlignment="Top" Height="139" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-            <Grid HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="456" Margin="39,-2,0,0" Background="{x:Null}">
+            <Grid HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="564" Margin="39,-2,0,0" Background="{x:Null}">
                 <TextBox x:Name="txtNombre" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="" Height="8" Margin="95,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" RenderTransformOrigin="0.5,0.5" SelectionBrush="#FFCB5F21" IsEnabled="False"/>
                 <TextBox x:Name="txtStock" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Stock" KeyDown="txtNumeros_KeyDown" Height="8" Margin="95,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21" />
-                <Button x:Name="btnCancelar" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="371,71,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
+                <Button x:Name="btnCancelar" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="293,71,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
                 <Button x:Name="btnLimpiar" ToolTip="Limpiar Casillas" Content="Limpiar" HorizontalAlignment="Left" Margin="23,71,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
                 <Button x:Name="btnModificar" ToolTip="Guardar Registro"  Content="Guardar" HorizontalAlignment="Left" Margin="120,71,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnModificar_Click" />
-                <Image x:Name="image1" HorizontalAlignment="Left" Height="65" Margin="331,1,0,0" VerticalAlignment="Top" Width="125" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
+                <Image x:Name="image1" HorizontalAlignment="Left" Height="95" Margin="412,1,0,0" VerticalAlignment="Top" Width="142" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
                 <Label x:Name="label_Copy7" Content="Stock:" HorizontalAlignment="Left" Margin="23,35,0,0" VerticalAlignment="Top" FontSize="12"/>
 
                 <Label x:Name="lblId" Visibility="Hidden" Content="" HorizontalAlignment="Left" Margin="23,1,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -29,18 +29,18 @@
 
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="39,446,0,0" VerticalAlignment="Top" Width="574" Background="#FFCB5F21" BorderBrush="#FFCB5F21">
+        <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="39,446,0,0" VerticalAlignment="Top" Width="613" Background="#FFCB5F21" BorderBrush="#FFCB5F21">
             <Grid>
-                <Label x:Name="label2" Content="Útimo Respaldo:" HorizontalAlignment="Left" Margin="27,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label2" Content="Último Respaldo:" HorizontalAlignment="Left" Margin="27,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="136,1,0,0" VerticalAlignment="Top" Width="215"/>
                 <Button x:Name="btnCache" ToolTip="Recuperar Caché"  Content="Recuperar" HorizontalAlignment="Left" Margin="409,1,0,0" VerticalAlignment="Top" Width="78" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
 
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox_Copy" Header="Seleccionar Producto" Margin="39,10,41,0" VerticalAlignment="Top" Height="289" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
-            <Grid HorizontalAlignment="Left" Height="263" VerticalAlignment="Top" Width="564" Margin="0,-2,0,-7.667" Background="{x:Null}">
+            <Grid HorizontalAlignment="Left" Height="263" VerticalAlignment="Top" Width="603" Margin="0,-2,0,-7.667" Background="{x:Null}">
 
-                <DataGrid x:Name="dgLista" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Height="163" Width="544" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
+                <DataGrid x:Name="dgLista" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Height="163" Width="583" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgLista_LoadingRow"  >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">
@@ -53,7 +53,7 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnRefrescar" ToolTip="Refrecar"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" Margin="518,214,0,0"  >
+                <Button x:Name="btnRefrescar" ToolTip="Refrecar"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click" Margin="557,214,0,0"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
                     </Button.Background>

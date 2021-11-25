@@ -67,11 +67,7 @@ namespace Vista
             }
         }
 
-        private void Reservas_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
         private void Pagos_Click(object sender, RoutedEventArgs e)
         {
 
@@ -80,6 +76,11 @@ namespace Vista
         private void Boleta_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Solicitud_Click(object sender, RoutedEventArgs e)
+        {
+            WPFAprobarPago.ObtenerinstanciaAPA().ShowDialog();
         }
     }
 }

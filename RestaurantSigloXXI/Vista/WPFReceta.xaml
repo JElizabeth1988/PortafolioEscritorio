@@ -10,9 +10,9 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         BorderThickness="2" BorderBrush="Black"
-        Title="Administrar Recetas" Height="641.747" Width="1183.593" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
-    <Grid HorizontalAlignment="Left" Height="614" VerticalAlignment="Top" Width="1174" Margin="0,0,0,-4">
-        <Image x:Name="image" Height="627" VerticalAlignment="Top" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-12,-13" HorizontalAlignment="Left" Width="1186"/>
+        Title="Administrar Recetas" Height="656.414" Width="1172.926" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+    <Grid HorizontalAlignment="Left" Height="625" VerticalAlignment="Top" Width="1174" Margin="0,0,-10.667,-0.333">
+        <Image x:Name="image" Height="638" VerticalAlignment="Top" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-12,-13" HorizontalAlignment="Left" Width="1186"/>
         <GroupBox x:Name="groupBox" Header="Información de Receta" Margin="22,7,37,0" VerticalAlignment="Top" Height="211" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="1105" Margin="0,-2,-0.333,-2" Background="{x:Null}">
                 <TextBox x:Name="txtNom_receta" HorizontalAlignment="Left"  Height="8" Margin="161,6,0,0" TextWrapping="Wrap" mah:TextBoxHelper.Watermark="Ingrese Nombre" VerticalAlignment="Top" Width="220" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21" />
@@ -50,7 +50,7 @@
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Respaldo Caché" HorizontalAlignment="Left" Height="69" Margin="22,533,0,0" VerticalAlignment="Top" Width="588" Background="#FFCB5F21" BorderBrush="#FFCB5F21">
             <Grid>
-                <Label x:Name="label2" Content="Útimo Respaldo:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label2" Content="Último Respaldo:" HorizontalAlignment="Left" Margin="36,2,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="142,2,0,0" VerticalAlignment="Top" Width="218"/>
                 <Button x:Name="btnCache" ToolTip="Recuperar Caché" Content="Recuperar" HorizontalAlignment="Left" Margin="417,0,0,0" VerticalAlignment="Top" Width="78" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
 

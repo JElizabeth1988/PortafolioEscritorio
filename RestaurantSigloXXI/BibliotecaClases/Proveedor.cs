@@ -87,7 +87,7 @@ namespace BibliotecaNegocio
 
         }
 
-
+        [NonSerialized]
         //Crear objeto de la Bdd modelo
         private RSXXI_Entities bdd = new RSXXI_Entities();
               
@@ -247,7 +247,7 @@ namespace BibliotecaNegocio
 
         //------------Listar Clientes-------------
         //Llamo a la lista creada más abajo, porque trae nombres en vez de id y porque las variables se ven mejor en la grilla
-        public List<Proveedor> Listar()
+        public List<ListaProveedor> Listar()
         {
             try
             {
@@ -257,7 +257,7 @@ namespace BibliotecaNegocio
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
                 //Lista de clientes
-                List<Proveedor> lista = new List<Proveedor>();
+                List<ListaProveedor> lista = new List<ListaProveedor>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 //conexion
@@ -273,15 +273,15 @@ namespace BibliotecaNegocio
                 //mientras lea
                 while (dr.Read())
                 {
-                    Proveedor C = new Proveedor();
+                    ListaProveedor C = new ListaProveedor();
 
                     //se obtiene el valor con getvalue es lo mismo pero con get
-                    C.id_proveedor = int.Parse(dr.GetValue(0).ToString());
-                    C.nombre = dr.GetValue(1).ToString();
-                    C.correo = dr.GetValue(2).ToString();
-                    C.telefono = int.Parse(dr.GetValue(3).ToString());
-                    C.direccion = dr.GetValue(4).ToString();
-                    C.sitio_web = dr.GetValue(5).ToString();
+                    C.Id = int.Parse(dr.GetValue(0).ToString());
+                    C.Nombre = dr.GetValue(1).ToString();
+                    C.Email = dr.GetValue(2).ToString();
+                    C.Teléfono = int.Parse(dr.GetValue(3).ToString());
+                    C.Dirección = dr.GetValue(4).ToString();
+                    C.WebSite = dr.GetValue(5).ToString();
 
 
                     lista.Add(C);
@@ -299,7 +299,20 @@ namespace BibliotecaNegocio
             }
         }
 
-        
+        public class ListaProveedor
+        {
+            public int Id { get; set; }
+            public string Nombre { get; set; }
+            public string Email { get; set; }
+            public int Teléfono { get; set; }
+            public string Dirección { get; set; }
+            public string WebSite { get; set; }
+
+            public ListaProveedor()
+            {
+
+            }
+        }
 
     }
 }
