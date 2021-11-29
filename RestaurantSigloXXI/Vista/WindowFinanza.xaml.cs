@@ -70,7 +70,7 @@ namespace Vista
         
         private void Pagos_Click(object sender, RoutedEventArgs e)
         {
-
+            WPFPago.ObtenerinstanciaPAG().ShowDialog();
         }
 
         private void Boleta_Click(object sender, RoutedEventArgs e)

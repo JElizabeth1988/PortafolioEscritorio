@@ -70,3 +70,4 @@ C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSig
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache

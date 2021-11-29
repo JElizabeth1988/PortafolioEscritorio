@@ -310,8 +310,7 @@ namespace Vista
                      string.Format((exa.Message)));
             }
             catch (Exception ex)
-            {
-                conn.Close();
+            {                
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error de ingreso de datos", ex));
                             

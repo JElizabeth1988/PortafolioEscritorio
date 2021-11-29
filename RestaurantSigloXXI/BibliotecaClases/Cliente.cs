@@ -170,8 +170,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return false;
                 Logger.Mensaje(ex.Message);
+                return false;
+                
 
             }
         }
@@ -212,6 +213,7 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
+                Logger.Mensaje(ex.Message);
                 return false;
             }
         }

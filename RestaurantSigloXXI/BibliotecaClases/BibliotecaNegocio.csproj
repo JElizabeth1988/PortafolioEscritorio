@@ -52,6 +52,7 @@
     <Compile Include="Agenda.cs" />
     <Compile Include="Atencion.cs" />
     <Compile Include="Bebida.cs" />
+    <Compile Include="Boleta.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="CommonBC.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Login.cs" />
     <Compile Include="Mesa.cs" />
     <Compile Include="Orden.cs" />
+    <Compile Include="Pago.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="PedidoProveedor.cs" />
     <Compile Include="Plato.cs" />
