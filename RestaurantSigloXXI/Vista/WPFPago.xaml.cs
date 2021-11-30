@@ -328,9 +328,9 @@ namespace Vista
                 Ticket1.TextoCentro("Número de Boleta"); //imprime una linea de descripcion
                 Ticket1.TextoCentro(lblNumero.Content.ToString());//número de la boleta
                 Ticket1.TextoIzquierda("Atendido Por:    " + lblEmpleado.Content.ToString());
-                Ticket1.TextoIzquierda("Fecha: " + lblFecha.Content.ToString() + "   Hora: " + lblHora.Content.ToString());
+                Ticket1.TextoIzquierda("Fecha: " + lblFecha.Content.ToString() + "  Hora: " + lblHora.Content.ToString());
                 Ticket1.TextoIzquierda("N° de Pedido:    " + lblPedido.Content.ToString());
-                Ticket1.TextoIzquierda("N° de Mesa:        " + lblMesa.Content.ToString());
+                Ticket1.TextoIzquierda("N° de Mesa:      " + lblMesa.Content.ToString());
 
 
                 Factura.CreaTicket.LineasGuion();
@@ -359,9 +359,9 @@ namespace Vista
                 Factura.CreaTicket.LineasGuion();
 
                 // Ticket1.LineasTotales(); // imprime linea 
-                Ticket1.TextoCentro("***********************************");
-                Ticket1.TextoCentro("*      Gracias por su preferencia     *");
-                Ticket1.TextoCentro("***********************************");
+                Ticket1.TextoCentro("****************************************");
+                Ticket1.TextoCentro("*        Gracias por su preferencia       *");
+                Ticket1.TextoCentro("****************************************");
                 Ticket1.TextoIzquierda(" ");
 
                 //string impresora = "L5190 Series(Network)";

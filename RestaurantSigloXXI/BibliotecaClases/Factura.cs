@@ -33,7 +33,7 @@ namespace BibliotecaNegocio
 
             public static void EncabezadoVenta()
             {
-                string LineaEncavezado = "               Detalle del Pago       ";   // agrega lineas de  encabezados
+                string LineaEncavezado = "            Detalle del Pago       ";   // agrega lineas de  encabezados
                 line.AppendLine(LineaEncavezado);
             }
             public void TextoIzquierda(string par1)   // agrega texto a la izquierda
