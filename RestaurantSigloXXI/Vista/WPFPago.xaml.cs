@@ -58,6 +58,7 @@ namespace Vista
             txtTotal.Focus();
             btnGuardar.Visibility = Visibility.Visible;
             btnBoleta.Visibility = Visibility.Hidden;
+            btnTxt.Visibility = Visibility.Hidden;
 
 
             CargarGrilla();
@@ -65,7 +66,7 @@ namespace Vista
 
         }
 
-       
+
 
         //----------Validación Solo acepta valores numéricos
         private void txtNumeros_KeyDown(object sender, KeyEventArgs e)
@@ -89,7 +90,8 @@ namespace Vista
                 // Dispatcher invoke: Permite ejecutar una acción de forma asincrónica
                 //desde un subproceso o desde otra ventana (es un método q llama a una acción)
                 //(() => { }); función anónima
-                Dispatcher.Invoke(() => {
+                Dispatcher.Invoke(() =>
+                {
                     dgLista.ItemsSource = pag.Listar();
                     dgLista.Items.Refresh();
                 });
@@ -101,7 +103,7 @@ namespace Vista
 
         }
 
-       
+
         //-----------Botón Cancelar-------------------
         private async void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -137,6 +139,8 @@ namespace Vista
 
             btnGuardar.Visibility = Visibility.Visible;
             btnBoleta.Visibility = Visibility.Hidden;
+            btnPasar.Visibility = Visibility.Visible;
+            btnTxt.Visibility = Visibility.Hidden;
 
             //-------------------------------------------
             //boleta
@@ -144,7 +148,7 @@ namespace Vista
             lblEmpleado.Content = "-";
             lblFecha.Content = "-";
             lblHora.Content = "-";
-            lblPedido.Content = "-";            
+            lblPedido.Content = "-";
 
             lblSubTotal.Content = "-";
             lblIva.Content = "-";
@@ -155,6 +159,8 @@ namespace Vista
             lblVuelto.Content = "-";
             lblMesa.Content = "-";
 
+            CargarGrilla();
+
         }
 
         //----Botón limpiar
@@ -164,7 +170,7 @@ namespace Vista
 
         }
 
-        
+
 
         private void btnPasar_Click(object sender, RoutedEventArgs e)
         {
@@ -179,7 +185,7 @@ namespace Vista
                 txtTotal.Text = m.Total.Substring(2, totLargo);
                 //dcto                
                 var LDes = (m.descuento.Length - 2);
-                txtDcto.Text = m.descuento.Substring(2, LDes);                                             
+                txtDcto.Text = m.descuento.Substring(2, LDes);
 
 
             }
@@ -192,7 +198,7 @@ namespace Vista
 
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {           
+        {
 
             //Parar Singleton
             _instancia = null;
@@ -201,11 +207,11 @@ namespace Vista
         private async void btnBoleta_Click(object sender, RoutedEventArgs e)
         {
             try
-            {                
+            {
                 bo.ListarBoleta();
                 if (bo != null)//Si la lista no esta vacía entrego parámetros a los labels
-                {                    
-                    lblNumero.Content = bo.numero;                    
+                {
+                    lblNumero.Content = bo.numero;
                     lblFecha.Content = bo.Fecha;
                     lblHora.Content = bo.hora;
                     lblPropina.Content = bo.propina;
@@ -217,9 +223,10 @@ namespace Vista
                     lblVuelto.Content = bo.vuelto;
                     lblMesa.Content = bo.mesa.ToString();
                     lblEmpleado.Content = bo.empleado;
-                    lblPedido.Content = bo.pedido;                  
+                    lblPedido.Content = bo.pedido;
 
-                    
+                    btnTxt.Visibility = Visibility.Visible;
+
                 }
                 else
                 {
@@ -263,6 +270,7 @@ namespace Vista
                     {
                         btnBoleta.Visibility = Visibility.Visible;
                         btnGuardar.Visibility = Visibility.Hidden;
+                        btnPasar.Visibility = Visibility.Hidden;
                         NotificationCenter.Notify("agregado");
                     }
                 }
@@ -271,7 +279,7 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                       string.Format("El monto pagado no puede ser menor al total"));
                 }
-                
+
 
             }
             catch (Exception ex)
@@ -302,7 +310,81 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
 
-            
+
+        }
+
+        private async void btnTxt_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                Factura.CreaTicket Ticket1 = new Factura.CreaTicket();
+
+                Factura.CreaTicket.LineasGuion();
+                Ticket1.TextoCentro("Restaurant Siglo XXI"); //imprime una linea de descripcion
+                Ticket1.TextoCentro("Calle Los Laureles #241, Santiago"); //imprime una linea de descripcion
+                Factura.CreaTicket.LineasGuion();
+
+                Ticket1.TextoCentro("Número de Boleta"); //imprime una linea de descripcion
+                Ticket1.TextoCentro(lblNumero.Content.ToString());//número de la boleta
+                Ticket1.TextoIzquierda("Atendido Por:    " + lblEmpleado.Content.ToString());
+                Ticket1.TextoIzquierda("Fecha: " + lblFecha.Content.ToString() + "   Hora: " + lblHora.Content.ToString());
+                Ticket1.TextoIzquierda("N° de Pedido:    " + lblPedido.Content.ToString());
+                Ticket1.TextoIzquierda("N° de Mesa:        " + lblMesa.Content.ToString());
+
+
+                Factura.CreaTicket.LineasGuion();
+
+                Factura.CreaTicket.EncabezadoVenta();
+                Factura.CreaTicket.LineasGuion();
+
+                var LProp = (lblPropina.Content.ToString().Length - 2);
+                Ticket1.AgregaTotales("Propina:     ", int.Parse(lblPropina.Content.ToString().Substring(2, LProp))); // imprime linea con total
+                var LDcto = (lblDcto.Content.ToString().Length - 2);
+                Ticket1.AgregaTotales("Descuento:   ", int.Parse(lblDcto.Content.ToString().Substring(2,LDcto)));
+                var LSub = (lblSubTotal.Content.ToString().Length - 2);
+                Ticket1.AgregaTotales("Sub-Total:   ", int.Parse(lblSubTotal.Content.ToString().Substring(2,LSub)));
+                var lIva = (lblIva.Content.ToString().Length - 2);
+                Ticket1.AgregaTotales("IVA:         ", int.Parse(lblIva.Content.ToString().Substring(2,lIva)));
+
+
+                Factura.CreaTicket.LineasGuion();
+                var largoTotal = (lblTotal.Content.ToString().Length - 2);
+                Ticket1.AgregaTotales("Total:               ", int.Parse(lblTotal.Content.ToString().Substring(2, largoTotal))); // imprime linea con total
+                Factura.CreaTicket.LineasGuion();
+                var largoEfec = (lblMonto.Content.ToString().Length - 2);
+                Ticket1.AgregaTotales("Efectivo Entregado:", int.Parse(lblMonto.Content.ToString().Substring(2, largoEfec)));
+                var largoVuelto = (lblVuelto.Content.ToString().Length - 2);
+                Ticket1.AgregaTotales("Efectivo Devuelto: ", int.Parse(lblVuelto.Content.ToString().Substring(2, largoVuelto)));
+                Factura.CreaTicket.LineasGuion();
+
+                // Ticket1.LineasTotales(); // imprime linea 
+                Ticket1.TextoCentro("***********************************");
+                Ticket1.TextoCentro("*      Gracias por su preferencia     *");
+                Ticket1.TextoCentro("***********************************");
+                Ticket1.TextoIzquierda(" ");
+
+                //string impresora = "L5190 Series(Network)";
+                string impresora = "Microsoft XPS Document Writer";
+
+                Ticket1.ImprimirTiket(impresora);
+
+
+                //this.Close();
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("¡Boleta almacenada con éxito en My Documents!"));
+
+                Limpiar();
+
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("No Generado"));
+
+                Logger.Mensaje(ex.Message);
+            }
         }
     }
 }

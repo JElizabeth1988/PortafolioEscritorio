@@ -594,6 +594,9 @@ namespace Vista
 
                     //Si se uso rutFormateado = rut.ToString("N0"); la salida esperada para el ejemplo es 99.999.999-K
                     txtRut.Text = rutFormateado;
+
+                    //user
+                    txtUser.Text = txtRut.Text;
                 }
                 catch (Exception ex)
                 {

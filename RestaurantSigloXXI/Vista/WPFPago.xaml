@@ -13,35 +13,36 @@
         Title="Administrar Pagos" Height="648.312" Width="1149.984" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
     <Grid HorizontalAlignment="Left" Height="618" VerticalAlignment="Top" Width="1140" Margin="0,0,0,-2">
         <Image x:Name="image" Height="629" VerticalAlignment="Top" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-19,-11" HorizontalAlignment="Left" Width="1159"/>
-        <GroupBox x:Name="groupBox" Header="Nuevo Pago" Margin="49,12,462,0" VerticalAlignment="Top" Height="252" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" BorderBrush="#FFCB5F21">
-            <Grid HorizontalAlignment="Left" Height="223" VerticalAlignment="Top" Width="621" Margin="0,-2,-0.333,-3.667" Background="{x:Null}">
-                <Label x:Name="label_Copy3" Content="Cliente:" HorizontalAlignment="Left" Margin="23,122,0,0" VerticalAlignment="Top" FontSize="12"/>
+        <GroupBox x:Name="groupBox" Header="Nuevo Pago" Margin="49,12,462,0" VerticalAlignment="Top" Height="285" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" BorderBrush="#FFCB5F21">
+            <Grid HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="621" Margin="0,-2,-1.667,-49.667" Background="{x:Null}">
+                <Label x:Name="label_Copy3" Content="Cliente:" HorizontalAlignment="Left" Margin="23,134,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <TextBox x:Name="txtTotal" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Cantidad" KeyDown="txtNumeros_KeyDown" Height="8" Margin="166,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21" />
-                <TextBox x:Name="txtDcto" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="" IsEnabled="False" Height="8" Margin="166,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
-                <Button x:Name="btnGuardar" ToolTip="Guardar Registro" Content="Guardar" HorizontalAlignment="Left" Margin="137,185,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnGuardar_Click"/>
-                <Button x:Name="btnCancelar" ToolTip="Cancelar"  Content="Cancelar" HorizontalAlignment="Left" Margin="508,185,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
-                <Button x:Name="btnLimpiar" ToolTip="Limpiar Casillas" Content="Limpiar" HorizontalAlignment="Left" Margin="27,185,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
+                <TextBox x:Name="txtDcto" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="" IsEnabled="False" Height="8" Margin="166,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
+                <Button x:Name="btnGuardar" ToolTip="Guardar Registro" Content="Guardar" HorizontalAlignment="Left" Margin="137,213,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnGuardar_Click"/>
+                <Button x:Name="btnCancelar" ToolTip="Cancelar"  Content="Cancelar" HorizontalAlignment="Left" Margin="508,213,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
+                <Button x:Name="btnLimpiar" ToolTip="Limpiar Casillas" Content="Limpiar" HorizontalAlignment="Left" Margin="27,213,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
                 <Image x:Name="image1" HorizontalAlignment="Left" Height="78" Margin="440,10,0,0" VerticalAlignment="Top" Width="156" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
-                <Label x:Name="label_Copy5" Content="Número de Pedido:" HorizontalAlignment="Left" Margin="23,152,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy5" Content="Número de Pedido:" HorizontalAlignment="Left" Margin="23,170,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy2" Content="Total a Pagar $:" HorizontalAlignment="Left" Margin="23,2,0,0" VerticalAlignment="Top" FontSize="12"/>
 
-                <Label x:Name="label_Copy1" Content="Descuento $:" HorizontalAlignment="Left" Margin="23,32,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy1" Content="Descuento $:" HorizontalAlignment="Left" Margin="23,35,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="lbl1_Copy7" Content="*"  HorizontalAlignment="Left" Margin="307,2,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
-                <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="533,122,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
-                <TextBox x:Name="txtRut" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Rut de Cliente"  Height="8" Margin="166,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" SelectionBrush="#FFCB5F21" IsEnabled="False"/>
-                <TextBox x:Name="txtNombre" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Nombre de Cliente" Height="8" Margin="307,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" RenderTransformOrigin="0.5,0.5" SelectionBrush="#FFCB5F21" IsEnabled="False"/>
-                <TextBox x:Name="txtPagado" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Cantidad" KeyDown="txtNumeros_KeyDown" Height="8" Margin="166,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21" TextChanged="txtPagado_TextChanged" />
-                <TextBox x:Name="txtVuelto" HorizontalAlignment="Left" IsEnabled="False" mah:TextBoxHelper.Watermark="" Height="8" Margin="166,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
-                <Label x:Name="label_Copy" Content="Monto Pagado $:" HorizontalAlignment="Left" Margin="23,62,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="label_Copy7" Content="Vuelto $:" HorizontalAlignment="Left" Margin="23,92,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="lbl1_Copy8" Content="*"  HorizontalAlignment="Left" Margin="307,62,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="533,134,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <TextBox x:Name="txtRut" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Rut de Cliente"  Height="8" Margin="166,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" SelectionBrush="#FFCB5F21" IsEnabled="False"/>
+                <TextBox x:Name="txtNombre" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Nombre de Cliente" Height="8" Margin="307,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" RenderTransformOrigin="0.5,0.5" SelectionBrush="#FFCB5F21" IsEnabled="False"/>
+                <TextBox x:Name="txtPagado" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Cantidad" KeyDown="txtNumeros_KeyDown" Height="8" Margin="166,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21" TextChanged="txtPagado_TextChanged" />
+                <TextBox x:Name="txtVuelto" HorizontalAlignment="Left" IsEnabled="False" mah:TextBoxHelper.Watermark="" Height="8" Margin="166,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
+                <Label x:Name="label_Copy" Content="Monto Pagado $:" HorizontalAlignment="Left" Margin="23,68,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy7" Content="Vuelto $:" HorizontalAlignment="Left" Margin="23,101,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="lbl1_Copy8" Content="*"  HorizontalAlignment="Left" Margin="307,68,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
 
-                <TextBox x:Name="txtPedido" HorizontalAlignment="Left" IsEnabled="False" mah:TextBoxHelper.Watermark="" Height="8" Margin="166,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
-                <Button x:Name="btnBoleta" ToolTip="Generar Boleta" Content="Generar Boleta" HorizontalAlignment="Left" Margin="366,185,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="99" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnBoleta_Click" />
+                <TextBox x:Name="txtPedido" HorizontalAlignment="Left" IsEnabled="False" mah:TextBoxHelper.Watermark="" Height="8" Margin="166,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="False" KeyDown="txtNumeros_KeyDown" SelectionBrush="#FFCB5F21" />
+                <Button x:Name="btnBoleta" ToolTip="Generar Boleta" Content="Visualizar Boleta" HorizontalAlignment="Left" Margin="137,213,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="99" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnBoleta_Click" />
+                <Label x:Name="lbl1_Copy" Content="*"  HorizontalAlignment="Left" Margin="307,170,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
 
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox_Copy" Header="Listado de Órdenes" Margin="49,269,462,0" VerticalAlignment="Top" Height="279" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+        <GroupBox x:Name="groupBox_Copy" Header="Listado de Órdenes" Margin="49,315,462,0" VerticalAlignment="Top" Height="279" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="249" VerticalAlignment="Top" Width="619" Margin="0,-2,0,-3" Background="{x:Null}">
 
                 <DataGrid x:Name="dgLista" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="194" Width="599" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black"  >
@@ -62,8 +63,8 @@
 
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox_Copy1" Header="Visualizar Boleta" Margin="0,12,49,0" VerticalAlignment="Top" Height="536" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" BorderBrush="#FFCB5F21" HorizontalAlignment="Right" Width="402">
-            <Grid HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="392" Margin="-1,0,0,-1.667" Background="{x:Null}">
+        <GroupBox x:Name="groupBox_Copy1" Header="Visualizar Boleta" Margin="0,12,49,0" VerticalAlignment="Top" Height="582" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" BorderBrush="#FFCB5F21" HorizontalAlignment="Right" Width="402">
+            <Grid HorizontalAlignment="Left" Height="548" VerticalAlignment="Top" Width="392" Margin="-1,0,0,-1.333" Background="{x:Null}">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="500" Stroke="Black" VerticalAlignment="Top" Width="392"/>
                 <Label x:Name="label_Copy4" Content="Descuento:" HorizontalAlignment="Left" Margin="25,275,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy8" Content="-------------------------------------------------------------------------" HorizontalAlignment="Left" Margin="23,192,0,0" VerticalAlignment="Top" FontSize="12" Width="350"/>
@@ -72,8 +73,8 @@
                 <Label x:Name="lblDcto" Content="-" HorizontalAlignment="Left" Margin="309,275,0,0" VerticalAlignment="Top" FontSize="12" Width="64"/>
                 <Label x:Name="label_Copy12" Content="Sub-total:" HorizontalAlignment="Left" Margin="25,303,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy14" Content="Total:" HorizontalAlignment="Left" Margin="25,366,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="label_Copy15" Content="Efectivo:" HorizontalAlignment="Left" Margin="25,403,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="label_Copy16" Content="Vuelto:" HorizontalAlignment="Left" Margin="25,427,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy15" Content="Efectivo Entregado:" HorizontalAlignment="Left" Margin="25,403,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy16" Content="Efectivo Devuelto:" HorizontalAlignment="Left" Margin="25,427,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy17" Content="Atendido Por:" HorizontalAlignment="Left" Margin="25,102,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="lblSubTotal" Content="-" HorizontalAlignment="Left" Margin="309,303,0,0" VerticalAlignment="Top" FontSize="12" Width="64"/>
                 <Label x:Name="lblTotal" Content="-" HorizontalAlignment="Left" Margin="309,366,0,0" VerticalAlignment="Top" FontSize="12" Width="64"/>
@@ -81,7 +82,7 @@
                 <Label x:Name="lblVuelto" Content="-" HorizontalAlignment="Left" Margin="309,427,0,0" VerticalAlignment="Top" FontSize="12" Width="64"/>
                 <Label x:Name="lblEmpleado" Content="-" HorizontalAlignment="Left" Margin="118,102,0,0" VerticalAlignment="Top" FontSize="12" Width="187"/>
                 <Label x:Name="label_Copy18" Content="Restaurant Siglo XXI" Margin="133,6,134,0" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"/>
-                <Label x:Name="label_Copy19" Content="Santiago de Chile, Calle Los Laureles #241" Margin="73,30,72,0" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"/>
+                <Label x:Name="label_Copy19" Content="Calle Los Laureles #241, Santiago" Margin="95,30,94,0" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"/>
                 <Label x:Name="label_Copy6" Content="Hora:" HorizontalAlignment="Left" Margin="216,126,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy11" Content="Fecha:" HorizontalAlignment="Left" Margin="25,126,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="lblFecha" Content="-" HorizontalAlignment="Left" Margin="118,126,0,0" VerticalAlignment="Top" FontSize="12" Width="81"/>
@@ -99,8 +100,9 @@
                 <Label x:Name="label_Copy29" Content="N° de Mesa:" HorizontalAlignment="Left" Margin="25,177,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="lblMesa" Content="-" HorizontalAlignment="Left" Margin="118,177,0,0" VerticalAlignment="Top" FontSize="12" Width="51"/>
                 <Label x:Name="label_Copy21" Content="-------------------------------------------------------------------------" HorizontalAlignment="Left" Margin="23,443,0,0" VerticalAlignment="Top" FontSize="12" Width="350"/>
-                <Label x:Name="label_Copy22" Content="Gracias por su visita" Margin="132,461,132,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy22" Content="Gracias por su preferencia" Margin="116,461,116,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy23" Content="-------------------------------------------------------------------------" HorizontalAlignment="Left" Margin="23,385,0,0" VerticalAlignment="Top" FontSize="12" Width="350"/>
+                <Button x:Name="btnTxt" ToolTip="Generar Archivo" Content="Generar Archivo" HorizontalAlignment="Left" Margin="149,510,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="99" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnTxt_Click" />
 
             </Grid>
         </GroupBox>

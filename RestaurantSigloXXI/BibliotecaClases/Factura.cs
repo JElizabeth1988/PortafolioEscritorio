@@ -33,10 +33,10 @@ namespace BibliotecaNegocio
 
             public static void EncabezadoVenta()
             {
-                string LineEncavesado = " Prod          Cant   Precio    Total";   // agrega lineas de  encabezados
-                line.AppendLine(LineEncavesado);
+                string LineaEncavezado = "               Detalle del Pago       ";   // agrega lineas de  encabezados
+                line.AppendLine(LineaEncavezado);
             }
-            public void TextoIzquierda(string par1)                          // agrega texto a la izquierda
+            public void TextoIzquierda(string par1)   // agrega texto a la izquierda
             {
                 max = par1.Length;
                 if (max > 40)                                 // **********
@@ -44,7 +44,10 @@ namespace BibliotecaNegocio
                     cort = max - 40;
                     parte1 = par1.Remove(40, cort);        // si es mayor que 40 caracteres, lo corta
                 }
-                else { parte1 = par1; }                      // **********
+                else
+                {
+                    parte1 = par1;
+                }                      // **********
                 line.AppendLine(ticket = parte1);
 
             }
@@ -57,13 +60,16 @@ namespace BibliotecaNegocio
                     cort = max - 40;
                     parte1 = par1.Remove(40, cort);           // si es mayor que 40 caracteres, lo corta
                 }
-                else { parte1 = par1; }                      // **********
-                max = 40 - par1.Length;                     // obtiene la cantidad de espacios para llegar a 40
+                else
+                {
+                    parte1 = par1;
+                }                      // **********
+                max = 40 - par1.Length;  // obtiene la cantidad de espacios para llegar a 40
                 for (int i = 0; i < max; i++)
                 {
                     ticket += " ";                          // agrega espacios para alinear a la derecha
                 }
-                line.AppendLine(ticket += parte1 + "\n");                //Agrega el texto
+                line.AppendLine(ticket += parte1 );                //Agrega el texto
 
             }
             public void TextoCentro(string par1)
@@ -81,7 +87,7 @@ namespace BibliotecaNegocio
                 {
                     ticket += " ";                           // Agrega espacios antes del texto a centrar
                 }                                            // **********
-                line.AppendLine(ticket += parte1 + "\n");
+                line.AppendLine(ticket += parte1 );
 
             }
             public void TextoExtremos(string par1, string par2)
@@ -106,10 +112,10 @@ namespace BibliotecaNegocio
                 {
                     ticket += " ";                            // Agrega espacios para poner par2 al final
                 }                                             // **********
-                line.AppendLine(ticket += parte2 + "\n");                   // agrega el segundo parametro al final
+                line.AppendLine(ticket += parte2 );                   // agrega el segundo parametro al final
 
             }
-            public void AgregaTotales(string par1, double total)
+            public void AgregaTotales(string par1, int total)
             {
                 max = par1.Length;
                 if (max > 25)                                 // **********
@@ -125,7 +131,7 @@ namespace BibliotecaNegocio
                 {
                     ticket += " ";                           // Agrega espacios para poner el valor de moneda al final
                 }                                            // **********
-                line.AppendLine(ticket += parte2 + "\n");
+                line.AppendLine(ticket += parte2);
 
             }
 
@@ -289,9 +295,9 @@ namespace BibliotecaNegocio
                 DOCINFOA di = new DOCINFOA();
                 bool bSuccess = false; // Assume failure unless you specifically succeed.
 
-                di.pDocName = "Pedido"+ DateTime.Now.ToString("dd-MM-yy - hh:mm:ss");
+                di.pDocName = "Boleta" + DateTime.Now.ToString("ddMMyy-hhmmss");
                 di.pDataType = "RAW";
-                // di.pOutputFile = @"C:\Users\Roland\Documents\Visual Studio 2015\Projects\pjtVentas\Ventas";
+                //di.pOutputFile = @"C:\Users\JRamirez\Documents"; 
 
                 // Open the printer.
                 if (OpenPrinter(szPrinterName.Normalize(), out hPrinter, IntPtr.Zero))

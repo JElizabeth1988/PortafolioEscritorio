@@ -716,6 +716,9 @@ namespace Vista
 
                     //Si se uso rutFormateado = rut.ToString("N0"); la salida esperada para el ejemplo es 99.999.999-K
                     txtRut.Text = rutFormateado;
+
+                    //User
+                    txtUser.Text = txtRut.Text;
                 }
                 catch (Exception ex)
                 {
@@ -726,6 +729,7 @@ namespace Vista
             {
                 txtRut.Text = "";
             }
+            
         }
 
         private void BtnCache_Click(object sender, RoutedEventArgs e)
