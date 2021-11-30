@@ -50,11 +50,9 @@ namespace Vista
         //Hilo para cache
         Thread hilo = null;
 
-        //Instanciar BD
-        OracleConnection conn = null;
         //Traer clase cliente
         Cliente cli = new Cliente();
-        
+
         public WPFCliente2()
         {
             InitializeComponent();
@@ -91,7 +89,8 @@ namespace Vista
         private void generaRespaldo()
         {
 
-            Dispatcher.Invoke(() => {
+            Dispatcher.Invoke(() =>
+            {
 
                 //Llama a la clase cliente donde se gusradarán los datos
                 Cliente.ListaClientes2 cl = new Cliente.ListaClientes2();
@@ -236,7 +235,7 @@ namespace Vista
 
             btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
-           
+
             txtRut.Focus();//Mover el cursor a la poscición Rut
 
             //Limpiar cache
@@ -345,7 +344,7 @@ namespace Vista
                     rut_cliente = rutLogin
                 };
 
-                bool resp = cli.AgregarCli(c,l);
+                bool resp = cli.AgregarCli(c, l);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
                 //-----------------------------------------------------------------------------------------------
@@ -363,8 +362,8 @@ namespace Vista
                 }
                 else
                 {
-                    Limpiar();                   
-                    
+                    Limpiar();
+
                 }
             }
             catch (ArgumentException exa)//mensajes de reglas de negocios
@@ -439,9 +438,9 @@ namespace Vista
                 {
                     usuario = user,
                     contrasenia = pass,
-                    cliente_activo = activo                    
+                    cliente_activo = activo
                 };
-                bool resp = cli.ActualizarCli(c,l);
+                bool resp = cli.ActualizarCli(c, l);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
 
@@ -479,7 +478,7 @@ namespace Vista
 
             }
         }
-        
+
         //----------------------Botón Buscar (de administrar cliente)---------------
         private async void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
@@ -490,18 +489,18 @@ namespace Vista
                 if (rut.Length == 9)//Si el rut tiene solo 9 caracteres se le agrega cero al comienzo para que quede de 10
                 {
                     rut = "0" + txtRut.Text + "-" + txtDV.Text;
-                }                
+                }
                 lc.BuscarCli(rut);
                 if (lc != null)//Si la lista no esta vacía entrego parámetros a los textBox
                 {
                     txtRut.Text = lc.Rut.Substring(0, 8);
-                    txtDV.Text = lc.Rut.Substring(9, 1);                   
+                    txtDV.Text = lc.Rut.Substring(9, 1);
 
                     txtNombre.Text = lc.Nombre;
                     txtSegNombre.Text = lc.Segundo_Nombre;
                     txtApPaterno.Text = lc.Apellido_Paterno;
                     txtApeMaterno.Text = lc.Apellido_Materno;
-                    txtEmail.Text =lc.Email;
+                    txtEmail.Text = lc.Email;
                     txtCelular.Text = lc.Celular.ToString();
                     txtTelefono.Text = lc.Teléfono.ToString();
                     txtUser.Text = lc.usuario;
@@ -539,7 +538,7 @@ namespace Vista
         }
 
 
-        
+
         //-------------------------------------------------------------------------------------
         //----------------------añadir formato al rut-----------------------------------------
         //--------------------------------------------------------------------------------------
@@ -696,8 +695,9 @@ namespace Vista
             }
             catch (Exception ex)
             {
+                Logger.Mensaje(ex.Message);
                 return null;
-                MessageBox.Show("error metodo");
+
             }
 
         }
@@ -756,8 +756,9 @@ namespace Vista
             }
             catch (Exception ex)
             {
+                Logger.Mensaje(ex.Message);
                 return null;
-                MessageBox.Show("error metodo");
+                
             }
 
 
@@ -789,6 +790,6 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
-        
+
     }
 }

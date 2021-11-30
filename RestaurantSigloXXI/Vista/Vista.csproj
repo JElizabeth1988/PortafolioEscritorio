@@ -238,14 +238,8 @@
     <Compile Include="WPFCliente2.xaml.cs">
       <DependentUpon>WPFCliente2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPFEgreso.xaml.cs">
-      <DependentUpon>WPFEgreso.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WPFEmpleado.xaml.cs">
       <DependentUpon>WPFEmpleado.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WPFIngreso.xaml.cs">
-      <DependentUpon>WPFIngreso.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFListadoEmpleado.xaml.cs">
       <DependentUpon>WPFListadoEmpleado.xaml</DependentUpon>
@@ -292,6 +286,9 @@
     </Compile>
     <Compile Include="WPFTableroEjecucion.xaml.cs">
       <DependentUpon>WPFTableroEjecucion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFUtilidades.xaml.cs">
+      <DependentUpon>WPFUtilidades.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFVerPedidosListos.xaml.cs">
       <DependentUpon>WPFVerPedidosListos.xaml</DependentUpon>
@@ -343,15 +340,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPFEgreso.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="WPFEmpleado.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WPFIngreso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -446,6 +435,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFTableroEjecucion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFUtilidades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

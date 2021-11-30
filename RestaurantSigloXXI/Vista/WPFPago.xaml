@@ -23,8 +23,6 @@
                 <Button x:Name="btnLimpiar" ToolTip="Limpiar Casillas" Content="Limpiar" HorizontalAlignment="Left" Margin="27,185,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
                 <Image x:Name="image1" HorizontalAlignment="Left" Height="78" Margin="440,10,0,0" VerticalAlignment="Top" Width="156" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
                 <Label x:Name="label_Copy5" Content="Número de Pedido:" HorizontalAlignment="Left" Margin="23,152,0,0" VerticalAlignment="Top" FontSize="12"/>
-
-                <Button x:Name="btnModificar" ToolTip="Actualizar Registro" Content="Actualizar" HorizontalAlignment="Left" Margin="222,185,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnModificar_Click" />
                 <Label x:Name="label_Copy2" Content="Total a Pagar $:" HorizontalAlignment="Left" Margin="23,2,0,0" VerticalAlignment="Top" FontSize="12"/>
 
                 <Label x:Name="label_Copy1" Content="Descuento $:" HorizontalAlignment="Left" Margin="23,32,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -84,10 +82,10 @@
                 <Label x:Name="lblEmpleado" Content="-" HorizontalAlignment="Left" Margin="118,102,0,0" VerticalAlignment="Top" FontSize="12" Width="187"/>
                 <Label x:Name="label_Copy18" Content="Restaurant Siglo XXI" Margin="133,6,134,0" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"/>
                 <Label x:Name="label_Copy19" Content="Santiago de Chile, Calle Los Laureles #241" Margin="73,30,72,0" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"/>
-                <Label x:Name="label_Copy6" Content="Hora:" HorizontalAlignment="Left" Margin="169,126,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy6" Content="Hora:" HorizontalAlignment="Left" Margin="216,126,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy11" Content="Fecha:" HorizontalAlignment="Left" Margin="25,126,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="lblFecha" Content="-" HorizontalAlignment="Left" Margin="77,126,0,0" VerticalAlignment="Top" FontSize="12" Width="96"/>
-                <Label x:Name="lblHora" Content="-" HorizontalAlignment="Left" Margin="215,126,0,0" VerticalAlignment="Top" FontSize="12" Width="101"/>
+                <Label x:Name="lblFecha" Content="-" HorizontalAlignment="Left" Margin="118,126,0,0" VerticalAlignment="Top" FontSize="12" Width="81"/>
+                <Label x:Name="lblHora" Content="-" HorizontalAlignment="Left" Margin="262,126,0,0" VerticalAlignment="Top" FontSize="12" Width="101"/>
                 <Label x:Name="label_Copy20" Content="-------------------------------------------------------------------------" HorizontalAlignment="Left" Margin="23,42,0,0" VerticalAlignment="Top" FontSize="12" Width="350"/>
                 <Label x:Name="label_Copy24" Content="Detalle del Pago" Margin="144,211,144,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy25" Content="-------------------------------------------------------------------------" HorizontalAlignment="Left" Margin="23,228,0,0" VerticalAlignment="Top" FontSize="12" Width="350"/>

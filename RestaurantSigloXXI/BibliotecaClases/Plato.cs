@@ -468,8 +468,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return false;
                 Logger.Mensaje(ex.Message);
+                return false;
+               
 
             }
         }

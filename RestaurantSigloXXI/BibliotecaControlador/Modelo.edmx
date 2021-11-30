@@ -37,7 +37,7 @@
           <Property Name="VALOR" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="TOTAL" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PEDIDO" Type="varchar2" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="ATENCION">
           <Key>
@@ -107,6 +107,17 @@
           <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ID_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
+        <EntityType Name="EGRESO">
+          <Key>
+            <PropertyRef Name="ID_EGRESO" />
+          </Key>
+          <Property Name="ID_EGRESO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA" Type="date" Nullable="false" />
+          <Property Name="HORA" Type="varchar2" MaxLength="5" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="MONTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PEDIDO" Type="varchar2" MaxLength="30" Nullable="false" />
+        </EntityType>
         <EntityType Name="EMPLEADO">
           <Key>
             <PropertyRef Name="RUT_EMPLEADO" />
@@ -131,14 +142,14 @@
           <Property Name="NRO_CUENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="TIPO_CTA" Type="varchar2" MaxLength="45" Nullable="false" />
         </EntityType>
-        <EntityType Name="INGRESOS">
+        <EntityType Name="INGRESO">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_INGRESO" />
           </Key>
-          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="FECHA" Type="varchar2" MaxLength="20" />
-          <Property Name="HORA_INGRESO" Type="varchar2" MaxLength="20" />
-          <Property Name="MONTO" Type="number" Precision="38" Scale="0" />
+          <Property Name="ID_INGRESO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA" Type="date" Nullable="false" />
+          <Property Name="HORA" Type="varchar2" MaxLength="5" />
+          <Property Name="MONTO" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="LOGIN">
           <Key>
@@ -194,6 +205,8 @@
           </Key>
           <Property Name="N_TRANSACCION" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="VALOR_PAGO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MONTO_PAGADO" Type="number" Precision="38" Scale="0" />
+          <Property Name="VUELTO" Type="number" Precision="38" Scale="0" />
           <Property Name="ESTADO_PAGO" Type="varchar2" MaxLength="20" Nullable="false" />
           <Property Name="DESCUENTO" Type="number" Precision="38" Scale="0" />
           <Property Name="ID_METODO_PAGO" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -226,7 +239,7 @@
           <Key>
             <PropertyRef Name="ID_PEDIDO" />
           </Key>
-          <Property Name="ID_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PEDIDO" Type="varchar2" MaxLength="30" Nullable="false" />
           <Property Name="FECHA_PEDIDO" Type="date" Nullable="false" />
           <Property Name="ESTADO" Type="varchar2" MaxLength="50" />
           <Property Name="TOTAL" Type="number" Precision="38" Scale="0" />
@@ -342,7 +355,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ARTICULO_PEDIDO_PROVEEDOR_FK">
-          <End Role="PEDIDO_PROVEEDOR" Type="Self.PEDIDO_PROVEEDOR" Multiplicity="1" />
+          <End Role="PEDIDO_PROVEEDOR" Type="Self.PEDIDO_PROVEEDOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEDIDO_PROVEEDOR">
@@ -376,6 +391,20 @@
             </Principal>
             <Dependent Role="BOLETA">
               <PropertyRef Name="N_TRANSACCION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EGRESO_PEDIDO_PROVEEDOR_FK">
+          <End Role="PEDIDO_PROVEEDOR" Type="Self.PEDIDO_PROVEEDOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EGRESO" Type="Self.EGRESO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO_PROVEEDOR">
+              <PropertyRef Name="ID_PEDIDO" />
+            </Principal>
+            <Dependent Role="EGRESO">
+              <PropertyRef Name="ID_PEDIDO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -578,9 +607,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="PEDIDO_PROVEEDOR_PROVEEDOR_FK">
-          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
           <End Role="PEDIDO_PROVEEDOR" Type="Self.PEDIDO_PROVEEDOR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROVEEDOR">
@@ -679,9 +706,10 @@
           <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="DETALLE_PEDIDO" EntityType="Self.DETALLE_PEDIDO" Schema="RSXXI" store:Type="Tables" />
+          <EntitySet Name="EGRESO" EntityType="Self.EGRESO" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="ENTIDAD_BANCARIA" EntityType="Self.ENTIDAD_BANCARIA" Schema="RSXXI" store:Type="Tables" />
-          <EntitySet Name="INGRESOS" EntityType="Self.INGRESOS" Schema="RSXXI" store:Type="Tables" />
+          <EntitySet Name="INGRESO" EntityType="Self.INGRESO" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="LOGIN" EntityType="Self.LOGIN" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="MESA" EntityType="Self.MESA" Schema="RSXXI" store:Type="Tables" />
           <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" Schema="RSXXI" store:Type="Tables" />
@@ -717,6 +745,10 @@
           <AssociationSet Name="BOLETA_PAGO_FK" Association="Self.BOLETA_PAGO_FK">
             <End Role="PAGO" EntitySet="PAGO" />
             <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="EGRESO_PEDIDO_PROVEEDOR_FK" Association="Self.EGRESO_PEDIDO_PROVEEDOR_FK">
+            <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
+            <End Role="EGRESO" EntitySet="EGRESO" />
           </AssociationSet>
           <AssociationSet Name="EMPLEADO_TIPO_USUARIO_FK" Association="Self.EMPLEADO_TIPO_USUARIO_FK">
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
@@ -825,9 +857,10 @@
           <EntitySet Name="CATEGORIA" EntityType="Modelo.CATEGORIA" />
           <EntitySet Name="CLIENTE" EntityType="Modelo.CLIENTE" />
           <EntitySet Name="DETALLE_PEDIDO" EntityType="Modelo.DETALLE_PEDIDO" />
+          <EntitySet Name="EGRESO" EntityType="Modelo.EGRESO" />
           <EntitySet Name="EMPLEADO" EntityType="Modelo.EMPLEADO" />
           <EntitySet Name="ENTIDAD_BANCARIA" EntityType="Modelo.ENTIDAD_BANCARIA" />
-          <EntitySet Name="INGRESOS" EntityType="Modelo.INGRESOS" />
+          <EntitySet Name="INGRESO" EntityType="Modelo.INGRESO" />
           <EntitySet Name="LOGIN" EntityType="Modelo.LOGIN" />
           <EntitySet Name="MESA" EntityType="Modelo.MESA" />
           <EntitySet Name="METODO_PAGO" EntityType="Modelo.METODO_PAGO" />
@@ -899,6 +932,10 @@
           <AssociationSet Name="RESERVA_CLIENTE_FK" Association="Modelo.RESERVA_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="EGRESO_PE_PROV_FK" Association="Modelo.EGRESO_PE_PROV_FK">
+            <End Role="PEDIDO_PROVEEDOR" EntitySet="PEDIDO_PROVEEDOR" />
+            <End Role="EGRESO" EntitySet="EGRESO" />
           </AssociationSet>
           <AssociationSet Name="EMPLEADO_TIPO_USUARIO_FK" Association="Modelo.EMPLEADO_TIPO_USUARIO_FK">
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
@@ -993,7 +1030,7 @@
           <Property Name="VALOR" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
           <Property Name="TOTAL" Type="Int32" Nullable="false" />
-          <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
+          <Property Name="ID_PEDIDO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PEDIDO_PROVEEDOR" Relationship="Modelo.ARTICULO_PEDIDO_PROVEEDOR_FK" FromRole="ARTICULO" ToRole="PEDIDO_PROVEEDOR" />
         </EntityType>
         <EntityType Name="ATENCION">
@@ -1015,7 +1052,7 @@
           <Property Name="ID_BEBIDA" Type="Int32" Nullable="false" />
           <Property Name="NOM_BEBIDA" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="ML_BEBIDA" Type="Int32" Nullable="false" />
-          <Property Name="VALOR_BEBIDA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="VALOR_BEBIDA" Type="Int32" Nullable="false" />
           <Property Name="STOCK" Type="Int32" Nullable="false" />
           <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TIPO_BEBIDA" Relationship="Modelo.BEBIDA_TIPO_BEBIDA_FK" FromRole="BEBIDA" ToRole="TIPO_BEBIDA" />
@@ -1073,6 +1110,18 @@
           <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
           <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="EGRESO">
+          <Key>
+            <PropertyRef Name="ID_EGRESO" />
+          </Key>
+          <Property Name="ID_EGRESO" Type="Int32" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="HORA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MONTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_PEDIDO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PEDIDO_PROVEEDOR" Relationship="Modelo.EGRESO_PE_PROV_FK" FromRole="EGRESO" ToRole="PEDIDO_PROVEEDOR" />
+        </EntityType>
         <EntityType Name="EMPLEADO">
           <Key>
             <PropertyRef Name="RUT_EMPLEADO" />
@@ -1102,14 +1151,14 @@
           <Property Name="TIPO_CTA" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="METODO_PAGO" Relationship="Modelo.METODO_PAGO_ENT_BANC_FK" FromRole="ENTIDAD_BANCARIA" ToRole="METODO_PAGO" />
         </EntityType>
-        <EntityType Name="INGRESOS">
+        <EntityType Name="INGRESO">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_INGRESO" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="FECHA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="HORA_INGRESO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="MONTO" Type="Int32" />
+          <Property Name="ID_INGRESO" Type="Int32" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="HORA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="MONTO" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="LOGIN">
           <Key>
@@ -1180,6 +1229,8 @@
           </Key>
           <Property Name="N_TRANSACCION" Type="Int32" Nullable="false" />
           <Property Name="VALOR_PAGO" Type="Int32" Nullable="false" />
+          <Property Name="MONTO_PAGADO" Type="Int32" />
+          <Property Name="VUELTO" Type="Int32" />
           <Property Name="ESTADO_PAGO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DESCUENTO" Type="Int32" />
           <Property Name="ID_METODO_PAGO" Type="Int32" Nullable="false" />
@@ -1219,12 +1270,13 @@
           <Key>
             <PropertyRef Name="ID_PEDIDO" />
           </Key>
-          <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
+          <Property Name="ID_PEDIDO" Type="String" Nullable="false" />
           <Property Name="FECHA_PEDIDO" Type="DateTime" Nullable="false" />
           <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TOTAL" Type="Int32" />
           <Property Name="ID_PROVEEDOR" Type="Int32" />
           <NavigationProperty Name="ARTICULO" Relationship="Modelo.ARTICULO_PEDIDO_PROVEEDOR_FK" FromRole="PEDIDO_PROVEEDOR" ToRole="ARTICULO" />
+          <NavigationProperty Name="EGRESO" Relationship="Modelo.EGRESO_PE_PROV_FK" FromRole="PEDIDO_PROVEEDOR" ToRole="EGRESO" />
           <NavigationProperty Name="PROVEEDOR" Relationship="Modelo.PEDIDO_PROVEEDOR_PROVEEDOR_FK" FromRole="PEDIDO_PROVEEDOR" ToRole="PROVEEDOR" />
         </EntityType>
         <EntityType Name="PLATO">
@@ -1374,7 +1426,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ARTICULO_PEDIDO_PROVEEDOR_FK">
-          <End Type="Modelo.PEDIDO_PROVEEDOR" Role="PEDIDO_PROVEEDOR" Multiplicity="1" />
+          <End Type="Modelo.PEDIDO_PROVEEDOR" Role="PEDIDO_PROVEEDOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="Modelo.ARTICULO" Role="ARTICULO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEDIDO_PROVEEDOR">
@@ -1494,6 +1548,20 @@
             </Principal>
             <Dependent Role="RESERVA">
               <PropertyRef Name="RUT_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EGRESO_PE_PROV_FK">
+          <End Type="Modelo.PEDIDO_PROVEEDOR" Role="PEDIDO_PROVEEDOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Modelo.EGRESO" Role="EGRESO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO_PROVEEDOR">
+              <PropertyRef Name="ID_PEDIDO" />
+            </Principal>
+            <Dependent Role="EGRESO">
+              <PropertyRef Name="ID_PEDIDO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1636,9 +1704,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="PEDIDO_PROVEEDOR_PROVEEDOR_FK">
-          <End Type="Modelo.PROVEEDOR" Role="PROVEEDOR" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Type="Modelo.PROVEEDOR" Role="PROVEEDOR" Multiplicity="0..1" />
           <End Type="Modelo.PEDIDO_PROVEEDOR" Role="PEDIDO_PROVEEDOR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROVEEDOR">
@@ -1793,6 +1859,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EGRESO">
+            <EntityTypeMapping TypeName="Modelo.EGRESO">
+              <MappingFragment StoreEntitySet="EGRESO">
+                <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
+                <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="HORA" ColumnName="HORA" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="ID_EGRESO" ColumnName="ID_EGRESO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="EMPLEADO">
             <EntityTypeMapping TypeName="Modelo.EMPLEADO">
               <MappingFragment StoreEntitySet="EMPLEADO">
@@ -1819,13 +1897,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="INGRESOS">
-            <EntityTypeMapping TypeName="Modelo.INGRESOS">
-              <MappingFragment StoreEntitySet="INGRESOS">
+          <EntitySetMapping Name="INGRESO">
+            <EntityTypeMapping TypeName="Modelo.INGRESO">
+              <MappingFragment StoreEntitySet="INGRESO">
                 <ScalarProperty Name="MONTO" ColumnName="MONTO" />
-                <ScalarProperty Name="HORA_INGRESO" ColumnName="HORA_INGRESO" />
+                <ScalarProperty Name="HORA" ColumnName="HORA" />
                 <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_INGRESO" ColumnName="ID_INGRESO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1888,6 +1966,8 @@
                 <ScalarProperty Name="ID_METODO_PAGO" ColumnName="ID_METODO_PAGO" />
                 <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
                 <ScalarProperty Name="ESTADO_PAGO" ColumnName="ESTADO_PAGO" />
+                <ScalarProperty Name="VUELTO" ColumnName="VUELTO" />
+                <ScalarProperty Name="MONTO_PAGADO" ColumnName="MONTO_PAGADO" />
                 <ScalarProperty Name="VALOR_PAGO" ColumnName="VALOR_PAGO" />
                 <ScalarProperty Name="N_TRANSACCION" ColumnName="N_TRANSACCION" />
               </MappingFragment>

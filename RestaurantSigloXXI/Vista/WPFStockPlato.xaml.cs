@@ -50,8 +50,6 @@ namespace Vista
         //Hilo para cache
         Thread hilo = null;
 
-        //Instanciar BD
-        OracleConnection conn = null;
         //Traer clase Bebida
         Plato pla = new Plato();
 

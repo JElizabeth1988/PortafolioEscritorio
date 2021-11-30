@@ -111,6 +111,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="EGRESO">
+      <EntityTypeMapping TypeName="Modelo.EGRESO">
+        <MappingFragment StoreEntitySet="EGRESO">
+          <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="ID_EGRESO" ColumnName="ID_EGRESO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="EMPLEADO">
       <EntityTypeMapping TypeName="Modelo.EMPLEADO">
         <MappingFragment StoreEntitySet="EMPLEADO">
@@ -137,13 +149,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="INGRESOS">
-      <EntityTypeMapping TypeName="Modelo.INGRESOS">
-        <MappingFragment StoreEntitySet="INGRESOS">
+    <EntitySetMapping Name="INGRESO">
+      <EntityTypeMapping TypeName="Modelo.INGRESO">
+        <MappingFragment StoreEntitySet="INGRESO">
           <ScalarProperty Name="MONTO" ColumnName="MONTO" />
-          <ScalarProperty Name="HORA_INGRESO" ColumnName="HORA_INGRESO" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
           <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_INGRESO" ColumnName="ID_INGRESO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -206,6 +218,8 @@
           <ScalarProperty Name="ID_METODO_PAGO" ColumnName="ID_METODO_PAGO" />
           <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
           <ScalarProperty Name="ESTADO_PAGO" ColumnName="ESTADO_PAGO" />
+          <ScalarProperty Name="VUELTO" ColumnName="VUELTO" />
+          <ScalarProperty Name="MONTO_PAGADO" ColumnName="MONTO_PAGADO" />
           <ScalarProperty Name="VALOR_PAGO" ColumnName="VALOR_PAGO" />
           <ScalarProperty Name="N_TRANSACCION" ColumnName="N_TRANSACCION" />
         </MappingFragment>

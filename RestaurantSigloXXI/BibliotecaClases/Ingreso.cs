@@ -9,20 +9,19 @@ using BibliotecaDALC;
 //Using BD
 using Oracle.ManagedDataAccess.Client;
 
+
 namespace BibliotecaNegocio
 {
-    public class Egreso
+    public class Ingreso
     {
-        public int id_egreso { get; set; }
+        public int id_ingreso { get; set; }
         public string fecha { get; set; }
         public string hora { get; set; }
-        public string estado { get; set; }
         public string monto { get; set; }
-        public string pedido { get; set; }
 
-        public Egreso()
+        public Ingreso()
         {
-
+                
         }
 
         [NonSerialized]
@@ -33,7 +32,7 @@ namespace BibliotecaNegocio
         public DaoErrores retornar() { return err; }
 
         //------------Listar egresos
-        public List<Egreso> Listar( DateTime desde, DateTime hasta)
+        public List<Ingreso> Listar(DateTime desde, DateTime hasta)
         {
             try
             {
@@ -43,17 +42,17 @@ namespace BibliotecaNegocio
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
                 //Lista de clientes
-                List<Egreso> lista = new List<Egreso>();
+                List<Ingreso> lista = new List<Ingreso>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 //conexion
                 cmd.Connection = conn;
                 //procedimiento
-                cmd.CommandText = "SP_EGRESO";
+                cmd.CommandText = "SP_INGRESO";
                 cmd.Parameters.Add(new OracleParameter("P_FECHA_DESDE", OracleDbType.Date)).Value = desde;
                 cmd.Parameters.Add(new OracleParameter("P_FECHA_HASTA", OracleDbType.Date)).Value = hasta;
                 //Se agrega el parámetro de salida
-                cmd.Parameters.Add(new OracleParameter("EGRESOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters.Add(new OracleParameter("INGRESOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion
                 conn.Open();
                 //se crea un reader
@@ -62,15 +61,13 @@ namespace BibliotecaNegocio
 
                 while (reader.Read())
                 {
-                    Egreso i = new Egreso();
+                    Ingreso i = new Ingreso();
 
                     //se obtiene el valor con getvalue es lo mismo pero con get
-                    i.id_egreso = int.Parse(reader[0].ToString());
+                    i.id_ingreso = int.Parse(reader[0].ToString());
                     i.fecha = reader[1].ToString();
                     i.hora = reader[2].ToString();
-                    i.estado = reader[3].ToString();
-                    i.monto = "$ " + reader[4].ToString();
-                    i.pedido = reader[5].ToString();
+                    i.monto = "$ " + reader[3].ToString();
 
                     lista.Add(i);
                     contador = 1;
@@ -105,13 +102,13 @@ namespace BibliotecaNegocio
                 //Se instancia la conexión a la BD
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
-                OracleCommand cmd = new OracleCommand();
+                OracleCommand cmd = new OracleCommand();                
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 //conexion
                 cmd.Connection = conn;
                 //procedimiento
-                cmd.CommandText = "SP_EGRESO_TOTAL";
+                cmd.CommandText = "SP_INGRESO_TOTAL";
                 cmd.Parameters.Add(new OracleParameter("P_FECHA_DESDE", OracleDbType.Date)).Value = desde;
                 cmd.Parameters.Add(new OracleParameter("P_FECHA_HASTA", OracleDbType.Date)).Value = hasta;
                 //Se agrega el parámetro de salida
@@ -138,5 +135,6 @@ namespace BibliotecaNegocio
 
             }
         }
+
     }
 }

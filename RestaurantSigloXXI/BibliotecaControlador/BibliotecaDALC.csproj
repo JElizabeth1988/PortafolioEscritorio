@@ -100,13 +100,16 @@
     <Compile Include="DETALLE_PEDIDO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="EGRESO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="EMPLEADO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="ENTIDAD_BANCARIA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="INGRESOS.cs">
+    <Compile Include="INGRESO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="LOGIN.cs">

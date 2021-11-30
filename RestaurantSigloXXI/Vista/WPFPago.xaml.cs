@@ -46,11 +46,6 @@ namespace Vista
         }
         //----------------------------------------
 
-        
-
-        //Instanciar BD
-        OracleConnection conn = null;
-
         Pago pag = new Pago();
         Boleta bo = new Boleta();
 
@@ -61,7 +56,6 @@ namespace Vista
             txtDcto.Text = "0";
             txtPagado.Text = "0";
             txtTotal.Focus();
-            btnModificar.Visibility = Visibility.Hidden;
             btnGuardar.Visibility = Visibility.Visible;
             btnBoleta.Visibility = Visibility.Hidden;
 
@@ -141,7 +135,6 @@ namespace Vista
             txtTotal.Clear();
             txtPedido.Clear();
 
-            btnModificar.Visibility = Visibility.Hidden;
             btnGuardar.Visibility = Visibility.Visible;
             btnBoleta.Visibility = Visibility.Hidden;
 
@@ -246,31 +239,39 @@ namespace Vista
         {
             try
             {
-                int valor = int.Parse(txtTotal.Text);
-                int efectivo = int.Parse(txtPagado.Text);
-                int dcto = int.Parse(txtDcto.Text);
-                string rut = txtRut.Text;
-                int pedido = int.Parse(txtPedido.Text);
-
-                Pago p = new Pago()
+                if (int.Parse(txtVuelto.Text) >= 0)
                 {
-                    valor_pago = valor,
-                    monto_pagado = efectivo,
-                    descuento = dcto,
-                    rut_cliente = rut,
-                    id_pedido = pedido
-                };
+                    int valor = int.Parse(txtTotal.Text);
+                    int efectivo = int.Parse(txtPagado.Text);
+                    int dcto = int.Parse(txtDcto.Text);
+                    string rut = txtRut.Text;
+                    int pedido = int.Parse(txtPedido.Text);
 
-                pag.Agregar(p);
-                bool resp = pag.Agregar(p);
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format(resp ? "Guardado" : "No Guardado"));
-                if (resp == true)
-                {
-                    btnBoleta.Visibility = Visibility.Visible;
-                    btnGuardar.Visibility = Visibility.Hidden;
-                    NotificationCenter.Notify("agregado");
+                    Pago p = new Pago()
+                    {
+                        valor_pago = valor,
+                        monto_pagado = efectivo,
+                        descuento = dcto,
+                        rut_cliente = rut,
+                        id_pedido = pedido
+                    };
+
+                    bool resp = pag.Agregar(p);
+                    await this.ShowMessageAsync("Mensaje:",
+                          string.Format(resp ? "Guardado" : "No Guardado"));
+                    if (resp == true)
+                    {
+                        btnBoleta.Visibility = Visibility.Visible;
+                        btnGuardar.Visibility = Visibility.Hidden;
+                        NotificationCenter.Notify("agregado");
+                    }
                 }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                      string.Format("El monto pagado no puede ser menor al total"));
+                }
+                
 
             }
             catch (Exception ex)

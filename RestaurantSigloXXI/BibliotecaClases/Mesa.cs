@@ -120,8 +120,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
+                Logger.Mensaje(ex.Message);
                 return false;
-                Logger.Mensaje(ex.Message);               
+                               
 
             }
         }
@@ -159,8 +160,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
+                Logger.Mensaje(ex.Message);
                 return false;
-                Logger.Mensaje(ex.Message);                
+                              
             }
         }       
 
@@ -192,8 +194,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
+                Logger.Mensaje(ex.Message);
                 return false;
-                Logger.Mensaje(ex.Message);               
+                            
 
             }
         }
@@ -246,8 +249,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;
+                
             }
         }
         //---Para asignación de mesa para que se vea el orden de la signacion presencial primero
@@ -297,8 +301,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;
+               
             }
         }
         //-----------------------------------------------------------------
@@ -359,8 +364,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;
+                
                 
 
             }
@@ -423,8 +429,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;
+               
                 
 
             }
@@ -502,8 +509,9 @@ namespace BibliotecaNegocio
                 catch (Exception ex)
                 {
                     conn.Close();
-                    return null;
                     Logger.Mensaje(ex.Message);
+                    return null;
+                   
                 }
             }
         }

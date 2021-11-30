@@ -46,8 +46,7 @@ namespace Vista
             return _instancia;
         }
         //----------------------------------------
-        //Instanciar BD
-        OracleConnection conn = null;
+
         //Traer clase producto
         Producto prod = new Producto();
         Bebida Beb = new Bebida();

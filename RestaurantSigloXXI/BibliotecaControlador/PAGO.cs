@@ -21,6 +21,8 @@ namespace BibliotecaDALC
     
         public int N_TRANSACCION { get; set; }
         public int VALOR_PAGO { get; set; }
+        public Nullable<int> MONTO_PAGADO { get; set; }
+        public Nullable<int> VUELTO { get; set; }
         public string ESTADO_PAGO { get; set; }
         public Nullable<int> DESCUENTO { get; set; }
         public int ID_METODO_PAGO { get; set; }

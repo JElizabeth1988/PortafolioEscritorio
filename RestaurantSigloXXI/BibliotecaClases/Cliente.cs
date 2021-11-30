@@ -307,8 +307,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return false;
                 Logger.Mensaje(ex.Message);
+                return false;
+                
 
             }
         }
@@ -363,8 +364,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;
+                
             }
         }
 
@@ -426,8 +428,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;
+                
                 
             }
             
@@ -475,8 +478,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return false;
                 Logger.Mensaje(ex.Message);
+                return false;
+                
 
             }
         }
@@ -521,8 +525,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return false;
                 Logger.Mensaje(ex.Message);
+                return false;
+                
             }
         }
         
@@ -580,8 +585,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;
+               
             }
         }
 
@@ -646,8 +652,9 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 conn.Close();
-                return null;
                 Logger.Mensaje(ex.Message);
+                return null;
+                
 
             }
 

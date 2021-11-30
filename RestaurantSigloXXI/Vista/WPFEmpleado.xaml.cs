@@ -49,8 +49,6 @@ namespace Vista
 
         //Hilo para cache
         Thread hilo = null;
-        //Instanciar BD
-        OracleConnection conn = null;
         //Traer clase empleado
         Empleado emp = new Empleado();
 
@@ -297,8 +295,9 @@ namespace Vista
             }
             catch (Exception ex)
             {
+                Logger.Mensaje(ex.Message);
                 return null;
-                MessageBox.Show("error metodo");
+                
             }
 
         }
@@ -357,8 +356,9 @@ namespace Vista
             }
             catch (Exception ex)
             {
+                Logger.Mensaje(ex.Message);
                 return null;
-                MessageBox.Show("error metodo");
+                
             }
 
 

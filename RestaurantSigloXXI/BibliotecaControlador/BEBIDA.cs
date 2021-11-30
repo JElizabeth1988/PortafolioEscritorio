@@ -22,7 +22,7 @@ namespace BibliotecaDALC
         public int ID_BEBIDA { get; set; }
         public string NOM_BEBIDA { get; set; }
         public int ML_BEBIDA { get; set; }
-        public decimal VALOR_BEBIDA { get; set; }
+        public int VALOR_BEBIDA { get; set; }
         public int STOCK { get; set; }
         public int ID_TIPO { get; set; }
     

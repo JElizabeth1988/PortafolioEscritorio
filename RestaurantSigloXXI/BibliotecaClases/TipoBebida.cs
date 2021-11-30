@@ -19,9 +19,6 @@ namespace BibliotecaNegocio
         public string nombre { get; set; }
 
         [NonSerialized]
-        //Crear objeto de la Bdd
-        OracleConnection conn = null;
-
         //Crear objeto de la Bdd modelo
         private RSXXI_Entities bdd = new RSXXI_Entities();
 
@@ -41,7 +38,7 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
+                Logger.Mensaje(ex.Message);
                 return false;
             }
         }
@@ -64,7 +61,7 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
+                Logger.Mensaje(ex.Message);
                 return null;
             }
         }

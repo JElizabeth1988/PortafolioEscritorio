@@ -45,8 +45,6 @@ namespace Vista
             return _instancia;
         }
         //----------------------------------------
-        //Instanciar la conexión
-        OracleConnection conn = null;
 
         public WPFVerPedidosListos()
         {

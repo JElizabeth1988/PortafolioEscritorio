@@ -12,15 +12,11 @@ namespace BibliotecaDALC
     using System;
     using System.Collections.Generic;
     
-    public partial class ARTICULO
+    public partial class INGRESO
     {
-        public int ID { get; set; }
-        public string NOMBRE { get; set; }
-        public int VALOR { get; set; }
-        public int CANTIDAD { get; set; }
-        public int TOTAL { get; set; }
-        public string ID_PEDIDO { get; set; }
-    
-        public virtual PEDIDO_PROVEEDOR PEDIDO_PROVEEDOR { get; set; }
+        public int ID_INGRESO { get; set; }
+        public System.DateTime FECHA { get; set; }
+        public string HORA { get; set; }
+        public int MONTO { get; set; }
     }
 }

@@ -17,15 +17,17 @@ namespace BibliotecaDALC
         public PEDIDO_PROVEEDOR()
         {
             this.ARTICULO = new HashSet<ARTICULO>();
+            this.EGRESO = new HashSet<EGRESO>();
         }
     
-        public int ID_PEDIDO { get; set; }
+        public string ID_PEDIDO { get; set; }
         public System.DateTime FECHA_PEDIDO { get; set; }
         public string ESTADO { get; set; }
         public Nullable<int> TOTAL { get; set; }
         public Nullable<int> ID_PROVEEDOR { get; set; }
     
         public virtual ICollection<ARTICULO> ARTICULO { get; set; }
+        public virtual ICollection<EGRESO> EGRESO { get; set; }
         public virtual PROVEEDOR PROVEEDOR { get; set; }
     }
 }

@@ -130,7 +130,7 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
+                Logger.Mensaje(ex.Message);
                 return false;
             }
         }
@@ -153,7 +153,7 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
+                Logger.Mensaje(ex.Message);
                 return null;
             }
         }

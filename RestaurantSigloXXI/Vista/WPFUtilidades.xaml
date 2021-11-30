@@ -1,0 +1,74 @@
+﻿<Controls:MetroWindow x:Class="Vista.WPFUtilidades"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:Vista"
+        mc:Ignorable="d"
+        BorderThickness="2" BorderBrush="Black"
+        Title="Visualizar Utilidades" Height="625.312" Width="874.984" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/LogoFinal2 .png" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" Closing="MetroWindow_Closing" >
+    <Grid HorizontalAlignment="Left" Height="594" VerticalAlignment="Top" Width="874" Margin="0,0,-5.333,-0.667">
+        <Image x:Name="image" Height="610" VerticalAlignment="Top" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-21,-16" HorizontalAlignment="Left" Width="895"/>
+        <GroupBox x:Name="groupBox_Copy" Header="VISUALIZAR INGRESOS" Margin="49,12,471,0" VerticalAlignment="Top" Height="536" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+            <Grid HorizontalAlignment="Left" Height="505" VerticalAlignment="Top" Width="354" Margin="0,-2,-10,-1.667" Background="{x:Null}">
+
+                <DataGrid x:Name="dgListaIng" ColumnWidth="*" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Height="332" Width="320" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgListaIng_LoadingRow"  >
+
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FFFAA575" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <DatePicker x:Name="dpHastaI"  HorizontalAlignment="Left" Margin="83,75,0,0" VerticalAlignment="Top" Text="Fecha Desde" ToolTip="Seleccione Fecha Desde"/>
+                <DatePicker x:Name="dpDesdeI"  HorizontalAlignment="Left" Margin="83,41,0,0" VerticalAlignment="Top" Text="Fecha Desde" ToolTip="Seleccione Fecha Hasta"/>
+                <Label x:Name="label_Copy" Content="Desde:" HorizontalAlignment="Left" Margin="8,41,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label_Copy1" Content="Hasta:" HorizontalAlignment="Left" Margin="8,75,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label" Content="Seleccione un Periodo:" HorizontalAlignment="Left" Margin="83,0,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btnFiltrarIn" ToolTip="Filtrar Periodo" Content="Filtrar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnFiltroIngreso_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="252,41,0,0"/>
+                <Label x:Name="label_Copy4" Content="Total del Periodo:" HorizontalAlignment="Left" Margin="10,453,0,24"/>
+                <Label x:Name="lblIngresos" Content="-" HorizontalAlignment="Left" Margin="132,453,0,23"/>
+                <Button x:Name="btnCalcIng" ToolTip="Calcular Total de Ingresos" Content="Calcular" HorizontalAlignment="Left" Width="78"  FontWeight="Normal" Click="btnCalcIngreso_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="252,453,0,24"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox_Copy1" Header="VISUALIZAR EGRESOS" Margin="408,12,59,0" VerticalAlignment="Top" Height="536" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
+            <Grid HorizontalAlignment="Left" Height="505" VerticalAlignment="Top" Width="398" Margin="0,-2,0,-1.667" Background="{x:Null}">
+
+                <DataGrid x:Name="dgListaEgr" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Height="334" Width="370" FontWeight="Normal" BorderBrush="#FFCB5F21" Foreground="Black" LoadingRow="dgListaEgr_LoadingRow"  >
+
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FFFAA575" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <DatePicker x:Name="dpHastaE"  HorizontalAlignment="Left" Margin="103,75,0,0" VerticalAlignment="Top" Text="Fecha Desde" ToolTip="Seleccione Fecha Desde"/>
+                <DatePicker x:Name="dpDesdeE"  HorizontalAlignment="Left" Margin="103,41,0,0" VerticalAlignment="Top" Text="Fecha Desde" ToolTip="Seleccione Fecha Hasta"/>
+                <Label x:Name="label_Copy2" Content="Desde:" HorizontalAlignment="Left" Margin="28,41,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label_Copy3" Content="Hasta:" HorizontalAlignment="Left" Margin="28,75,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label1" Content="Seleccione un Periodo:" HorizontalAlignment="Left" Margin="103,0,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btnFiltrarEgr" ToolTip="Filtrar Periodo" Content="Filtrar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="78"  FontWeight="Normal" Click="btnFiltroEgreso_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="282,41,0,0"/>
+                <Label x:Name="label_Copy5" Content="Total del Periodo:" HorizontalAlignment="Left" Margin="10,453,0,24"/>
+                <Label x:Name="lblEgresos" Content="-" HorizontalAlignment="Left" Margin="135,453,0,23"/>
+                <Button x:Name="btnCalcEgre" ToolTip="Calcular Total de Egresos" Content="Calcular" HorizontalAlignment="Left" Width="78"  FontWeight="Normal" Click="btnCalcEgreso_Click" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Margin="302,452,0,24"/>
+
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Controls:MetroWindow>

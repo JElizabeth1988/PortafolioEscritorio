@@ -75,7 +75,7 @@ namespace Vista
 
         private void Boleta_Click(object sender, RoutedEventArgs e)
         {
-
+            WPFUtilidades.ObtenerinstanciaUTI().ShowDialog();
         }
 
         private void Solicitud_Click(object sender, RoutedEventArgs e)

@@ -52,7 +52,7 @@ namespace Vista
         }
         //----------------------------------------
 
-        OracleConnection conn = null;
+
         public WPFListadoEmpleado()
         {
             InitializeComponent();

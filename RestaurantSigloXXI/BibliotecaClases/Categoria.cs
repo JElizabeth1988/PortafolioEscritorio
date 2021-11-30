@@ -22,14 +22,7 @@ namespace BibliotecaNegocio
         {
 
         }
-
-        [NonSerialized]
-        //Crear objeto de la Bdd
-        OracleConnection conn = null;
-        [NonSerialized]
-        //Capturar Errores
-        DaoErrores err = new DaoErrores();
-        public DaoErrores retornar() { return err; }
+        
 
         //Crear objeto de la Bdd modelo
         [NonSerialized]
@@ -46,7 +39,7 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
+                Logger.Mensaje(ex.Message);
                 return false;
             }
         }
@@ -69,7 +62,7 @@ namespace BibliotecaNegocio
             }
             catch (Exception ex)
             {
-
+                Logger.Mensaje(ex.Message);
                 return null;
             }
         }

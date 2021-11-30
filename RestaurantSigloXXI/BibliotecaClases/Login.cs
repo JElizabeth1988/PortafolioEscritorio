@@ -69,8 +69,6 @@ namespace BibliotecaNegocio
         public string rut_cliente { get; set; }
         public string rut_empleado { get; set; }
 
-        //Crear objeto de la Bdd
-        OracleConnection conn = null;
         
         //Capturar Errores
         DaoErrores err = new DaoErrores();

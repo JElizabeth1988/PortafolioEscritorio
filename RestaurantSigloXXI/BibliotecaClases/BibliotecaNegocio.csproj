@@ -60,6 +60,7 @@
     <Compile Include="Egreso.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Factura.cs" />
+    <Compile Include="Ingreso.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Mesa.cs" />

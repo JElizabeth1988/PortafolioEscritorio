@@ -136,8 +136,8 @@ namespace Vista
             }
             catch (Exception ex)
             {
-
-                throw;
+                Logger.Mensaje(ex.Message);
+                
             }
 
         }
