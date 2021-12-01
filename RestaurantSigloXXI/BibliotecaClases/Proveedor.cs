@@ -209,6 +209,7 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
+                err.AgregarError(ex.Message);
                 return false;
             }
             finally

@@ -408,14 +408,10 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-
                 int celular = int.Parse(txtCelular.Text);
-                //int celular = 0;
-
                 int telefono = int.Parse(txtTelefono.Text);
 
                 String user = txtUser.Text;
-                //txtPass.Text = metodopass();
                 string pass = txtPass.Text;
 
                 int tipo = ((comboBoxItemTipoUser)cboTipoUser.SelectedItem).id_tipo_user;//Guardo el id

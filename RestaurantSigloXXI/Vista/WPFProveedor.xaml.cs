@@ -348,6 +348,8 @@ namespace Vista
                     }
                     await this.ShowMessageAsync("Mensaje:",
                         string.Format(li));
+                    
+
                 }
                 else
                 {
@@ -381,8 +383,8 @@ namespace Vista
             try
             {
                 //Rescatar id
-                Proveedor i = (Proveedor)dgLista.SelectedItem;
-                int id = i.id_proveedor;
+                Proveedor.ListaProveedor i = (Proveedor.ListaProveedor)dgLista.SelectedItem;
+                int id = i.Id;
 
                Proveedor proveer = new Proveedor();
 

@@ -10,7 +10,7 @@ namespace TESTProyecto
 {
     class AgregarNuevaMesa
     {
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
 
             Mesa me = new Mesa();
@@ -40,7 +40,7 @@ namespace TESTProyecto
             Console.WriteLine(result);
             Console.ReadKey();
 
-        }
+        }*/
 
     }
 }

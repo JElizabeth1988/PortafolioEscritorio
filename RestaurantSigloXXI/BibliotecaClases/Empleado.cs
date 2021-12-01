@@ -101,7 +101,7 @@ namespace BibliotecaNegocio
             get { return _celular; }
             set
             {
-                if (value < 900000000 && value > 1000000000)
+                if (value > 900000000 && value < 1000000000)
                 {
                     _celular = value;
                 }

@@ -388,9 +388,13 @@ namespace Vista
                     //Procedimiento para convertir imagen a byte
 
                     FileStream stream = new FileStream(FileNameLabel.Content.ToString(), FileMode.Open, FileAccess.Read);
+                    //Se inicailiza un flujo de archivo con la imagen seleccionada desde el disco.
                     BinaryReader br = new BinaryReader(stream);
                     FileInfo fi = new FileInfo(FileNameLabel.Content.ToString());
+                    //Se inicializa un arreglo de Bytes del tamaño de la imagen
                     byte[] binData = new byte[stream.Length];
+                    //Se almacena en el arreglo de bytes la informacion que se obtiene del flujo de archivos(foto)
+                    //Lee el bloque de bytes del flujo y escribe los datos en un búfer dado.
                     stream.Read(binData, 0, Convert.ToInt32(stream.Length));
 
                     fotin = binData;

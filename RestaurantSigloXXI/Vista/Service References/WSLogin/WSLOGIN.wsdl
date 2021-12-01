@@ -5,6 +5,24 @@
       <xsd:import schemaLocation="http://localhost:25404/WSSIGLOXXI/WSLOGIN?xsd=1" namespace="http://ws/" />
     </xsd:schema>
   </types>
+  <message name="Sacar_rutCliente">
+    <part name="parameters" element="tns:Sacar_rutCliente" />
+  </message>
+  <message name="Sacar_rutClienteResponse">
+    <part name="parameters" element="tns:Sacar_rutClienteResponse" />
+  </message>
+  <message name="Cliente_activo">
+    <part name="parameters" element="tns:Cliente_activo" />
+  </message>
+  <message name="Cliente_activoResponse">
+    <part name="parameters" element="tns:Cliente_activoResponse" />
+  </message>
+  <message name="Login">
+    <part name="parameters" element="tns:Login" />
+  </message>
+  <message name="LoginResponse">
+    <part name="parameters" element="tns:LoginResponse" />
+  </message>
   <message name="sacarIdPedido">
     <part name="parameters" element="tns:sacarIdPedido" />
   </message>
@@ -17,24 +35,6 @@
   <message name="correoCliResponse">
     <part name="parameters" element="tns:correoCliResponse" />
   </message>
-  <message name="Login">
-    <part name="parameters" element="tns:Login" />
-  </message>
-  <message name="LoginResponse">
-    <part name="parameters" element="tns:LoginResponse" />
-  </message>
-  <message name="Cliente_activo">
-    <part name="parameters" element="tns:Cliente_activo" />
-  </message>
-  <message name="Cliente_activoResponse">
-    <part name="parameters" element="tns:Cliente_activoResponse" />
-  </message>
-  <message name="Sacar_rutCliente">
-    <part name="parameters" element="tns:Sacar_rutCliente" />
-  </message>
-  <message name="Sacar_rutClienteResponse">
-    <part name="parameters" element="tns:Sacar_rutClienteResponse" />
-  </message>
   <message name="nombreCliente">
     <part name="parameters" element="tns:nombreCliente" />
   </message>
@@ -42,6 +42,18 @@
     <part name="parameters" element="tns:nombreClienteResponse" />
   </message>
   <portType name="WSLOGIN">
+    <operation name="Sacar_rutCliente">
+      <input wsam:Action="http://ws/WSLOGIN/Sacar_rutClienteRequest" message="tns:Sacar_rutCliente" />
+      <output wsam:Action="http://ws/WSLOGIN/Sacar_rutClienteResponse" message="tns:Sacar_rutClienteResponse" />
+    </operation>
+    <operation name="Cliente_activo">
+      <input wsam:Action="http://ws/WSLOGIN/Cliente_activoRequest" message="tns:Cliente_activo" />
+      <output wsam:Action="http://ws/WSLOGIN/Cliente_activoResponse" message="tns:Cliente_activoResponse" />
+    </operation>
+    <operation name="Login">
+      <input wsam:Action="http://ws/WSLOGIN/LoginRequest" message="tns:Login" />
+      <output wsam:Action="http://ws/WSLOGIN/LoginResponse" message="tns:LoginResponse" />
+    </operation>
     <operation name="sacarIdPedido">
       <input wsam:Action="http://ws/WSLOGIN/sacarIdPedidoRequest" message="tns:sacarIdPedido" />
       <output wsam:Action="http://ws/WSLOGIN/sacarIdPedidoResponse" message="tns:sacarIdPedidoResponse" />
@@ -50,18 +62,6 @@
       <input wsam:Action="http://ws/WSLOGIN/correoCliRequest" message="tns:correoCli" />
       <output wsam:Action="http://ws/WSLOGIN/correoCliResponse" message="tns:correoCliResponse" />
     </operation>
-    <operation name="Login">
-      <input wsam:Action="http://ws/WSLOGIN/LoginRequest" message="tns:Login" />
-      <output wsam:Action="http://ws/WSLOGIN/LoginResponse" message="tns:LoginResponse" />
-    </operation>
-    <operation name="Cliente_activo">
-      <input wsam:Action="http://ws/WSLOGIN/Cliente_activoRequest" message="tns:Cliente_activo" />
-      <output wsam:Action="http://ws/WSLOGIN/Cliente_activoResponse" message="tns:Cliente_activoResponse" />
-    </operation>
-    <operation name="Sacar_rutCliente">
-      <input wsam:Action="http://ws/WSLOGIN/Sacar_rutClienteRequest" message="tns:Sacar_rutCliente" />
-      <output wsam:Action="http://ws/WSLOGIN/Sacar_rutClienteResponse" message="tns:Sacar_rutClienteResponse" />
-    </operation>
     <operation name="nombreCliente">
       <input wsam:Action="http://ws/WSLOGIN/nombreClienteRequest" message="tns:nombreCliente" />
       <output wsam:Action="http://ws/WSLOGIN/nombreClienteResponse" message="tns:nombreClienteResponse" />
@@ -69,6 +69,33 @@
   </portType>
   <binding name="WSLOGINPortBinding" type="tns:WSLOGIN">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Sacar_rutCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Cliente_activo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Login">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="sacarIdPedido">
       <soap:operation soapAction="" />
       <input>
@@ -79,33 +106,6 @@
       </output>
     </operation>
     <operation name="correoCli">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="Login">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="Cliente_activo">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="Sacar_rutCliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
