@@ -149,7 +149,14 @@ namespace BibliotecaNegocio
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 45)).Value = proveer.nombre;
                 CMD.Parameters.Add(new OracleParameter("P_CORREO", OracleDbType.Varchar2, 100)).Value = proveer.correo;
-                CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = proveer.telefono;
+                if (proveer.telefono != 0 && proveer.telefono > 900000000 && proveer.telefono < 1000000000)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = proveer.telefono;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Celular es Obligatorio y debe tener un largo de 9 dígitos");
+                }
                 CMD.Parameters.Add(new OracleParameter("P_DIRECCION", OracleDbType.Varchar2, 100)).Value = proveer.direccion;
                 CMD.Parameters.Add(new OracleParameter("P_SITIO_WEB", OracleDbType.Varchar2, 100)).Value = proveer.sitio_web;
 
@@ -192,7 +199,15 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = proveer.id_proveedor;
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 45)).Value = proveer.nombre;
                 CMD.Parameters.Add(new OracleParameter("P_CORREO", OracleDbType.Varchar2, 100)).Value = proveer.correo;
-                CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = proveer.telefono;
+                if (proveer.telefono != 0 && proveer.telefono > 900000000 && proveer.telefono < 1000000000)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = proveer.telefono;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Celular es Obligatorio y debe tener un largo de 9 dígitos");
+                }
+                
                 CMD.Parameters.Add(new OracleParameter("P_DIRECCION", OracleDbType.Varchar2, 100)).Value = proveer.direccion;
                 CMD.Parameters.Add(new OracleParameter("P_SITIO_WEB", OracleDbType.Varchar2, 100)).Value = proveer.sitio_web;
 
@@ -209,7 +224,6 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                err.AgregarError(ex.Message);
                 return false;
             }
             finally

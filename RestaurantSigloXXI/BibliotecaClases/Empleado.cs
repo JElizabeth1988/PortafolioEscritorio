@@ -93,8 +93,8 @@ namespace BibliotecaNegocio
             }
         }
 
-        //public int celular_emp { get; set; }
-        private int _celular;
+        public int celular_emp { get; set; }
+        /*private int _celular;
 
         public int celular_emp
         {
@@ -111,7 +111,7 @@ namespace BibliotecaNegocio
                     
                 }
             }
-        }
+        }*/
 
         public int telefono_emp { get; set; }
        
@@ -177,7 +177,15 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 45)).Value = emplea.segundo_nom_emp;
                 CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 45)).Value = emplea.apellido_pat_emp;
                 CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 45)).Value = emplea.apellido_mat_emp;
-                CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = emplea.celular_emp;
+                
+                if (emplea.celular_emp != 0 && emplea.celular_emp > 900000000 && emplea.celular_emp < 1000000000)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = emplea.celular_emp;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Celular es Obligatorio y debe tener un largo de 9 dígitos");
+                }
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = emplea.telefono_emp;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 80)).Value = emplea.correo_emp;
                 CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = login.usuario;
@@ -226,7 +234,14 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 45)).Value = emp.segundo_nom_emp;
                 CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 45)).Value = emp.apellido_pat_emp;
                 CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 45)).Value = emp.apellido_mat_emp;
-                CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = emp.celular_emp;
+                if (emp.celular_emp != 0 && emp.celular_emp > 900000000 && emp.celular_emp < 1000000000)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = emp.celular_emp;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Celular es Obligatorio y debe tener un largo de 9 dígitos");
+                }
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = emp.telefono_emp;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 80)).Value = emp.correo_emp;
                 CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = login.usuario;
