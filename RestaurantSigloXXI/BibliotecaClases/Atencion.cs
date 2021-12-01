@@ -15,6 +15,7 @@ namespace BibliotecaNegocio
     {
         public int id { get; set; }
         public string rut_cliente { get; set; }
+
         public int mesa { get; set; }
         public string estado { get; set; }
         public string fecha { get; set; }
@@ -61,9 +62,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return false;
-                
-
+                return false;               
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -99,8 +102,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
         //--Buscar x mesa
@@ -162,8 +167,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
         //Asignar mesa
@@ -198,8 +205,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -262,8 +271,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

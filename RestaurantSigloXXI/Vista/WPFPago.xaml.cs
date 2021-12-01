@@ -212,12 +212,12 @@ namespace Vista
                 if (bo != null)//Si la lista no esta vacía entrego parámetros a los labels
                 {
                     lblNumero.Content = bo.numero;
-                    lblFecha.Content = bo.Fecha;
+                    lblFecha.Content = bo.fecha;
                     lblHora.Content = bo.hora;
                     lblPropina.Content = bo.propina;
                     lblIva.Content = bo.iva;
-                    lblTotal.Content = bo.Total;
-                    lblSubTotal.Content = bo.Subtotal;
+                    lblTotal.Content = bo.total;
+                    lblSubTotal.Content = bo.subtotal;
                     lblDcto.Content = bo.dcto;
                     lblMonto.Content = bo.efectivo;
                     lblVuelto.Content = bo.vuelto;

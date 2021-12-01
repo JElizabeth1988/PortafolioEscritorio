@@ -42,7 +42,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista 
                 List<Egreso> lista = new List<Egreso>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -59,11 +59,9 @@ namespace BibliotecaNegocio
                 //se crea un reader
                 OracleDataReader reader = cmd.ExecuteReader();
                 //mientras lea
-
                 while (reader.Read())
                 {
                     Egreso i = new Egreso();
-
                     //se obtiene el valor con getvalue es lo mismo pero con get
                     i.id_egreso = int.Parse(reader[0].ToString());
                     i.fecha = reader[1].ToString();
@@ -95,6 +93,10 @@ namespace BibliotecaNegocio
                 return null;
 
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public int Total(DateTime desde, DateTime hasta)
@@ -120,14 +122,12 @@ namespace BibliotecaNegocio
                 conn.Open();
                 //se ejecuta la query
                 cmd.ExecuteNonQuery();
-                //tipo_user = Convert.ToInt32(CMD.Parameters["P_TIPO"].Value); --->Dio error
                 //Se le entrega el resultado a la variable que es el resultado del procedure parseado
                 total = int.Parse(cmd.Parameters["P_TOTAL"].Value.ToString());
 
                 //Cerrar conexión
                 conn.Close();
                 return total;
-
 
             }
             catch (Exception ex)
@@ -136,6 +136,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return 0;
 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

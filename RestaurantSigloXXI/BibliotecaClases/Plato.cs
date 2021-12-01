@@ -139,6 +139,10 @@ namespace BibliotecaNegocio
                 return false;               
 
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //------------Método Actualizar------------------------------------------
@@ -181,52 +185,13 @@ namespace BibliotecaNegocio
                 return false;
                 
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        //------------------Método Buscar--------------
-        /*  public async void Buscar(int num)
-          {
-              try
-              {
-                  //Instanciar la conexión
-                  conn = new Conexion().Getcone();
-                  OracleCommand CMD = new OracleCommand();
-                  CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                  List<Mesa> mes = new List<Mesa>();
-                  //nombre de la conexion
-                  CMD.Connection = conn;
-                  //nombre del procedimeinto almacenado
-                  CMD.CommandText = "SP_BUSCAR_MESA";
-                  //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// 
-                  CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = num;
-                  CMD.Parameters.Add(new OracleParameter("MESAS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-
-                  //se abre la conexion
-                  conn.Open();
-                  OracleDataReader reader = CMD.ExecuteReader();
-                  Mesa c = null;
-                  while (reader.Read())//Mientras lee
-                  {
-                      c = new Mesa();
-
-                      num = int.Parse(reader[0].ToString());                    
-                      capacidad_persona = int.Parse(reader[1].ToString());
-                      disponibilidad = reader[2].ToString();
-                      rut_empleado = reader[3].ToString();
-
-                      mes.Add(c);
-
-                  }
-                  //Cerrar conexión
-                  conn.Close();
-
-              }
-              catch (Exception ex)
-              {
-                  Logger.Mensaje(ex.Message);
-                  conn.Close();
-              }
-          }*/
+        
 
         //---------Método Eliminar-----------------------------------------------
         public bool Eliminar(int num) //Recibe rut pot parametro
@@ -258,8 +223,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -273,7 +240,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista 
                 List<ListaPlato> lista = new List<ListaPlato>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -315,8 +282,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;
-                
+                return null;               
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -330,7 +300,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista 
                 List<ListaPlato> lista = new List<ListaPlato>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -382,6 +352,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return null;
                 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -436,6 +410,10 @@ namespace BibliotecaNegocio
                 return null;
 
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //------------Método Actualizar Stock ------------------------------------------
@@ -470,8 +448,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-               
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

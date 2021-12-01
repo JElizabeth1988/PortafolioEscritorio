@@ -328,15 +328,7 @@ namespace Vista
                 txtHora.Text = hori;
             }
             txtMinuto.Text = "00";
-           /* string minu = DateTime.Now.Minute.ToString();//Minuto
-            if (minu.Length < 2)
-            {
-                txtMinuto.Text = "0" + minu;
-            }
-            else
-            {
-                txtMinuto.Text = minu;
-            }*/
+           
             rbSi.IsChecked = true;
             RbNo.IsChecked = false;
             cboMesa.SelectedIndex = 0;

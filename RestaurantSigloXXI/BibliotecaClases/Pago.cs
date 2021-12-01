@@ -14,15 +14,105 @@ namespace BibliotecaNegocio
     [Serializable]
     public class Pago
     {
-        public int n_transaccion { get; set; }
-        public int valor_pago { get; set; }
+        private int _n_transaccion { get; set; }
+        public int n_transaccion
+        {
+            get { return _n_transaccion; }
+            set
+            {
+                if (value >0)
+                {
+                    _n_transaccion = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo N° de Transacción es Obligatorio");
+                }
+            }
+        }
+        private int _valor_pago { get; set; }
+        public int valor_pago
+        {
+            get { return _valor_pago; }
+            set
+            {
+                if (value >0)
+                {
+                    _valor_pago = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Valor de Pago es Obligatorio");
+                }
+            }
+        }
         public int monto_pagado { get; set; }
         public int vuelto { get; set; }
-        public string estado_pago { get; set; }
+        private string _estado_pago { get; set; }
+        public string estado_pago
+        {
+            get { return _estado_pago; }
+            set
+            {
+                if (value != null)
+                {
+                    _estado_pago = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Estado es Obligatorio");
+                }
+            }
+        }
         public int descuento { get; set; }
-        public int id_metodo_pago { get; set; }
-        public string rut_cliente { get; set; }
-        public int id_pedido { get; set; }
+        private int _id_metodo_pago { get; set; }
+        public int id_metodo_pago
+        {
+            get { return _id_metodo_pago; }
+            set
+            {
+                if (value >0)
+                {
+                    _id_metodo_pago = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Id Método de Pago es Obligatorio");
+                }
+            }
+        }
+        private string _rut_cliente { get; set; }
+        public string rut_cliente
+        {
+            get { return _rut_cliente; }
+            set
+            {
+                if (value != null)
+                {
+                    _rut_cliente = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Rut de Cliente es Obligatorio");
+                }
+            }
+        }
+        private int _id_pedido { get; set; }
+        public int id_pedido
+        {
+            get { return _id_pedido; }
+            set
+            {
+                if (value >0)
+                {
+                    _id_pedido = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Id Pedido es Obligatorio");
+                }
+            }
+        }
 
         public Pago()
         {
@@ -73,47 +163,11 @@ namespace BibliotecaNegocio
                 return false;                
 
             }
-        }
-
-        //------------Método Actualizar------------------------------------------
-      /*  public bool Actualizar(Pago paguin)
-        {
-            try
-            {
-                //Instanciar la conexión
-                conn = new Conexion().Getcone();
-
-                OracleCommand CMD = new OracleCommand();
-                CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                //nombre de la conexion
-                CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_ACTUALIZAR_CLIENTE";
-                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
-                CMD.Parameters.Add(new OracleParameter("P_RUT_CLIENTE", OracleDbType.Varchar2, 12)).Value = paguin.rut_cliente;
-                CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 45)).Value = paguin.primer_nom_cli;
-                CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 45)).Value = paguin.segundo_nom_cli;
-                CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 45)).Value = paguin.ap_paterno_cli;
-                CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 45)).Value = paguin.ap_materno_cli;
-                CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = paguin.celular_cli;
-                CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = paguin.telefono_cli;
-                CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 100)).Value = paguin.correo_cli;
-
-                //Se abre la conexión
-                conn.Open();
-                //se ejecuta la query
-                CMD.ExecuteNonQuery();
-                //se cierra la conexioin
-                conn.Close();
-                //Retorno
-                return true;
-            }
-            catch (Exception ex)
+            finally
             {
                 conn.Close();
-                return false;
             }
-        }*/
+        }     
 
         //------------Listar pedido
         public List<ListaPedido> Listar()
@@ -124,7 +178,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista 
                 List<ListaPedido> lista = new List<ListaPedido>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -169,10 +223,11 @@ namespace BibliotecaNegocio
                 return null;
 
             }
+            finally
+            {
+                conn.Close();
+            }
         }
-
-        
-
 
         public class ListaPedido
         {

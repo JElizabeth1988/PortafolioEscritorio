@@ -14,11 +14,91 @@ namespace BibliotecaNegocio
     public class Articulo
     {
         public int id { get; set; }
-        public string nombre { get; set; }
-        public int valor { get; set; }
-        public int cantidad { get; set; }
-        public int total { get; set; }
-        public string id_pedido { get; set; }
+        private string _nombre { get; set; }
+        public string nombre
+        {
+            get { return _nombre; }
+            set
+            {
+                if (value != null)
+                {
+                    _nombre = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Nombre es Obligatorio");
+                }
+
+            }
+        }
+        private int _valor { get; set; }
+        public int valor
+        {
+            get { return _valor; }
+            set
+            {
+                if (value > 0)
+                {
+                    _valor = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Valor es Obligatorio");
+                }
+
+            }
+        }
+
+        private int _cantidad { get; set; }
+        public int cantidad
+        {
+            get { return _cantidad; }
+            set
+            {
+                if (value > 0)
+                {
+                    _cantidad = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Cantidad es Obligatorio");
+                }
+
+            }
+        }
+        private int _total { get; set; }
+        public int total
+        {
+            get { return _total; }
+            set
+            {
+                if (value > 0)
+                {
+                    _total = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Total es Obligatorio");
+                }
+
+            }
+        }
+        private string _id_pedido { get; set; }
+        public string id_pedido
+        {
+            get { return _id_pedido; }
+            set
+            {
+                if (value != null)
+                {
+                    _id_pedido = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Id Pedido es Obligatorio");
+                }
+            }
+        }
 
         public Articulo()
         {
@@ -29,6 +109,10 @@ namespace BibliotecaNegocio
         [NonSerialized]
         //Crear objeto de la Bdd
         OracleConnection conn = null;
+        [NonSerialized]
+        //Capturar Errores
+        DaoErrores err = new DaoErrores();
+        public DaoErrores retornar() { return err; }
 
         public bool Agregar(Articulo temp)
         {
@@ -67,6 +151,10 @@ namespace BibliotecaNegocio
                 return false;
 
             }
+            finally
+            {
+                conn.Close();
+            }
 
         }
 
@@ -79,7 +167,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista
                 List<ListaArticulos> lista = new List<ListaArticulos>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -110,6 +198,7 @@ namespace BibliotecaNegocio
                 }
                 //Cerrar la conexión
                 conn.Close();
+                //Retorno
                 return lista;
 
             }
@@ -118,9 +207,11 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
-
             }
-
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //---------Método Eliminar-----------------------------------------------
@@ -146,14 +237,18 @@ namespace BibliotecaNegocio
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
+                //Retorno
                 return true;
             }
             catch (Exception ex)
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return false;               
-
+                return false;             
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -189,15 +284,18 @@ namespace BibliotecaNegocio
 
                 //Cerrar conexión
                 conn.Close();
+                //Retorno
                 return total;
-
             }
             catch (Exception ex)
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);                
-                return 0;
-                
+                return 0;                
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

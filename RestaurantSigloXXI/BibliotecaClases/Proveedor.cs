@@ -166,9 +166,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return false;
-                
-
+                return false;              
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -209,6 +211,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return false;
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
        
@@ -242,13 +248,15 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return false;
-               
-
+                return false;              
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
-        //------------Listar Clientes-------------
+        //------------Listar -------------
         //Llamo a la lista creada más abajo, porque trae nombres en vez de id y porque las variables se ven mejor en la grilla
         public List<ListaProveedor> Listar()
         {
@@ -259,7 +267,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista 
                 List<ListaProveedor> lista = new List<ListaProveedor>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -300,6 +308,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return null;
                 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

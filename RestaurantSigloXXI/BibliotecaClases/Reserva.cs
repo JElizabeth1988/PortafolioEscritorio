@@ -11,14 +11,143 @@ namespace BibliotecaNegocio
 {
     public class Reserva
     {
-        public int id_reserva { get; set; }
-        public DateTime fecha_reserva { get; set; }
-        public string hora_reserva { get; set; }
-        public int cantidad_personas { get; set; }
+        private int _id_reserva { get; set; }
+        public int id_reserva
+        {
+            get { return _id_reserva; }
+            set
+            {
+                if (value > 0)
+                {
+                    _id_reserva = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Id es Obligatorio");
+                }
+
+            }
+        }
+        private DateTime _fecha_reserva { get; set; }
+        public DateTime fecha_reserva
+        {
+            get { return _fecha_reserva; }
+            set
+            {
+                if (value != null)
+                {
+                    _fecha_reserva = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Fecha es Obligatorio");
+                }
+
+            }
+        }
+        private string _hora_reserva { get; set; }
+        public string hora_reserva
+        {
+            get { return _hora_reserva; }
+            set
+            {
+                if (value != null)
+                {
+                    _hora_reserva = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Hora es Obligatorio");
+                }
+
+            }
+        }
+        private int _cantidad_personas { get; set; }
+        public int cantidad_personas
+        {
+            get { return _cantidad_personas; }
+            set
+            {
+                if (value > 0)
+                {
+                    _cantidad_personas = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Cantidad de Personas es Obligatorio");
+                }
+
+            }
+        }
         public string observaciones { get; set; }
-        public string estado_reserva { get; set; }
-        public string rut_cliente { get; set; }
-        public int id_agenda { get; set; }
+        private string _estado_reserva { get; set; }
+        public string estado_reserva
+        {
+            get { return _estado_reserva; }
+            set
+            {
+                if (value != null)
+                {
+                    _estado_reserva = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Estado es Obligatorio");
+                }
+
+            }
+        }
+        private string _rut_cliente { get; set; }
+        public string rut_cliente
+        {
+            get { return _rut_cliente; }
+            set
+            {
+                if (value != null)
+                {
+                    _rut_cliente = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Rut de Cliente es Obligatorio");
+                }
+
+            }
+        }
+        private int _id_agenda { get; set; }
+        public int id_agenda
+        {
+            get { return _id_agenda; }
+            set
+            {
+                if (value > 0)
+                {
+                    _id_agenda = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Agenda es Obligatorio");
+                }
+
+            }
+        }
+        private int _id_abono_reserva { get; set; }
+        public int id_abono_reserva
+        {
+            get { return _id_abono_reserva; }
+            set
+            {
+                if (value > 0)
+                {
+                    _id_abono_reserva = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Abono es Obligatorio");
+                }
+
+            }
+        }
 
         public Reserva()
         {
@@ -27,6 +156,10 @@ namespace BibliotecaNegocio
         
         //Conexión BD
         OracleConnection conn = null;
+        [NonSerialized]
+        //Capturar Errores
+        DaoErrores err = new DaoErrores();
+        public DaoErrores retornar() { return err; }
 
         //*********************************************************
         //----Listar reserva x codigo
@@ -93,9 +226,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;
-                
-
+                return null;                
+            }
+            finally
+            {
+                conn.Close();
             }
         }
         //------Listar x rut
@@ -160,9 +295,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;
-                
-
+                return null;                
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -227,9 +364,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;
-                
-
+                return null;                
+            }
+            finally
+            {
+                conn.Close();
             }
         }
         //--Lista-------------------------

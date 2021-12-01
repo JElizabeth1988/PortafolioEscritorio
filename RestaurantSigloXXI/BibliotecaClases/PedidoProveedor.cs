@@ -13,8 +13,38 @@ namespace BibliotecaNegocio
 {
     public class PedidoProveedor
     {
-        public string id_pedido { get; set; }
-        public DateTime fecha_pedido { get; set; }
+        private string _id_pedido { get; set; }
+        public string id_pedido
+        {
+            get { return _id_pedido; }
+            set
+            {
+                if (value != null)
+                {
+                    _id_pedido = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Id Pedido es Obligatorio");
+                }
+            }
+        }
+        private DateTime _fecha_pedido { get; set; }
+        public DateTime fecha_pedido
+        {
+            get { return _fecha_pedido; }
+            set
+            {
+                if (value != null)
+                {
+                    _fecha_pedido = value;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Fecha es Obligatorio");
+                }
+            }
+        }
         public string estado { get; set; }
         public int total { get; set; }
         public int id_proveedor { get; set; }
@@ -28,6 +58,10 @@ namespace BibliotecaNegocio
         [NonSerialized]
         //Crear objeto de la Bdd
         OracleConnection conn = null;
+        [NonSerialized]
+        //Capturar Errores
+        DaoErrores err = new DaoErrores();
+        public DaoErrores retornar() { return err; }
 
         public bool Agregar(PedidoProveedor ped, Articulo art)
         {
@@ -68,6 +102,10 @@ namespace BibliotecaNegocio
                 return false;
 
             }
+            finally
+            {
+                conn.Close();
+            }
 
         }
 
@@ -103,6 +141,10 @@ namespace BibliotecaNegocio
                 return false;
 
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         //-------Guardar todo el pedido
         public bool GuardarOperacion(PedidoProveedor ped)
@@ -137,8 +179,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

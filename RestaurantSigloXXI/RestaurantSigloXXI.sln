@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaNegocio", "Biblio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "Vista\Vista.csproj", "{34C4DF1C-A0DC-45E0-93DD-1FF6DEFD59D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TESTProyecto", "TESTProyecto\TESTProyecto.csproj", "{D9629CD8-D2AB-4537-B838-D2D293EC843E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TESTProyecto", "TESTProyecto\TESTProyecto.csproj", "{9ADBBA5E-2909-4D8A-86DF-319B0D8798D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{34C4DF1C-A0DC-45E0-93DD-1FF6DEFD59D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34C4DF1C-A0DC-45E0-93DD-1FF6DEFD59D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34C4DF1C-A0DC-45E0-93DD-1FF6DEFD59D4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9629CD8-D2AB-4537-B838-D2D293EC843E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9629CD8-D2AB-4537-B838-D2D293EC843E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9629CD8-D2AB-4537-B838-D2D293EC843E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9629CD8-D2AB-4537-B838-D2D293EC843E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ADBBA5E-2909-4D8A-86DF-319B0D8798D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ADBBA5E-2909-4D8A-86DF-319B0D8798D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ADBBA5E-2909-4D8A-86DF-319B0D8798D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ADBBA5E-2909-4D8A-86DF-319B0D8798D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

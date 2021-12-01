@@ -155,53 +155,7 @@ namespace BibliotecaNegocio
         {
 
         }
-
-        //CRUD
-        //----------------Método Login de Empleado
-        /*public int Metodologin(string user, string pass)
-        {
-            try
-            {
-                //Variable donde guardaré el resultado
-                int tipo_user = 0;
-                //Instanciar la conexión
-                conn = new Conexion().Getcone();
-                OracleCommand CMD = new OracleCommand();
-                //que tipo de comando voy a ejecutar
-                CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                //nombre de la conexion
-                CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_LOGIN_EMP";
-                //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
-                CMD.Parameters.Add(new OracleParameter("P_USER", OracleDbType.Varchar2, 20)).Value = user;
-                CMD.Parameters.Add(new OracleParameter("P_PASS", OracleDbType.Varchar2, 20)).Value = pass;
-                //Parámetro de Salida de tipo int (id_tipo_user)
-                CMD.Parameters.Add(new OracleParameter("P_TIPO", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
-
-                //se abre la conexion
-                conn.Open();
-                //se ejecuta la query
-                CMD.ExecuteNonQuery();
-
-
-                //tipo_user = Convert.ToInt32(CMD.Parameters["P_TIPO"].Value); --->Dio error
-                //Se le entrega el resultado a la variable que es el resultado del procedure parseado
-                tipo_user = int.Parse(CMD.Parameters["P_TIPO"].Value.ToString());
-
-                //Cerrar conexión
-                conn.Close();
-                return tipo_user;
-
-            }
-            catch (Exception ex)
-            {
-                Logger.Mensaje(ex.Message);
-                conn.Close();
-                return 0;
-                
-            }
-        }*/
+               
 
         //----------------Método agregar----------------------
         public bool Agregar(Empleado emplea, Login login)
@@ -246,6 +200,10 @@ namespace BibliotecaNegocio
                 return false;                            
 
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //------------Método Actualizar------------------------------------------
@@ -288,9 +246,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return false;
-                
-                
+                return false;                              
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -303,6 +263,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 OracleCommand CMD = new OracleCommand();
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //lista
                 List<Empleado> list = new List<Empleado>();
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -314,12 +275,13 @@ namespace BibliotecaNegocio
 
                 //se abre la conexion
                 conn.Open();
+                //se crea un lector
                 OracleDataReader reader = CMD.ExecuteReader();
                 Empleado e = null;
+                //mientras lee
                 while (reader.Read())//Mientras lee
                 {
-                    e = new Empleado();
-                    
+                    e = new Empleado();                    
 
                     rut_empleado = reader[0].ToString();
                     primer_nom_emp = reader[1].ToString();
@@ -332,9 +294,8 @@ namespace BibliotecaNegocio
                     id_tipo_user = int.Parse(reader[8].ToString());
                     usuario = reader[9].ToString();
                     contrasenia = reader[10].ToString();
-                    
+                    //se agregan los datos a la clase empleado
                     list.Add(e);
-
                 }
                 //Cerrar conexión
                 conn.Close();
@@ -345,6 +306,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -380,9 +345,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-                
-               
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -396,7 +362,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista
                 List<ListaEmpleado> lista = new List<ListaEmpleado>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -439,9 +405,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;
-                
-                
+                return null; 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -456,7 +424,7 @@ namespace BibliotecaNegocio
                 OracleCommand CMD = new OracleCommand();
                 //que tipo comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                //Lista de Clientes
+                //Lista 
                 List<ListaEmpleado> lista = new List<ListaEmpleado>();
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -474,7 +442,6 @@ namespace BibliotecaNegocio
                 while (reader.Read())
                 {
                     ListaEmpleado e = new ListaEmpleado();
-
                     //lee cada valor en su posición
                     e.Rut = reader[0].ToString();
                     e.Nombre = reader[1].ToString();
@@ -509,9 +476,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
-                
-                
-
+           }
+            finally
+            {
+                conn.Close();
             }
 
         }
@@ -527,7 +495,7 @@ namespace BibliotecaNegocio
                 OracleCommand CMD = new OracleCommand();
                 //que tipo comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                //Lista de Clientes
+                //Lista 
                 List<ListaEmpleado> lista = new List<ListaEmpleado>();
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -579,9 +547,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
-                
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
 
         }
@@ -596,7 +565,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista
                 List<ListaEmpleadoMesa2> lista = new List<ListaEmpleadoMesa2>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -634,9 +603,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;
-               
-                
+                return null;               
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -651,7 +622,7 @@ namespace BibliotecaNegocio
                 OracleCommand CMD = new OracleCommand();
                 //que tipo comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                //Lista de Clientes
+                //Lista
                 List<ListaEmpleadoMesa2> lista = new List<ListaEmpleadoMesa2>();
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -698,9 +669,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
-                
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
 
         }
@@ -748,7 +720,6 @@ namespace BibliotecaNegocio
             //Buscar empleado para mesa
             public void BuscarEmpMesa(String rut)
             {
-
                 try
                 {
                     //Instanciar la conexión
@@ -774,7 +745,6 @@ namespace BibliotecaNegocio
 
                         Rut = reader[0].ToString();
                         Nombre = reader[1].ToString();
-
                         list.Add(e);
 
                     }
@@ -788,6 +758,10 @@ namespace BibliotecaNegocio
                     Logger.Mensaje(ex.Message);
                     
                 }
+                finally
+                {
+                    conn.Close();
+                }
             }
 
         }
@@ -800,7 +774,7 @@ namespace BibliotecaNegocio
             public string Segundo_Nombre { get; set; }
             public string Apellido_Paterno { get; set; }
             public string Apellido_Materno { get; set; }
-            public String Rol { get; set; }//Tipo de usuario
+            public string Rol { get; set; }//Tipo de usuario
 
             public ListaEmpleadoMesa2()
             {

@@ -42,7 +42,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista 
                 List<ListaPedido> lista = new List<ListaPedido>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -86,7 +86,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -101,7 +104,7 @@ namespace BibliotecaNegocio
                 OracleCommand CMD = new OracleCommand();
                 //que tipo comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                //Lista de Clientes
+                //Lista 
                 List<ListaPedido> lista = new List<ListaPedido>();
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -154,7 +157,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
-
+            }
+            finally
+            {
+                conn.Close();
             }
 
         }
@@ -193,6 +199,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return false;                
 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

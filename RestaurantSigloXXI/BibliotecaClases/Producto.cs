@@ -156,6 +156,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return null;
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //CRUD
@@ -200,6 +204,10 @@ namespace BibliotecaNegocio
                 return false;
 
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //------------Método Actualizar------------------------------------------
@@ -240,6 +248,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return false;
 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -290,6 +302,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
 
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //---------Método Eliminar-----------------------------------------------
@@ -324,6 +340,10 @@ namespace BibliotecaNegocio
                 return false;
 
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //------------Listar Productos-------------
@@ -336,7 +356,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista
                 List<ListaProducto> lista = new List<ListaProducto>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -378,6 +398,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return null;
 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -442,6 +466,10 @@ namespace BibliotecaNegocio
                 return null;
 
             }
+            finally
+            {
+                conn.Close();
+            }
 
         }
         //------------Método Actualizar Stock------------------------------------------
@@ -477,6 +505,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return false;
 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -527,7 +559,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista 
                 List<ListaProducto2> lista = new List<ListaProducto2>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -568,6 +600,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return null;
 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -631,6 +667,10 @@ namespace BibliotecaNegocio
                 return null;
 
             }
+            finally
+            {
+                conn.Close();
+            }
 
         }
 
@@ -658,7 +698,7 @@ namespace BibliotecaNegocio
                 conn = new Conexion().Getcone();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //Lista de clientes
+                //Lista 
                 List<ListaProductoPedido> lista = new List<ListaProductoPedido>();
                 //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;

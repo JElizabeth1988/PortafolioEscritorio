@@ -12,7 +12,7 @@ namespace BibliotecaNegocio
         public static void Mensaje(String msg)
         {
             string ruta = @"c:\log";
-
+            //si el directorio no existe se crea (carpeta log en disco c)
             if (!Directory.Exists(ruta))
             {                
                 DirectoryInfo di = Directory.CreateDirectory(ruta);

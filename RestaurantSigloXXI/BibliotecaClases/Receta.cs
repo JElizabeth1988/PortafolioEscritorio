@@ -220,8 +220,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -264,6 +266,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return false;
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         
@@ -298,8 +304,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-               
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -356,6 +364,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return null;
                 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

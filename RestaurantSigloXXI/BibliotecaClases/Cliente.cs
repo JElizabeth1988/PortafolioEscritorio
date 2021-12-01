@@ -172,8 +172,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -215,6 +217,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -277,6 +283,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return null;
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //---------Método Eliminar-----------------------------------------------
@@ -309,8 +319,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return false;
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -365,8 +377,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;
-                
+                return null; 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -429,11 +444,13 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;
-                
-                
+                return null;     
             }
-            
+            finally
+            {
+                conn.Close();
+            }
+
         }
 
         //**********CRUD para asignar mesa********************************************
@@ -479,9 +496,11 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return false;
-                
-
+                return false;             
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -528,6 +547,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return false;
                 
+            }
+            finally
+            {
+                conn.Close();
             }
         }
         
@@ -588,6 +611,10 @@ namespace BibliotecaNegocio
                 Logger.Mensaje(ex.Message);
                 return null;
                
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -654,8 +681,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
-                
-
+            }
+            finally
+            {
+                conn.Close();
             }
 
         }
@@ -733,6 +762,10 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -822,12 +855,12 @@ namespace BibliotecaNegocio
                     Logger.Mensaje(ex.Message);
                     return null;
                 }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
-
-       
-
-
 
     }
 }

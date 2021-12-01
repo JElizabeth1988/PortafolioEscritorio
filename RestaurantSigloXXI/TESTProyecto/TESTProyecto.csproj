@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D9629CD8-D2AB-4537-B838-D2D293EC843E}</ProjectGuid>
+    <ProjectGuid>{9ADBBA5E-2909-4D8A-86DF-319B0D8798D6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TESTProyecto</RootNamespace>
@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarBebida.cs" />
+    <Compile Include="AgregarCliente.cs" />
+    <Compile Include="AgregarEmpleado.cs" />
+    <Compile Include="AgregarNuevaMesa.cs" />
+    <Compile Include="AgregarProducto.cs" />
+    <Compile Include="AgregarReceta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

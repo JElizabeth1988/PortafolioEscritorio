@@ -149,8 +149,7 @@ namespace Vista
                 TxtContrasenia.Clear();
                 txtUsuario.Focus();
             }
-
-
+           
         }
     }
 }
