@@ -145,7 +145,7 @@ namespace BibliotecaNegocio
             }
         }
 
-        //------------Método Actualizar------------------------------------------
+        //------------Método Actualizar con foto------------------------------------------
         public bool Actualizar(Plato platito)
         {
             try
@@ -191,7 +191,52 @@ namespace BibliotecaNegocio
             }
         }
 
-        
+        //------------Método Actualizar sin foto------------------------------------------
+        public bool Actualizar2(Plato platito)
+        {
+            try
+            {
+                //Instanciar la conexión
+                conn = new Conexion().Getcone();
+
+                OracleCommand CMD = new OracleCommand();
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_ACTUALIZAR_PLATO2";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = platito.id_plato; //seagrega x trigger                              
+                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = platito.nom_plato;
+                CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
+                CMD.Parameters.Add(new OracleParameter("P_DESCRIPCION", OracleDbType.Varchar2, 200)).Value = platito.descripcion;
+                CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = platito.stock;
+                CMD.Parameters.Add(new OracleParameter("P_RECETA", OracleDbType.Int32)).Value = platito.id_receta;
+                CMD.Parameters.Add(new OracleParameter("P_CATEGORIA", OracleDbType.Int32)).Value = platito.id_categoria;
+
+                //Se abre la conexión
+                conn.Open();
+                //se ejecuta la query
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                //Retorno
+                return true;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Logger.Mensaje(ex.Message);
+                return false;
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
 
         //---------Método Eliminar-----------------------------------------------
         public bool Eliminar(int num) //Recibe rut pot parametro

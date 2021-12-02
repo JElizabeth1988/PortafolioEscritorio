@@ -248,7 +248,7 @@ namespace Vista
 
             //limpiar imagen 
             imgPlato.Source = null;
-            FileNameLabel.Content = "";
+            FileNameLabel.Content = null;
 
             btnGuardar.Visibility = Visibility.Visible;
             btnModificar.Visibility = Visibility.Hidden;
@@ -382,52 +382,84 @@ namespace Vista
                 int receta = ((comboBoxItem1)cboReceta.SelectedItem).id;//Guardo el id
                 int cat = ((comboBoxItem1)cboCategoria.SelectedItem).id;//Guardo el id
 
-                byte[] fotin = null;
                 if (FileNameLabel.Content != null)
-                {
-                    //Procedimiento para convertir imagen a byte
+                {                   
 
-                    FileStream stream = new FileStream(FileNameLabel.Content.ToString(), FileMode.Open, FileAccess.Read);
-                    //Se inicailiza un flujo de archivo con la imagen seleccionada desde el disco.
-                    BinaryReader br = new BinaryReader(stream);
-                    FileInfo fi = new FileInfo(FileNameLabel.Content.ToString());
-                    //Se inicializa un arreglo de Bytes del tamaño de la imagen
-                    byte[] binData = new byte[stream.Length];
-                    //Se almacena en el arreglo de bytes la informacion que se obtiene del flujo de archivos(foto)
-                    //Lee el bloque de bytes del flujo y escribe los datos en un búfer dado.
-                    stream.Read(binData, 0, Convert.ToInt32(stream.Length));
+                    byte[] fotin = null;
+                    if (FileNameLabel.Content != null)
+                    {
+                        //Procedimiento para convertir imagen a byte
 
-                    fotin = binData;
+                        FileStream stream = new FileStream(FileNameLabel.Content.ToString(), FileMode.Open, FileAccess.Read);
+                        //Se inicailiza un flujo de archivo con la imagen seleccionada desde el disco.
+                        BinaryReader br = new BinaryReader(stream);
+                        FileInfo fi = new FileInfo(FileNameLabel.Content.ToString());
+                        //Se inicializa un arreglo de Bytes del tamaño de la imagen
+                        byte[] binData = new byte[stream.Length];
+                        //Se almacena en el arreglo de bytes la informacion que se obtiene del flujo de archivos(foto)
+                        //Lee el bloque de bytes del flujo y escribe los datos en un búfer dado.
+                        stream.Read(binData, 0, Convert.ToInt32(stream.Length));
+
+                        fotin = binData;
+                    }
+                    else
+                    {
+                        fotin = null;
+                    }
+
+                    Plato i = new Plato()
+                    {
+                        id_plato = id,
+                        nom_plato = nombre,
+                        precio_plato = precio,
+                        descripcion = desc,
+                        stock = stock,
+                        id_receta = receta,
+                        id_categoria = cat,
+                        foto = fotin
+                    };
+                    bool resp = pla.Actualizar(i);
+                    await this.ShowMessageAsync("Mensaje:",
+                         string.Format(resp ? "Actualizado" : "No Actualizado"));
+
+
+                    //-----------------------------------------------------------------------------------------------
+                    if (resp == true)
+                    {
+                        //Notificación (Actualiza la grilla en tiempo real)
+                        NotificationCenter.Notify("plato_actualizado");
+                        Limpiar();
+                        txtNomb.Focus();
+                    }
                 }
                 else
-                {
-                    fotin = null;
-                }
+                {                   
 
-                Plato i = new Plato()
-                {
-                    id_plato = id,
-                    nom_plato = nombre,
-                    precio_plato = precio,
-                    descripcion = desc,
-                    stock = stock,
-                    id_receta = receta,
-                    id_categoria = cat,
-                    foto = fotin
-                };
-                bool resp = pla.Actualizar(i);
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format(resp ? "Actualizado" : "No Actualizado"));
+                    Plato i = new Plato()
+                    {
+                        id_plato = id,
+                        nom_plato = nombre,
+                        precio_plato = precio,
+                        descripcion = desc,
+                        stock = stock,
+                        id_receta = receta,
+                        id_categoria = cat
+                    };
+                    bool resp = pla.Actualizar2(i);
+                    await this.ShowMessageAsync("Mensaje:",
+                         string.Format(resp ? "Actualizado" : "No Actualizado"));
 
 
-                //-----------------------------------------------------------------------------------------------
-                if (resp == true)
-                {
-                    //Notificación (Actualiza la grilla en tiempo real)
-                    NotificationCenter.Notify("plato_actualizado");
-                    Limpiar();
-                    txtNomb.Focus();
-                }
+                    //-----------------------------------------------------------------------------------------------
+                    if (resp == true)
+                    {
+                        //Notificación (Actualiza la grilla en tiempo real)
+                        NotificationCenter.Notify("plato_actualizado");
+                        Limpiar();
+                        txtNomb.Focus();
+                    }
+
+                }                   
 
 
             }
@@ -435,6 +467,7 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format((exa.Message)));
+                Logger.Mensaje(exa.Message);
             }
             catch (Exception ex)
             {
@@ -648,7 +681,7 @@ namespace Vista
 
             }
         }
-
+        /*
         private async void btnVer_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -697,7 +730,7 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
-
+        */
 
     }
 }

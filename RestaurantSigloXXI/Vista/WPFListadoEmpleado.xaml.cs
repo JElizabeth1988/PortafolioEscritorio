@@ -288,7 +288,7 @@ namespace Vista
                 emp.btnModificar.Visibility = Visibility.Visible;
                 emp.btnGuardar.Visibility = Visibility.Hidden;
                 emp.btnEliminar.Visibility = Visibility.Visible;
-                emp.btnCache.Visibility = Visibility.Hidden;
+
                 //Cerrar listado
                 Close();
                 
@@ -316,10 +316,7 @@ namespace Vista
                 mes.txtNombre.Text = c.Nombre+' '+c.Apellido_Paterno;
                 mes.txtNombre.IsEnabled = false;
                 
-                //Esconder y mostrar botones
-                //mes.btnModificar.Visibility = Visibility.Hidden;
-                //mes.btnGuardar.Visibility = Visibility.Visible;
-                //mes.btnEliminar.Visibility = Visibility.Visible;
+                
                 //Cerrar listado
                 Close();
             }

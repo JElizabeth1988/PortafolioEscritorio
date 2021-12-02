@@ -44,7 +44,7 @@
                 <Label x:Name="label1" Content="-" HorizontalAlignment="Left" Margin="298,25,0,0" VerticalAlignment="Top" Width="18"/>
                 <Label x:Name="label_Copy7" Content="Apellido Materno:" HorizontalAlignment="Left" Margin="23,175,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label_Copy5" Content="Segundo Nombre:" HorizontalAlignment="Left" Margin="23,99,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="btnEliminar" ToolTip="Eliminar Registro"  Content="Eliminar" HorizontalAlignment="Left" Margin="251,368,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnEliminar_Click"/>
+                <Button x:Name="btnEliminar" ToolTip="Eliminar Registro"  Content="Eliminar" HorizontalAlignment="Left" Margin="251,368,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFDF0D0D" FontSize="12" Click="btnEliminar_Click"/>
                 <Label x:Name="lbl1" Content="*"  HorizontalAlignment="Left" Margin="351,25,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                 <Label x:Name="lbl1_Copy" Content="*"  HorizontalAlignment="Left" Margin="351,62,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                 <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="292,253,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>

@@ -217,7 +217,6 @@ namespace Vista
             btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
             btnEliminar.Visibility = Visibility.Hidden;
-            btnCache.Visibility = Visibility.Visible;
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
 
@@ -410,7 +409,6 @@ namespace Vista
                     btnModificar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
                     btnEliminar.Visibility = Visibility.Visible;
-                    btnCache.Visibility = Visibility.Hidden;
 
                 }
                 else
