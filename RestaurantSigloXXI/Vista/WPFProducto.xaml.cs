@@ -77,7 +77,7 @@ namespace Vista
             cboTipFiltro.SelectedIndex = 0;
 
             txtValorUnidad.Text = "0";
-            //txtValorTotal.Text = "0";
+            
             txtStock.Text = "0";
             txtCantidad.Text = "0";
             lblId.Visibility = Visibility.Hidden;//id no se ve
@@ -707,49 +707,52 @@ namespace Vista
             }
         }
 
-        //------Método calcular total
-      /*  public int calcular()
-        {
-            try
-            {
-                int precio = 0;
-                if (txtValorUnidad.Text != null)
-                {
-                    precio = int.Parse(txtValorUnidad.Text);
-                }
-                int stock = 0;
-                if (txtValorUnidad.Text != null)
-                {
-                    stock = int.Parse(txtStock.Text);
-                }
-                int total = precio * stock;
-                
-
-                return total;
-                
-            }
-            catch (Exception ex)
-            {
-                return 0;
-                Logger.Mensaje(ex.Message);
-            }
-        }
-        //------Calculo del total
-        private async void btnCalcular_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                txtValorTotal.Text =  calcular().ToString();
-                
-            }
-            catch (Exception ex)
-            {
-
-                Logger.Mensaje(ex.Message);
-            }
-        }*/
-
         
+       
+
+        //------Método calcular total
+        /*  public int calcular()
+          {
+              try
+              {
+                  int precio = 0;
+                  if (txtValorUnidad.Text != null)
+                  {
+                      precio = int.Parse(txtValorUnidad.Text);
+                  }
+                  int stock = 0;
+                  if (txtValorUnidad.Text != null)
+                  {
+                      stock = int.Parse(txtStock.Text);
+                  }
+                  int total = precio * stock;
+
+
+                  return total;
+
+              }
+              catch (Exception ex)
+              {
+                  return 0;
+                  Logger.Mensaje(ex.Message);
+              }
+          }
+          //------Calculo del total
+          private async void btnCalcular_Click(object sender, RoutedEventArgs e)
+          {
+              try
+              {
+                  txtValorTotal.Text =  calcular().ToString();
+
+              }
+              catch (Exception ex)
+              {
+
+                  Logger.Mensaje(ex.Message);
+              }
+          }*/
+
+
     }
 }
 

@@ -123,7 +123,7 @@ namespace Vista
                     dgLista.ItemsSource = null;
                     DataTable dt = new DataTable();
                     dt.Columns.Add("");
-                    dt.Columns.Add("Pedidod:");
+                    dt.Columns.Add("Pedidos:");
                     dt.Rows.Add("", "No hay información relacionada a su búsqueda");
                     dgLista.ItemsSource = dt.DefaultView;
                     cbMesa.SelectedItem = 0;

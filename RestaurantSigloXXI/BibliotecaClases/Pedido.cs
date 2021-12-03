@@ -63,7 +63,7 @@ namespace BibliotecaNegocio
 
                     //se obtiene el valor con getvalue es lo mismo pero con get
                     i.id = int.Parse(dr.GetValue(0).ToString());
-                    i.fecha = DateTime.Parse(dr.GetValue(1).ToString());
+                    i.fecha = dr.GetValue(1).ToString();
                     i.hora = dr.GetValue(2).ToString();
                     i.propina = "$ "+dr.GetValue(3).ToString();
                     i.descuento = "$ "+dr.GetValue(4).ToString();
@@ -125,7 +125,7 @@ namespace BibliotecaNegocio
 
                     //lee cada valor en su posición
                     i.id = int.Parse(reader[0].ToString());
-                    i.fecha = DateTime.Parse( reader[1].ToString());
+                    i.fecha =  reader[1].ToString();
                     i.hora = reader[2].ToString();
                     i.propina = "$ "+reader[3].ToString();
                     i.descuento = "$ " + reader[4].ToString();
@@ -209,7 +209,7 @@ namespace BibliotecaNegocio
         public class ListaPedido
         {
             public int id { get; set; }
-            public DateTime fecha { get; set; }
+            public string fecha { get; set; }
             public string hora { get; set; }
             public string estado { get; set; }
             public string propina { get; set; }

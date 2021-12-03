@@ -15,9 +15,9 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="634" VerticalAlignment="Top" Width="728" Source="Imagenes/about-img.jpg" Stretch="Fill" Opacity="0.3" Margin="0,0,-14,-17"/>
         <GroupBox x:Name="groupBox" Header="Información de Producto" Margin="22,3,20,0" VerticalAlignment="Top" Height="256" Background="#FFCB5F21" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333" BorderBrush="#FFCB5F21">
             <Grid HorizontalAlignment="Left" Height="223" VerticalAlignment="Top" Width="657" Margin="0,-2,0,0" Background="{x:Null}">
-                <Label x:Name="label_Copy" Content="Valor ($):" HorizontalAlignment="Left" Margin="27,77,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy" Content="Valor ($):" HorizontalAlignment="Left" Margin="27,78,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="label_Copy1" Content="Nombre Producto:" HorizontalAlignment="Left" Margin="27,4,0,0" VerticalAlignment="Top" FontSize="12"/>
-                <Label x:Name="label_Copy2" Content="Stock:" HorizontalAlignment="Left" Margin="27,113,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy2" Content="Stock:" HorizontalAlignment="Left" Margin="27,114,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <TextBox x:Name="txtNomProd" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Nombre Producto" Height="8" Margin="160,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="0.5,0.5" SelectionBrush="#FFCB5F21"/>
                 <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" KeyDown="txtNumeros_KeyDown" mah:TextBoxHelper.Watermark="Ingrese Cantidad" Height="8" Margin="160,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
                 <RadioButton x:Name="RbKg" Content="Kg." HorizontalAlignment="Left" Margin="305,44,0,0" VerticalAlignment="Top" Width="50" FontWeight="Normal" GroupName="UMedida" IsChecked="True" FontSize="10.667"/>
@@ -25,24 +25,24 @@
                 <RadioButton x:Name="RbMl" Content="Ml." HorizontalAlignment="Left" Margin="392,44,0,0" VerticalAlignment="Top" Width="43" FontWeight="Normal" GroupName="UMedida" FontSize="10.667"/>
                 <RadioButton x:Name="RbL" Content="L." HorizontalAlignment="Left" Margin="436,44,0,0" VerticalAlignment="Top" Width="37" FontWeight="Normal" GroupName="UMedida" FontSize="10.667"/>
                 <RadioButton x:Name="RbU" Content="U." HorizontalAlignment="Left" Margin="474,44,0,0" VerticalAlignment="Top" Width="39" FontWeight="Normal" GroupName="UMedida" FontSize="10.667"/>
-                <TextBox x:Name="txtValorUnidad" HorizontalAlignment="Left" KeyDown="txtNumeros_KeyDown" mah:TextBoxHelper.Watermark="Ingrese Valor (U)" Height="8" Margin="160,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
-                <TextBox x:Name="txtStock" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Stock" KeyDown="txtNumeros_KeyDown" Height="8" Margin="160,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
-                <ComboBox x:Name="cboTipoProducto" HorizontalAlignment="Left" Margin="160,149,0,0" VerticalAlignment="Top" Width="196" FontWeight="Normal"/>
+                <TextBox x:Name="txtValorUnidad" HorizontalAlignment="Left" KeyDown="txtNumeros_KeyDown" mah:TextBoxHelper.Watermark="Ingrese Valor (U)" Height="8" Margin="160,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
+                <TextBox x:Name="txtStock" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Stock" KeyDown="txtNumeros_KeyDown" Height="8" Margin="160,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" SelectionBrush="#FFCB5F21"/>
+                <ComboBox x:Name="cboTipoProducto" HorizontalAlignment="Left" Margin="160,151,0,0" VerticalAlignment="Top" Width="196" FontWeight="Normal"/>
                 <Button x:Name="btnGuardar" ToolTip="Guardar Registro" Content="Guardar" HorizontalAlignment="Left" Margin="119,191,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" mah:ButtonHelper.PreserveTextCase="True" mah:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnGuardar_Click"/>
                 <Button x:Name="btnCancelar" ToolTip="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="495,191,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCancelar_Click"/>
                 <Button x:Name="btnLimpiar" ToolTip="Limpiar Casillas" Content="Limpiar" HorizontalAlignment="Left" Margin="24,191,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnLimpiar_Click"/>
                 <Button x:Name="btnModificar" ToolTip="Actualizar Registro" Content="Actualizar" HorizontalAlignment="Left" Margin="119,191,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnModificar_Click" />
 
-                <Label x:Name="label_nom_tipo" Content="Tipo de Producto:" HorizontalAlignment="Left" Margin="27,149,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.463" FontSize="12"/>
+                <Label x:Name="label_nom_tipo" Content="Tipo de Producto:" HorizontalAlignment="Left" Margin="27,151,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.463" FontSize="12"/>
                 <!--<Button x:Name="btnCalcular" ToolTip="Calcular Total" Content="Calcular" HorizontalAlignment="Left" Margin="317,125,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCalcular_Click" Height="28"/>-->
                 <Label x:Name="lblId" Content="" HorizontalAlignment="Left" Margin="387,10,0,0" VerticalAlignment="Top" FontSize="12" Width="18"/>
                 <Image x:Name="image1" HorizontalAlignment="Left" Height="82" Margin="493,71,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
                 <Label x:Name="label_Copy5" Content="Cantidad por Embase:" HorizontalAlignment="Left" Margin="27,41,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="lbl1_Copy2" Content="*"  HorizontalAlignment="Left" Margin="355,4,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                 <Label x:Name="lbl1_Copy" Content="*"  HorizontalAlignment="Left" Margin="292,41,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
-                <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="294,77,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
-                <Label x:Name="lbl1_Copy3" Content="*"  HorizontalAlignment="Left" Margin="294,113,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
-                <Label x:Name="lbl1_Copy4" Content="*"  HorizontalAlignment="Left" Margin="361,149,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="294,78,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy3" Content="*"  HorizontalAlignment="Left" Margin="294,114,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
+                <Label x:Name="lbl1_Copy4" Content="*"  HorizontalAlignment="Left" Margin="361,151,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
 
             </Grid>
         </GroupBox>
@@ -51,7 +51,7 @@
 
                 <Label x:Name="label2" Content="Último Respaldo:" HorizontalAlignment="Left" Margin="47,1,0,10.667" FontWeight="Bold"/>
                 <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="161,1,0,10.667" Width="193"/>
-                <Button x:Name="btnCache" ToolTip="Recuperar Caché" Content="Recuperar" HorizontalAlignment="Left" Margin="510,1,0,0" VerticalAlignment="Top" Width="75" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
+                <Button x:Name="btnCache" ToolTip="Recuperar Caché" Content="Recuperar" HorizontalAlignment="Left" Margin="510,1,0,0" VerticalAlignment="Top" Width="75" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal" mah:ControlsHelper.ContentCharacterCasing="Normal"/>
 
             </Grid>
         </GroupBox>

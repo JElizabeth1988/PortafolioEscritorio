@@ -55,7 +55,7 @@
             <Grid>
                 <Label x:Name="label2" Content="Último Respaldo:" HorizontalAlignment="Left" Margin="67,2,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="lblCache" Content="" HorizontalAlignment="Left" Margin="185,2,0,0" VerticalAlignment="Top" Width="215"/>
-                <Button x:Name="btnCache" ToolTip="Recuperar Caché" Content="Recuperar" HorizontalAlignment="Left" Margin="479,2,0,0" VerticalAlignment="Top" Width="78" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal"/>
+                <Button x:Name="btnCache" ToolTip="Recuperar Caché" Content="Recuperar" HorizontalAlignment="Left" Margin="479,2,0,0" VerticalAlignment="Top" Width="78" Click="BtnCache_Click" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" FontWeight="Normal" mah:ControlsHelper.ContentCharacterCasing="Normal"/>
 
             </Grid>
         </GroupBox>
