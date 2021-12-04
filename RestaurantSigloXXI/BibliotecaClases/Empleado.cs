@@ -13,8 +13,8 @@ namespace BibliotecaNegocio
     //Indicar que la variable es serializable (para memoria cache)
     [Serializable]
     public class Empleado
-    {
-
+    {    
+        
         private string _rut_empleado;
 
         public string rut_empleado
@@ -29,7 +29,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("- Campo Rut es Obligatorio");
+                    err.AgregarError("- Campo Rut no puede estar Vacío");
                 }
 
             }
@@ -93,8 +93,8 @@ namespace BibliotecaNegocio
             }
         }
 
-        public int celular_emp { get; set; }
-        /*private int _celular;
+        //public int celular_emp { get; set; }
+        private int _celular;
 
         public int celular_emp
         {
@@ -111,7 +111,7 @@ namespace BibliotecaNegocio
                     
                 }
             }
-        }*/
+        }
 
         public int telefono_emp { get; set; }
        
@@ -134,12 +134,64 @@ namespace BibliotecaNegocio
             }
         }
         //Foranea
-        public int id_tipo_user { get; set; }
+        //public int id_tipo_user { get; set; }
+        private int _id_tipo_user;
+        public int id_tipo_user
+        {
+            get { return _id_tipo_user; }
+            set
+            {
+                if (value != 0)
+                {
+                    _id_tipo_user = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Tipo de Usuario es Obligatorio");
+                }
+            }
+        }
 
         //------------------------------
         //Variables para vista
-        public string usuario { get; set; }
-        public string contrasenia { get; set; }
+        //public string usuario { get; set; }
+        private string _usuario;
+        public string usuario
+        {
+            get { return _usuario; }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _usuario = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Usuario es Obligatorio");
+                }
+            }
+        }
+
+        //public string contrasenia { get; set; }
+        private string _contrasenia;
+        public string contrasenia
+        {
+            get { return _contrasenia; }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _contrasenia = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("- Campo Contraseña es Obligatorio");
+                }
+            }
+        }
         //-----------------------------
 
         //No es serializable
@@ -155,10 +207,11 @@ namespace BibliotecaNegocio
         {
 
         }
-               
-
+         //---------------------------------------------------      
+        //-----------CRUD-------------------------------------
+        //----------------------------------------------------
         //----------------Método agregar----------------------
-        public bool Agregar(Empleado emplea, Login login)
+        public bool Agregar(Empleado emplea)
         {
             try
             {
@@ -184,12 +237,12 @@ namespace BibliotecaNegocio
                 }
                 else
                 {
-                    err.AgregarError("- Campo Celular es Obligatorio y debe tener un largo de 9 dígitos");
+                    //err.AgregarError("- Campo Celular es Obligatorio y debe tener un largo de 9 dígitos");
                 }
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = emplea.telefono_emp;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 80)).Value = emplea.correo_emp;
-                CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = login.usuario;
-                CMD.Parameters.Add(new OracleParameter("P_PASS", OracleDbType.Varchar2, 20)).Value = login.contrasenia;
+                CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = emplea.usuario;
+                CMD.Parameters.Add(new OracleParameter("P_PASS", OracleDbType.Varchar2, 20)).Value = emplea.contrasenia;
                 CMD.Parameters.Add(new OracleParameter("P_TIPO_USER", OracleDbType.Int32)).Value = emplea.id_tipo_user;
 
                 //Se abre la conexión
@@ -215,7 +268,7 @@ namespace BibliotecaNegocio
         }
 
         //------------Método Actualizar------------------------------------------
-        public bool Actualizar(Empleado emp, Login login)
+        public bool Actualizar(Empleado emp)
         {
             try
             {
@@ -244,8 +297,8 @@ namespace BibliotecaNegocio
                 }
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = emp.telefono_emp;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 80)).Value = emp.correo_emp;
-                CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = login.usuario;
-                CMD.Parameters.Add(new OracleParameter("P_PASS", OracleDbType.Varchar2, 20)).Value = login.contrasenia;
+                CMD.Parameters.Add(new OracleParameter("P_USUARIO", OracleDbType.Varchar2, 20)).Value = emp.usuario;
+                CMD.Parameters.Add(new OracleParameter("P_PASS", OracleDbType.Varchar2, 20)).Value = emp.contrasenia;
                 CMD.Parameters.Add(new OracleParameter("P_TIPO_USER", OracleDbType.Int32)).Value = emp.id_tipo_user;
 
                 //Se abre la conexión

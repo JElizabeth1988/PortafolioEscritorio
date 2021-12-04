@@ -61,23 +61,8 @@ namespace BibliotecaNegocio
         //foto
         public  byte[] foto { get; set; }
 
-        private int _stock;
-        public int stock
-        {
-            get { return _stock; }
-            set
-            {
-                if (value != 0)
-                {
-                    _stock = value;
-                }
-                else
-                {
-                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("- Campo Stock es Obligatorio y Debe Ser Mayor a Cero");
-                }
-            }
-        }
+        public int stock { get; set; }
+        
         public int id_receta { get; set; }
         public int id_categoria { get; set; }
 
@@ -114,10 +99,19 @@ namespace BibliotecaNegocio
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
                 //CMD.Parameters.Add(new OracleParameter("P_NUMERO", OracleDbType.Int32)).Value = mes.num_mesa; //seagrega x trigger                              
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = platito.nom_plato;
-                CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
+                if (platito.precio_plato > 0 )
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Precio es Obligatorio y Debe Ser Mayor a Cero");
+                }
+               
                 CMD.Parameters.Add(new OracleParameter("P_DESCRIPCION", OracleDbType.Varchar2, 200)).Value = platito.descripcion;
                 CMD.Parameters.Add(new OracleParameter("P_FOTO", OracleDbType.Blob)).Value = platito.foto;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = platito.stock;
+                                
                 CMD.Parameters.Add(new OracleParameter("P_RECETA", OracleDbType.Int32)).Value = platito.id_receta;
                 CMD.Parameters.Add(new OracleParameter("P_CATEGORIA", OracleDbType.Int32)).Value = platito.id_categoria;
                 
@@ -162,10 +156,19 @@ namespace BibliotecaNegocio
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = platito.id_plato; //seagrega x trigger                              
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = platito.nom_plato;
-                CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
+                if (platito.precio_plato > 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Precio es Obligatorio y Debe Ser Mayor a Cero");
+                }
+                
                 CMD.Parameters.Add(new OracleParameter("P_DESCRIPCION", OracleDbType.Varchar2, 200)).Value = platito.descripcion;
                 CMD.Parameters.Add(new OracleParameter("P_FOTO", OracleDbType.Blob)).Value = platito.foto;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = platito.stock;
+                
                 CMD.Parameters.Add(new OracleParameter("P_RECETA", OracleDbType.Int32)).Value = platito.id_receta;
                 CMD.Parameters.Add(new OracleParameter("P_CATEGORIA", OracleDbType.Int32)).Value = platito.id_categoria;
 
@@ -208,9 +211,17 @@ namespace BibliotecaNegocio
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = platito.id_plato; //seagrega x trigger                              
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = platito.nom_plato;
-                CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
+                if (platito.precio_plato > 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_PRECIO", OracleDbType.Int32)).Value = platito.precio_plato;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Precio es Obligatorio y Debe Ser Mayor a Cero");
+                }
                 CMD.Parameters.Add(new OracleParameter("P_DESCRIPCION", OracleDbType.Varchar2, 200)).Value = platito.descripcion;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = platito.stock;
+               
                 CMD.Parameters.Add(new OracleParameter("P_RECETA", OracleDbType.Int32)).Value = platito.id_receta;
                 CMD.Parameters.Add(new OracleParameter("P_CATEGORIA", OracleDbType.Int32)).Value = platito.id_categoria;
 

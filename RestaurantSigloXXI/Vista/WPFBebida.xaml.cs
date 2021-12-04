@@ -292,7 +292,11 @@ namespace Vista
                 string nombre = txtNombre.Text;
                 int ml = int.Parse(txtMl.Text);
                 int valor = int.Parse(txtValor.Text);
-                int stock = int.Parse(txtStock.Text);
+                int stock = 0;
+                if (txtStock.Text != string.Empty)
+                {
+                    stock = int.Parse(txtStock.Text);
+                }
                 int tipo = ((comboBoxItem1)cboTipo.SelectedItem).id;//Guardo el id
 
                 Bebida b = new Bebida()
@@ -315,6 +319,17 @@ namespace Vista
                 if (resp == true)
                 {
                     Limpiar();
+                }
+                else
+                {
+                    DaoErrores de = b.retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
                 }
 
             }
@@ -342,7 +357,11 @@ namespace Vista
                 string nombre = txtNombre.Text;
                 int ml = int.Parse(txtMl.Text);
                 int valor = int.Parse(txtValor.Text);
-                int stock = int.Parse(txtStock.Text);
+                int stock = 0;
+                if (txtStock.Text != string.Empty)
+                {
+                    stock = int.Parse(txtStock.Text);
+                }
                 int tipo = ((comboBoxItem1)cboTipo.SelectedItem).id;//Guardo el id
 
 
@@ -368,6 +387,17 @@ namespace Vista
                     NotificationCenter.Notify("bebida_guardada");
                     Limpiar();
 
+                }
+                else
+                {
+                    DaoErrores de = b.retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
                 }
 
             }

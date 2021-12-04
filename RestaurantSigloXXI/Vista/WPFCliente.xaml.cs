@@ -54,7 +54,7 @@ namespace Vista
         Cliente cli = new Cliente();
 
         
-        public WPFCliente()
+        private WPFCliente()
         {
             InitializeComponent();
             
@@ -261,11 +261,19 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-                int celular = int.Parse(txtCelular.Text);
-                
+                //int celular = int.Parse(txtCelular.Text);
+                int Celular = 0;
+                if (int.TryParse(txtCelular.Text, out Celular))
+                {
+                    Celular = int.Parse(txtCelular.Text);
+                }
 
-                int telefono = int.Parse(txtTelefono.Text); 
-                
+                //int telefono = int.Parse(txtTelefono.Text); 
+                int telefono = 0;
+                if (int.TryParse(txtTelefono.Text, out telefono))
+                {
+                    telefono = int.Parse(txtTelefono.Text);
+                }
 
                 Cliente c = new Cliente()
                 {
@@ -274,7 +282,7 @@ namespace Vista
                     segundo_nom_cli = segNombre,
                     ap_paterno_cli = apPaterno,
                     ap_materno_cli = apMaterno,
-                    celular_cli = celular,
+                    celular_cli = Celular,
                     telefono_cli = telefono,
                     correo_cli = mail,
                     
@@ -310,7 +318,7 @@ namespace Vista
             {                
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error de ingreso de datos", ex));
-                            
+                Logger.Mensaje(ex.Message);
 
             }
         }
@@ -326,9 +334,18 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-                int celular = int.Parse(txtCelular.Text);
-                int telefono = int.Parse(txtTelefono.Text);
-                                
+                int Celular = 0;
+                if (int.TryParse(txtCelular.Text, out Celular))
+                {
+                    Celular = int.Parse(txtCelular.Text);
+                }
+                //int telefono = int.Parse(txtTelefono.Text); 
+                int telefono = 0;
+                if (int.TryParse(txtTelefono.Text, out telefono))
+                {
+                    telefono = int.Parse(txtTelefono.Text);
+                }
+
                 Cliente c = new Cliente()
                 {
                     rut_cliente = rut,
@@ -336,7 +353,7 @@ namespace Vista
                     segundo_nom_cli = segNombre,
                     ap_paterno_cli = apPaterno,
                     ap_materno_cli = apMaterno,
-                    celular_cli = celular,
+                    celular_cli = Celular,
                     telefono_cli = telefono,
                     correo_cli = mail
 

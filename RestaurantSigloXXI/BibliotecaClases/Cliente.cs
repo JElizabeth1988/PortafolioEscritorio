@@ -29,7 +29,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("- Campo Rut  no puede estar Vacío");
+                    err.AgregarError("- Campo Rut no puede estar Vacío");
                 }
 
             }
@@ -93,7 +93,7 @@ namespace BibliotecaNegocio
                 else
                 {
                     err.AgregarError("- Campo Celular es Obligatorio y debe tener un largo de 9 dígitos");
-                    //throw new ArgumentException("- Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
+                    
                 }
             }
         }
@@ -149,11 +149,13 @@ namespace BibliotecaNegocio
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_AGREGAR_CLIENTE";
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
+
                 CMD.Parameters.Add(new OracleParameter("P_RUT_CLIENTE", OracleDbType.Varchar2, 12)).Value = client.rut_cliente;
                 CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 45)).Value = client.primer_nom_cli;
                 CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 45)).Value = client.segundo_nom_cli;
                 CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 45)).Value = client.ap_paterno_cli;
                 CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 45)).Value = client.ap_materno_cli;
+
                 if (client.celular_cli != 0 && client.celular_cli > 900000000 && client.celular_cli < 1000000000)
                 {
                     CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = client.celular_cli;
@@ -207,7 +209,7 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 45)).Value = client.segundo_nom_cli;
                 CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 45)).Value = client.ap_paterno_cli;
                 CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 45)).Value = client.ap_materno_cli;
-                if (client.celular_cli != 0 && client.celular_cli > 900000000 && client.celular_cli < 1000000000)
+                if (client.celular_cli > 900000000 && client.celular_cli < 1000000000)
                 {
                     CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = client.celular_cli;
                 }
@@ -546,7 +548,7 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 45)).Value = client.segundo_nom_cli;
                 CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 45)).Value = client.ap_paterno_cli;
                 CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 45)).Value = client.ap_materno_cli;
-                if (client.celular_cli != 0 && client.celular_cli > 900000000 && client.celular_cli < 1000000000)
+                if (client.celular_cli > 900000000 && client.celular_cli < 1000000000)
                 {
                     CMD.Parameters.Add(new OracleParameter("P_CELULAR", OracleDbType.Int32)).Value = client.celular_cli;
                 }

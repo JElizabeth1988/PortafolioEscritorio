@@ -12,8 +12,8 @@ namespace BibliotecaNegocio
 {
     public class Login
     {
-        private string _usuario;
-        public string usuario
+        public string usuario { get; set; }
+        /*public string usuario
         {
             get { return _usuario; }
             set
@@ -29,9 +29,9 @@ namespace BibliotecaNegocio
                 }
 
             }
-        }
-        private string _contra;
-        public string contrasenia
+        }*/
+        public string contrasenia { get; set; }
+        /*public string contrasenia
         {
             get { return _contra; }
             set
@@ -47,9 +47,9 @@ namespace BibliotecaNegocio
                 }
 
             }
-        }
-        private string _activo;
-        public string cliente_activo
+        }*/
+        public string cliente_activo;
+       /* public string cliente_activo
         {
             get { return _activo; }
             set
@@ -65,14 +65,14 @@ namespace BibliotecaNegocio
                 }
 
             }
-        }
+        }*/
         public string rut_cliente { get; set; }
         public string rut_empleado { get; set; }
 
-        
+        /*
         //Capturar Errores
         DaoErrores err = new DaoErrores();
-        public DaoErrores retornar() { return err; }
+        public DaoErrores retornar() { return err; }*/
 
         public Login()
         {

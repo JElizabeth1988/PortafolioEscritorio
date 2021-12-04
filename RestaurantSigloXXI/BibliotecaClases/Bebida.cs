@@ -72,24 +72,7 @@ namespace BibliotecaNegocio
             }
         }
 
-        private int _stock;
-        public int stock
-        {
-            get { return _stock; }
-            set
-            {
-                if (value != 0)
-                {
-                    _stock = value;
-                }
-                else
-                {
-                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("- Campo Stock es Obligatorio y Debe Ser Mayor a Cero");
-                }
-
-            }
-        }
+        public int stock { get; set; }
         public int id_tipo { get; set; }
 
         //No es serializable
@@ -126,9 +109,24 @@ namespace BibliotecaNegocio
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
                 //CMD.Parameters.Add(new OracleParameter("P_NUMERO", OracleDbType.Int32)).Value = mes.num_mesa; //seagrega x trigger                              
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = fantita.nom_bebida;
-                CMD.Parameters.Add(new OracleParameter("P_ML", OracleDbType.Int32)).Value = fantita.ml_bebida;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = fantita.valor_bebida;
+                if (fantita.ml_bebida >0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_ML", OracleDbType.Int32)).Value = fantita.ml_bebida;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Ml es Obligatorio y Debe Ser Mayor a Cero");
+                }
+                if (fantita.valor_bebida > 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = fantita.valor_bebida;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Valor es Obligatorio y Debe Ser Mayor a Cero");
+                }
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = fantita.stock;
+                                
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO", OracleDbType.Int32)).Value = fantita.id_tipo;
 
                 //Se abre la conexión
@@ -169,9 +167,24 @@ namespace BibliotecaNegocio
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_NUMERO", OracleDbType.Int32)).Value = fantita.id_bebida;                              
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 80)).Value = fantita.nom_bebida;
-                CMD.Parameters.Add(new OracleParameter("P_ML", OracleDbType.Int32)).Value = fantita.ml_bebida;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = fantita.valor_bebida;
+                if (fantita.ml_bebida > 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_ML", OracleDbType.Int32)).Value = fantita.ml_bebida;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Ml es Obligatorio y Debe Ser Mayor a Cero");
+                }
+                if (fantita.valor_bebida > 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = fantita.valor_bebida;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Valor es Obligatorio y Debe Ser Mayor a Cero");
+                }
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = fantita.stock;
+               
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO", OracleDbType.Int32)).Value = fantita.id_tipo;
 
                 //Se abre la conexión

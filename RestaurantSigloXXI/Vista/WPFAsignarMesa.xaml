@@ -43,7 +43,7 @@
                 <Label x:Name="label_Copy2" Content="Asignación de Mesa:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,7,0,0" Width="131" FontSize="12"/>
                 <Button x:Name="btnFiltrarAsignacion" ToolTip="Filtrar por asignacion de mesa" Content="Filtrar" HorizontalAlignment="Left" Margin="320,7,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnFiltroAsig_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12"/>
                 <RadioButton x:Name="RbOnline" Content="Online" HorizontalAlignment="Left" Margin="156,11,0,0" VerticalAlignment="Top" Width="66" FontWeight="Bold" GroupName="Asignacion" IsChecked="True"/>
-                <RadioButton x:Name="RbPresencial" Content="Presencial" HorizontalAlignment="Left" Margin="227,11,0,0" VerticalAlignment="Top" Width="89" FontWeight="Bold" GroupName="Asignacion"/>
+                <RadioButton x:Name="RbPresencial" Content="Presencial" HorizontalAlignment="Left" Margin="227,11,0,0" VerticalAlignment="Top" Width="89" FontWeight="Bold" GroupName="Asignacion" IsChecked="True"/>
             </Grid>
         </GroupBox>
 

@@ -37,7 +37,7 @@ namespace BibliotecaNegocio
         }
 
 
-        public int cantidad_embase { get; set; }
+        public int cantidad_envase { get; set; }
 
         private string _unidad;
         public string u_medida
@@ -181,9 +181,19 @@ namespace BibliotecaNegocio
                 //Se crea un nuevo tipo de parametro, nombre parametro, el tipo, el largo, y el valor es igual al de la clase.
                 //CMD.Parameters.Add(new OracleParameter("P_ID_PROD", OracleDbType.Int32)).Value = prod.id_producto; -->Se agrega x Trigger con secuencia
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = prod.nombre;
-                CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = prod.cantidad_embase;
+                CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = prod.cantidad_envase;
+
+
                 CMD.Parameters.Add(new OracleParameter("P_UNIDAD", OracleDbType.Varchar2, 10)).Value = prod.u_medida;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = prod.valor_unitario;
+                if (prod.valor_unitario > 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = prod.valor_unitario;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Valor Unitario es Obligatorio");
+                }
+
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO_PROD", OracleDbType.Int32)).Value = prod.id_tipo_producto;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = prod.stock;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR_TOTAL", OracleDbType.Int32)).Value = prod.valor_total;
@@ -226,9 +236,18 @@ namespace BibliotecaNegocio
                 CMD.CommandText = "SP_ACTUALIZAR_PRODUCTO";
                 CMD.Parameters.Add(new OracleParameter("P_ID_PROD", OracleDbType.Int32)).Value = prod.id_producto;
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = prod.nombre;
-                CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = prod.cantidad_embase;
+                CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = prod.cantidad_envase;
+
+
                 CMD.Parameters.Add(new OracleParameter("P_UNIDAD", OracleDbType.Varchar2, 10)).Value = prod.u_medida;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = prod.valor_unitario;
+                if (prod.valor_unitario > 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = prod.valor_unitario;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Valor Unitario es Obligatorio");
+                }
                 CMD.Parameters.Add(new OracleParameter("P_ID_TIPO_PROD", OracleDbType.Int32)).Value = prod.id_tipo_producto;
                 CMD.Parameters.Add(new OracleParameter("P_STOCK", OracleDbType.Int32)).Value = prod.stock;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR_TOTAL", OracleDbType.Int32)).Value = prod.valor_total;
@@ -282,7 +301,7 @@ namespace BibliotecaNegocio
 
                     id_producto = int.Parse(reader[0].ToString());
                     nombre = reader[1].ToString();
-                    cantidad_embase = int.Parse(reader[2].ToString());
+                    cantidad_envase = int.Parse(reader[2].ToString());
                     u_medida = reader[3].ToString();
                     valor_unitario = int.Parse(reader[4].ToString());
                     stock = int.Parse(reader[5].ToString());
@@ -677,7 +696,7 @@ namespace BibliotecaNegocio
         //Lista  para mostrar nombres en vez de id (para procedimientos con Joins)
         [Serializable]
         public class ListaProductoPedido
-        {            
+        {
             public string Nombre { get; set; }
             public string Valor { get; set; }
             public string Cantidad { get; set; }
@@ -734,7 +753,7 @@ namespace BibliotecaNegocio
             {
                 conn.Close();
                 Logger.Mensaje(ex.Message);
-                return null;                
+                return null;
 
             }
             finally

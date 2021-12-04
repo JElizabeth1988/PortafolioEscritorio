@@ -254,9 +254,6 @@
     <Compile Include="WPFPago.xaml.cs">
       <DependentUpon>WPFPago.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPFPedidoProveedor.xaml.cs">
-      <DependentUpon>WPFPedidoProveedor.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WPFPlato.xaml.cs">
       <DependentUpon>WPFPlato.xaml</DependentUpon>
     </Compile>
@@ -391,10 +388,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPFPago.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WPFPedidoProveedor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

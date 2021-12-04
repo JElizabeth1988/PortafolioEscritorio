@@ -21,14 +21,15 @@ namespace BibliotecaNegocio
             get { return _capacidad; }
             set
             {
-                if (value != 0)
-                {
-                    _capacidad = value;
-                }
-                else
+                if (value == 0)
                 {
                     //throw new ArgumentException("Campo Rut no puede estar Vacío");
                     err.AgregarError("- Campo Capacidad es Obligatorio y Debe Ser Mayor a Cero");
+                    
+                }
+                else
+                {
+                    _capacidad = value;
                 }
             }
         }
@@ -53,23 +54,7 @@ namespace BibliotecaNegocio
 
         public string asignacion { get; set; }
 
-        private string _empleado;
-        public string rut_empleado
-        {
-            get { return _empleado; }
-            set
-            {
-                if (value != string.Empty)
-                {
-                    _empleado = value;
-                }
-                else
-                {
-                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                    err.AgregarError("- Campo Rut de Empleado es Obligatorio");
-                }
-            }
-        }
+        public string rut_empleado { get; set; }
 
         [NonSerialized]
         //Crear objeto de la Bdd
@@ -103,7 +88,15 @@ namespace BibliotecaNegocio
                 CMD.CommandText = "SP_AGREGAR_MESAS";
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
                 //CMD.Parameters.Add(new OracleParameter("P_NUMERO", OracleDbType.Int32)).Value = mes.num_mesa; //seagrega x trigger                              
-                CMD.Parameters.Add(new OracleParameter("P_CAPACIDAD", OracleDbType.Int32)).Value = mes.capacidad_persona;
+                if (mes.capacidad_persona > 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_CAPACIDAD", OracleDbType.Int32)).Value = mes.capacidad_persona;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Capacidad es Obligatorio y Debe Ser Mayor a Cero");
+                }
+               
                 CMD.Parameters.Add(new OracleParameter("P_DISPONIBILIDAD", OracleDbType.Varchar2, 15)).Value = mes.disponibilidad;
                 CMD.Parameters.Add(new OracleParameter("P_ASIGNACION", OracleDbType.Varchar2, 10)).Value = mes.asignacion;
                 CMD.Parameters.Add(new OracleParameter("P_RUT_EMPLEADO", OracleDbType.Varchar2, 12)).Value = mes.rut_empleado;

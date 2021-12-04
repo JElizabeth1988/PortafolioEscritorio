@@ -283,7 +283,12 @@ namespace Vista
                 string nombre = txtNomb.Text;
                 int precio = int.Parse(txtPrecio.Text);
                 string desc = txtDescripcion.Text;
-                int stock = int.Parse(txtStock.Text);
+                int stock = 0;
+                if (txtStock.Text != string.Empty)
+                {
+                    stock = int.Parse(txtStock.Text);
+                }
+                
                 int receta = ((comboBoxItem1)cboReceta.SelectedItem).id;//Guardo el id
                 int cat = ((comboBoxItem1)cboCategoria.SelectedItem).id;//Guardo el id
                 byte[] fotin = null;
@@ -328,7 +333,7 @@ namespace Vista
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
 
-                    DaoErrores de = pla.retornar();
+                    DaoErrores de = i.retornar();
                     string li = "";
                     foreach (string item in de.ListarErrores())
                     {
@@ -357,14 +362,7 @@ namespace Vista
                       string.Format("Error de ingreso de datos"));
                 /*MessageBox.Show("Error de ingreso de datos");*/
                 Logger.Mensaje(ex.Message);
-               /* DaoErrores de = pla.retornar();
-                string li = "";
-                foreach (string item in de.ListarErrores())
-                {
-                    li += item + " \n";
-                }
-                await this.ShowMessageAsync("Mensaje:",
-                    string.Format(li));*/
+               
 
             }
         }
@@ -378,7 +376,11 @@ namespace Vista
                 string nombre = txtNomb.Text;
                 int precio = int.Parse(txtPrecio.Text);
                 string desc = txtDescripcion.Text;
-                int stock = int.Parse(txtStock.Text);
+                int stock = 0;
+                if (txtStock.Text != string.Empty)
+                {
+                    stock = int.Parse(txtStock.Text);
+                }
                 int receta = ((comboBoxItem1)cboReceta.SelectedItem).id;//Guardo el id
                 int cat = ((comboBoxItem1)cboCategoria.SelectedItem).id;//Guardo el id
 
@@ -431,6 +433,17 @@ namespace Vista
                         Limpiar();
                         txtNomb.Focus();
                     }
+                    else
+                    {
+                        DaoErrores de = i.retornar();
+                        string li = "";
+                        foreach (string item in de.ListarErrores())
+                        {
+                            li += item + " \n";
+                        }
+                        await this.ShowMessageAsync("Mensaje:",
+                            string.Format(li));
+                    }
                 }
                 else
                 {                   
@@ -457,6 +470,17 @@ namespace Vista
                         NotificationCenter.Notify("plato_actualizado");
                         Limpiar();
                         txtNomb.Focus();
+                    }
+                    else
+                    {
+                        DaoErrores de = i.retornar();
+                        string li = "";
+                        foreach (string item in de.ListarErrores())
+                        {
+                            li += item + " \n";
+                        }
+                        await this.ShowMessageAsync("Mensaje:",
+                            string.Format(li));
                     }
 
                 }                   
@@ -518,11 +542,12 @@ namespace Vista
                     bool resp = platillo.Eliminar(id);//Entrega id por parametro
                     if (resp == true)//Si el método fue éxitoso muestra el mensaje
                     {
+                        Limpiar();
                         await this.ShowMessageAsync("Éxito:",
                           string.Format("Resgistro Eliminado"));
                         //Notificación (Actualiza la grilla en tiempo real)
-                        NotificationCenter.Notify("agenda_borrada");
-                        Limpiar();
+                        NotificationCenter.Notify("plato_borrado");
+                        
                     }
                     else
                     {

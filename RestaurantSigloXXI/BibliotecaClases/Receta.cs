@@ -200,10 +200,33 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 45)).Value = recetita.nom_receta;
                 CMD.Parameters.Add(new OracleParameter("P_INSTRUCCIONES", OracleDbType.Clob)).Value = recetita.instrucciones;
                 CMD.Parameters.Add(new OracleParameter("P_INGREDIENTES", OracleDbType.Clob)).Value = recetita.Ingredientes;
-                CMD.Parameters.Add(new OracleParameter("P_TIEMPO_COC", OracleDbType.Int32)).Value = recetita.tiempo_coccion;
-                CMD.Parameters.Add(new OracleParameter("P_T_PREPARACION", OracleDbType.Int32)).Value = recetita.tiempo_preparacion;
+                if (recetita.tiempo_coccion >= 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_TIEMPO_COC", OracleDbType.Int32)).Value = recetita.tiempo_coccion;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Porción es Obligatorio y Debe Ser Mayor a Cero");
+                }
+                if (recetita.tiempo_preparacion >0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_T_PREPARACION", OracleDbType.Int32)).Value = recetita.tiempo_preparacion;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Porción es Obligatorio y Debe Ser Mayor a Cero");
+                }
+                
                 CMD.Parameters.Add(new OracleParameter("P_T_TOTAL", OracleDbType.Int32)).Value = recetita.tiempo_total;
-                CMD.Parameters.Add(new OracleParameter("P_PORCION", OracleDbType.Int32)).Value = recetita.porcion;
+                if (recetita.porcion >0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_PORCION", OracleDbType.Int32)).Value = recetita.porcion;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Porción es Obligatorio y Debe Ser Mayor a Cero");
+                }
+                
 
 
                 //Se abre la conexión
@@ -272,7 +295,7 @@ namespace BibliotecaNegocio
             }
         }
 
-        
+
 
         //---------Método Eliminar-----------------------------------------------
         public bool Eliminar(int id) //Recibe id pot parametro
@@ -346,10 +369,10 @@ namespace BibliotecaNegocio
                     i.Nombre = dr.GetValue(1).ToString();
                     i.Instrucciones = dr.GetValue(2).ToString();
                     i.Ingredientes = dr.GetValue(3).ToString();
-                    i.Tiempo_coccion = dr.GetValue(4).ToString()+" Minutos";
+                    i.Tiempo_coccion = dr.GetValue(4).ToString() + " Minutos";
                     i.tiempo_preparacion = dr.GetValue(5).ToString() + " Minutos";
                     i.tiempo_total = dr.GetValue(6).ToString() + " Minutos";
-                    i.porciones = dr.GetValue(7).ToString() + " Prociones";                   
+                    i.porciones = dr.GetValue(7).ToString() + " Prociones";
 
                     lista.Add(i);
                 }
@@ -363,7 +386,7 @@ namespace BibliotecaNegocio
                 conn.Close();
                 Logger.Mensaje(ex.Message);
                 return null;
-                
+
             }
             finally
             {

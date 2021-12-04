@@ -26,7 +26,7 @@ using BibliotecaNegocio;
 
 namespace Vista
 {
-   
+
     public partial class WPFUtilidades : MetroWindow
     {
         //PatronSingleton--------------------------
@@ -68,23 +68,34 @@ namespace Vista
         {
             try
             {
-                DateTime desde = dpDesdeI.SelectedDate.Value;
-                DateTime hasta = dpHastaI.SelectedDate.Value;
-
-                if (ing.Listar(desde,hasta) != null)
+                if (dpDesdeI.SelectedDate.Value <= dpHastaI.SelectedDate.Value)
                 {
-                    dgListaIng.ItemsSource = ing.Listar(desde, hasta);
-                    btnCalcIng.Visibility = Visibility.Visible;
+                    DateTime desde = dpDesdeI.SelectedDate.Value;
+                    DateTime hasta = dpHastaI.SelectedDate.Value;
+
+                    if (ing.Listar(desde, hasta) != null)
+                    {
+                        dgListaIng.ItemsSource = ing.Listar(desde, hasta);
+                        btnCalcIng.Visibility = Visibility.Visible;
+                        lblIngresos.Content = "-";
+                    }
+                    else
+                    {
+                        dgListaIng.ItemsSource = null;
+                        DataTable dt = new DataTable();
+                        dt.Columns.Add("");
+                        dt.Columns.Add("Ingresos:");
+                        dt.Rows.Add("", "No Existe información relacionada a su búsqueda");
+                        dgListaIng.ItemsSource = dt.DefaultView;
+
+                        btnCalcIng.Visibility = Visibility.Hidden;
+                        lblIngresos.Content = "-";
+                    }
                 }
                 else
                 {
-                    dgListaIng.ItemsSource = null;
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("Ingresos:");
-                    dt.Rows.Add("No Existe información relacionada a su búsqueda");
-                    dgListaIng.ItemsSource = dt.DefaultView;
-
-                    btnCalcIng.Visibility = Visibility.Hidden;
+                    await this.ShowMessageAsync("Mensaje:",
+                      string.Format("La fecha de inicio no puede ser anterior a la de término"));
                 }
             }
             catch (Exception ex)
@@ -99,24 +110,36 @@ namespace Vista
         {
             try
             {
-                DateTime desde = dpDesdeE.SelectedDate.Value;
-                DateTime hasta = dpHastaE.SelectedDate.Value;
-
-                if (eg.Listar(desde, hasta) != null)
+                if (dpDesdeE.SelectedDate.Value <= dpHastaE.SelectedDate.Value)
                 {
-                    dgListaEgr.ItemsSource = eg.Listar(desde, hasta);
-                    btnCalcEgre.Visibility = Visibility.Visible;
+                    DateTime desde = dpDesdeE.SelectedDate.Value;
+                    DateTime hasta = dpHastaE.SelectedDate.Value;
+
+                    if (eg.Listar(desde, hasta) != null)
+                    {
+                        dgListaEgr.ItemsSource = eg.Listar(desde, hasta);
+                        btnCalcEgre.Visibility = Visibility.Visible;
+                        lblEgresos.Content = "-";
+                    }
+                    else
+                    {
+                        dgListaEgr.ItemsSource = null;
+                        DataTable dt = new DataTable();
+                        dt.Columns.Add("");
+                        dt.Columns.Add("Egresos:");
+                        dt.Rows.Add("", "No Existe información relacionada a su búsqueda");
+                        dgListaEgr.ItemsSource = dt.DefaultView;
+
+                        btnCalcEgre.Visibility = Visibility.Hidden;
+                        lblEgresos.Content = "-";
+                    }
                 }
                 else
                 {
-                    dgListaEgr.ItemsSource = null;
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("Egresos:");
-                    dt.Rows.Add("No Existe información relacionada a su búsqueda");
-                    dgListaEgr.ItemsSource = dt.DefaultView;
-
-                    btnCalcEgre.Visibility = Visibility.Hidden;
+                    await this.ShowMessageAsync("Mensaje:",
+                      string.Format("La fecha de inicio no puede ser anterior a la de término"));
                 }
+
             }
             catch (Exception ex)
             {
@@ -150,9 +173,10 @@ namespace Vista
                 DateTime hasta = dpHastaI.SelectedDate.Value;
 
                 string total = ing.Total(desde, hasta).ToString();
-                lblIngresos.Content = "$ "+total;
+                lblIngresos.Content = "$ " + total;
             }
-            catch (Exception ex)            {
+            catch (Exception ex)
+            {
 
                 Logger.Mensaje(ex.Message);
             }
@@ -165,7 +189,7 @@ namespace Vista
                 DateTime hasta = dpHastaE.SelectedDate.Value;
                 string total = eg.Total(desde, hasta).ToString();
 
-                lblEgresos.Content = "$ "+total;
+                lblEgresos.Content = "$ " + total;
 
             }
             catch (Exception ex)

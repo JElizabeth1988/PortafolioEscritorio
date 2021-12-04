@@ -252,22 +252,34 @@ namespace Vista
         {
             try
             {
-                int id = int.Parse(lblId.Content.ToString());
-                int stock = int.Parse(txtStock.Text);
-
-
-                bool resp = pro.ActualizarStock(id, stock);
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format(resp ? "Stock Actualizado" : "No Actualizado"));
-                //Notificación (Actualiza la grilla en tiempo real)
-                NotificationCenter.Notify("producto_actualizado");
-                txtNombre.Focus();
-
-                //-----------------------------------------------------------------------------------------------
-                if (resp == true)
+                if (txtStock.Text != string.Empty)
                 {
-                    Limpiar();
+                    int id = int.Parse(lblId.Content.ToString());
+                    int stock = 0;
+                    if (txtStock.Text != string.Empty)
+                    {
+                        stock = int.Parse(txtStock.Text);
+                    }
+
+                    bool resp = pro.ActualizarStock(id, stock);
+                    await this.ShowMessageAsync("Mensaje:",
+                         string.Format(resp ? "Stock Actualizado" : "No Actualizado"));
+                    //Notificación (Actualiza la grilla en tiempo real)
+                    NotificationCenter.Notify("producto_actualizado");
+                    txtNombre.Focus();
+
+                    //-----------------------------------------------------------------------------------------------
+                    if (resp == true)
+                    {
+                        Limpiar();
+                    }
                 }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Campo Stock No Debe Estar Vacío"));
+                }
+                
 
             }
             catch (ArgumentException exa)//mensajes de reglas de negocios

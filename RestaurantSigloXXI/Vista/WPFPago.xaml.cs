@@ -246,13 +246,18 @@ namespace Vista
         {
             try
             {
-                if (int.Parse(txtVuelto.Text) >= 0)
+                if (int.Parse(txtPagado.Text) >= int.Parse(txtTotal.Text))
                 {
                     int valor = int.Parse(txtTotal.Text);
                     int efectivo = int.Parse(txtPagado.Text);
                     int dcto = int.Parse(txtDcto.Text);
                     string rut = txtRut.Text;
-                    int pedido = int.Parse(txtPedido.Text);
+                    int pedido = 0;
+                    if (txtPedido.Text != string.Empty)
+                    {
+                        pedido = int.Parse(txtPedido.Text);
+                    }
+                    //int.Parse(txtPedido.Text);
 
                     Pago p = new Pago()
                     {
@@ -273,6 +278,17 @@ namespace Vista
                         btnPasar.Visibility = Visibility.Hidden;
                         NotificationCenter.Notify("agregado");
                     }
+                    else
+                    {
+                        DaoErrores de = p.retornar();
+                        string li = "";
+                        foreach (string item in de.ListarErrores())
+                        {
+                            li += item + " \n";
+                        }
+                        await this.ShowMessageAsync("Mensaje:",
+                            string.Format(li));
+                    }
                 }
                 else
                 {
@@ -287,6 +303,7 @@ namespace Vista
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error de ingreso de datos", ex));
                 Logger.Mensaje(ex.Message);
+               
             }
         }
 

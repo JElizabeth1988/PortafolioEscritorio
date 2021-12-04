@@ -279,31 +279,17 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-                //int celular = int.Parse(txtCelular.Text);   
-                int celular = 0;
-                if (int.TryParse(txtCelular.Text, out celular))
+                int Celular = 0;
+                if (int.TryParse(txtCelular.Text, out Celular))
                 {
+                    Celular = int.Parse(txtCelular.Text);
+                }
 
-                }
-                else
-                {
-                    /* await this.ShowMessageAsync("Mensaje:",
-                       string.Format("Ingrese un número de 9 dígitos"));
-                     txtTelefono.Focus();*/
-                    return;
-                }
                 //int telefono = int.Parse(txtTelefono.Text); 
                 int telefono = 0;
                 if (int.TryParse(txtTelefono.Text, out telefono))
                 {
-
-                }
-                else
-                {
-                    /*await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Ingrese un número de 9 dígitos"));
-                    txtTelefono.Focus();*/
-                    return;
+                    telefono = int.Parse(txtTelefono.Text);
                 }
 
                 string user = txtUser.Text;
@@ -330,7 +316,7 @@ namespace Vista
                     segundo_nom_cli = segNombre,
                     ap_paterno_cli = apPaterno,
                     ap_materno_cli = apMaterno,
-                    celular_cli = celular,
+                    celular_cli = Celular,
                     telefono_cli = telefono,
                     correo_cli = mail,
 
@@ -408,8 +394,18 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-                int celular = int.Parse(txtCelular.Text);
-                int telefono = int.Parse(txtTelefono.Text);
+                int Celular = 0;
+                if (int.TryParse(txtCelular.Text, out Celular))
+                {
+                    Celular = int.Parse(txtCelular.Text);
+                }
+
+                //int telefono = int.Parse(txtTelefono.Text); 
+                int telefono = 0;
+                if (int.TryParse(txtTelefono.Text, out telefono))
+                {
+                    telefono = int.Parse(txtTelefono.Text);
+                }
 
                 string user = txtUser.Text;
                 string pass = txtPass.Text;
@@ -429,7 +425,7 @@ namespace Vista
                     segundo_nom_cli = segNombre,
                     ap_paterno_cli = apPaterno,
                     ap_materno_cli = apMaterno,
-                    celular_cli = celular,
+                    celular_cli = Celular,
                     telefono_cli = telefono,
                     correo_cli = mail
 

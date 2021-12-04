@@ -48,6 +48,27 @@ namespace BibliotecaNegocio
         public string estado { get; set; }
         public int total { get; set; }
         public int id_proveedor { get; set; }
+        //---------------------
+        public string nombre { get; set; }
+        public int valor { get; set; }
+        //public int cantidad { get; set; }
+        private int _cantidad;
+        public int cantidad
+        {
+            get { return _cantidad; }
+            set
+            {
+                if (value >0)
+                {
+                    _cantidad = value;
+                }
+                else
+                {
+                    err.AgregarError("- Debe ingresar una Cantidad mayor a Cero");
+                }
+            }
+        }
+        //------------------------
 
         public PedidoProveedor()
         {
@@ -63,7 +84,7 @@ namespace BibliotecaNegocio
         DaoErrores err = new DaoErrores();
         public DaoErrores retornar() { return err; }
 
-        public bool Agregar(PedidoProveedor ped, Articulo art)
+        public bool Agregar(PedidoProveedor ped)
         {
             try
             {
@@ -81,10 +102,18 @@ namespace BibliotecaNegocio
                 CMD.Parameters.Add(new OracleParameter("P_FECHA", OracleDbType.Date)).Value = ped.fecha_pedido;
                 CMD.Parameters.Add(new OracleParameter("P_PROVEEDOR", OracleDbType.Int32)).Value = ped.id_proveedor;
 
-                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 30)).Value = art.nombre;
-                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = art.valor;
-                CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = art.cantidad;
-                CMD.Parameters.Add(new OracleParameter("P_TOTAL", OracleDbType.Int32)).Value = art.total;
+                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 30)).Value = ped.nombre;
+                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = ped.valor;
+                if (ped.cantidad > 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = ped.cantidad;
+                }
+                else
+                {
+                    err.AgregarError("- Debe ingresar una Cantidad mayor a Cero");
+                }
+               
+                CMD.Parameters.Add(new OracleParameter("P_TOTAL", OracleDbType.Int32)).Value = ped.total;
 
                 // Se abre la conexión
                 conn.Open();

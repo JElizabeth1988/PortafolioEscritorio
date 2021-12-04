@@ -57,14 +57,13 @@ namespace Vista
         Agenda horario = new Agenda();
 
         //Inicializar txthora y minuto
-        int horita = int.Parse(DateTime.Now.Hour.ToString()),
-           minutin = 00;
+        
         
 
         public WPFAgenda()
         {
             InitializeComponent();
-            string hori = DateTime.Now.Hour.ToString();
+            /*string hori = DateTime.Now.Hour.ToString();
             if (hori.Length < 2)
             {
                 txtHora.Text = "0" + hori;
@@ -72,7 +71,8 @@ namespace Vista
             else
             {
                 txtHora.Text = hori;
-            }
+            }*/
+            txtHora.Text = "11";
             txtMinuto.Text = "00";
             /*string minu = DateTime.Now.Minute.ToString();//Minuto
             if (minu.Length < 2)
@@ -242,10 +242,11 @@ namespace Vista
         //--------------------------------------------------------------------
         private void btnMasHora_Click(object sender, RoutedEventArgs e)
         {
+            int horita = int.Parse(txtHora.Text);
             horita++;
-            if (horita == 24)
+            if (horita == 22)
             {
-                horita = 0;
+                horita = 11;
             }
             if (horita.ToString().Length < 2)
             {
@@ -260,10 +261,11 @@ namespace Vista
 
         private void btnMenosHora_Click(object sender, RoutedEventArgs e)
         {
+            int horita = int.Parse(txtHora.Text);
             horita--;
-            if (horita < 0)
+            if (horita < 11)
             {
-                horita = 23;
+                horita = 21;
             }
             if (horita.ToString().Length < 2)
             {
@@ -277,6 +279,7 @@ namespace Vista
 
         private void btnMasMin_Click(object sender, RoutedEventArgs e)
         {
+            int minutin = int.Parse(txtMinuto.Text);
             minutin++;
             if (minutin == 60)
             {
@@ -295,6 +298,7 @@ namespace Vista
 
         private void btnMenosMin_Click(object sender, RoutedEventArgs e)
         {
+            int minutin = int.Parse(txtMinuto.Text);
             minutin--;
             if (minutin < 0)
             {
@@ -318,15 +322,7 @@ namespace Vista
             dpFecha.DisplayDate = DateTime.Now;
             dpFecha.SelectedDate = DateTime.Now;
             dpFiltro.SelectedDate = DateTime.Today;
-            string hori = DateTime.Now.Hour.ToString();
-            if (hori.Length < 2)
-            {
-                txtHora.Text = "0" + hori;
-            }
-            else
-            {
-                txtHora.Text = hori;
-            }
+            txtHora.Text = "11";
             txtMinuto.Text = "00";
            
             rbSi.IsChecked = true;
@@ -470,14 +466,7 @@ namespace Vista
                       string.Format("Error de ingreso de datos"));
                 /*MessageBox.Show("Error de ingreso de datos");*/
                 Logger.Mensaje(ex.Message);
-                DaoErrores de = horario.retornar();
-                string li = "";
-                foreach (string item in de.ListarErrores())
-                {
-                    li += item + " \n";
-                }
-                await this.ShowMessageAsync("Mensaje:",
-                    string.Format(li));
+                
 
             }
         }
@@ -548,6 +537,17 @@ namespace Vista
                     NotificationCenter.Notify("agenda_actualizada");
                     Limpiar();
                     dpFecha.Focus();
+                }
+                else
+                {
+                    DaoErrores de = agi.retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
                 }
 
 

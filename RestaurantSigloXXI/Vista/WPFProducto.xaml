@@ -37,7 +37,7 @@
                 <!--<Button x:Name="btnCalcular" ToolTip="Calcular Total" Content="Calcular" HorizontalAlignment="Left" Margin="317,125,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FFCB5F21" FontSize="12" Click="btnCalcular_Click" Height="28"/>-->
                 <Label x:Name="lblId" Content="" HorizontalAlignment="Left" Margin="387,10,0,0" VerticalAlignment="Top" FontSize="12" Width="18"/>
                 <Image x:Name="image1" HorizontalAlignment="Left" Height="82" Margin="493,71,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/logoFinal3.png" RenderTransformOrigin="1.091,0.822"/>
-                <Label x:Name="label_Copy5" Content="Cantidad por Embase:" HorizontalAlignment="Left" Margin="27,41,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label x:Name="label_Copy5" Content="Cantidad por Envase:" HorizontalAlignment="Left" Margin="27,41,0,0" VerticalAlignment="Top" FontSize="12"/>
                 <Label x:Name="lbl1_Copy2" Content="*"  HorizontalAlignment="Left" Margin="355,4,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                 <Label x:Name="lbl1_Copy" Content="*"  HorizontalAlignment="Left" Margin="292,41,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                 <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="294,78,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>

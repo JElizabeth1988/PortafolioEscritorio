@@ -312,8 +312,14 @@ namespace Vista
             try
             {              
               
-                String nombreProducto = txtNomProd.Text;
-                int cant = int.Parse(txtCantidad.Text);
+                string nombreProducto = txtNomProd.Text;
+                    
+                int cant = 0;
+                if (int.TryParse(txtCantidad.Text, out cant))
+                {
+                    cant = int.Parse(txtCantidad.Text);
+                }
+
                 string medida = null;
                 if (RbKg.IsChecked == true)
                 {
@@ -335,36 +341,36 @@ namespace Vista
                 {
                     medida = "U";
                 }
-                int Valor = int.Parse(txtValorUnidad.Text);               
-                
-                int Stock = int.Parse(txtStock.Text);
-                /*int Stock = 0;
+                int Valor = 0;
+                    
+                if (int.TryParse(txtValorUnidad.Text, out Valor))
+                {
+                    Valor = int.Parse(txtValorUnidad.Text);
+                }
+
+
+                int Stock = 0;
                 if (int.TryParse(txtStock.Text, out Stock))
                 {
-
+                    Stock = int.Parse(txtStock.Text);
+                }
+                int valorTotal = 0;
+                if (Stock == 0)
+                {
+                    valorTotal = int.Parse(txtValorUnidad.Text);
                 }
                 else
                 {
-                    return;
-                }*/
+                    valorTotal = (int.Parse(txtValorUnidad.Text) * Stock);
+                }            
                 
-                int valorTotal = (int.Parse(txtValorUnidad.Text) * int.Parse(txtStock.Text));
-                /*int ValorTotal = 0;
-                if (int.TryParse(txtValorTotal.Text, out ValorTotal))
-                {
-
-                }
-                else
-                {
-                    return;
-                }*/
-
+                
                 int tipo = ((ComboBoxItemTipoProducto)cboTipoProducto.SelectedItem).id_tipo_producto;
 
                 Producto pro = new Producto()
                 {                   
                     nombre = nombreProducto,
-                    cantidad_embase = cant,
+                    cantidad_envase = cant,
                     u_medida = medida,
                     valor_unitario = Valor,                   
                     stock = Stock,
@@ -379,7 +385,7 @@ namespace Vista
                 //MOSTRAR LISTA DE ERRORES (validación de la clase)
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
-                    DaoErrores de = prod.retornar();
+                    DaoErrores de = pro.retornar();
                     string li = "";
                     foreach (string item in de.ListarErrores())
                     {
@@ -400,14 +406,7 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format((ex.Message)));
-                DaoErrores de = prod.retornar();
-                string li = "";
-                foreach (string item in de.ListarErrores())
-                {
-                    li += item + " \n";
-                }
-                await this.ShowMessageAsync("Mensaje:",
-                    string.Format(li));
+               
             }
             catch (Exception ex)
             {
@@ -415,14 +414,7 @@ namespace Vista
                       string.Format("Error de ingreso de datos"));
                 /*MessageBox.Show("Error de ingreso de datos");*/
                 Logger.Mensaje(ex.Message);
-                DaoErrores de = prod.retornar();
-                string li = "";
-                foreach (string item in de.ListarErrores())
-                {
-                    li += item + " \n";
-                }
-                await this.ShowMessageAsync("Mensaje:",
-                    string.Format(li));
+               
             }
         }      
 
@@ -432,8 +424,14 @@ namespace Vista
             try
             {
                 int IdProducto = int.Parse(lblId.Content.ToString());
-                String nombreProducto = txtNomProd.Text;
-                int cant = int.Parse(txtCantidad.Text);
+                string nombreProducto = txtNomProd.Text;
+
+                int cant = 0;
+                if (int.TryParse(txtCantidad.Text, out cant))
+                {
+                    cant = int.Parse(txtCantidad.Text);
+                }
+
                 string medida = null;
                 if (RbKg.IsChecked == true)
                 {
@@ -455,15 +453,36 @@ namespace Vista
                 {
                     medida = "U";
                 }
-                int Valor = int.Parse(txtValorUnidad.Text);
-                int Stock = int.Parse(txtStock.Text);
-                int valorTotal = (int.Parse(txtValorUnidad.Text) * int.Parse(txtStock.Text));
-                int tipo = ((ComboBoxItemTipoProducto)cboTipoProducto.SelectedItem).id_tipo_producto;//Guardar el ID de tipo producto
+                int Valor = 0;
+
+                if (int.TryParse(txtValorUnidad.Text, out Valor))
+                {
+                    Valor = int.Parse(txtValorUnidad.Text);
+                }
+
+
+                int Stock = 0;
+                if (int.TryParse(txtStock.Text, out Stock))
+                {
+                    Stock = int.Parse(txtStock.Text);
+                }
+                int valorTotal = 0;
+                if (Stock == 0)
+                {
+                    valorTotal = int.Parse(txtValorUnidad.Text);
+                }
+                else
+                {
+                    valorTotal = (int.Parse(txtValorUnidad.Text) * Stock);
+                }
+
+
+                int tipo = ((ComboBoxItemTipoProducto)cboTipoProducto.SelectedItem).id_tipo_producto;
 
                 Producto pro = new Producto()
                 {
                     id_producto = IdProducto,
-                    cantidad_embase = cant,
+                    cantidad_envase = cant,
                     u_medida = medida,
                     nombre = nombreProducto,
                     valor_unitario = Valor,                   
@@ -480,7 +499,7 @@ namespace Vista
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
 
-                    DaoErrores de = prod.retornar();
+                    DaoErrores de = pro.retornar();
                     string li = "";
                     foreach (string item in de.ListarErrores())
                     {

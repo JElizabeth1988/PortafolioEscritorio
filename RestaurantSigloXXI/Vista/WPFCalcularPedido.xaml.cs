@@ -295,6 +295,17 @@ namespace Vista
                     NotificationCenter.Notify("pedido_total");
 
                 }
+                else
+                {
+                    DaoErrores de = t.retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
+                }
 
             }
             catch (Exception ex)
@@ -322,18 +333,15 @@ namespace Vista
                 {
                     id_pedido = pedido,
                     fecha_pedido = fecha,
-                    id_proveedor = proveedor
-                };
-
-                Articulo ar = new Articulo()
-                {
+                    id_proveedor = proveedor,
                     nombre = v_nombre,
                     valor = v_valor,
                     cantidad = v_cantidad,
                     total = v_total
                 };
+                               
 
-                bool resp = ped.Agregar(pp, ar);
+                bool resp = ped.Agregar(pp);
                 /*await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Guardado" : "No Guardado"));*/
 
@@ -348,6 +356,18 @@ namespace Vista
 
                     btnAgregar.Visibility = Visibility.Hidden;
                     btnPasar.Visibility = Visibility.Visible;
+
+                }
+                else
+                {
+                    DaoErrores de = pp.retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
 
                 }
 
@@ -393,6 +413,9 @@ namespace Vista
                     CargarGrillaProd();
                     CargarGrilla();
                     lblTotal.Content = "";
+
+                    btnAgregar.Visibility = Visibility.Visible;
+                    btnPasar.Visibility = Visibility.Hidden;
 
                 }
 
@@ -482,72 +505,5 @@ namespace Vista
         }
 
         
-        /*
-
-        private async void btnPDF_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                
-                Factura.CreaTicket Ticket1 = new Factura.CreaTicket();
-
-                Ticket1.TextoCentro("Restaurant Siglo XXI"); //imprime una linea de descripcion
-                Ticket1.TextoCentro("**********************************");
-
-                Ticket1.TextoIzquierda("");
-                Ticket1.TextoCentro("Pedido a Proveedor"); //imprime una linea de descripcion
-                Ticket1.TextoIzquierda("N° de Pedido " + lblNumero.Content.ToString());
-                Ticket1.TextoIzquierda("Fecha: " + DateTime.Now.ToShortDateString() + " Hora: " + DateTime.Now.ToShortTimeString());
-                // Ticket1.TextoIzquierda("Le Atendio: xxxx");
-                Ticket1.TextoIzquierda("");
-                Factura.CreaTicket.LineasGuion();
-
-                Factura.CreaTicket.EncabezadoVenta();
-                Factura.CreaTicket.LineasGuion();
-                                
-
-                foreach (DataRow item in dgListaPedido.Items)
-                {
-
-                    // PROD                     //PrECIO                                    CANT                         TOTAL
-                    Ticket1.AgregaArticulo(item.ToString(), int.Parse(item.ToString()), int.Parse(item.ToString()), int.Parse(item.ToString())); //imprime una linea de descripcion
-                }
-
-
-                Factura.CreaTicket.LineasGuion();
-                Ticket1.TextoIzquierda(" ");
-                Ticket1.AgregaTotales("Total $", int.Parse(lblTotal.Content.ToString())); // imprime linea con total
-                Ticket1.TextoIzquierda(" ");
-                //Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(txtEfectivo.Text));
-                //Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(lblDevolucion.Text));
-
-
-                // Ticket1.LineasTotales(); // imprime linea 
-
-                Ticket1.TextoIzquierda(" ");
-                Ticket1.TextoCentro("**********************************");
-                Ticket1.TextoCentro("*     Gracias por preferirnos    *");
-
-                Ticket1.TextoCentro("**********************************");
-                Ticket1.TextoIzquierda(" ");
-                string impresora = "Microsoft XPS Document Writer";
-                Ticket1.ImprimirTiket(impresora);
-
-                //System.Windows.MessageBox.Show("Gracias por preferirnos");
-
-                //this.Close();
-            }
-            catch (Exception ex)
-            {
-
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("No Generado"));
-                
-        Logger.Mensaje(ex.Message);
-            }
-        }*/
-          
-     
-       
     }
 }

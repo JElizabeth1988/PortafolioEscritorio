@@ -87,7 +87,7 @@ namespace BibliotecaNegocio
             get { return _rut_cliente; }
             set
             {
-                if (value != null)
+                if (value != string.Empty)
                 {
                     _rut_cliente = value;
                 }
@@ -141,11 +141,33 @@ namespace BibliotecaNegocio
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_FINANZA_PAGO";
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
-                CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = paguin.valor_pago;
+                if (paguin.valor_pago >=0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = paguin.valor_pago;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Valor de Pago es Obligatorio");
+                }
                 CMD.Parameters.Add(new OracleParameter("P_MONTO", OracleDbType.Int32)).Value = paguin.monto_pagado;
                 CMD.Parameters.Add(new OracleParameter("P_DESCUENTO", OracleDbType.Int32)).Value = paguin.descuento;
-                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = paguin.rut_cliente;
-                CMD.Parameters.Add(new OracleParameter("P_PEDIDO", OracleDbType.Int32)).Value = paguin.id_pedido;
+                if (paguin.rut_cliente != null)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 12)).Value = paguin.rut_cliente;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Rut de Cliente es Obligatorio");
+                }
+                if (paguin.id_pedido >0 )
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_PEDIDO", OracleDbType.Int32)).Value = paguin.id_pedido;
+                }
+                else
+                {
+                    err.AgregarError("- Campo Id de Pedido es Obligatorio");
+                }
+               
 
                 //Se abre la conexión
                 conn.Open();

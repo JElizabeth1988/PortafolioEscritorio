@@ -261,10 +261,26 @@ namespace Vista
             try
             {
                 string nombre = txtNom_receta.Text;
-                int coccion = int.Parse(txtTi_Coc.Text);
-                int prepa = int.Parse(txtTPrep.Text);
+
+                int coccion = 0;
+                if (int.TryParse(txtTi_Coc.Text, out coccion))
+                {
+                    coccion = int.Parse(txtTi_Coc.Text);
+                }
+
+                int prepa = 0;
+                if (int.TryParse(txtTPrep.Text, out prepa))
+                {
+                    prepa = int.Parse(txtTPrep.Text);
+                }
+                
                 int total = (int.Parse(txtTi_Coc.Text) + int.Parse(txtTPrep.Text));
-                int porcion = int.Parse(txtPorcion.Text);
+                int porcion = 0;
+                if (int.TryParse(txtPorcion.Text, out porcion))
+                {
+                    porcion = int.Parse(txtPorcion.Text);
+                }
+                
                 string ingredientes = txtIngrediente.Text;
                 string instruccion = txtInstrucciones.Text;
 
@@ -291,6 +307,17 @@ namespace Vista
                     NotificationCenter.Notify("receta_guardada");
                     Limpiar();
 
+                }
+                else
+                {
+                    DaoErrores de = r.retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
                 }
 
             }
@@ -329,15 +356,25 @@ namespace Vista
                 };
                 bool resp = rec.Actualizar(r);
                 await this.ShowMessageAsync("Mensaje:",
-                     string.Format(resp ? "Actualizado" : "No Actualizado"));
-                //Notificación (Actualiza la grilla en tiempo real)
-                NotificationCenter.Notify("receta_actualizada");
-
+                     string.Format(resp ? "Actualizado" : "No Actualizado"));             
 
                 //-----------------------------------------------------------------------------------------------
                 if (resp == true)
                 {
+                    //Notificación (Actualiza la grilla en tiempo real)
+                    NotificationCenter.Notify("receta_actualizada");
                     Limpiar();
+                }
+                else
+                {
+                    DaoErrores de = r.retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
                 }
 
 
@@ -450,8 +487,7 @@ namespace Vista
 
                 var LargoPrep = (r.tiempo_preparacion.Length - 8);
                 txtTPrep.Text = r.tiempo_preparacion.Substring(0, LargoPrep);
-                /*var LargoTot = (r.tiempo_total.Length - 8);
-                txtTotal.Text = r.tiempo_total.Substring(0, LargoTot);*/
+
                 var LargoPorc = (r.porciones.Length - 10);
                 txtPorcion.Text = r.porciones.Substring(0, LargoPorc);
 
@@ -478,55 +514,6 @@ namespace Vista
             //Parar Singleton
             _instancia = null;
         }
-        //---Total
-      /*  public string TiempoTotal()
-        {
-            try
-            {
-                int coccion = 0;
-                if (txtTi_Coc.Text != null)
-                {
-                    coccion = int.Parse(txtTi_Coc.Text);
-                }
-                int preparacion = 0;
-                if (txtTPrep.Text != null)
-                {
-                    preparacion = int.Parse(txtTPrep.Text);
-                }
-
-                string total = (coccion + preparacion).ToString();
-
-                return total;
-
-            }
-            catch (Exception ex)
-            {
-                return null;
-                Logger.Mensaje(ex.Message);
-            }
-        }
-        private async void btnCalcular_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (TiempoTotal() != null && TiempoTotal() != "0")
-                {
-                    txtTotal.Text = TiempoTotal().ToString();
-                }                
-                else
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Es obligatorio Ingresar Valores"));
-                    //MessageBox.Show("Es obligatorio Ingresar Valores");
-                }
-                
-
-            }
-            catch (Exception ex)
-            {
-
-                Logger.Mensaje(ex.Message);
-            }
-        }*/
+     
     }
 }

@@ -281,7 +281,7 @@ namespace Vista
                 //MOSTRAR LISTA DE ERRORES (validación de la clase)
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
-                    DaoErrores de = pro.retornar();
+                    DaoErrores de = i.retornar();
                     string li = "";
                     foreach (string item in de.ListarErrores())
                     {
@@ -340,7 +340,7 @@ namespace Vista
                 //MOSTRAR LISTA DE ERRORES (validación de la clase)
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
-                    DaoErrores de = pro.retornar();
+                    DaoErrores de = i.retornar();
                     string li = "";
                     foreach (string item in de.ListarErrores())
                     {

@@ -363,14 +363,24 @@ namespace Vista
                 bool resp = mes.Actualizar(m);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
-                //Notificación (Actualiza la grilla en tiempo real)
-                NotificationCenter.Notify("mesa_actualizada");
-
-
+                                
                 //-----------------------------------------------------------------------------------------------
                 if (resp == true)
-                {                    
+                {
+                    //Notificación (Actualiza la grilla en tiempo real)
+                    NotificationCenter.Notify("mesa_actualizada");
                     Limpiar();
+                }
+                else
+                {
+                    DaoErrores de = m.retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
                 }
                 
 
@@ -441,7 +451,18 @@ namespace Vista
                     Limpiar();
 
                 }
-                
+                else
+                {
+                    DaoErrores de = m.retornar();
+                    string li = "";
+                    foreach (string item in de.ListarErrores())
+                    {
+                        li += item + " \n";
+                    }
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format(li));
+                }
+
             }
             catch (Exception ex)
             {

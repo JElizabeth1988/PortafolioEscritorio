@@ -14,7 +14,8 @@ namespace BibliotecaNegocio
     public class Articulo
     {
         public int id { get; set; }
-        private string _nombre { get; set; }
+        public string nombre { get; set; }
+        /*private string _nombre { get; set; }
         public string nombre
         {
             get { return _nombre; }
@@ -30,8 +31,9 @@ namespace BibliotecaNegocio
                 }
 
             }
-        }
-        private int _valor { get; set; }
+        }*/
+        public int valor { get; set; }
+        /*private int _valor { get; set; }
         public int valor
         {
             get { return _valor; }
@@ -47,7 +49,7 @@ namespace BibliotecaNegocio
                 }
 
             }
-        }
+        }*/
 
         private int _cantidad { get; set; }
         public int cantidad
@@ -61,13 +63,13 @@ namespace BibliotecaNegocio
                 }
                 else
                 {
-                    err.AgregarError("- Campo Cantidad es Obligatorio");
+                    err.AgregarError("- Campo Cantidad es Obligatorio y Debe Ser Mayor a Cero");
                 }
 
             }
         }
-        private int _total { get; set; }
-        public int total
+        public int total { get; set; }
+        /*public int total
         {
             get { return _total; }
             set
@@ -78,12 +80,13 @@ namespace BibliotecaNegocio
                 }
                 else
                 {
-                    err.AgregarError("- Campo Total es Obligatorio");
+                    err.AgregarError("- Campo Total Debe Ser Mayor a Cero");
                 }
 
             }
-        }
-        private string _id_pedido { get; set; }
+        }*/
+        public string id_pedido { get; set; }
+        /*private string _id_pedido { get; set; }
         public string id_pedido
         {
             get { return _id_pedido; }
@@ -98,7 +101,7 @@ namespace BibliotecaNegocio
                     err.AgregarError("- Campo Id Pedido es Obligatorio");
                 }
             }
-        }
+        }*/
 
         public Articulo()
         {
@@ -131,7 +134,15 @@ namespace BibliotecaNegocio
                 //CMD.Parameters.Add(new OracleParameter("P_ID_PROD", OracleDbType.Int32)).Value = prod.id_producto; -->Se agrega x Trigger con secuencia
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = temp.nombre;
                 CMD.Parameters.Add(new OracleParameter("P_VALOR", OracleDbType.Int32)).Value = temp.valor;
-                CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = temp.cantidad;
+                if (temp.cantidad > 0)
+                {
+                    CMD.Parameters.Add(new OracleParameter("P_CANTIDAD", OracleDbType.Int32)).Value = temp.cantidad;
+                }
+                else
+                {
+                    err.AgregarError("- Debe ingresar una Cantidad mayor a Cero");
+                }
+                                             
                 CMD.Parameters.Add(new OracleParameter("P_TOTAL", OracleDbType.Int32)).Value = temp.total;
                 CMD.Parameters.Add(new OracleParameter("P_ID_PEDIDO", OracleDbType.Varchar2, 30)).Value = temp.id_pedido;
 

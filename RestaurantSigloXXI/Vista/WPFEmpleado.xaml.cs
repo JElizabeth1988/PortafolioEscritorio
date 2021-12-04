@@ -271,65 +271,7 @@ namespace Vista
             Limpiar();
 
         }
-        DaoErrores err = new DaoErrores();
-        public DaoErrores retornar() { return err; }
-        //----------Método pass para llenar el password y user generado por campos
-        //--Para el usuario usará el rut sin DV 
-        public string MetodoUser()
-        {
-            string user = null;
-            try
-            {
-                if (txtRut.Text != "")
-                {
-                    user = txtRut.Text;
-                    return user;
-                }
-                else
-                {
-                    err.AgregarError("Debe ingresar un Rut para generar un id");
-                    return null;
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                Logger.Mensaje(ex.Message);
-                return null;
-                
-            }
-
-        }
-
-        //------Botón generar usuario---------------------
-        private async void btnGenerarUser_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (MetodoUser() != null)
-                {
-                    txtUser.Text = MetodoUser();
-                }
-                else
-                {
-                    DaoErrores de = retornar();
-                    string li = "";
-                    foreach (string item in de.ListarErrores())
-                    {
-                        li += item + " \n";
-                    }
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format(li));
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                Logger.Mensaje(ex.Message);
-            }
-        }
+     
 
         //la contraseña se compone de nombre, primeros 2 carácteres del apellido paterno y tres últimos dígitos del rut (sin DV)
         public string MetodoPass()
@@ -350,7 +292,7 @@ namespace Vista
                 }
                 else
                 {
-                    err.AgregarError("Debe ingresar rut, primer nombre y apellido paterno para generar una contraseña segura");
+                   
                     return null;
                 }
             }
@@ -372,15 +314,9 @@ namespace Vista
                     txtPass.Text = MetodoPass();
                 }
                 else
-                {
-                    DaoErrores de = retornar();
-                    string li = "";
-                    foreach (string item in de.ListarErrores())
-                    {
-                        li += item + " \n";
-                    }
+                {                    
                     await this.ShowMessageAsync("Mensaje:",
-                        string.Format(li));
+                        string.Format("Debe ingresar rut, primer nombre y apellido paterno para generar una contraseña segura"));
                 }
 
             }
@@ -408,8 +344,18 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-                int celular = int.Parse(txtCelular.Text);
-                int telefono = int.Parse(txtTelefono.Text);
+                int Celular = 0;
+                if (int.TryParse(txtCelular.Text, out Celular))
+                {
+                    Celular = int.Parse(txtCelular.Text);
+                }
+
+                //int telefono = int.Parse(txtTelefono.Text); 
+                int telefono = 0;
+                if (int.TryParse(txtTelefono.Text, out telefono))
+                {
+                    telefono = int.Parse(txtTelefono.Text);
+                }
 
                 String user = txtUser.Text;
                 string pass = txtPass.Text;
@@ -423,26 +369,23 @@ namespace Vista
                     segundo_nom_emp = segNombre,
                     apellido_pat_emp = apPaterno,
                     apellido_mat_emp = apMaterno,
-                    celular_emp = celular,
+                    celular_emp = Celular,
                     telefono_emp = telefono,
                     correo_emp = mail,
                     id_tipo_user = tipo,
-
-                };
-                BibliotecaNegocio.Login lo = new BibliotecaNegocio.Login()
-                {
                     usuario = user,
-                    contrasenia = pass,
-                };
+                    contrasenia = pass
 
-                bool resp = emp.Agregar(em, lo);
+                };                
+
+                bool resp = emp.Agregar(em);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
                 //-----------------------------------------------------------------------------------------------
                 //MOSTRAR LISTA DE ERRORES (validación de la clase)
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
-                    DaoErrores de = emp.retornar();
+                    DaoErrores de = em.retornar();
                     string li = "";
                     foreach (string item in de.ListarErrores())
                     {
@@ -485,8 +428,18 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-                int celular = int.Parse(txtCelular.Text);
-                int telefono = int.Parse(txtTelefono.Text);
+                int Celular = 0;
+                if (int.TryParse(txtCelular.Text, out Celular))
+                {
+                    Celular = int.Parse(txtCelular.Text);
+                }
+
+                //int telefono = int.Parse(txtTelefono.Text); 
+                int telefono = 0;
+                if (int.TryParse(txtTelefono.Text, out telefono))
+                {
+                    telefono = int.Parse(txtTelefono.Text);
+                }
                 String usuario = txtUser.Text;
                 String Pass = txtPass.Text;
                 int tipo = ((comboBoxItemTipoUser)cboTipoUser.SelectedItem).id_tipo_user;//Guardo el id
@@ -498,19 +451,17 @@ namespace Vista
                     segundo_nom_emp = segNombre,
                     apellido_pat_emp = apPaterno,
                     apellido_mat_emp = apMaterno,
-                    celular_emp = celular,
+                    celular_emp = Celular,
                     telefono_emp = telefono,
                     correo_emp = mail,
-                    id_tipo_user = tipo
-
-                };
-
-                BibliotecaNegocio.Login lo = new BibliotecaNegocio.Login()
-                {
+                    id_tipo_user = tipo,
                     usuario = usuario,
-                    contrasenia = Pass,
+                    contrasenia = Pass
+
                 };
-                bool resp = emp.Actualizar(em, lo);
+
+                
+                bool resp = emp.Actualizar(em);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
 
@@ -519,7 +470,7 @@ namespace Vista
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
 
-                    DaoErrores de = emp.retornar();
+                    DaoErrores de = em.retornar();
                     string li = "";
                     foreach (string item in de.ListarErrores())
                     {
