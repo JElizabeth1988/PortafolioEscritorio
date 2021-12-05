@@ -55,7 +55,7 @@ namespace Vista
         //Empleado
         Empleado emp = new Empleado();
 
-        public WPFReceta()
+        private WPFReceta()
         {
             InitializeComponent();
             txtTi_Coc.Text = "0";

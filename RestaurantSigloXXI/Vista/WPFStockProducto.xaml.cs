@@ -52,7 +52,7 @@ namespace Vista
         //Traer clase Bebida
         Producto pro = new Producto();
 
-        public WPFStockProducto()
+        private WPFStockProducto()
         {
             InitializeComponent();
             txtStock.Text = "0";

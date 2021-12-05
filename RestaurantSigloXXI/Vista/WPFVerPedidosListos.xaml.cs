@@ -46,7 +46,7 @@ namespace Vista
         }
         //----------------------------------------
 
-        public WPFVerPedidosListos()
+        private WPFVerPedidosListos()
         {
             InitializeComponent();
             //Inicializar datePicker en la fecha actual

@@ -54,7 +54,7 @@ namespace Vista
         PedidoProveedor ped = new PedidoProveedor();
 
 
-        public WPFCalcularPedido()
+        private WPFCalcularPedido()
         {
             InitializeComponent();
 

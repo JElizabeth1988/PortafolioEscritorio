@@ -48,7 +48,7 @@ namespace Vista
         Reserva rs = new Reserva();
         Atencion at = new Atencion();
 
-        public WPFReserva()
+        private WPFReserva()
         {
             InitializeComponent();
 

@@ -52,7 +52,7 @@ namespace Vista
         //Traer clase empleado
         Empleado emp = new Empleado();
 
-        public WPFEmpleado()
+        private WPFEmpleado()
         {
             InitializeComponent();
             //txtPass.IsEnabled = false;

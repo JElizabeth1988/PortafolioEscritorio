@@ -45,7 +45,7 @@ namespace Vista
 
         Ingreso ing = new Ingreso();
         Egreso eg = new Egreso();
-        public WPFUtilidades()
+        private WPFUtilidades()
         {
             InitializeComponent();
 

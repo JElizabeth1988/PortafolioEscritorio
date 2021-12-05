@@ -53,7 +53,7 @@ namespace Vista
         //Traer clase
         Proveedor pro = new Proveedor();
 
-        public WPFProveedor()
+        private WPFProveedor()
         {
             InitializeComponent();
             txtTelefono.Text = "0";

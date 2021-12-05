@@ -44,7 +44,7 @@ namespace Vista
 
         Atencion at = new Atencion();
 
-        public WPFSalida()
+        private WPFSalida()
         {
             InitializeComponent();
 

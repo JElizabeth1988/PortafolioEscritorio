@@ -53,7 +53,7 @@ namespace Vista
         //Traer clase cliente
         Cliente cli = new Cliente();
 
-        public WPFCliente2()
+        private WPFCliente2()
         {
             InitializeComponent();
 

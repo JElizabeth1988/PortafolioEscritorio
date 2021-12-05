@@ -53,10 +53,10 @@ namespace Vista
         //Traer clase Mesa
         Mesa mes = new Mesa();
         //Empleado
-        Empleado emp = new Empleado();           
-           
+        Empleado emp = new Empleado();
 
-        public WPFMesa()
+
+        private WPFMesa()
         {
             InitializeComponent();
                        

@@ -59,7 +59,7 @@ namespace Vista
         //Traer clase Mesa
         Plato pla = new Plato();
 
-        public WPFPlato()
+        private WPFPlato()
         {
             InitializeComponent();
             btnModificar.Visibility = Visibility.Hidden;

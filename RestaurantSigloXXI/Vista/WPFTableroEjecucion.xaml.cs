@@ -47,7 +47,7 @@ namespace Vista
 
         //Clase orden
         Orden ord = new Orden();
-        public WPFTableroEjecucion()
+        private WPFTableroEjecucion()
         {
             InitializeComponent();
             CargarGrilla();

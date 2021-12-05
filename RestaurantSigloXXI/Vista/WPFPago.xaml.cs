@@ -49,7 +49,7 @@ namespace Vista
         Pago pag = new Pago();
         Boleta bo = new Boleta();
 
-        public WPFPago()
+        private WPFPago()
         {
             InitializeComponent();
             txtTotal.Text = "0";

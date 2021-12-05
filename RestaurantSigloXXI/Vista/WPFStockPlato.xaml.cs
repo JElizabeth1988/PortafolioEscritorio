@@ -53,7 +53,7 @@ namespace Vista
         //Traer clase Bebida
         Plato pla = new Plato();
 
-        public WPFStockPlato()
+        private WPFStockPlato()
         {
             InitializeComponent();
             txtStock.Text = "0";

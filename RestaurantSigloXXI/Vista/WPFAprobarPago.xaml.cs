@@ -47,7 +47,7 @@ namespace Vista
 
         Pedido pe = new Pedido();
         //----------------------------------------
-        public WPFAprobarPago()
+        private WPFAprobarPago()
         {
             InitializeComponent();
             //btnAprobar.Visibility = Visibility.Hidden;//No se ve hasta que se presenta la información

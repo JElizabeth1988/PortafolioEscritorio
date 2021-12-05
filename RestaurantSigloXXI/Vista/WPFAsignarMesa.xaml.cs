@@ -47,7 +47,7 @@ namespace Vista
         Cliente cli = new Cliente();
         Atencion ate = new Atencion();
 
-        public WPFAsignarMesa()
+        private WPFAsignarMesa()
         {
             InitializeComponent();
             CargarGrilla();

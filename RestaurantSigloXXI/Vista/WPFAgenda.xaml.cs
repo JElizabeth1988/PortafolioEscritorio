@@ -60,29 +60,13 @@ namespace Vista
         
         
 
-        public WPFAgenda()
+        private WPFAgenda()
         {
             InitializeComponent();
-            /*string hori = DateTime.Now.Hour.ToString();
-            if (hori.Length < 2)
-            {
-                txtHora.Text = "0" + hori;
-            }
-            else
-            {
-                txtHora.Text = hori;
-            }*/
+           
             txtHora.Text = "11";
             txtMinuto.Text = "00";
-            /*string minu = DateTime.Now.Minute.ToString();//Minuto
-            if (minu.Length < 2)
-            {
-                txtMinuto.Text = "0" + minu;
-            }
-            else
-            {
-                txtMinuto.Text = minu;
-            }*/
+            
             
             dpFiltro.SelectedDate = DateTime.Today;
 

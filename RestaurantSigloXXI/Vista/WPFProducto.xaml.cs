@@ -52,7 +52,7 @@ namespace Vista
         //Traer clase producto
         Producto prod = new Producto();
 
-        public WPFProducto()
+        private WPFProducto()
         {
             InitializeComponent();
 

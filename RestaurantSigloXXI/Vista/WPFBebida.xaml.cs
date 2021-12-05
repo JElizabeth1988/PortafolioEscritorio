@@ -52,7 +52,7 @@ namespace Vista
         //Traer clase Bebida
         Bebida bebi = new Bebida();
 
-        public WPFBebida()
+        private WPFBebida()
         {
             InitializeComponent();
             
