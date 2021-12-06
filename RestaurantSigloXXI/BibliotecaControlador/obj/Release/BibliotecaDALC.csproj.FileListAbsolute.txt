@@ -1,0 +1,9 @@
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Release\BibliotecaDALC.dll.config
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Release\BibliotecaDALC.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Release\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Release\EntityFramework.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Release\Oracle.ManagedDataAccess.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Release\EntityFramework.xml
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Release\BibliotecaDALC.csprojResolveAssemblyReference.cache
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Release\BibliotecaDALC.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Release\BibliotecaDALC.pdb

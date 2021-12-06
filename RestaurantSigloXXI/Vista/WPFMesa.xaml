@@ -42,7 +42,6 @@
                 <Label x:Name="lbl1_Copy" Content="*"  HorizontalAlignment="Left" Margin="262,31,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                 <Label x:Name="lbl1_Copy1" Content="*"  HorizontalAlignment="Left" Margin="332,61,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
                 <Label x:Name="lbl1_Copy2" Content="*"  HorizontalAlignment="Left" Margin="329,88,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
-                <Label x:Name="lbl1_Copy3" Content="*"  HorizontalAlignment="Left" Margin="329,121,0,0" VerticalAlignment="Top" FontSize="12" Foreground="#FF920101"/>
 
             </Grid>
         </GroupBox>

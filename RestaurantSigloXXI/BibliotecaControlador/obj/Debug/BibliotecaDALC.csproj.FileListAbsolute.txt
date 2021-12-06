@@ -53,14 +53,6 @@ C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\obj\Deb
 C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
 C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
 C:\Users\JRamirez\Desktop\repos\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojAssemblyReference.cache
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\EntityFramework.dll
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\EntityFramework.xml
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
-C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\Oracle.ManagedDataAccess.dll
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
@@ -70,4 +62,12 @@ C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSig
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
 C:\Users\felip\OneDrive\Escritorio\Yobi\Repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\EntityFramework.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\bin\Debug\EntityFramework.xml
 C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb

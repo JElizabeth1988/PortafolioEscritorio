@@ -1,0 +1,11 @@
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Release\BibliotecaNegocio.dll.config
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Release\BibliotecaNegocio.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Release\BibliotecaNegocio.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Release\BibliotecaDALC.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Release\EntityFramework.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Release\Oracle.ManagedDataAccess.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Release\BibliotecaDALC.pdb
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\bin\Release\EntityFramework.xml
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Release\BibliotecaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Release\BibliotecaNegocio.dll
+C:\Users\JRamirez\Desktop\repos\PortafolioEscritorio\RestaurantSigloXXI\BibliotecaClases\obj\Release\BibliotecaNegocio.pdb
